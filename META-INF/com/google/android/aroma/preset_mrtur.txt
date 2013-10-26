@@ -1,0 +1,83 @@
+<b><#selectbg_g>Configuration by mrtur</#></b>
+
+##################
+#  Kernel
+#
+# <#selectbg_g>Stock CM</#>
+
+##################
+#  DPI
+#
+# 240 DPI
+# 241 DPI
+# <#selectbg_g>280 DPI</#>
+# 320 DPI
+
+##################
+#  Launcher
+#  
+# <#selectbg_g>Nova Launcher</#>
+# AOSP Launcher
+
+##################
+#  Keyboard
+#  
+# <#selectbg_g>TouchPal Keyboard</#>
+# Hacker's Keyboard
+# TouchPal + Hacker's Keyboard
+# Stock CM
+
+##################
+#  Global Tweaks
+#
+# <#selectbg_g>CrossBreeder</#>
+# None
+
+##################
+#  Xposed Framework
+#
+# Yes
+# <#selectbg_g>No</#> 
+
+##################
+#  Google Apps
+#
+# <#selectbg_g>Google Apps</#>
+# <#selectbg_g>Google Calendar</#>
+# Google Chrome
+# Google Keep
+# Google Mail
+# Google Maps
+# <#selectbg_g>Google Voice</#>
+# Google Hangouts
+# Google Plus
+# Google Translate
+
+##################
+#  ArchiDroid Apps
+#
+# <#selectbg_g>Titanium Backup</#>
+# ZRAM Status
+# Greenify
+# LMT
+# <#selectbg_g>MXPlayer</#>
+# Spirit FM
+# BetterBatteryStats
+# CoolTool
+# <#selectbg_g>Root Browser</#>
+# <#selectbg_g>Adobe Flash Player</#>
+# <#selectbg_g>YouTube</#>
+# Facebook
+
+##################
+#  ArchiDroid Tweaks
+#
+# <#selectbg_g>Archi Bootanimation</#>
+# <#selectbg_g>HD Voice</#>
+# <#selectbg_g>Build.prop Tweaks</#>
+# OpenPDroid (if available)
+# <#selectbg_g>Remove Cell Broadcasts</#>
+# <#selectbg_g>Fastdormancy</#>
+
+
+If you agree, press <b><#selectbg_g>"Next"</#></b> and if you do not, press <b><#selectbg_g>"Back"</#></b>

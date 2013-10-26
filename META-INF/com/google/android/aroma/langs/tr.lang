@@ -55,6 +55,7 @@ text_quit_msg=Çıkmak istediğinize emin misiniz?
 #-- ARCHIDROID STRINGS
 #
 common.for=için
+common.none=None
 common.inverted=Renkler ters çevrilmiş (Inverted)
 common.experimental=DENEYSEL
 common.deprecated=ÖNERİLMEMEKTE
@@ -88,6 +89,8 @@ archidroid.preset.archi=Archi'nin profili
 archidroid.preset.archi.desc=Archi'nin kendi ayarlamalarını hızlıca gerçekleştirebildiği profil.
 archidroid.preset.previous=Previous Preset
 archidroid.preset.previous.desc=Loads your previous custom installation preset (if available)
+archidroid.preset.mrtur=Preset by mrtur
+archidroid.preset.mrtur.desc=Loading my own settings. Only for me ;)
 
 archidroid.detect.previouspreset.fail=Could not load your previous preset, either it failed integrity check or doesn't exist
 archidroid.detect.previouspreset.pass=Successfully loaded your previous preset!
@@ -121,6 +124,9 @@ archidroid.bootanimation.archi.desc=New fancy ArchiDroid bootanimation
 archidroid.bootanimation.archilegacy.desc=Old ArchiDroid 1.X bootanimation
 archidroid.bootanimation.logcat.desc=Normal başlangıç animasyonu yerine logcat gösteren başlangıç animasyonu.
 archidroid.bootanimation.stock.desc=Stock bootanimation provided by CyanogenMod
+archidroid.bootanimation.nexus.desc=Bootanimation provided by Andoid 4.3.1 for Nexus
+archidroid.bootanimation.google.desc=Bootanimation provided by Google
+archidroid.bootanimation.none.desc=No bootanimation, for slightly faster bootup
 
 archidroid.other=Diğer
 archidroid.ota.desc=ArchiDroid'e yüklenmesi önerilir. UpdateMe sayesinde OTA güncelleştirmesi edinebilirsiniz.

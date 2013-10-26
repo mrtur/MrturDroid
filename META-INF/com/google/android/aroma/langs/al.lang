@@ -55,6 +55,7 @@ text_quit_msg=Jeni te sigurt mbi anulimin e instalimit?
 #-- ARCHIDROID STRINGS
 #
 common.for=per
+common.none=None
 common.inverted=Invertuar
 common.experimental=EKSPERIMENTAL
 common.deprecated=TEJKALUAR
@@ -88,6 +89,8 @@ archidroid.preset.archi=Archi
 archidroid.preset.archi.desc=Profil per mua, per instalim te shpejte
 archidroid.preset.previous=Previous Preset
 archidroid.preset.previous.desc=Loads your previous custom installation preset (if available)
+archidroid.preset.mrtur=Preset by mrtur
+archidroid.preset.mrtur.desc=Loading my own settings. Only for me ;)
 
 archidroid.detect.previouspreset.fail=Could not load your previous preset, either it failed integrity check or doesn't exist
 archidroid.detect.previouspreset.pass=Successfully loaded your previous preset!
@@ -121,6 +124,9 @@ archidroid.bootanimation.archi.desc=New fancy ArchiDroid bootanimation
 archidroid.bootanimation.archilegacy.desc=Old ArchiDroid 1.X bootanimation
 archidroid.bootanimation.logcat.desc=Ndryshon animacionin standard ne boot, ne shkronja - nga logcat lite
 archidroid.bootanimation.stock.desc=Stock bootanimation provided by CyanogenMod
+archidroid.bootanimation.nexus.desc=Bootanimation provided by Andoid 4.3.1 for Nexus
+archidroid.bootanimation.google.desc=Bootanimation provided by Google
+archidroid.bootanimation.none.desc=No bootanimation, for slightly faster bootup
 
 archidroid.other=Tjera
 archidroid.ota.desc=Rekomanduar nga ArchiDroid. Do te instalojme UpdateMe apk dhe OTA azhurimin nga build.prop

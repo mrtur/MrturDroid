@@ -55,6 +55,8 @@ text_quit_msg=Are you sure to quit the installer?
 #-- ARCHIDROID STRINGS
 #
 common.for=for
+common.none=None
+common.replaces=Replaces
 common.inverted=Inverted
 common.experimental=EXPERIMENTAL
 common.deprecated=DEPRECATED
@@ -74,8 +76,8 @@ archidroid.detect.fail.alert.no=That's not good. I'll fake results but do not us
 archidroid.detect.pass=ArchiDroid successfully detected itself being running. Would you like to try Update mode?
 archidroid.detect.pass.yes=Yes, Try Update
 archidroid.detect.pass.no=No, Full Wipe
-archidroid.detect.pass.alert.yes=OK, I'll try Update mode. But please select full wipe in case of issues
 archidroid.detect.pass.alert.no=OK, I'll proceed with full wipe and ArchiDroid Install mode
+archidroid.detect.force=Would you like to use forced update mode? This tells ArchiDroid RunOnce to perform advanced tweaks, which normally would be executed only during install mode. Select No if you're unsure
 
 archidroid.preset=ArchiDroid Installation Preset
 archidroid.preset.desc=Please select installation preset:
@@ -84,13 +86,12 @@ archidroid.preset.custom=Custom
 archidroid.preset.custom.desc=You'll be able to customize every aspect of the installation
 archidroid.preset.barebones=Bare Bones
 archidroid.preset.barebones.desc=Clean CyanogenMod. Only for testing purposes, not recommended
-archidroid.preset.archi=Archi
-archidroid.preset.archi.desc=A profile for me for faster flashing
 archidroid.preset.previous=Previous Preset
 archidroid.preset.previous.desc=Loads your previous custom installation preset (if available)
+archidroid.preset.mrtur=Preset by mrtur
+archidroid.preset.mrtur.desc=Loading my own settings. Only for me ;)
 
 archidroid.detect.previouspreset.fail=Could not load your previous preset, either it failed integrity check or doesn't exist
-archidroid.detect.previouspreset.pass=Successfully loaded your previous preset!
 
 archidroid.custom=ArchiDroid Customization
 archidroid.custom.extra=ArchiDroid Extra Customization
@@ -117,10 +118,13 @@ archidroid.keyboard.both.desc=If you want to use both TouchPal and Hacker's (for
 archidroid.keyboard.stock.desc=If you want to keep default CM keyboard
 
 archidroid.bootanimation=Bootanimation
-archidroid.bootanimation.archi.desc=New fancy ArchiDroid bootanimation
+archidroid.bootanimation.archi.desc=New fancy ArchiDroid bootanimation for Nexus 4
 archidroid.bootanimation.archilegacy.desc=Old ArchiDroid 1.X bootanimation
 archidroid.bootanimation.logcat.desc=Changes default bootaimation to logcat output - powered by logcat lite
 archidroid.bootanimation.stock.desc=Stock bootanimation provided by CyanogenMod
+archidroid.bootanimation.nexus.desc=Bootanimation provided by Andoid 4.3.1 for Nexus
+archidroid.bootanimation.google.desc=Bootanimation provided by Google
+archidroid.bootanimation.none.desc=No bootanimation, for slightly faster bootup
 
 archidroid.other=Other
 archidroid.ota.desc=Recommended by ArchiDroid. We'll install UpdateMe apk and enable OTA updates via build.prop

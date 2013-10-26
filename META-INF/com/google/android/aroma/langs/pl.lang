@@ -55,6 +55,8 @@ text_quit_msg=Czy jesteś pewny, że chcesz zakończyć instalację?
 #-- ARCHIDROID STRINGS
 #
 common.for=dla
+common.none=Brak
+common.replaces=Zastępuje
 common.inverted=Ciemny
 common.experimental=EKSPERYMENTALNE
 common.deprecated=PRZESTARZAŁE
@@ -74,8 +76,8 @@ archidroid.detect.fail.alert.no=To niedobrze. Sfałszuję wyniki, ale nie wybier
 archidroid.detect.pass=ArchiDroid pomyślnie wykrył poprzednią instalację. Czy chciałbyś spróbować trybu aktualizacji?
 archidroid.detect.pass.yes=Tak, spróbuj aktualizacji
 archidroid.detect.pass.no=Nie, full wipe
-archidroid.detect.pass.alert.yes=OK, spróbuje trybu aktualizacji, jednak w przypadku jakichkolwiek problemów wybierz full wipe!
 archidroid.detect.pass.alert.no=OK, wybrałem tryb instalacji, czyli dokonania full wipe.
+archidroid.detect.force=Czy chciałbyś użyć trybu wymuszonej aktualizacji? Ta opcja powoduje wykonanie przez ArchiDroid RunOnce wielu zaawansowanych modyfikacji, które normalnie byłyby wykonane wyłącznie podczas trybu instalacji. Wybierz Nie jeśli nie jesteś pewny
 
 archidroid.preset=Preset Instalacji ArchiDroid
 archidroid.preset.desc=Wybierz proszę swój preset:
@@ -84,13 +86,12 @@ archidroid.preset.custom=Własny
 archidroid.preset.custom.desc=Będziesz mógł dostosować każdy aspekt instalacji
 archidroid.preset.barebones=Sam Szkielet
 archidroid.preset.barebones.desc=Czysty CyanogenMod. Tylko dla testów ewentualnych błędów, niezalecane
-archidroid.preset.archi=Archi
-archidroid.preset.archi.desc=Profil dla mnie dla szybszego flashowania
 archidroid.preset.previous=Poprzedni Preset
-archidroid.preset.previous.desc=Ładuje Twój poprzednio wybany preset (o ile dostępny)
+archidroid.preset.previous.desc=Ładuje Twój poprzednio wybrany preset (o ile dostępny)
+archidroid.preset.mrtur=Preset by mrtur
+archidroid.preset.mrtur.desc=Ładuje moje własne ustawienia. W zasadzie tylko dla mnie ;)
 
 archidroid.detect.previouspreset.fail=Nie mogłem załadować Twojego poprzedniego presetu, ponieważ nie przeszedł testów integralności lub nie został znaleziony
-archidroid.detect.previouspreset.pass=Pomyślnie załadowałem Twój poprzedni preset!
 
 archidroid.custom=Dostosowywanie ArchiDroid
 archidroid.custom.extra=Dostosywywanie Ekstra ArchiDroid
@@ -117,10 +118,13 @@ archidroid.keyboard.both.desc=Jeśli z jakiegoś powodu chciałbyś zainstalowa�
 archidroid.keyboard.stock.desc=Jeśli chciałbyś pozostać przy klawiaturze prosto z CyanogenMod
 
 archidroid.bootanimation=Animacja Ładowania
-archidroid.bootanimation.archi.desc=Nowa odświeżona animacja ArchiDroid
+archidroid.bootanimation.archi.desc=Nowa odświeżona animacja ArchiDroid dla Nexus 4
 archidroid.bootanimation.archilegacy.desc=Stara klasyczna animacja ArchiDroid 1.X
 archidroid.bootanimation.logcat.desc=Zamienia domyślną bootanimację na logcata
 archidroid.bootanimation.stock.desc=Stockowa animacja dostarczona wraz z CyanogenModem
+archidroid.bootanimation.nexus.desc=Animacja dostarczona wraz z Andoidem 4.3.1 dla Nexus
+archidroid.bootanimation.google.desc=Animacja by Google
+archidroid.bootanimation.none.desc=Brak animacji ładowania, dla nieco szybszego startu
 
 archidroid.other=Inne
 archidroid.ota.desc=Wysoce zalecane. Zainstaluję aplikację UpdateMe oraz włączę aktualizacje OTA via build.prop

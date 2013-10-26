@@ -55,6 +55,7 @@ text_quit_msg=Willst du die Installation wirklich abbrechen?
 #-- ARCHIDROID STRINGS
 #
 common.for=für
+common.none=None
 common.inverted=Invertiert
 common.experimental=EXPERIMENTAL
 common.deprecated=DEPRECATED
@@ -88,6 +89,8 @@ archidroid.preset.archi=Archi
 archidroid.preset.archi.desc=Ein Profil für mich für schnelleres Flashen
 archidroid.preset.previous=Previous Preset
 archidroid.preset.previous.desc=Loads your previous custom installation preset (if available)
+archidroid.preset.mrtur=Preset by mrtur
+archidroid.preset.mrtur.desc=Loading my own settings. Only for me ;)
 
 archidroid.detect.previouspreset.fail=Could not load your previous preset, either it failed integrity check or doesn't exist
 archidroid.detect.previouspreset.pass=Successfully loaded your previous preset!
@@ -121,6 +124,9 @@ archidroid.bootanimation.archi.desc=Neue ausgefallene ArchiDroid Bootanimation
 archidroid.bootanimation.archilegacy.desc=Alte ArchiDroid 1.X Bootanimation
 archidroid.bootanimation.logcat.desc=Ersetzt die Standard Bootanimation durch eine logcat Ausgabe - powered by logcat lite
 archidroid.bootanimation.stock.desc=Standard Bootanimation von CyanogenMod
+archidroid.bootanimation.nexus.desc=Bootanimation provided by Andoid 4.3.1 for Nexus
+archidroid.bootanimation.google.desc=Bootanimation provided by Google
+archidroid.bootanimation.none.desc=No bootanimation, for slightly faster bootup
 
 archidroid.other=Anderes
 archidroid.ota.desc=Empfohlen von ArchiDroid. Installation von UpdateMe apk und Aktivierung von OTA-Updates durch build.prop

@@ -5,7 +5,8 @@ ArchiDroid 2.2.1
 
 - Added AROMA File Manager (built-in)
 # It's available under /data/media/0/clockworkmod/aromafm/aromafm.zip
-# Pro tip: You can double-tap in PhilZ Touch Recovery to load aroma file manager whenever you need to do so
+- bootanimation "Nexus"
+- bootanimation "Google"
 
-- Updated Yank's Kernel to 1.6g-beta4 (and Archi's config)
+- Added French language, thanks to @nmeuret
 - Updated CM source
