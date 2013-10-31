@@ -232,7 +232,7 @@ ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~
 ### IMPORTANT ###
 package_extract_dir("_archidroid/auto", "/");
 if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "mrtur" then
-	#ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> mrtur </#><#ffffff>:~</#><#b0b0b0>#</#></b> Flashing mrtur's Preset");
+	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> mrtur </#><#ffffff>:~</#><#b0b0b0>#</#></b> Flashing mrtur's Preset");
  	package_extract_dir("_mrtur/auto", "/");
 endif;
 ### IMPORTANT ###
