@@ -249,7 +249,7 @@ set_perm(0, 2000, 0750, "/system/bin/run-as");
 set_perm(1014, 2000, 0550, "/system/etc/dhcpcd/dhcpcd-run-hooks");
 set_perm_recursive(0, 2000, 0755, 0755, "/system/etc/init.d");
 set_perm(0, 0, 0755, "/system/etc/init.d");
-set_perm(0, 2000, 0550, "/system/etc/init.goldfish.sh");
+#set_perm(0, 2000, 0550, "/system/etc/init.goldfish.sh");
 set_perm_recursive(0, 0, 0755, 0555, "/system/etc/ppp");
 set_perm(0, 2000, 0755, "/system/vendor");
 set_perm_recursive(0, 2000, 0755, 0644, "/system/vendor/etc");
@@ -260,10 +260,10 @@ set_perm(0, 2000, 0755, "/system/vendor/firmware/keymaster");
 set_perm_recursive(0, 2000, 0755, 0644, "/system/vendor/firmware/wlan");
 set_perm(0, 0, 0644, "/system/vendor/firmware/wlan/prima/WCNSS_cfg.dat");
 set_perm(0, 2000, 0755, "/system/vendor/lib");
-set_perm_recursive(0, 2000, 0755, 0644, "/system/vendor/lib/drm");
-set_perm(0, 0, 0644, "/system/vendor/lib/drm/libdrmwvmplugin.so");
-set_perm_recursive(0, 2000, 0755, 0644, "/system/vendor/lib/mediadrm");
-set_perm(0, 0, 0644, "/system/vendor/lib/mediadrm/libwvdrmengine.so");
+#set_perm_recursive(0, 2000, 0755, 0644, "/system/vendor/lib/drm");
+#set_perm(0, 0, 0644, "/system/vendor/lib/drm/libdrmwvmplugin.so");
+#set_perm_recursive(0, 2000, 0755, 0644, "/system/vendor/lib/mediadrm");
+#set_perm(0, 0, 0644, "/system/vendor/lib/mediadrm/libwvdrmengine.so");
 set_perm_recursive(0, 2000, 0755, 0755, "/system/xbin");
 set_perm(0, 0, 06755, "/system/xbin/librank");
 set_perm(0, 0, 06755, "/system/xbin/procmem");
@@ -277,7 +277,7 @@ set_progress(0.54);
 ### KERNEL ###
 ##############
 
-# We need to make sure that current kernel is CM-based to prevent random zygote kernel panics
+# We need to make sure that current kernel is based to prevent random zygote kernel panics
 ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Cleaning Old Kernel");
 package_extract_file("boot.img", "/dev/block/platform/msm_sdcc.1/by-name/boot");
 
@@ -377,9 +377,9 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "googy" then
 	package_extract_dir("_archidroid/apps/stweaks", "/");
 endif;
 
-### STOCK CM ###
+### STOCK ###
 if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "stock" then
-	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Flashing CM Kernel");
+	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Flashing Stock Kernel");
 	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing Trickster");
 	package_extract_dir("_archidroid/apps/trickster", "/"); 
 	
@@ -446,6 +446,14 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","dpi") == "241" then
 	package_extract_file("_archidroid/dpi/241dpi.sh", "/tmp/241dpi.sh");
 	set_perm(0, 0, 0777, "/tmp/241dpi.sh");
 	run_program("/tmp/241dpi.sh");
+endif;
+
+### 268 ###
+if file_getprop("/tmp/aroma-data/archidroid.prop","dpi") == "268" then
+	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Applying 268 DPI");
+	package_extract_file("_archidroid/dpi/268dpi.sh", "/tmp/268dpi.sh");
+	set_perm(0, 0, 0777, "/tmp/268dpi.sh");
+	run_program("/tmp/268dpi.sh");
 endif;
 	
 ### 280 ###
@@ -550,6 +558,10 @@ delete("/system/app/LatinIME.apk","/system/app/LatinImeDictionaryPack.apk");
 ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing TouchPal Keyboard");
 package_extract_dir("_archidroid/apps/touchpal", "/");
 endif;
+if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "mrtur" then
+	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> mrtur </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing TouchPal for mrtur's preset");
+	package_extract_dir("_mrtur/apps/touchpal", "/");
+endif;
 
 ### HACKERS ###
 if file_getprop("/tmp/aroma-data/archidroid.prop","keyboard") == "hackers" then
@@ -568,7 +580,7 @@ endif;
 
 ### STOCK ###
 if file_getprop("/tmp/aroma-data/archidroid.prop","keyboard") == "stock" then
-ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing AOSP Keyboard");
+ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing Stock Keyboard");
 # Not needed, haha!
 endif;
 
@@ -588,21 +600,21 @@ set_progress(0.74);
 
 ### NOVA ###
 if file_getprop("/tmp/aroma-data/archidroid.prop","launcher") == "nova" then
-	ui_print("<b><#e0e0e0>RunOnce</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>$</#></b> Installing Nova Launcher");
+	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing Nova Launcher");
 	delete("/system/app/Trebuchet.apk");
 	package_extract_dir("_archidroid/apps/nova", "/");
 endif;
 
 ### STOCK ###
 if file_getprop("/tmp/aroma-data/archidroid.prop","launcher") == "stock" then
-	ui_print("<b><#e0e0e0>RunOnce</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>$</#></b> Installing Trebuchet");
+	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing Stock Launcher");
 	# Not needed, haha!
 endif;
 
 ### NONE ###
 if file_getprop("/tmp/aroma-data/archidroid.prop","launcher") == "none" then
-	# Just delete Trebuchet then
-	ui_print("<b><#e0e0e0>RunOnce</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>$</#></b> Skipping Launcher");
+	# Just delete NovaLauncher then
+	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Skipping Launcher");
 	delete("/system/app/Trebuchet.apk");
 endif;
 
@@ -632,7 +644,7 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","bootanimation") == "logcat" t
 endif;
 
 if file_getprop("/tmp/aroma-data/archidroid.prop","bootanimation") == "stock" then
-  ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Applying CyanogenMod Bootanimation");
+  ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Applying Slim Bootanimation");
   # Not needed, haha!
 endif;
 
@@ -710,11 +722,15 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","gapps") == "1" then
 	delete("/system/app/Provision.apk","/system/app/QuickSearchBox.apk","/system/app/SetupWizard.apk","/system/app/Velvet.apk","/system/app/Vending.apk","/system/app/BrowserProviderProxy.apk","/system/app/PartnerBookmarksProvider.apk","/system/app/Gmail2.apk");
 	package_extract_dir("_archidroid/gapps/system", "/system");
 	set_perm(0, 0, 0755, "/system/addon.d/70-gapps.sh");
-	package_extract_dir("_archidroid/gapps/optional", "/tmp");
-	package_extract_file("_archidroid/gapps/install-optional.sh", "/tmp/install-optional.sh");
-	set_perm(0, 0, 0777, "/tmp/install-optional.sh");
-	run_program("/tmp/install-optional.sh", "");
+	#package_extract_dir("_archidroid/gapps/optional", "/tmp");
+	#package_extract_file("_archidroid/gapps/install-optional.sh", "/tmp/install-optional.sh");
+	#set_perm(0, 0, 0777, "/tmp/install-optional.sh");
+	#run_program("/tmp/install-optional.sh", "");
 	set_perm_recursive(0, 0, 0755, 0644, "/system/app");
+endif;
+if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "mrtur" then
+	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> mrtur </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing market for mrtur's preset");
+	package_extract_dir("_mrtur/apps/market", "/");
 endif;
 
 set_progress(0.85);
@@ -813,10 +829,18 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","cooltool") == "1" then
 	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing CoolTool");
 	package_extract_dir("_archidroid/apps/cooltool", "/");
 endif;
+if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "mrtur" then
+	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> mrtur </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing CoolTool for mrtur's preset");
+	package_extract_dir("_mrtur/apps/cooltool", "/");
+endif;
 
 if file_getprop("/tmp/aroma-data/archidroid.prop","rootbrowser") == "1" then
 	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing Root Browser");
 	package_extract_dir("_archidroid/apps/rootbrowser", "/");
+endif;
+if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "mrtur" then
+	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> mrtur </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing RootBrowser for mrtur's preset");
+	package_extract_dir("_mrtur/apps/rootbrowser", "/");
 endif;
 
 if file_getprop("/tmp/aroma-data/archidroid.prop","adobeflash") == "1" then
@@ -852,109 +876,109 @@ set_progress(0.92);
 ####################
 
 if file_getprop("/tmp/aroma-data/archidroid.prop","crossbreeder") == "1" then
-	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing CrossBreeder");
-	
-	# Freeze Fix
-	unmount("/system");
-	#unmount("/data");
+        ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing CrossBreeder");
+        
+        # Freeze Fix
+        unmount("/system");
+        #unmount("/data");
 
-	package_extract_dir("setup_crossbreeder", "/tmp"); 
+        package_extract_dir("_archidroid/crossbreeder/setup", "/tmp"); 
 
-set_perm_recursive(0, 0, 0755, 0755, "/tmp");
-run_program("/sbin/busybox","chmod","-R","0755","/tmp");
-run_program("/sbin/busybox","chown","-R","0.0","/tmp");
-set_perm(0, 0, 0755, "/tmp/busybox");
-run_program("/tmp/busybox","chmod","-R","0755","/tmp");
-run_program("/tmp/busybox","chown","-R","0.0","/tmp");
-run_program("/tmp/busybox","mount","/system");
-run_program("/sbin/busybox","mount","/system");
-run_program("/tmp/busybox","mount","-o","rw,remount","/system");
-run_program("/sbin/busybox","mount","-o","rw,remount","/system");
-run_program("/tmp/busybox","mount","/data");
-run_program("/sbin/busybox","mount","/data");
-run_program("/tmp/busybox","mount","-o","rw,remount","/data");
-run_program("/sbin/busybox","mount","-o","rw,remount","/data");
+        set_perm_recursive(0, 0, 0755, 0755, "/tmp");
+        run_program("/sbin/busybox","chmod","-R","0755","/tmp");
+        run_program("/sbin/busybox","chown","-R","0.0","/tmp");
+        set_perm(0, 0, 0755, "/tmp/busybox");
+        run_program("/tmp/busybox","chmod","-R","0755","/tmp");
+        run_program("/tmp/busybox","chown","-R","0.0","/tmp");
+        run_program("/tmp/busybox","mount","/system");
+        run_program("/sbin/busybox","mount","/system");
+        run_program("/tmp/busybox","mount","-o","rw,remount","/system");
+        run_program("/sbin/busybox","mount","-o","rw,remount","/system");
+        run_program("/tmp/busybox","mount","/data");
+        run_program("/sbin/busybox","mount","/data");
+        run_program("/tmp/busybox","mount","-o","rw,remount","/data");
+        run_program("/sbin/busybox","mount","-o","rw,remount","/data");
 
-run_program("/tmp/busybox","rm","-fr","/system/etc/CrossBreeder");
+        run_program("/tmp/busybox","rm","-fr","/system/etc/CrossBreeder");
 
-run_program("/tmp/busybox","mkdir","-p","/system/etc/CrossBreeder");
-run_program("/tmp/busybox","cp","-f","/tmp/tune2fs","/system/etc/CrossBreeder");
-#run_program("/tmp/busybox","cp","-f","/tmp/libiconv.so.2","/system/etc/CrossBreeder");
-run_program("/tmp/busybox","cp","-f","/tmp/busybox","/system/etc/CrossBreeder");
-set_perm_recursive(0, 0, 0755, 0755, "/system/etc/CrossBreeder");
-run_program("/tmp/busybox","chown","-R","0.0","/system/etc/CrossBreeder");
-run_program("/tmp/busybox","chmod","-R","0755","/system/etc/CrossBreeder");
+        run_program("/tmp/busybox","mkdir","-p","/system/etc/CrossBreeder");
+        run_program("/tmp/busybox","cp","-f","/tmp/tune2fs","/system/etc/CrossBreeder");
+        #run_program("/tmp/busybox","cp","-f","/tmp/libiconv.so.2","/system/etc/CrossBreeder");
+        run_program("/tmp/busybox","cp","-f","/tmp/busybox","/system/etc/CrossBreeder");
+        set_perm_recursive(0, 0, 0755, 0755, "/system/etc/CrossBreeder");
+        run_program("/tmp/busybox","chown","-R","0.0","/system/etc/CrossBreeder");
+        run_program("/tmp/busybox","chmod","-R","0755","/system/etc/CrossBreeder");
 
-run_program("/tmp/busybox", "echo", "Restore", "started.");
-run_program("/tmp/restore_dnsmasq.sh");
-run_program("/tmp/busybox","echo","After","Restore");
-#run_program("/tmp/busybox","mv","-f","/system/etc/hosts","/system/etc/hosts.CBBAK");
-	package_extract_dir("system_crossbreeder", "/system");
-run_program("/tmp/busybox","cp","-f","/tmp/recovery.log","/data/recovery_cb.log");
-#run_program("/tmp/busybox","cp","-f","/system/etc/CrossBreeder/dnsmasq","/system/bin/dnsmasq.bin");
-delete("/system/bin/dnsmasq.bin");
-run_program("/tmp/busybox", "ls", "-l", "/system/bin/dnsmasq");; 
-set_perm_recursive(0, 0, 0755, 0755, "/system/etc/CrossBreeder");
+        run_program("/tmp/busybox", "echo", "Restore", "started.");
+        run_program("/tmp/restore_dnsmasq.sh");
+        run_program("/tmp/busybox","echo","After","Restore");
+        #run_program("/tmp/busybox","mv","-f","/system/etc/hosts","/system/etc/hosts.CBBAK");
+        package_extract_dir("_archidroid/crossbreeder/system", "/system");
+        run_program("/tmp/busybox","cp","-f","/tmp/recovery.log","/data/recovery_cb.log");
+        #run_program("/tmp/busybox","cp","-f","/system/etc/CrossBreeder/dnsmasq","/system/bin/dnsmasq.bin");
+        delete("/system/bin/dnsmasq.bin");
+        run_program("/tmp/busybox", "ls", "-l", "/system/bin/dnsmasq");; 
+        set_perm_recursive(0, 0, 0755, 0755, "/system/etc/CrossBreeder");
 
-run_program("/tmp/busybox","chown","-R","0.0","/system/etc/CrossBreeder");
-run_program("/tmp/busybox","chmod","-R","0755","/system/etc/CrossBreeder");
+        run_program("/tmp/busybox","chown","-R","0.0","/system/etc/CrossBreeder");
+        run_program("/tmp/busybox","chmod","-R","0755","/system/etc/CrossBreeder");
 
-#set_perm_recursive(0, 0, 0711, 0444, "/system/etc/CrossBreeder/root");
+        #set_perm_recursive(0, 0, 0711, 0444, "/system/etc/CrossBreeder/root");
 
-#run_program("/tmp/busybox","chown","-R","0.0","/system/etc/CrossBreeder/root");
-#run_program("/tmp/busybox","chmod","-R","0444","/system/etc/CrossBreeder/root");
-#run_program("/tmp/busybox","chmod","0711","/system/etc/CrossBreeder/root");
-#run_program("/tmp/busybox","chmod","0711","/system/etc/CrossBreeder/root/errors");
+        #run_program("/tmp/busybox","chown","-R","0.0","/system/etc/CrossBreeder/root");
+        #run_program("/tmp/busybox","chmod","-R","0444","/system/etc/CrossBreeder/root");
+        #run_program("/tmp/busybox","chmod","0711","/system/etc/CrossBreeder/root");
+        #run_program("/tmp/busybox","chmod","0711","/system/etc/CrossBreeder/root/errors");
 
-run_program("/tmp/busybox","chown","-R","0.0","/system/etc/CrossBreeder/dnrd_root");
-run_program("/tmp/busybox","chmod","-R","0644","/system/etc/CrossBreeder/dnrd_root");
-run_program("/tmp/busybox","chmod","0755","/system/etc/CrossBreeder/dnrd_root");
+        run_program("/tmp/busybox","chown","-R","0.0","/system/etc/CrossBreeder/dnrd_root");
+        run_program("/tmp/busybox","chmod","-R","0644","/system/etc/CrossBreeder/dnrd_root");
+        run_program("/tmp/busybox","chmod","0755","/system/etc/CrossBreeder/dnrd_root");
 
-#set_perm(0, 0, 0755, "/system/etc/init.d/zzCrossBreeder_initd");
-set_perm(0, 2000, 0755, "/system/xbin/haveged");
-delete("/system/xbin/CB_FileLock");
-set_perm(0, 0, 0755, "/system/etc/CrossBreeder/busybox");
-set_perm(0, 0, 0755, "/system/etc/CrossBreeder/dnrd.10053");
-set_perm(0, 0, 0755, "/system/etc/CrossBreeder/zzCrossBreeder");
-set_perm(0, 0, 0755, "/system/etc/CrossBreeder/zzCHECK_NET_DNS");
-set_perm(0, 0, 0755, "/system/bin/dnsmasq");
-set_perm(0, 0, 0755, "/system/bin/dnsmasq_dhcp");
-#set_perm(0, 0, 0644, "/system/etc/CrossBreeder/dnsmasq-host");
-#set_perm(0, 0, 0644, "/system/etc/resolv.conf");
-set_perm(0, 0, 0644, "/system/etc/hosts");
-set_perm(0, 0, 0644, "/system/etc/CrossBreeder/hosts");
-delete("/system/etc/init.d/00CrossBreeder");
-delete("/system/etc/init.d/zzCrossBreeder");
-delete("/system/etc/init.d/zzCrossBreeder_initd");
-#delete("/system/etc/CrossBreeder/dnsmasq");
+        #set_perm(0, 0, 0755, "/system/etc/init.d/zzCrossBreeder_initd");
+        set_perm(0, 2000, 0755, "/system/xbin/haveged");
+        delete("/system/xbin/CB_FileLock");
+        set_perm(0, 0, 0755, "/system/etc/CrossBreeder/busybox");
+        set_perm(0, 0, 0755, "/system/etc/CrossBreeder/dnrd.10053");
+        set_perm(0, 0, 0755, "/system/etc/CrossBreeder/zzCrossBreeder");
+        set_perm(0, 0, 0755, "/system/etc/CrossBreeder/zzCHECK_NET_DNS");
+        set_perm(0, 0, 0755, "/system/bin/dnsmasq");
+        set_perm(0, 0, 0755, "/system/bin/dnsmasq_dhcp");
+        #set_perm(0, 0, 0644, "/system/etc/CrossBreeder/dnsmasq-host");
+        #set_perm(0, 0, 0644, "/system/etc/resolv.conf");
+        set_perm(0, 0, 0644, "/system/etc/hosts");
+        set_perm(0, 0, 0644, "/system/etc/CrossBreeder/hosts");
+        delete("/system/etc/init.d/00CrossBreeder");
+        delete("/system/etc/init.d/zzCrossBreeder");
+        delete("/system/etc/init.d/zzCrossBreeder_initd");
+        #delete("/system/etc/CrossBreeder/dnsmasq");
 
-#set_perm(0, 0, 0755, "/system/etc/install-recovery.sh");
-run_program("/tmp/busybox","mv","-f","/system/etc/install-recovery.sh.CBBAK","/system/etc/install-recovery.sh");
-run_program("/tmp/install_init_entries.sh");
-#run_program("/tmp/install_hw_entries.sh");
-#run_program("/sbin/busybox","mv","-f","/system/etc/hw_config.sh.CBBAK","/system/etc/hw_config.sh");
-run_program("/tmp/busybox","mv","-f","/system/bin/debuggerd.CBBAK","/system/bin/debuggerd");
-set_perm(0, 2000, 0755, "/system/bin/debuggerd");
-run_program("/tmp/install_debuggerd.sh");
+        #set_perm(0, 0, 0755, "/system/etc/install-recovery.sh");
+        run_program("/tmp/busybox","mv","-f","/system/etc/install-recovery.sh.CBBAK","/system/etc/install-recovery.sh");
+        run_program("/tmp/install_init_entries.sh");
+        #run_program("/tmp/install_hw_entries.sh");
+        #run_program("/sbin/busybox","mv","-f","/system/etc/hw_config.sh.CBBAK","/system/etc/hw_config.sh");
+        run_program("/tmp/busybox","mv","-f","/system/bin/debuggerd.CBBAK","/system/bin/debuggerd");
+        set_perm(0, 2000, 0755, "/system/bin/debuggerd");
+        run_program("/tmp/install_debuggerd.sh");
 
-run_program("/tmp/busybox","mv","/system/xbin/rngd","/system/xbin/rngd.bak");
-run_program("/tmp/busybox","rm","-fr","/data/rngd.pid");
-run_program("/tmp/busybox","mkdir","/data/rngd.pid/");
-run_program("/tmp/busybox","chown","0:0","/data/rngd.pid");
-run_program("/tmp/busybox","chmod","-R","500","/data/rngd.pid");
-set_perm_recursive(0, 0, 0500, 0500, " /data/rngd.pid/ ");
-run_program("/tmp/busybox","mv","/system/xbin/qrngd","/system/xbin/qrngd.bak");
-run_program("/tmp/busybox","mv","/system/bin/qrngd","/system/bin/qrngd.bak");
-run_program("/tmp/REMOVE_TETHER_BOOST");
-run_program("/tmp/busybox","mv","-f","/system/etc/dnsmasq.conf.CBBAK","/system/etc/dnsmasq.conf");
-run_program("/tmp/busybox","sync");
-#run_program("/tmp/busybox","umount","/system");
-run_program("/tmp/busybox","cp","-f","/tmp/recovery.log","/data/recovery_cb.log");
-run_program("/tmp/busybox","sync");
+        run_program("/tmp/busybox","mv","/system/xbin/rngd","/system/xbin/rngd.bak");
+        run_program("/tmp/busybox","rm","-fr","/data/rngd.pid");
+        run_program("/tmp/busybox","mkdir","/data/rngd.pid/");
+        run_program("/tmp/busybox","chown","0:0","/data/rngd.pid");
+        run_program("/tmp/busybox","chmod","-R","500","/data/rngd.pid");
+        set_perm_recursive(0, 0, 0500, 0500, " /data/rngd.pid/ ");
+        run_program("/tmp/busybox","mv","/system/xbin/qrngd","/system/xbin/qrngd.bak");
+        run_program("/tmp/busybox","mv","/system/bin/qrngd","/system/bin/qrngd.bak");
+        run_program("/tmp/REMOVE_TETHER_BOOST");
+        run_program("/tmp/busybox","mv","-f","/system/etc/dnsmasq.conf.CBBAK","/system/etc/dnsmasq.conf");
+        run_program("/tmp/busybox","sync");
+        #run_program("/tmp/busybox","umount","/system");
+        run_program("/tmp/busybox","cp","-f","/tmp/recovery.log","/data/recovery_cb.log");
+        run_program("/tmp/busybox","sync");
 
-run_program("/tmp/busybox","umount","/data");
-#run_program("/tmp/busybox","umount","/cache");
-run_program("/tmp/busybox","umount","/sd-ext");
+        run_program("/tmp/busybox","umount","/data");
+        #run_program("/tmp/busybox","umount","/cache");
+        run_program("/tmp/busybox","umount","/sd-ext");
 
 	# Freeze fix
 	sleep (1);

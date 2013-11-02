@@ -136,12 +136,12 @@
     </family>
     <family>
         <fileset>
-            <file>DroidSansFallback.ttf</file>
+            <file>Lohit-Telugu.ttf</file>
         </fileset>
     </family>
     <family>
         <fileset>
-            <file lang="ja">MTLmr3m.ttf</file>
+            <file>DroidSansFallback.ttf</file>
         </fileset>
     </family>
     <!-- Note: complex scripts (i.e. those requiring shaping in Harfbuzz) have

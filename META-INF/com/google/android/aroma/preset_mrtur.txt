@@ -3,21 +3,22 @@
 ##################
 #  Kernel
 #
-# <#selectbg_g>Stock CM</#>
+# <#selectbg_g>Stock</#>
 
 ##################
 #  DPI
 #
 # 240 DPI
 # 241 DPI
-# <#selectbg_g>280 DPI</#>
+# <#selectbg_g>268 DPI</#>
+# 280 DPI
 # 320 DPI
 
 ##################
 #  Launcher
 #  
 # <#selectbg_g>Nova Launcher</#>
-# AOSP Launcher
+# Stock
 
 ##################
 #  Keyboard
@@ -25,7 +26,7 @@
 # <#selectbg_g>TouchPal Keyboard</#>
 # Hacker's Keyboard
 # TouchPal + Hacker's Keyboard
-# Stock CM
+# Stock 
 
 ##################
 #  Global Tweaks
@@ -47,7 +48,7 @@
 # Google Chrome
 # Google Keep
 # Google Mail
-# Google Maps
+# <#selectbg_g>Google Maps</#>
 # <#selectbg_g>Google Voice</#>
 # Google Hangouts
 # Google Plus
@@ -63,7 +64,7 @@
 # <#selectbg_g>MXPlayer</#>
 # Spirit FM
 # BetterBatteryStats
-# CoolTool
+# <#selectbg_g>CoolTool</#>
 # <#selectbg_g>Root Browser</#>
 # <#selectbg_g>Adobe Flash Player</#>
 # <#selectbg_g>YouTube</#>

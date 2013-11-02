@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <int name="num_of_times_started" value="4" />
+    <int name="popup_ad_id" value="10192013" />
+    <boolean name="ic_restored_transactions" value="true" />
+    <boolean name="fb_downloaded_utils" value="true" />
+</map>

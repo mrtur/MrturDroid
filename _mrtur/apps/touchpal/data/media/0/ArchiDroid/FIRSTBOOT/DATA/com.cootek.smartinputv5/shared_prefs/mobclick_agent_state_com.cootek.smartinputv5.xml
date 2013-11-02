@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <string name="session_id">B49CB65FA6377900CEE71807F75897EC</string>
+    <long name="duration" value="19035" />
+    <long name="end_millis" value="1383423294729" />
+    <long name="uptr" value="2373" />
+    <long name="start_millis" value="-1" />
+    <long name="dntr" value="3307" />
+    <string name="activities">[com.cootek.smartinput5.TouchPalIME,19];[com.cootek.smartinput5.TouchPalIME,0]</string>
+    <long name="terminate_time" value="1383423294729" />
+</map>
