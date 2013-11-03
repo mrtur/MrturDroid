@@ -838,10 +838,10 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","rootbrowser") == "1" then
 	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing Root Browser");
 	package_extract_dir("_archidroid/apps/rootbrowser", "/");
 endif;
-if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "mrtur" then
-	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> mrtur </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing RootBrowser for mrtur's preset");
-	package_extract_dir("_mrtur/apps/rootbrowser", "/");
-endif;
+#if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "mrtur" then
+#	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> mrtur </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing RootBrowser for mrtur's preset");
+#	package_extract_dir("_mrtur/apps/rootbrowser", "/");
+#endif;
 
 if file_getprop("/tmp/aroma-data/archidroid.prop","adobeflash") == "1" then
 	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing Adobe Flash Player");

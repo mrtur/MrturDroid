@@ -98,19 +98,19 @@ form(
 
 loadlang(file_getprop("/tmp/aroma-data/lang.prop","language"));
 
-textbox(
+#textbox(
   #-- Title
-    "Changelog",
+#    "Changelog",
   
   #-- Subtitle
-    "",
+#    "",
   
   #-- Icon
-    "@info",
+#    "@info",
   
   #-- Arg 4
-    resread("_changelog.txt")
-);
+#    resread("_changelog.txt")
+#);
 
 agreebox(
   #-- Title
@@ -276,7 +276,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "mrtur
     "spiritfm=0\n"+
     "bbs=0\n"+
     "cooltool=1\n"+
-    "rootbrowser=1\n"+
+    "rootbrowser=0\n"+
     "adobeflash=1\n"+
     "youtube=1\n"+
     "facebook=0\n"+
