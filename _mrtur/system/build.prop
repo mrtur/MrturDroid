@@ -49,10 +49,10 @@ BUILD_DISPLAY_ID=JLS36I
 slim.ota.version=4.3.build.2
 ro.slim.version=Slim-4.3.build.2-OFFICIAL-1361
 ro.modversion=Slim-mako-4.3.build.2-OFFICIAL-1361
-ro.config.ringtone=Taj_Mahal.mp3
-ro.config.notification_sound=Notification.ogg
+ro.config.ringtone=Magic_Tone.mp3
+ro.config.notification_sound=notification.mp3
 ro.carrier=unknown
-ro.config.alarm_alert=Alarm.ogg
+ro.config.alarm_alert=Alarm_Classic.ogg
 ro.opengles.version=196608
 #ro.sf.lcd_density=268
 persist.audio.handset.mic.type=digital
@@ -86,4 +86,4 @@ net.bt.name=Android
 dalvik.vm.stack-trace-file=/data/anr/traces.txt
 
 # archidroid_detect
-slim_mrtur
+# slim_mrtur

@@ -20,8 +20,8 @@ ro.product.board=MAKO
 ro.product.cpu.abi=armeabi-v7a
 ro.product.cpu.abi2=armeabi
 ro.product.manufacturer=LGE
-ro.product.locale.language=en
-ro.product.locale.region=US
+ro.product.locale.language=pl
+ro.product.locale.region=PL
 ro.wifi.channels=
 ro.board.platform=msm8960
 # ro.build.product is obsolete; use ro.product.device
@@ -49,8 +49,8 @@ BUILD_DISPLAY_ID=JLS36I
 slim.ota.version=4.3.build.2
 ro.slim.version=Slim-4.3.build.2-OFFICIAL-1361
 ro.modversion=Slim-mako-4.3.build.2-OFFICIAL-1361
-ro.config.ringtone=Themos.ogg
-ro.config.notification_sound=Tejat.ogg
+ro.config.ringtone=Magic_Tone.mp3
+ro.config.notification_sound=notification.mp3
 ro.carrier=unknown
 ro.config.alarm_alert=Alarm_Classic.ogg
 ro.opengles.version=196608
@@ -86,4 +86,4 @@ net.bt.name=Android
 dalvik.vm.stack-trace-file=/data/anr/traces.txt
 
 # archidroid_detect
-slim_mrtur
+# slim_mrtur
