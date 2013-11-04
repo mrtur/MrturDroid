@@ -65,7 +65,8 @@
 # Spirit FM
 # BetterBatteryStats
 # <#selectbg_g>CoolTool</#>
-# <#selectbg_g>Root Browser</#>
+# Root Browser
+# <#selectbg_g>Total Commander</#>
 # <#selectbg_g>Adobe Flash Player</#>
 # <#selectbg_g>YouTube</#>
 # Facebook
