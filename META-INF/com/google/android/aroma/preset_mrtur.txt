@@ -62,7 +62,6 @@
 # Greenify
 # LMT
 # <#selectbg_g>MXPlayer</#>
-# Spirit FM
 # BetterBatteryStats
 # <#selectbg_g>CoolTool</#>
 # Root Browser
