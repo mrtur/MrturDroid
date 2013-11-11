@@ -178,7 +178,7 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 			if [ $SAMMY -eq 1 ]; then
 				echo "INFO: Applying standard preset DBUPDATE" >> $LOG
 			DBUPDATE secure advanced_reboot 1
-			
+			DBUPDATE secure ui_inverted_mode 2			
 			DBUPDATE global transition_animation_scale 0.5
 			DBUPDATE global animator_duration_scale 0.5
 			DBUPDATE global window_animation_scale 0.5
@@ -195,8 +195,8 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 			# ==== mrtur =====
 			
 			DBUPDATE system accelerometer_rotation 0
-			DBUPDATE system auto_brightness_backlight '4,6,37,51,71,80,96,108,254,254,255,255'
-			DBUPDATE system auto_brightness_lux '10,50,100,200,400,500,800,1000,1600,3000,10000'
+			DBUPDATE system auto_brightness_backlight 4,6,37,51,71,80,96,108,254,254,255,255
+			DBUPDATE system auto_brightness_lux 10,50,100,200,400,500,800,1000,1600,3000,10000
 			DBUPDATE system auto_brightness_responsiveness 0.25
 			DBUPDATE system dtmf_tone 0
 			DBUPDATE system haptic_feedback_enabled 0
@@ -205,8 +205,8 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 			DBUPDATE system lockscreen_sounds_enabled 0
 			DBUPDATE system navigation_bar_alpha 0.0
 			DBUPDATE system navigation_bar_button_alpha 0.45
-			DBUPDATE system navigation_bar_glow_duration_off 25
-			DBUPDATE system navigation_bar_glow_duration_on 250
+			#DBUPDATE system navigation_bar_glow_duration_off 25
+			#DBUPDATE system navigation_bar_glow_duration_on 250
 			DBUPDATE system notif_alpha 0.0
 			DBUPDATE system notif_wallpaper_alpha 0.1
 			DBUPDATE system notification_settings_btn 1
@@ -225,9 +225,9 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 			DBUPDATE system statusbar_clock_date_display 1
 			DBUPDATE system statusbar_clock_date_format 'EEE dd MMM'
 			DBUPDATE system statusbar_clock_style 1
-			DBUPDATE system DBUPDATE system_power_enable_crt_off 0
-			DBUPDATE system DBUPDATE system_profiles_enabled 0
-			DBUPDATE system DBUPDATE systemui_navbar_config '**recents**|**null**|empty|**home**|**null**|empty|**back**|**null**|empty'
+			DBUPDATE system system_power_enable_crt_off 0
+			DBUPDATE system system_profiles_enabled 0
+			DBUPDATE system systemui_navbar_config '**recents**|**null**|empty|**home**|**null**|empty|**back**|**null**|empty'
 			DBUPDATE system ui_force_overflow_button 0
 			DBUPDATE system user_rotation 0
 			DBUPDATE system vibrate_when_ringing 1
@@ -251,9 +251,12 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 			DBUPDATE global transition_animation_scale 0.0
 			DBUPDATE global wifi_on 0
 			DBUPDATE global window_animation_scale 0.0
+			DBUPDATE global wifi_scan_always_enabled 0
+			DBUPDATE global install_non_market_apps 1
+			DBUPDATE global development_settings_enabled 1			
 				
 			# Requires SlimBean's Dark Droid
-			#DBUPDATE secure ui_inverted_mode 2
+			DBUPDATE secure ui_inverted_mode 2
 			#DBUPDATE secure kill_app_longpress_back 1
 			#DBUPDATE system power_menu_screenshot_enabled 1
 			#DBUPDATE system status_bar_battery 3

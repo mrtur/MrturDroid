@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8' standalone='yes' ?>
 <map>
-    <string name="session_id">B49CB65FA6377900CEE71807F75897EC</string>
-    <long name="duration" value="19035" />
-    <long name="end_millis" value="1383423294729" />
-    <long name="uptr" value="2373" />
+    <string name="session_id">554AC4E9B3A30F46FC8530096E5D3163</string>
+    <long name="duration" value="7292" />
+    <long name="end_millis" value="1384091411572" />
+    <long name="uptr" value="5796" />
     <long name="start_millis" value="-1" />
-    <long name="dntr" value="3307" />
-    <string name="activities">[com.cootek.smartinput5.TouchPalIME,19];[com.cootek.smartinput5.TouchPalIME,0]</string>
-    <long name="terminate_time" value="1383423294729" />
+    <long name="dntr" value="1609" />
+    <string name="activities">[com.cootek.smartinput5.TouchPalIME,5];[com.cootek.smartinput5.TouchPalIME,1]</string>
+    <long name="terminate_time" value="1384091411572" />
 </map>

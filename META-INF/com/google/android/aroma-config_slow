@@ -38,13 +38,13 @@ ini_set("rom_date",             "02-11-2013");
 ##
 # Show Simple Splash
 #
-#splash(
+splash(
 #  #-- Duration 2000ms / 2 seconds
-#    4000,
+    4000,
   
   #-- <AROMA Resource Dir>/sample.png
-#    "archidroidsplash"
-#);
+    "archidroidsplash"
+);
 
 #
 # Set Small Font to Support all fonts
@@ -56,9 +56,7 @@ fontresload( "1", "ttf/Roboto-Regular.ttf", "18" );
 
 theme("Black&White");
 resexec("exec/archidroid_init.sh");
-# Is this aroma_fast ON or OFF
-#setvar("aroma_fast","OFF");
-if getvar("aroma_fast")=="OFF" then
+
 
 
 viewbox(
@@ -166,32 +164,6 @@ form(
   "barebones","<~archidroid.preset.barebones>","<~archidroid.preset.barebones.desc>","select",
   "mrtur","<~archidroid.preset.mrtur>","<~archidroid.preset.mrtur.desc>","select"
 );
-else
-loadlang("langs/pl.lang");
-form(
-  "<~archidroid.preset>",
-  "<~archidroid.preset.desc>",
-  "@apps",
-  "archidroidwipe.prop",
-  
-  "wipe","<#selectbg_g><~archidroid.preset.group></#>","","group",
-  "yes","Full Wipe", "Czyści wszelkie dane użytkownika i ustawienia. Nie rusza Internal SD","select.selected",
-  "no","Aktualizacja","W razie problemów wgraj ROM jeszcze raz z opcją Full Wipe","select"
-);
-
-form(
-  "<~archidroid.preset>",
-  "<~archidroid.preset.desc>",
-  "@apps",
-  "archidroidinstallmode.prop",
-  
-  "preset","<#selectbg_g><~archidroid.preset.group></#>","","group",
-  "custom","<~archidroid.preset.custom>", "<~archidroid.preset.custom.desc>","select",
-  "previous","<~archidroid.preset.previous>","<~archidroid.preset.previous.desc>","select",
-  "barebones","<~archidroid.preset.barebones>","<~archidroid.preset.barebones.desc>","select",
-  "mrtur","mrtur","Własne ustawienia mrtur'a","select.selected"
-);
-endif;
 
 #######################
 ### PREVIOUS PRESET ###
@@ -443,7 +415,6 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 endif;
 
 
-if getvar("aroma_fast")=="OFF" then
 pleasewait("Executing Shell...");
   
 #-- Resource Exec
@@ -570,23 +541,5 @@ if
 	  "<~text_no>"
   )=="yes"
 then
-  reboot("onfinish");
-endif;
-else
-ini_set("text_next", "<~common.finish>");
-
- install(
-	#-- Title
-      "<~common.flashing>",
-	
-	#-- Installation Process message
-	  "<~archidroid.install.desc>",
-	
-	#-- Installation Icon
-      "@install",
-	
-	#-- Installation Finish Message
-      "<~archidroid.install.finish>"
-);
   reboot("onfinish");
 endif;

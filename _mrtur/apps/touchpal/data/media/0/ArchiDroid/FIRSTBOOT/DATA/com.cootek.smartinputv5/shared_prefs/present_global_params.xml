@@ -1,8 +1,4 @@
 <?xml version='1.0' encoding='utf-8' standalone='yes' ?>
 <map>
-    <long name="LAST_TOOLBAR_PRESENT_TIME" value="1383422977924" />
-    <long name="LAST_STATUSBAR_PRESENT_TIME" value="1383422977924" />
-    <long name="PRESENT_LAST_CHECK_TIME" value="1383422976472" />
-    <long name="LAST_STARTUP_PRESENT_TIME" value="1383422977924" />
-    <long name="PRESENT_FIRST_USED_TIME" value="1383420189309" />
+    <long name="PRESENT_FIRST_USED_TIME" value="1384090199203" />
 </map>
