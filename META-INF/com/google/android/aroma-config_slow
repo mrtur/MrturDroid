@@ -30,10 +30,10 @@
 #
 ini_set("dp","3");
 ini_set("rom_name",             "ArchiDroid");
-ini_set("rom_version",          "2.2.1");
+ini_set("rom_version",          "2.2.2");
 ini_set("rom_author",           "....");
 ini_set("rom_device",           "Nexus 4 Slim");
-ini_set("rom_date",             "02-11-2013");
+ini_set("rom_date",             "19-11-2013");
 
 ##
 # Show Simple Splash
@@ -527,6 +527,7 @@ ini_set("text_next", "<~common.finish>");
 	  "<~archidroid.install.finish>"
 );
 
+resexec("exec/archidroid_finish.sh");
 if
   confirm(
 	#-- Title
