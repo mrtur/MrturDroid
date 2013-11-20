@@ -173,7 +173,7 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 	if [ $DBUPDATE -eq 1 ]; then
 		if [ -e /data/data/com.android.providers.settings/databases/settings.db ]; then
 			echo "INFO: Android created settings.db for me, how cute! Performing DBUPDATE" >> $LOG
-
+#SAMMY=1
 			if [ $SAMMY -eq 1 ]; then
 				echo "INFO: Applying standard preset DBUPDATE" >> $LOG
 			DBUPDATE secure advanced_reboot 1
@@ -187,7 +187,7 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 			#DBUPDATE system lockscreen_ripple_effect 0
 			#DBUPDATE system screen_mode_automatic_setting 0
 			#DBUPDATE system screen_mode_setting 2
-			
+#SAMMY=0			
 			else
 				echo "INFO: Applying mrtur preset DBUPDATE" >> $LOG
 				
