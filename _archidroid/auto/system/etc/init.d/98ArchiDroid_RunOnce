@@ -173,17 +173,32 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 	if [ $DBUPDATE -eq 1 ]; then
 		if [ -e /data/data/com.android.providers.settings/databases/settings.db ]; then
 			echo "INFO: Android created settings.db for me, how cute! Performing DBUPDATE" >> $LOG
+
+			# Let's update selected keyboard according to our choice
+			# TODO: We should handle this internally, according to FIRSTBOOT instead of hardcoding keyboards
+			# TODO: Also we shouldn't select just one keyboard, but all of them (if found)
+			for KEYBOARD in "org.pocketworkstation.pckeyboard com.cootek.smartinputv5" ; do
+				if [ -e /data/data/$KEYBOARD ]; then
+					echo "INFO: $KEYBOARD Keyboard found!" >> $LOG
+					DBUPDATE secure default_input_method $KEYBOARD
+					DBUPDATE secure enabled_input_methods $KEYBOARD
+				fi
+			done
+
+			DBUPDATE secure advanced_reboot 1
+			DBUPDATE global install_non_market_apps 1
+			DBUPDATE global development_settings_enabled 1
 #SAMMY=1
 			if [ $SAMMY -eq 1 ]; then
 				echo "INFO: Applying standard preset DBUPDATE" >> $LOG
-			DBUPDATE secure advanced_reboot 1
+			#DBUPDATE secure advanced_reboot 1
 			DBUPDATE secure ui_inverted_mode 2			
 			DBUPDATE global transition_animation_scale 0.5
 			DBUPDATE global animator_duration_scale 0.5
 			DBUPDATE global window_animation_scale 0.5
 			DBUPDATE global wifi_scan_always_enabled 0
-			DBUPDATE global install_non_market_apps 1
-			DBUPDATE global development_settings_enabled 1
+			#DBUPDATE global install_non_market_apps 1
+			#DBUPDATE global development_settings_enabled 1
 			#DBUPDATE system lockscreen_ripple_effect 0
 			#DBUPDATE system screen_mode_automatic_setting 0
 			#DBUPDATE system screen_mode_setting 2
@@ -251,8 +266,8 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 			DBUPDATE global wifi_on 0
 			DBUPDATE global window_animation_scale 0.0
 			DBUPDATE global wifi_scan_always_enabled 0
-			DBUPDATE global install_non_market_apps 1
-			DBUPDATE global development_settings_enabled 1			
+			#DBUPDATE global install_non_market_apps 1
+			#DBUPDATE global development_settings_enabled 1			
 				
 			# Requires SlimBean's Dark Droid
 			DBUPDATE secure ui_inverted_mode 2
