@@ -12,70 +12,44 @@ LOG="$AD/RunOnce.log" # "/dev/null" is no verbose
 
 # mrtur preset=0
 SAMMY=1
+if [ -e /system/etc/mrtur.txt ]; then
+	SAMMY=0
+fi
+
 # Redirect stderr to our log, just in case something bad happen
 #exec 1>$LOG # Use "exec 1>>$LOG" for append
 echo -n "" > $LOG
 exec 2>>$LOG
 
-if [ "$2" == "forcedsemaphore" ]; then
-	FORCEDSEMAPHORE=1
-else
-	FORCEDSEMAPHORE=0
-fi
-
 # Main code
 
-ADTRY() {
-	# We try to execute $1 (and $3) multiple times, checking condition $2
-	# In case of typical race conditions, also maximum of 5 times to avoid infinite loop
-	TRY=0
-	CMD="$1"
-	CONDITION="$2"
-	if [ -z "$3" ]; then
-		FALLBACK=0
+ADARGS() {
+	# $1 - what we're looking for
+	# $2 - where we're looking for
+	if [ ! -z `echo "$2" | grep "$1"` ]; then
+		return 0
 	else
-		FALLBACK=1
-		FALLBACKCMD="$3"
+		return 1
 	fi
-	while [ $DONE -ne 1 ] ; do
-		TRY=`expr $TRY + 1`
-		if [ `$CONDITION` -ge 1 ]; then
-			DONE=1
-			return 0
-		else
-			if [ $TRY -gt 5 ]; then
-				echo "ERROR: Couldn't execute $CMD $FALLBACKCMD $CONDITION , please investigate!" >> $LOG
-				DONE=1
-				return 1
-			elif [ $FALLBACK -eq 1 ]; then
-				$CMD || $FALLBACKCMD
-			else
-				$CMD
-			fi
-			sleep 1
-		fi
-	done
 }
 
 DBUPDATE() {
 	# Thanks to idcrisis, modified by JustArchi
-	WHAT=$1
-	VARIABLE=$2
-	VAL=$3
-	DONE=0
-	TRY=0
-	SQLITE3='/system/xbin/sqlite3'
+	local DONE=0
+	local TRY=0
+	local SQLITE3='/system/xbin/sqlite3'
+	local VAL1=""
+	local ID=""
 
 	while [ $DONE -ne 1 ] ; do
 		TRY=`expr $TRY + 1`
 		# Try to update value first if exists
 		busybox sync
-		CHECK=`$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "update $WHAT set value='$VAL' where name='$VARIABLE';" 2>/dev/null`
+		$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "update $1 set value='$3' where name='$2';" 2>/dev/null
 		busybox sync
 		
 		# See if it worked
-		VAL1=""
-		VAL1=`$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "select value from $WHAT where name='$VARIABLE';" 2>/dev/null`
+		VAL1=`$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null`
 		
 		# If not create it
 		if [ "$VAL1" != "" ]; then
@@ -83,32 +57,31 @@ DBUPDATE() {
 			DONE=1
 			return 0
 		else
-			#ID=""
-			#ID=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select max(_id)+100 from $WHAT;"`
+			#ID=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select max(_id)+100 from $1;"`
 			#if [ "$ID" == "" ]; then 
 			#	ID='null'
 			#fi
 			ID='null'
 
-			CHECK=`$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "insert into $WHAT values($ID, '$VARIABLE', '$VAL');" 2>/dev/null`
+			$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "insert into $1 values($ID, '$2', '$3');" 2>/dev/null
 			busybox sync
 		fi
 		
 		# Check if in fact we modified that
-		VAL1=`$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "select value from $WHAT where name='$VARIABLE';" 2>/dev/null`
+		VAL1=`$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null`
 		if [ "$VAL1" != "" ]; then
 			# Looks good
 			if [ $TRY -gt 1 ]; then
-				echo "INFO: DBUPDATE SUCCEEDED with $WHAT $VARIABLE $VAL. It was our $TRY try" >> $LOG
+				echo "INFO: DBUPDATE SUCCEEDED with $1 $2 $3. It was our $TRY try" >> $LOG
 			fi
 			DONE=1
 			return 0
 		else
 			# We failed, let's try maximum of 3 times before giving up
-			echo "WARNING: DBUPDATE() FAILED with $WHAT $VARIABLE $VAL. This is our $TRY try" >> $LOG
+			echo "WARNING: DBUPDATE() FAILED with $1 $2 $3. This is our $TRY try" >> $LOG
 			sleep 1
 			if [ $TRY -ge 5 ]; then
-				echo "ERROR: Could not update $WHAT $VARIABLE $VAL after $TRY times. I'm giving up here, please investigate!" >> $LOG
+				echo "ERROR: Could not update $1 $2 $3 after $TRY times. I'm giving up here, please investigate!" >> $LOG
 				DONE=1
 				return 1
 			fi
@@ -116,12 +89,24 @@ DBUPDATE() {
 	done
 }
 
+# Parse args to variables
+if ADARGS "background" "$@" ; then
+	BACKGROUND=1
+else
+	BACKGROUND=0
+fi
+if ADARGS "forcedsemaphore" "$@" ; then
+	FORCEDSEMAPHORE=1
+else
+	FORCEDSEMAPHORE=0
+fi
+
 echo "`date`" >> $LOG
 echo "`uname -a`" >> $LOG
 echo "INFO: ArchiDroid_RunOnce executed!" >> $LOG
 
 # Now we need to make sure that this is background process to prevent slowing down bootup
-if [ "$1" != "background" ]; then
+if [ $BACKGROUND -eq 1 ]; then
 	# We're not running in background, let's start a child and tell him that he's running in background
 	echo "INFO: Spawning child!" >> $LOG
 	sh $0 "background" &
@@ -135,15 +120,6 @@ fi
 
 # We don't need to reload anything for now
 ADRELOAD=0
-
-# Cool ArchiDroid Banner
-if [ -e /system/bin/boot-dmesg ]; then
-	echo "INFO: boot-dmesg detected, turning on logcat banner" >> $LOG
-	ADBANNER=1
-else
-	echo "INFO: boot-dmesg NOT detected, turning off logcat banner" >> $LOG
-	ADBANNER=0
-fi
 
 # Don't force install mode, unless FORCE file exists
 if [ -e $AD/FORCE ]; then
@@ -175,10 +151,19 @@ elif [ -e $AD/UPDATE ]; then
 else
 	# Panic
 	echo "FATAL ERROR: Could not detect Install/Update mode, ABORTING RUNONCE, PLEASE INVESTIGATE" >> $LOG
-	ADTRY "sysrw" "mount | grep /system | grep rw" "mount -o remount,rw /system"
+	sysrw || mount -o remount,rw /system
 	rm -f $0
-	ADTRY "sysro" "mount | grep /system | grep ro" "mount -o remount,ro /system"
+	sysro || mount -o remount,ro /system
 	exit 2
+fi
+
+# Cool ArchiDroid Banner
+if [ -e /system/bin/boot-dmesg ]; then
+	echo "INFO: boot-dmesg detected, turning on logcat banner" >> $LOG
+	ADBANNER=1
+else
+	echo "INFO: boot-dmesg NOT detected, turning off logcat banner" >> $LOG
+	ADBANNER=0
 fi
 
 # ArchiDroid Semaphore
@@ -213,15 +198,19 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 	if [ $DBUPDATE -eq 1 ]; then
 		if [ -e /data/data/com.android.providers.settings/databases/settings.db ]; then
 			echo "INFO: Android created settings.db for me, how cute! Performing DBUPDATE" >> $LOG
-
+			
 			# Let's update selected keyboard according to our choice
 			# TODO: We should handle this internally, according to FIRSTBOOT instead of hardcoding keyboards
-			# TODO: Also we shouldn't select just one keyboard, but all of them (if found)
+			ONESHOT=1
 			for KEYBOARD in "org.pocketworkstation.pckeyboard com.cootek.smartinputv5" ; do
-				if [ -e /data/data/$KEYBOARD ]; then
+				if [ -e /data/data/$KEYBOARD ] && [ ONESHOT -eq 1 ]; then
 					echo "INFO: $KEYBOARD Keyboard found!" >> $LOG
-					DBUPDATE secure default_input_method $KEYBOARD
-					DBUPDATE secure enabled_input_methods $KEYBOARD
+					DBUPDATE secure default_input_method $KEYBOARD/.LatinIME
+					DBUPDATE secure enabled_input_methods $KEYBOARD/.LatinIME
+					ONESHOT=0
+				elif [ -e /data/data/$KEYBOARD ]; then
+					# TODO
+					echo "INFO: Additional $KEYBOARD Keyboard found!" >> $LOG
 				fi
 			done
 
@@ -411,10 +400,10 @@ rm -f $AD/UPDATE
 rm -f $AD/FORCE
 rm -Rf $AD/FIRSTBOOT
 rm -Rf /data/media/0/vrtheme-backup
-ADTRY "sysrw" "mount | grep /system | grep rw" "mount -o remount,rw /system"
+sysrw || mount -o remount,rw /system
 rm -f $0
 busybox sync
-#ADTRY "sysro" "mount | grep /system | grep ro" "mount -o remount,ro /system"
+#sysro || mount -o remount,ro /system
 
 if [ ! -e "$0" ]; then
 	echo "INFO: Could not detect RunOnce in init.d after cleanup, that's good" >> $LOG
@@ -434,7 +423,7 @@ if [ $ADRELOAD -eq 1 ]; then
 	#sleep 10
 else
 	sleep 20
-	ADTRY "sysro" "mount | grep /system | grep ro" "mount -o remount,ro /system"
+	sysro || mount -o remount,ro /system
 	# Finish
 	echo "INFO: ArchiDroid RunOnce finished" >> $LOG
 	echo "`date`" >> $LOG
