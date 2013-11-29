@@ -9,9 +9,6 @@ set_progress(0.01);
 sleep (2);
 ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Unmounting Partitions");
 assert(unmount("/system") || ui_print("(system is unmounted already)"));
-#assert(unmount("/data") || ui_print("(data is unmounted already)"));
-#assert(unmount("/cache") || ui_print("(cache is unmounted already)"));
-#assert(unmount("/preload") || ui_print("(preload is unmounted already)"));
 
 set_progress(0.02);
 
@@ -28,23 +25,16 @@ endif;
 set_progress(0.03);
 
 ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Formatting Partitions");
-#format("ext4", "EMMC", "/dev/block/mmcblk0p8", "0");
+
 format("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/system", "0", "/system");
-#format("ext4", "EMMC", "/dev/block/mmcblk0p10", "0");
-
-set_progress(0.05);
-
-ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Checking Partitions For Errors");
-#run_program("/sbin/e2fsck", "-p", "/dev/block/mmcblk0p8");
-run_program("/sbin/e2fsck", "-p", "/dev/block/platform/msm_sdcc.1/by-name/system");
-#run_program("/sbin/e2fsck", "-p", "/dev/block/mmcblk0p10");
-#run_program("/sbin/e2fsck", "-p", "/dev/block/mmcblk0p12");
 
 set_progress(0.06);
 
 ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Mounting Partitions");
 assert(mount("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/system", "/system") || ui_print("(system is mounted already)"));
-#assert(mount("ext4", "EMMC", "/dev/block/mmcblk0p12", "/data") || ui_print("(data is mounted already)"));
+
+# This shouldn't be required
+assert(mount("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/userdata", "/data") || ui_print("(data is mounted already)"));
 
 set_progress(0.07);
 #package_extract_file("_archidroid/scripts/bash", "/tmp/bash");
@@ -349,7 +339,7 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "boeffla" then
   delete_recursive("/system/lib/modules");
   package_extract_dir("_archidroid/kernels/boeffla/system", "/system");
   package_extract_dir("_archidroid/kernels/boeffla/data", "/data");
-  package_extract_dir("_archidroid/kernels/boeffla/presetseditable", "/data/.boeffla");
+  package_extract_dir("_archidroid/kernels/boeffla/presetseditable", "/");
   package_extract_file("_archidroid/kernels/boeffla/boot.img", "/tmp/boeffla.img");
   write_raw_image("/tmp/boeffla.img", "/dev/block/mmcblk0p5");
   delete("/tmp/boeffla.img");
@@ -721,11 +711,7 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","gapps") == "1" then
 	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing Google Apps");
 	delete("/system/app/Provision.apk","/system/app/QuickSearchBox.apk","/system/app/SetupWizard.apk","/system/app/Velvet.apk","/system/app/Vending.apk","/system/app/BrowserProviderProxy.apk","/system/app/PartnerBookmarksProvider.apk","/system/app/Gmail2.apk");
 	package_extract_dir("_archidroid/gapps/system", "/system");
-	set_perm(0, 0, 0755, "/system/addon.d/70-gapps.sh");
-	#package_extract_dir("_archidroid/gapps/optional", "/tmp");
-	#package_extract_file("_archidroid/gapps/install-optional.sh", "/tmp/install-optional.sh");
-	#set_perm(0, 0, 0777, "/tmp/install-optional.sh");
-	#run_program("/tmp/install-optional.sh", "");
+
 	set_perm_recursive(0, 0, 0755, 0644, "/system/app");
 endif;
 if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "mrtur" then
@@ -838,10 +824,6 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","rootbrowser") == "1" then
 	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing Root Browser");
 	package_extract_dir("_archidroid/apps/rootbrowser", "/");
 endif;
-#if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "mrtur" then
-#	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> mrtur </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing RootBrowser for mrtur's preset");
-#	package_extract_dir("_mrtur/apps/rootbrowser", "/");
-#endif;
 
 if file_getprop("/tmp/aroma-data/archidroid.prop","totalcommander") == "1" then
 	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing Total Commander");
@@ -987,7 +969,7 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","crossbreeder") == "1" then
 
 	# Freeze fix
 	sleep (1);
-	assert(mount("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/system", "/system") || ui_print("(system is mounted already)"));
+	assert(mount("ext4", "EMMC", "/dev/block/mmcblk0p9", "/system") || ui_print("(system is mounted already)"));
 	#assert(mount("ext4", "EMMC", "/dev/block/mmcblk0p12", "/data") || ui_print("(data is mounted already)"));
 endif;
 

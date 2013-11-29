@@ -549,6 +549,7 @@ ini_set("text_next", "<~common.finish>");
 	  "<~archidroid.install.finish>"
 );
 
+resexec("exec/archidroid_finish.sh");
 if
   confirm(
 	#-- Title
@@ -581,5 +582,6 @@ ini_set("text_next", "<~common.finish>");
 	#-- Installation Finish Message
       "<~archidroid.install.finish>"
 );
+resexec("exec/archidroid_finish.sh");
   reboot("onfinish");
 endif;
