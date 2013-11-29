@@ -292,7 +292,7 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 			DBUPDATE system tablet_ui 0
 			DBUPDATE system auto_brightness_backlight 4,6,37,51,71,80,96,108,254,254,255,255
 			DBUPDATE system auto_brightness_lux 10,50,100,200,400,500,800,1000,1600,3000,10000
-			DBUPDATE system auto_brightness_responsiveness 0.25
+			DBUPDATE system auto_brightness_responsiveness 1.0
 			DBUPDATE system lockscreen_alpha 0.0
 			DBUPDATE system notif_alpha 0.0
 			DBUPDATE system notif_wallpaper_alpha 0.1
