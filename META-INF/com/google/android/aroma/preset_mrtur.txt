@@ -58,7 +58,6 @@
 #  ArchiDroid Apps
 #
 # <#selectbg_g>Titanium Backup</#>
-# ZRAM Status
 # Greenify
 # LMT
 # <#selectbg_g>MXPlayer</#>
@@ -76,7 +75,6 @@
 # <#selectbg_g>Archi Bootanimation</#>
 # <#selectbg_g>HD Voice</#>
 # <#selectbg_g>Build.prop Tweaks</#>
-# OpenPDroid (if available)
 # <#selectbg_g>Remove Cell Broadcasts</#>
 # <#selectbg_g>Fastdormancy</#>
 
