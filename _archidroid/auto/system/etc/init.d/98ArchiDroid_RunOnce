@@ -195,13 +195,15 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 				
 			# ==== mrtur =====
 			DBUPDATE global airplane_mode_on 0
+			DBUPDATE global assisted_gps_enabled 1
 			DBUPDATE global auto_time 1
 			DBUPDATE global auto_time_zone 1
 			DBUPDATE global stay_on_while_plugged_in 0
 			DBUPDATE global wifi_sleep_policy 2
-			DBUPDATE global package_verifier_enable 0
+			DBUPDATE global mode_ringer 2
+			DBUPDATE global package_verifier_enable 1
+			DBUPDATE global wifi_on 0
 			DBUPDATE global wifi_networks_available_notification_on 1
-			DBUPDATE global bluetooth_on 1
 			DBUPDATE global cdma_cell_broadcast_sms 1
 			DBUPDATE global data_roaming 0
 			DBUPDATE global mobile_data 1
@@ -220,19 +222,16 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 			DBUPDATE global emergency_tone 0
 			DBUPDATE global call_auto_retry 0
 			DBUPDATE global preferred_network_mode 0
-			DBUPDATE global animator_duration_scale 0.0
-			DBUPDATE global transition_animation_scale 0.0
-			DBUPDATE global window_animation_scale 0.0
+			DBUPDATE global wifi_scan_always_enabled 0
 			DBUPDATE global development_settings_enabled 1
 			DBUPDATE global wifi_watchdog_on 1
-			DBUPDATE global audio_safe_volume_state 3
-			DBUPDATE global send_action_app_error 1
-			DBUPDATE global assisted_gps_enabled 1
-			DBUPDATE global wifi_scan_always_enabled 1
 			DBUPDATE global device_provisioned 1
+			DBUPDATE global audio_safe_volume_state 3
+			DBUPDATE global bluetooth_on 1
 			DBUPDATE global adb_enabled 1
-			DBUPDATE global mode_ringer 2
-			DBUPDATE global wifi_on 0
+			DBUPDATE global window_animation_scale 0.0
+			DBUPDATE global transition_animation_scale 0.0
+			DBUPDATE global animator_duration_scale 0.0
 
 			DBUPDATE secure mock_location 0
 			DBUPDATE secure backup_enabled 0
@@ -240,7 +239,9 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 			DBUPDATE secure mount_ums_autostart 0
 			DBUPDATE secure mount_ums_prompt 1
 			DBUPDATE secure mount_ums_notify_enabled 1
+			DBUPDATE secure accessibility_script_injection 0
 			DBUPDATE secure long_press_timeout 500
+			DBUPDATE secure touch_exploration_enabled 0
 			DBUPDATE secure speak_password 0
 			DBUPDATE secure lockscreen.disabled 0
 			DBUPDATE secure screensaver_enabled 1
@@ -250,19 +251,21 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 			DBUPDATE secure accessibility_display_magnification_scale 2.0
 			DBUPDATE secure accessibility_display_magnification_auto_update 1
 			DBUPDATE secure dialpad_autocomplete 1
+			#DBUPDATE secure android_id f48963950a33523e
+			#DBUPDATE secure enabled_input_methods com.android.inputmethod.latin/.LatinIME
+			DBUPDATE secure input_methods_subtype_history 
 			DBUPDATE secure selected_input_method_subtype '-1'
+			DBUPDATE secure advanced_reboot 1
 			DBUPDATE secure ui_inverted_mode 2
 			DBUPDATE secure adb_port '-1'
 			DBUPDATE secure lock_screen_owner_info_enabled 0
-			DBUPDATE secure bluetooth_addr_valid 1
-			DBUPDATE secure facelock_liveliness_recognition_threshold 2.2
-			DBUPDATE secure facelock_detection_threshold 0.0
+			#DBUPDATE secure default_input_method com.android.inputmethod.latin/.LatinIME
 			DBUPDATE secure user_setup_complete 1
-			DBUPDATE secure lock_screen_appwidget_ids 1
-			DBUPDATE secure touch_exploration_enabled 0
-			DBUPDATE secure accessibility_script_injection 0
-			DBUPDATE secure accessibility_enabled 1
-			DBUPDATE secure lockscreen_unsecure_used '-1'
+			#DBUPDATE secure bluetooth_name Nexus 4
+			DBUPDATE secure bluetooth_addr_valid 1
+			DBUPDATE secure lock_screen_appwidget_ids 2
+			DBUPDATE secure location_providers_allowed 'gps,network'
+			DBUPDATE secure incall_power_button_behavior 2
 
 			DBUPDATE system volume_music 11
 			DBUPDATE system volume_ring 5
@@ -273,8 +276,8 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 			DBUPDATE system volume_bluetooth_sco 7
 			DBUPDATE system mode_ringer_streams_affected 166
 			DBUPDATE system mute_streams_affected 46
-			DBUPDATE system vibrate_when_ringing 1
 			DBUPDATE system dim_screen 1
+			DBUPDATE system screen_off_timeout 30000
 			DBUPDATE system dtmf_tone_type 0
 			DBUPDATE system hearing_aid 0
 			DBUPDATE system tty_mode 0
@@ -283,82 +286,76 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 			DBUPDATE system screen_brightness_mode 1
 			DBUPDATE system window_animation_scale 1.0
 			DBUPDATE system transition_animation_scale 1.0
-			DBUPDATE system haptic_feedback_enabled 0
 			DBUPDATE system notification_light_pulse 1
+			DBUPDATE system pointer_speed 0
+			DBUPDATE system tablet_ui 0
+			DBUPDATE system quick_settings_tile_content 
+			DBUPDATE system hide_statusbar 0
+			DBUPDATE system next_alarm_formatted 
+			DBUPDATE system pie_softkeyboard_is_showing 0
+			DBUPDATE system volume_music_headset 7
+			DBUPDATE system volume_music_headphone 7
+			DBUPDATE system radio.data.stall.recovery.action 0
+			DBUPDATE system system_profiles_enabled 0
+			DBUPDATE system power_ui_low_battery_warning_policy 1
+			DBUPDATE system notif_wallpaper_alpha 0.1
+			DBUPDATE system notif_alpha 0.0
+			DBUPDATE system status_bar_alpha 0.85
+			DBUPDATE system status_bar_battery 1
+			DBUPDATE system statusbar_clock_style 1
+			DBUPDATE system statusbar_clock_date_display 1
+			DBUPDATE system statusbar_clock_date_style 2
+			DBUPDATE system statusbar_clock_date_format 'EEE dd MMM'
+			DBUPDATE system recents_clear_all_on_right 1
+			DBUPDATE system toggle_notification_and_qs_shade 0
+			DBUPDATE system ui_force_overflow_button 0
+			DBUPDATE system systemui_navbar_config '**power_menu**|**null**|empty|**expanded_desktop**|**null**|empty|**home**|**null**|empty|**recents**|**null**|empty|**back**|**null**|empty'
+			DBUPDATE system navigation_bar_glow_duration_off 10
+			DBUPDATE system navigation_bar_glow_duration_on 100
+			DBUPDATE system navigation_bar_alpha 0.0
+			DBUPDATE system navigation_bar_height 60
+			DBUPDATE system navigation_bar_width 72
+			DBUPDATE system menu_visibility 0
+			DBUPDATE system menu_location 2
+			DBUPDATE system power_menu_expanded_desktop_enabled 1
+			DBUPDATE system expanded_desktop_mode 1
+			DBUPDATE system power_menu_screenshot_enabled 1
+			DBUPDATE system power_menu_airplane_enabled 0
+			DBUPDATE system pie_controls 1
+			DBUPDATE system pie_button_color '-16777216'
+			DBUPDATE system pie_button_pressed_color '-16777216'
+			DBUPDATE system pie_button_alpha 0.45
+			DBUPDATE system pie_button_pressed_alpha 1.0
+			DBUPDATE system pie_icon_color '-13388315'
+			DBUPDATE system pie_buttons_config '**expanded_desktop**|**null**|empty|**home**|**null**|empty|**recents**|**null**|empty|**back**|**null**|empty'
+			DBUPDATE system pie_background_alpha 1.0
+			DBUPDATE system pie_snap_color '-16777216'
+			DBUPDATE system pie_text_color '-13388315'
+			DBUPDATE system pie_trigger_height 0.68
+			DBUPDATE system pie_gravity 6
+			DBUPDATE system pie_trigger_thickness 13.5
+			DBUPDATE system pie_show_snap 0
+			DBUPDATE system pie_show_text 0
+			DBUPDATE system pie_disable_statusbar_info 0
+			DBUPDATE system vibrate_when_ringing 1
 			DBUPDATE system dtmf_tone 0
 			DBUPDATE system sound_effects_enabled 0
 			DBUPDATE system lockscreen_sounds_enabled 0
-			DBUPDATE system pointer_speed 0
-			DBUPDATE system tablet_ui 0
-			DBUPDATE system auto_brightness_backlight 4,6,37,51,71,80,96,108,254,254,255,255
+			DBUPDATE system haptic_feedback_enabled 0
+			DBUPDATE system lock_volume_keys 1
 			DBUPDATE system auto_brightness_lux 10,50,100,200,400,500,800,1000,1600,3000,10000
+			DBUPDATE system auto_brightness_backlight 14,28,37,51,71,80,96,108,254,254,254,255
 			DBUPDATE system auto_brightness_responsiveness 1.0
-			DBUPDATE system lockscreen_alpha 0.0
-			DBUPDATE system notif_alpha 0.0
-			DBUPDATE system notif_wallpaper_alpha 0.1
-			DBUPDATE system notification_settings_btn 1
-			DBUPDATE system power_menu_airplane_enabled 0
-			DBUPDATE system power_menu_screenshot_enabled 1
-			DBUPDATE system power_ui_low_battery_warning_policy 1
-			DBUPDATE system recents_ram_bar_mode 0
-			DBUPDATE system show_touches 0
-			DBUPDATE system status_bar_battery 1
-			DBUPDATE system statusbar_battery_bar 0
-			DBUPDATE system statusbar_clock_date_display 1
-			DBUPDATE system statusbar_clock_date_format 'EEE dd MMM'
-			DBUPDATE system statusbar_clock_style 1
-			DBUPDATE system system_power_enable_crt_off 0
-			DBUPDATE system system_profiles_enabled 0
-			DBUPDATE system ui_force_overflow_button 0
-			DBUPDATE system user_rotation 0
-			DBUPDATE system vibrate_while_no_alerts 1
-			DBUPDATE system volume_ring_earpiece 5
-			DBUPDATE system volume_voice_earpiece 2
-			DBUPDATE system wakeup_when_plugged_unplugged 0
-			DBUPDATE system hide_statusbar 0
-			DBUPDATE system volume_music_headset 7
-			DBUPDATE system volume_music_headphone 7
-			DBUPDATE system toggle_notification_and_qs_shade 0
-			DBUPDATE system radio.data.stall.recovery.action 0
-			DBUPDATE system menu_visibility 0
-			DBUPDATE system navigation_bar_height_landscape 50
-			DBUPDATE system navigation_bar_width 60
-			DBUPDATE system navigation_bar_can_move 1
-			DBUPDATE system navigation_bar_button_alpha 0.3
 			DBUPDATE system hide_rotation_lock_toggle_for_accessibility 1
+			DBUPDATE system user_rotation 0
 			DBUPDATE system accelerometer_rotation 0
-			DBUPDATE system pie_controls 1
-			DBUPDATE system pie_buttons_config '**expanded_desktop**|**null**|empty|**recents**|**null**|empty|**home**|**null**|empty|**back**|**null**|empty'
-			DBUPDATE system pie_icon_color '-13388315'
-			DBUPDATE system pie_size 1.5
-			DBUPDATE system pie_trigger_height 0.68
-			DBUPDATE system pie_trigger_thickness '11.306252'
-			DBUPDATE system pie_gravity 6
-			DBUPDATE system pie_adjust_trigger_for_ime 0
-			DBUPDATE system power_menu_expanded_desktop_enabled 1
-			DBUPDATE system expanded_desktop_mode 1
-			DBUPDATE system pie_show_snap 0
+			DBUPDATE system system_power_enable_crt_off 0
+			DBUPDATE system wakeup_when_plugged_unplugged 0
+			DBUPDATE system pie_trigger_gravity_left_right 80
 			DBUPDATE system pie_trigger_show 0
-			DBUPDATE system pie_background_alpha 0.5
-			DBUPDATE system pie_snap_color '-13388315'
-			DBUPDATE system pie_button_color -16777216
-			DBUPDATE system volume_alarm_speaker 7
-			DBUPDATE system volume_music_speaker 12
-			DBUPDATE system volume_ring_speaker 7
-			DBUPDATE system pie_button_alpha 0.45
-			DBUPDATE system pie_button_pressed_color '-16777216'
-			DBUPDATE system pie_button_pressed_alpha 0.25
-			DBUPDATE system navigation_bar_tint '-16777216'
-			DBUPDATE system systemui_navbar_config '**power_menu**|**null**|empty|**expanded_desktop**|**null**|empty|**home**|**null**|empty|**recents**|**null**|empty|**back**|**null**|empty'
-			DBUPDATE system menu_location 2
-			DBUPDATE system navigation_bar_button_tint '-1'
+			DBUPDATE system pie_size 1.5
 			DBUPDATE system expanded_desktop_state 0
-			DBUPDATE system status_bar_alpha 0.9
-			DBUPDATE system navigation_bar_alpha 0.75
-			DBUPDATE system status_nav_bar_color_mode 1
-			DBUPDATE system navigation_bar_height 60
-			DBUPDATE system pie_softkeyboard_is_showing 0
-			DBUPDATE system screen_off_timeout 8000
+			DBUPDATE system navigation_bar_button_alpha 0.5
 			
 			fi
 			
