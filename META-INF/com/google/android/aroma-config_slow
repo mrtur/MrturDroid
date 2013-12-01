@@ -288,6 +288,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "mrtur
     "archidroidxposed.prop",
 
     "appsettings=0\n"+
+	"bootmanager=0\n"+
     "xprivacy=0\n"
   );
   writetmpfile(
@@ -384,6 +385,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 
       "modules","<#selectbg_g>Xposed Modules</#>","","group",
       "appsettings","App Settings","<~archidroid.xposed.appsettings.desc>","check.checked",
+      "bootmanager","BootManager","<~archidroid.xposed.bootmanager.desc>","check.checked",	  
       "xprivacy","XPrivacy","<~archidroid.xposed.xprivacy.desc>","check.checked"
     );
     write("/data/media/0/ArchiDroid/AromaPreset/slim/archidroidxposed.prop",

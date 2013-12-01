@@ -183,6 +183,7 @@ archidroid.boeffla.yes.desc=If you want to create your own Boeffla SC preset lat
 archidroid.boeffla.no.desc=If you don't want to install Boeffla SC
 
 archidroid.xposed.appsettings.desc=Allows changing app settings. Extremely useful tool
+archidroid.bootmanager.appsettings.desc=With this app modul you could prevent selected apps of running on system startup.
 archidroid.xposed.xprivacy.desc=Perfect module which prevents leaking of private data, restricts access and more
 
 archidroid.wizard.reboot=ArchiDroid has been flashed onto your device. Would you like to automatically reboot now?
