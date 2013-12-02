@@ -188,8 +188,14 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 			DBUPDATE global window_animation_scale 0.5
 			DBUPDATE global wifi_scan_always_enabled 0
 			DBUPDATE global install_non_market_apps 1
-			DBUPDATE global adb_enabled 1
-			DBUPDATE global development_settings_enabled 1
+			#DBUPDATE global adb_enabled 1
+			#DBUPDATE global development_settings_enabled 1
+			DBUPDATE system alarm_alert 'content://media/internal/audio/media/5'
+			DBUPDATE system notification_sound 'content://media/internal/audio/media/32'
+			DBUPDATE system ringtone 'content://media/internal/audio/media/42'
+			#DBUPDATE system alarm_alert '/system/media/audio/alarms/Alarm_Classic.ogg'
+			#DBUPDATE system notification_sound '/system/media/audio/notifications/notification.mp3'
+			#DBUPDATE system ringtone '/system/media/audio/ringtones/Magic_Tone.mp3'
 			
 			else
 				echo "INFO: Applying mrtur preset DBUPDATE" >> $LOG
