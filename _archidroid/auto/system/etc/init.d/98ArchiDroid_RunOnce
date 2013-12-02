@@ -190,7 +190,7 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 			DBUPDATE global install_non_market_apps 1
 			#DBUPDATE global adb_enabled 1
 			#DBUPDATE global development_settings_enabled 1
-			DBUPDATE system alarm_alert 'content://media/internal/audio/media/5'
+			#DBUPDATE system alarm_alert 'content://media/internal/audio/media/5'
 			DBUPDATE system notification_sound 'content://media/internal/audio/media/32'
 			DBUPDATE system ringtone 'content://media/internal/audio/media/42'
 			#DBUPDATE system alarm_alert '/system/media/audio/alarms/Alarm_Classic.ogg'
