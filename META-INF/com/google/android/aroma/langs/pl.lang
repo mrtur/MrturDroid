@@ -183,7 +183,7 @@ archidroid.boeffla.yes.desc=Jeśli zamierzasz stworzyć swój własny preset po 
 archidroid.boeffla.no.desc=Jeśli nie chcesz instalować Boeffla SC
 
 archidroid.xposed.appsettings.desc=Pozwala na zarządzanie ustawieniami specyficznymi dla danych aplikacji. Bardzo użyteczny moduł
-archidroid.bootmanager.appsettings.desc=Pozwala na zarządzanie jakie aplikacje będą ładowane wraz ze startem systemu.
+archidroid.xposed.bootmanager.desc=Pozwala na zarządzanie jakie aplikacje będą ładowane wraz ze startem systemu.
 archidroid.xposed.xprivacy.desc=Perfekcyjne narzędzie oferujące kontrolę aplikacji i ich uprawnień oraz wiele innych funkcji związanych z bezpieczeństwem
 
 archidroid.wizard.reboot=ArchiDroid został pomyślnie sflashowany na Twoje urządzenie. Czy chciałbyś teraz automatycznie zrestartować telefon?
