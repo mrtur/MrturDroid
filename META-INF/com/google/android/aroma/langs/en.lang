@@ -102,6 +102,7 @@ archidroid.kernel.boeffla.desc=Highly recommended masterpiece perfect for everyo
 archidroid.kernel.yank.desc=Recommended as an alternative to Temasek
 archidroid.kernel.googy.desc=Based on Siyah sources. Unique for dual-boot feature
 archidroid.kernel.stock.desc=Comes as a default kernel with Slim
+archidroid.kernel.franco.desc=Recommended as an alternative to stock
 
 archidroid.dpi.240.desc=WARNING! Keep in mind some minor graphic glitches on this DPI
 archidroid.dpi.241.desc=Everything will be smaller, it includes buttons, icons, texts etc.

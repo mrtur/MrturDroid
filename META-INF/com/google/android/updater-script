@@ -278,8 +278,8 @@ set_progress(0.54);
 ##############
 
 # We need to make sure that current kernel is based to prevent random zygote kernel panics
-ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Cleaning Old Kernel");
-package_extract_file("boot.img", "/dev/block/platform/msm_sdcc.1/by-name/boot");
+#ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Cleaning Old Kernel");
+#package_extract_file("boot.img", "/dev/block/platform/msm_sdcc.1/by-name/boot");
 
 ### TEMASEK ###
 if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "temasek" then
@@ -380,6 +380,20 @@ endif;
 ### STOCK ###
 if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "stock" then
 	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Flashing Stock Kernel");
+	package_extract_file("boot.img", "/dev/block/platform/msm_sdcc.1/by-name/boot");	
+	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing Trickster");
+	package_extract_dir("_archidroid/apps/trickster", "/"); 
+	
+	# Not needed since zygote kernel panic fix
+    #package_extract_file("boot.img", "/tmp/stock.img");
+    #write_raw_image("/tmp/stock.img", "/dev/block/mmcblk0p5");
+    #delete("/tmp/stock.img");
+endif;
+
+### FRANCO ###
+if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "franco" then
+	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Flashing Franco Kernel");
+	package_extract_file("_archidroid/kernels/franco/boot.img", "/dev/block/platform/msm_sdcc.1/by-name/boot");
 	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> ArchiDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing Trickster");
 	package_extract_dir("_archidroid/apps/trickster", "/"); 
 	

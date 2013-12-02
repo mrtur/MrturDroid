@@ -102,6 +102,7 @@ archidroid.kernel.boeffla.desc=Wysoce zalecane arcydzieło dla każdego, wyróż
 archidroid.kernel.yank.desc=Zalecany jako alternatywa dla temaseka
 archidroid.kernel.googy.desc=Bazowany na źródłach Siyah. Unikalny z powodu funkcji dual-boot
 archidroid.kernel.stock.desc=Pochodzący prosto od Slim
+archidroid.kernel.franco.desc=Zalecany jako alternatywa dla stocka
 
 archidroid.dpi.240.desc=UWAGA! Możliwe niewielkie bugi graficzne
 archidroid.dpi.241.desc=Wszystko będzie o wiele mniejsze niż standardowo.
