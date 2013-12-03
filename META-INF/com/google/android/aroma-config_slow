@@ -75,29 +75,29 @@ viewbox(
     "Press <b>Next</b> to continue the installation.",
   
   #-- Icon
-    "@welcome"
-);
+    #"@welcome"
+#);
 
-form(
-  "ArchiDroid Language",
-  "Which language would you like to use?",
-  "@confirm",
-  "lang.prop",
+#form(
+  #"ArchiDroid Language",
+  #"Which language would you like to use?",
+  #"@confirm",
+  #"lang.prop",
   
-  "language","<#selectbg_g>Language</#>","","group",
+  #"language","<#selectbg_g>Language</#>","","group",
   #"langs/al.lang","Albanian","Shqiptar, thanks to CEPi","select",
   #"langs/cr.lang","Croatian","Hrvatski, thanks to gastonmazzacane","select",
-  "langs/en.lang","English", "","select",
+  #"langs/en.lang","English", "","select",
   #"langs/fi.lang","Finnish","Suomi, thanks to amppen","select",
   #"langs/fr.lang","French","Français, thanks to nmeuret","select",
   #"langs/de.lang","German","Deutsch, thanks to beyerservice","select",
-  "langs/pl.lang","Polish","Polski","select.selected"
+  #"langs/pl.lang","Polish","Polski","select.selected"
   #"langs/ru.lang","Russian","Pусский, thanks to egotheist","select",
   #"langs/tr.lang","Turkish","Türkçe, thanks to ZiR0 & MadCoderz","select"
-);
+#);
 
-loadlang(file_getprop("/tmp/aroma-data/lang.prop","language"));
-
+#loadlang(file_getprop("/tmp/aroma-data/lang.prop","language"));
+loadlang("langs/pl.lang");
 #textbox(
   #-- Title
 #    "Changelog",
