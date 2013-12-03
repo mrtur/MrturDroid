@@ -1,5 +1,9 @@
-<@center><b><#selectbg_g>TERMS OF USE</#></b>
+<@center><b><#selectbg_g>Uwaga!!</#></b>
+ __  __      _              ____            _     _ 
+|  \/  |_ __| |_ _   _ _ __|  _ \ _ __ ___ (_) __| |
+| |\/| | '__| __| | | | '__| | | | '__/ _ \| |/ _` |
+| |  | | |  | |_| |_| | |  | |_| | | | (_) | | (_| |
+|_|  |_|_|   \__|\__,_|_|  |____/|_|  \___/|_|\__,_|
 
-ARCHIDROID SOFTWARE IS PROVIDED ON AN "AS IS" BASIS, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING, WITHOUT LIMITATION, THE WARRANTIES THAT IT IS FREE OF DEFECTS, VIRUS FREE, ABLE TO OPERATE ON AN UNINTERRUPTED BASIS, FIT FOR A PARTICULAR PURPOSE OR NON-INFRINGING.
-
-Please note that I'm trying to develop most stable and perfect software but I can't guarantee that ArchiDroid doesn't have any bugs or other problems, especially because it utilizes third-party modifications. I give no warranty of any kind and you're flashing it on your own risk.
+Rom jest połączeniem bazy SlimRom(Android 4.3) oraz skryptów i Aromy autorstwa JustArchi.
+Należy pamiętać, że rom powstał na prywatny użytek i był wielokrotnie instalowany, ale nie mogę zagwarantować, że MrturDroid nie ma żadnych błędów lub innych problemów. Nie daję żadnych gwarancji i wgrywasz go na własne ryzyko.

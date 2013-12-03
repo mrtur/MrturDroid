@@ -1,4 +1,4 @@
-<b><#selectbg_g>Configuration by mrtur</#></b>
+<b><#selectbg_g>Preferowane ustawienia mrtur'a</#></b>
 
 ##################
 #  Kernel
@@ -10,7 +10,6 @@
 #  DPI
 #
 # 240 DPI
-# 241 DPI
 # <#selectbg_g>268 DPI</#>
 # 280 DPI
 # 320 DPI
@@ -22,7 +21,7 @@
 # Stock
 
 ##################
-#  Keyboard
+#  Klawiatura
 #  
 # <#selectbg_g>TouchPal Keyboard</#>
 # Hacker's Keyboard
@@ -56,7 +55,7 @@
 # Google Translate
 
 ##################
-#  ArchiDroid Apps
+#  MrturDroid Apps
 #
 # <#selectbg_g>Titanium Backup</#>
 # Greenify
@@ -73,11 +72,11 @@
 ##################
 #  ArchiDroid Tweaks
 #
-# <#selectbg_g>Archi Bootanimation</#>
+# <#selectbg_g>Mrtur Bootanimation</#>
 # <#selectbg_g>HD Voice</#>
 # <#selectbg_g>Build.prop Tweaks</#>
 # <#selectbg_g>Remove Cell Broadcasts</#>
 # <#selectbg_g>Fastdormancy</#>
 
 
-If you agree, press <b><#selectbg_g>"Next"</#></b> and if you do not, press <b><#selectbg_g>"Back"</#></b>
+Zgadzasz się, wybierz <b><#selectbg_g>"Next"</#></b> jeżeli nie, wybierz <b><#selectbg_g>"Back"</#></b>

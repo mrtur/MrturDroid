@@ -1,17 +1,14 @@
-<@center><b><#selectbg_g>THIRD-PARTY</#></b>
+<@center><b><#selectbg_g>Przeczytaj, Uszanuj</#></b>
 
-This ROM is based on many third-party roms, modifications, tweaks, scripts and other implementations.
-
-Thanks to developers of:
+Ten ROM oparty jest na pracy wielu innych ludzi, ich modyfikacji, ich poprawek, ich skryptów i innych implementacjach.Podziękowania dla deweloperów:
 - Aroma & Aroma File Manager
-- ROMS: crDroid | Temasek's Unofficial CM Build | Slim Bean | ChameleonOS | Paranoid Android | AOKP | AOSP | More
-- All available ArchiDroid apps, especially BetterBatteryStats, SpiritFM, CoolTool.
+- ROMS: Archidroid | Slim Bean | i więcej
 - GApps: Paranoid Android GApps | Team BlackOut Inverts
 - Launcher: Nova Launcher
-- Keyboards: TouchPal X | Hacker's Keyboard
-- Utilities: CrossBreeder | Xposed Framework | Logcat Lite | OpenPDroid | Online Nandroid Backup
-- Xposed Modules: App Settings | XPrivacy
+- Klawiatura: TouchPal X | Hacker's Keyboard
+- Narzędzia: CrossBreeder | Xposed Framework | Online Nandroid Backup
+- Xposed Modules: App Settings | XPrivacy | BootManager
+- wiele darmowych aplikacji
 
-Special thanks to:
-- All ArchiDroid contributors for translating and improving ArchiDroid, especially mrtur
-- And many more people, especially Cristiano Matos, temasek, Yank555, Andi.
+Specjalne podziękowania dla :
+- JustArchi (za cierpliwość ;) )
