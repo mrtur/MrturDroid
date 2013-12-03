@@ -343,7 +343,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 
     "dpi","<#selectbg_g>DPI</#>","","group",
     "240","240 DPI","<~archidroid.dpi.240.desc>","select",
-    "241","241 DPI","<~archidroid.dpi.241.desc>","select",
+    #"241","241 DPI","<~archidroid.dpi.241.desc>","select",
 	"268","268 DPI","<~archidroid.dpi.268.desc>","select.selected",
     "280","280 DPI","<~archidroid.dpi.280.desc>","select",
     "320","320 DPI","<~archidroid.dpi.320.desc>","select",
