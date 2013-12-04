@@ -16,14 +16,14 @@
 #
 #
 #
-### ArchiDroid Language File
+### MrturDroid Language File
 #
 # How to create your own language translation
 # 1. Copy en.lang file to your own language.lang, f.e. fr.lang if you're creating French language.
 # 2. Start translating strings (everything after "=" should be translated)
 # 3. Change language and author information below when you're done
 # 4. Send pull request with your updated strings, wait for approval and adding to aroma
-# 5. Thank you for contributing to ArchiDroid project!
+# 5. Thank you for contributing to MrturDroid project!
 #
 # Please note that you can use language-specific chars, f.e. ą ę ó ć ü ń or any non-standard letters.
 # All of them should be displayed properly in aroma
@@ -66,145 +66,109 @@ terms.confirm=Please check the agreement!
 terms.check2=I fully understand and respect that
 terms.confirm2=Respect the devs!
 
-archidroid.tos=ArchiDroid Terms and Conditions
+mrturdroid.tos=MrturDroid Terms and Conditions
 
-archidroid.detect.fail=ArchiDroid could not detect itself being running. Did you make full wipe or you're coming from other ROM?
-archidroid.detect.fail.yes=Yes, I don't have ArchiDroid
-archidroid.detect.fail.no=No, I'm running ArchiDroid!
-archidroid.detect.fail.alert.yes=OK, I've selected ArchiDroid Install mode for you then.
-archidroid.detect.fail.alert.no=That's not good. I'll fake results but do not use Update mode if you don't have ArchiDroid running!
-archidroid.detect.pass=ArchiDroid successfully detected itself being running. Would you like to try Update mode?
-archidroid.detect.pass.yes=Yes, Try Update
-archidroid.detect.pass.no=No, Full Wipe
-archidroid.detect.pass.alert.no=OK, I'll proceed with full wipe and ArchiDroid Install mode
-archidroid.detect.force=Would you like to use forced update mode? This tells ArchiDroid RunOnce to perform advanced tweaks, which normally would be executed only during install mode. Select No if you're unsure
+mrturdroid.detect.fail=MrturDroid could not detect itself being running. Did you make full wipe or you're coming from other ROM?
+mrturdroid.detect.fail.yes=Yes, I don't have MrturDroid
+mrturdroid.detect.fail.no=No, I'm running MrturDroid!
+mrturdroid.detect.fail.alert.yes=OK, I've selected MrturDroid Install mode for you then.
+mrturdroid.detect.fail.alert.no=That's not good. I'll fake results but do not use Update mode if you don't have MrturDroid running!
+mrturdroid.detect.pass=MrturDroid successfully detected itself being running. Would you like to try Update mode?
+mrturdroid.detect.pass.yes=Yes, Try Update
+mrturdroid.detect.pass.no=No, Full Wipe
+mrturdroid.detect.pass.alert.no=OK, I'll proceed with full wipe and MrturDroid Install mode
+mrturdroid.detect.force=Would you like to use forced update mode? This tells MrturDroid RunOnce to perform advanced tweaks, which normally would be executed only during install mode. Select No if you're unsure
 
-archidroid.preset=ArchiDroid Installation Preset
-archidroid.preset.desc=Please select installation preset:
-archidroid.preset.group=Preset
-archidroid.preset.custom=Custom
-archidroid.preset.custom.desc=You'll be able to customize every aspect of the installation
-archidroid.preset.barebones=Bare Bones
-archidroid.preset.barebones.desc=Clean Slim. Only for testing purposes, not recommended
-archidroid.preset.previous=Previous Preset
-archidroid.preset.previous.desc=Loads your previous custom installation preset (if available)
-archidroid.preset.mrtur=Preset by mrtur
-archidroid.preset.mrtur.desc=Loading my own settings. Only for me ;)
+mrturdroid.preset=MrturDroid Installation Preset
+mrturdroid.preset.desc=Please select installation preset:
+mrturdroid.preset.group=Preset
+mrturdroid.preset.custom=Custom
+mrturdroid.preset.custom.desc=You'll be able to customize every aspect of the installation
+mrturdroid.preset.barebones=Bare Bones
+mrturdroid.preset.barebones.desc=Clean Slim. Only for testing purposes, not recommended
+mrturdroid.preset.previous=Previous Preset
+mrturdroid.preset.previous.desc=Loads your previous custom installation preset (if available)
+mrturdroid.preset.mrtur=Preset by mrtur
+mrturdroid.preset.mrtur.desc=Loading my own settings. Only for me ;)
 
-archidroid.detect.previouspreset.fail=Could not load your previous preset, either it failed integrity check or doesn't exist
+mrturdroid.detect.previouspreset.fail=Could not load your previous preset, either it failed integrity check or doesn't exist
 
-archidroid.custom=ArchiDroid Customization
-archidroid.custom.extra=ArchiDroid Extra Customization
-archidroid.custom.desc=Please modify settings to your liking
+mrturdroid.custom=MrturDroid Customization
+mrturdroid.custom.extra=MrturDroid Extra Customization
+mrturdroid.custom.desc=Please modify settings to your liking
 
-archidroid.kernel.temasek.desc=Recommended for perfect peformance, powersave, high flexibility and boeffla sound
-archidroid.kernel.boeffla.desc=Highly recommended masterpiece perfect for everyone, featuring boeffla sound and many more features
-archidroid.kernel.yank.desc=Recommended as an alternative to Temasek
-archidroid.kernel.googy.desc=Based on Siyah sources. Unique for dual-boot feature
-archidroid.kernel.stock.desc=Comes as a default kernel with Slim
-archidroid.kernel.franco.desc=Recommended as an alternative to stock
+mrturdroid.kernel.stock.desc=Comes as a default kernel with Slim
+mrturdroid.kernel.franco.desc=Recommended as an alternative to stock
 
-archidroid.dpi.240.desc=WARNING! Keep in mind some minor graphic glitches on this DPI
-archidroid.dpi.241.desc=Everything will be smaller, it includes buttons, icons, texts etc.
-archidroid.dpi.268.desc=Original preset Slim ROM's
-archidroid.dpi.280.desc=A nice balance between stock and 240 DPI mode
-archidroid.dpi.320.desc=Stock value
+mrturdroid.dpi.240.desc=WARNING! Keep in mind some minor graphic glitches on this DPI
+mrturdroid.dpi.268.desc=Original preset Slim ROM's
+mrturdroid.dpi.280.desc=A nice balance between stock and 240 DPI mode
+mrturdroid.dpi.320.desc=Stock value
 
-archidroid.launcher.nova.desc=Recommended for extra flexibility and performance
-archidroid.launcher.stock.desc=Coming from Slim
-archidroid.launcher.none.desc=No launcher. WARNING! Don't tick if you're after full wipe! You need at least one custom launcher before first boot!
+mrturdroid.launcher.nova.desc=Recommended for extra flexibility and performance
+mrturdroid.launcher.stock.desc=Coming from Slim
+mrturdroid.launcher.none.desc=No launcher. WARNING! Don't tick if you're after full wipe! You need at least one custom launcher before first boot!
 
-archidroid.keyboard=Keyboard
-archidroid.keyboard.touchpal.desc=Recommended as great and very flexible Swype/Curve keyboard
-archidroid.keyboard.hackers.desc=Great alternative to TouchPal if you're not going to use swype/curve function
-archidroid.keyboard.both.desc=If you want to use both TouchPal and Hacker's (for example in terminal)
-archidroid.keyboard.stock.desc=If you want to keep default Slim keyboard
-archidroid.keyboard.none.desc=No keyboard. WARNING! Don't tick if you're after full wipe! You need at least one custom keyboard before first boot!
+mrturdroid.keyboard=Keyboard
+mrturdroid.keyboard.touchpal.desc=Recommended as great and very flexible Swype/Curve keyboard
+mrturdroid.keyboard.hackers.desc=Great alternative to TouchPal if you're not going to use swype/curve function
+mrturdroid.keyboard.both.desc=If you want to use both TouchPal and Hacker's (for example in terminal)
+mrturdroid.keyboard.stock.desc=If you want to keep default Slim keyboard
+mrturdroid.keyboard.none.desc=No keyboard. WARNING! Don't tick if you're after full wipe! You need at least one custom keyboard before first boot!
 
-archidroid.bootanimation=Bootanimation
-archidroid.bootanimation.archi.desc=New fancy ArchiDroid bootanimation for Nexus 4
-archidroid.bootanimation.archilegacy.desc=Old ArchiDroid 1.X bootanimation
-archidroid.bootanimation.logcat.desc=Changes default bootaimation to logcat output - powered by logcat lite
-archidroid.bootanimation.stock.desc=Stock bootanimation provided by Slim
-archidroid.bootanimation.nexus.desc=Bootanimation provided by Andoid 4.3.1 for Nexus
-archidroid.bootanimation.google.desc=Bootanimation provided by Google
-archidroid.bootanimation.none.desc=No bootanimation, for slightly faster bootup
+mrturdroid.bootanimation=Bootanimation
+mrturdroid.bootanimation.mrtur.desc=New fancy MrturDroid bootanimation for Nexus 4
+mrturdroid.bootanimation.stock.desc=Stock bootanimation provided by Slim
+mrturdroid.bootanimation.nexus.desc=Bootanimation provided by Andoid 4.3.1 for Nexus
+mrturdroid.bootanimation.google.desc=Bootanimation provided by Google
+mrturdroid.bootanimation.none.desc=No bootanimation, for slightly faster bootup
 
-archidroid.other=Other
-archidroid.ota.desc=Recommended by ArchiDroid. We'll install UpdateMe apk and enable OTA updates via build.prop
-archidroid.xposed.desc=Allows using various of Xposed modules. Needs to be enabled manualy
-archidroid.crossbreeder.desc=Recommended for extra performance and flexibility, not compatible with Seeder
-archidroid.updatemodem=Update Modem
-archidroid.updatemodem.desc=If you want to have latest modem
-archidroid.updaterecovery=Update Recovery
-archidroid.updaterecovery.desc=If you want to have latest recovery
+mrturdroid.other=Other
+mrturdroid.xposed.desc=Allows using various of Xposed modules. Needs to be enabled manualy
+mrturdroid.crossbreeder.desc=Recommended for extra performance and flexibility, not compatible with Seeder
 
-archidroid.gapps.desc=Core functions and apps from Google. DON'T DESELECT THIS
-archidroid.gapps.gquick.desc=May break Google Voice!
+mrturdroid.gapps.desc=Core functions and apps from Google. DON'T DESELECT THIS
+mrturdroid.gapps.gquick.desc=May break Google Voice!
 
-archidroid.apps.titaniumbackup.desc=Perfect solution for saving personal/app data between updates
-archidroid.apps.zram.desc=Useful if you want to monitor your zram usage (only available in custom kernels)
-archidroid.apps.greenify.desc=Useful if you want to hibernate any app, which saves your battery
-archidroid.apps.lmt.desc=Useful tool for executing a command binded to specific gesture on the screen, also known as pie from SlimBean
-archidroid.apps.mxplayer.desc=Probably best video player for Android
-archidroid.apps.spiritfm.desc=Free FM radio app working with CM
-archidroid.apps.bbs.desc=Gives you power to view more specific battery stats - especially wakelocks
-archidroid.apps.cooltool.desc=Shows some useful statistics on the top bar
-archidroid.apps.rootbrowser.desc=Very cool browser extended by optional root access
-archidroid.apps.totalcommander.desc=Very cool browser extended by optional root access
-archidroid.apps.adobeflash.desc=Adds flash content support. Does not work with Google Chrome
-archidroid.apps.youtube.desc=Inverted version of YouTube app
-archidroid.apps.facebook.desc=Inverted version of Facebook and Messenger
+mrturdroid.apps.titaniumbackup.desc=Perfect solution for saving personal/app data between updates
+mrturdroid.apps.greenify.desc=Useful if you want to hibernate any app, which saves your battery
+mrturdroid.apps.lmt.desc=Useful tool for executing a command binded to specific gesture on the screen, also known as pie from SlimBean
+mrturdroid.apps.mxplayer.desc=Probably best video player for Android
+mrturdroid.apps.bbs.desc=Gives you power to view more specific battery stats - especially wakelocks
+mrturdroid.apps.cooltool.desc=Shows some useful statistics on the top bar
+mrturdroid.apps.rootbrowser.desc=Very cool browser extended by optional root access
+mrturdroid.apps.totalcommander.desc=Very cool browser extended by optional root access
+mrturdroid.apps.adobeflash.desc=Adds flash content support. Does not work with Google Chrome
+mrturdroid.apps.youtube.desc=Inverted version of YouTube app
+mrturdroid.apps.facebook.desc=Inverted version of Facebook and Messenger
 
-archidroid.tweaks.hdvoice.desc=Enables HD Voice if available
-archidroid.tweaks.buildtweaks.desc=Many build.prop tweaks, including deeper sleep, performance tweaks and more
-archidroid.tweaks.openpdroid.desc=Apply OpenPDroid patch after install if available
-archidroid.tweaks.nocell.desc=In general considered as bloatware. Uncheck if you want to keep this
+mrturdroid.tweaks.hdvoice.desc=Enables HD Voice if available
+mrturdroid.tweaks.buildtweaks.desc=Many build.prop tweaks, including deeper sleep, performance tweaks and more
+mrturdroid.tweaks.openpdroid.desc=Apply OpenPDroid patch after install if available
 
-archidroid.preset.no=No Preset
-archidroid.preset.no.desc=Not recommended because you'll miss most of the Archi's optimizations
+mrturdroid.xposed.appsettings.desc=Allows changing app settings. Extremely useful tool
+mrturdroid.xposed.bootmanager.desc=With this app modul you could prevent selected apps of running on system startup.
+mrturdroid.xposed.xprivacy.desc=Perfect module which prevents leaking of private data, restricts access and more
 
-archidroid.preset.kernel.boeffla.archiperformance=ArchiDroid Performance
-archidroid.preset.kernel.boeffla.archiperformance.desc=A profile optimized and designed mostly for gamers, including overclock CPU & GPU. Expect better performance for a cost of battery life
-archidroid.preset.kernel.boeffla.archipowersave=ArchiDroid PowerSave
-archidroid.preset.kernel.boeffla.archipowersave.desc=Default preset proposed for most users, including light uV. Provides a very good balance between battery life and performance. Recommended by Archi
-archidroid.preset.kernel.boeffla.archiultrapowersave=ArchiDroid UltraPowerSave
-archidroid.preset.kernel.boeffla.archiultrapowersave.desc=A preset designed and optimized for getting maximum of battery life, including moderate uV. Expect better battery life for a cost of performance
+mrturdroid.buildtweaks.fastdormancy.desc=Untick to disable fast dormancy, may improve battery life if your provider doesn't support it
+mrturdroid.buildtweaks.zerowakeup.desc=Tick to enable ZeroWakeUp, it will put CPU into sleep mode (instead of deep/deeper sleep), reducing wake up delay to the minimum
 
-archidroid.preset.kernel.temasek.balanced=ArchiDroid Balanced Config
-archidroid.preset.kernel.temasek.balanced.desc=Based on Optimized zzmoove, zram, boeffla sound and more. Obsolete since zzmoove 0.7
-archidroid.preset.kernel.temasek.powersave=ArchiDroid PowerSave Config
-archidroid.preset.kernel.temasek.powersave.desc=Highly powersave config based on Yank's Battery zzmoove with lower hotplugging
-archidroid.preset.kernel.temasek.ultra=ArchiDroid ULTRA PowerSave Config
-archidroid.preset.kernel.temasek.ultra.desc=ULTRA powersave config based on Archi's Ultra Battery zzmoove with LCDFreq
+mrturdroid.wizard.reboot=MrturDroid has been flashed onto your device. Would you like to automatically reboot now?
 
-archidroid.boeffla.yesarchi=Yes with Archi's Audiophile
-archidroid.boeffla.yesarchi.desc=Highly recommended. It enhances audio quality by installing Boeffla SC and tweaking according to Archi's taste
-archidroid.boeffla.yes.desc=If you want to create your own Boeffla SC preset later
-archidroid.boeffla.no.desc=If you don't want to install Boeffla SC
-
-archidroid.xposed.appsettings.desc=Allows changing app settings. Extremely useful tool
-archidroid.xposed.bootmanager.desc=With this app modul you could prevent selected apps of running on system startup.
-archidroid.xposed.xprivacy.desc=Perfect module which prevents leaking of private data, restricts access and more
-
-archidroid.wizard.reboot=ArchiDroid has been flashed onto your device. Would you like to automatically reboot now?
-
-archidroid.prepinstall=Ready for flashing
+mrturdroid.prepinstall=Ready for flashing
 common.flash=Flash
 common.back=Back
 
-archidroid.prepinstall.desc=You are now ready to begin installation.\
+mrturdroid.prepinstall.desc=You are now ready to begin installation.\
 Press <b>Flash</b> to start.\
 If you want to review or change any of your installation settings, press <b>Back</b>.
 
 common.finish=Finish
 common.flashing=Flashing
 
-archidroid.install.desc=<b>ArchiDroid</b> is now being installed.\
-Please wait while installation wizard installs your <b>ArchiDroid</b>\
+mrturdroid.install.desc=<b>MrturDroid</b> is now being installed.\
+Please wait while installation wizard installs your <b>MrturDroid</b>\
 <b>In case of freezing issues hold on recovery combination and try again</b>
 
-archidroid.install.finish=ArchiDroid wizard successfully flashed <b>ArchiDroid<b>\
+mrturdroid.install.finish=MrturDroid wizard successfully flashed <b>MrturDroid<b>\
 Press <b>Finish</b> to continue.
-
-archidroid.buildtweaks.fastdormancy.desc=Untick to disable fast dormancy, may improve battery life if your provider doesn't support it

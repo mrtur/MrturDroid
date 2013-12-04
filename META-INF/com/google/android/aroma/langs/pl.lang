@@ -145,13 +145,13 @@ mrturdroid.apps.facebook.desc=Ciemna wersja Facebooka i Messengera
 mrturdroid.tweaks.hdvoice.desc=Włącza HD Voice o ile dostępne
 mrturdroid.tweaks.buildtweaks.desc=Wiele tweaków build.prop, w tym m.in. głębszy sen oraz większa wydajność
 mrturdroid.tweaks.openpdroid.desc=Spatchuj ROM ze wsparciem dla OpenPDroid o ile dostępny
-mrturdroid.tweaks.nocell.desc=Generalnie uważane za bloatware. Odznacz jeśli chcesz je zachować
 
 mrturdroid.xposed.appsettings.desc=Pozwala na zarządzanie ustawieniami specyficznymi dla danych aplikacji. Bardzo użyteczny moduł
 mrturdroid.xposed.bootmanager.desc=Pozwala na zarządzanie jakie aplikacje będą ładowane wraz ze startem systemu.
 mrturdroid.xposed.xprivacy.desc=Perfekcyjne narzędzie oferujące kontrolę aplikacji i ich uprawnień oraz wiele innych funkcji związanych z bezpieczeństwem
 
 mrturdroid.buildtweaks.fastdormancy.desc=Odznacz, aby wyłączyć fast dormancy. Może poprawić żywotność baterii jeśli Twój provider nie wspiera tej opcji
+mrturdroid.buildtweaks.zerowakeup.desc=Zaznacz, aby aktywować ZeroWakeUp. Ta opcja wymusi na CPU użycie sleepa (zamiast deep/deeper sleepa), zmniejszając czas wybudzania do minimum
 
 mrturdroid.wizard.reboot=MrturDroid został pomyślnie sflashowany na Twoje urządzenie. Czy chciałbyś teraz automatycznie zrestartować telefon?
 
@@ -172,4 +172,3 @@ Poczekaj proszę cierpliwie, aż instalator sflashuje rom\
 
 mrturdroid.install.finish=Instalator AROMA pomyślnie zainstalował <b>MrturDroid</b>a na Twoim urządzeniu\
 Naciśnij <b>Zakończ</b>, aby kontynuować.
-
