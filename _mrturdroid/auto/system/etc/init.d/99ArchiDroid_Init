@@ -1,0 +1,109 @@
+#!/system/bin/sh
+
+# ArchiDroid Init Script
+# JustArchi@JustArchi.net
+
+# Not Disabled
+#exit 0
+
+# Initial variables, you should NOT change them unless you know what you're doing
+AD="/data/media/0/MrturDroid"
+LOG="$AD/Init.log" # "/dev/null" is no verbose
+
+# Redirect stderr to our log, just in case something bad happen
+#exec 1>$LOG # Use "exec 1>>$LOG" for append
+echo -n "" > $LOG
+exec 2>>$LOG
+
+echo "`date`" >> $LOG
+echo "`uname -a`" >> $LOG
+echo "INFO: ArchiDroid_Init executed!" >> $LOG
+
+if [ -e /system/etc/init.d/98ArchiDroid_RunOnce ]; then
+	# This is our first boot, don't call init yet
+	echo "INFO: This is our first boot, I'll let RunOnce finish his job, exiting..." >> $LOG
+	exit 2
+fi
+
+# Now we need to make sure that this is background process to prevent slowing down bootup
+if [ ! -e $AD/INIT_BACKGROUND ]; then
+	# We're not running in background, let's start a child and tell him that he's running in background
+	touch $AD/INIT_BACKGROUND
+	sh $0 &
+	
+	# Nothing to do here anymore, exit call
+	exit 1
+else
+	# We're running in background so let's proceed
+	rm -f $AD/INIT_BACKGROUND
+fi
+
+# Cool ArchiDroid Banner
+if [ -e /system/bin/boot-dmesg ]; then
+	echo "INFO: boot-dmesg detected, turning on logcat banner" >> $LOG
+	ADBANNER=1
+else
+	echo "INFO: boot-dmesg NOT detected, turning off logcat banner" >> $LOG
+	ADBANNER=0
+fi
+
+# ArchiDroid Semaphore
+# Wait until we see some android processes to consider boot is more or less complete (credits to AndiP71)
+# Also respect number of loops, maybe something went wrong
+echo "INFO: Init Semaphore started" >> $LOG
+LOOP=0
+while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
+	if [ $ADBANNER -eq 1 ]; then
+		echo "
+*******************************************************************************
+*             _                _      _  ____               _      _          *
+*            / \    _ __  ___ | |__  (_)|  _ \  _ __  ___  (_)  __| |         *
+*           / _ \  | '__|/ __|| '_ \ | || | | || '__|/ _ \ | | / _\` |         *
+*          / ___ \ | |  | (__ | | | || || |_| || |  | (_) || || (_| |         *
+*         /_/   \_\|_|   \___||_| |_||_||____/ |_|   \___/ |_| \__,_|         *
+*                                                                             *
+*******************************************************************************
+*                  _                       _  _                               *
+*                 | |     ___    __ _   __| |(_) _ __    __ _                 *
+*                 | |    / _ \  / _\` | / _\` || || '_ \  / _\` |                *
+*                 | |___| (_) || (_| || (_| || || | | || (_| |                *
+*                 |_____|\___/  \__,_| \__,_||_||_| |_| \__, |                *
+*                                                       |___/                 *
+*******************************************************************************
+*            root@ArchiDroid:~# Waiting for ArchiDroid to load...             *
+*******************************************************************************
+"
+	fi
+	LOOP=`expr $LOOP + 1`
+	sleep 2
+done
+
+if [ $LOOP -ge 150 ]; then
+	echo "ERROR: I looped $LOOP times and needed to exit from infinite loop, not good (Init Semaphore)" >> $LOG
+else
+	echo "INFO: I looped $LOOP times and didn't have to exit from infinite loop, that's nice (Init Semaphore)" >> $LOG
+fi
+
+# Now that is checked, let's just wait another tiny little bit
+sleep 5
+
+# If we have any more init scripts then it's the right place for that
+
+# Execute a reboot if we need it
+if [ -e $AD/HARD_REBOOT_REQUIRED ]; then
+	echo "INFO: HARD_REBOOT_REQUIRED found, I'm rebooting device now..." >> $LOG
+	rm -f $AD/SOFT_REBOOT_REQUIRED
+	rm -f $AD/HARD_REBOOT_REQUIRED
+	reboot
+elif [ -e $AD/SOFT_REBOOT_REQUIRED ]; then
+	echo "INFO: SOFT_REBOOT_REQUIRED found, I'm rebooting android interface now..." >> $LOG
+	rm -f $AD/SOFT_REBOOT_REQUIRED
+	killall system_server
+fi
+
+# Finish
+echo "INFO: ArchiDroid Init finished" >> $LOG
+echo "`date`" >> $LOG
+
+# Finish
+exit 0

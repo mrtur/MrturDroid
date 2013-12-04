@@ -15,35 +15,47 @@
 # limitations under the License.
 #
 #
-###############################################################
-#     _                _      _  ____               _      _  #
-#    / \    _ __  ___ | |__  (_)|  _ \  _ __  ___  (_)  __| | #
-#   / _ \  | '__|/ __|| '_ \ | || | | || '__|/ _ \ | | / _` | #
-#  / ___ \ | |  | (__ | | | || || |_| || |  | (_) || || (_| | #
-# /_/   \_\|_|   \___||_| |_||_||____/ |_|   \___/ |_| \__,_| #
-#                                                             #
-###############################################################
+############################################################
+#    __  __      _              ____            _     _    #
+#   |  \/  |_ __| |_ _   _ _ __|  _ \ _ __ ___ (_) __| |   #
+#   | |\/| | '__| __| | | | '__| | | | '__/ _ \| |/ _` |   #
+#   | |  | | |  | |_| |_| | |  | |_| | | | (_) | | (_| |   #
+#   |_|  |_|_|   \__|\__,_|_|  |____/|_|  \___/|_|\__,_|   #
+#                                                          #
+############################################################
 
 
 ##
 # Initializing Rom Information
 #
 ini_set("dp","3");
-ini_set("rom_name",             "ArchiDroid");
+ini_set("rom_name",             "MrturDroid");
 ini_set("rom_version",          "2.2.2");
-ini_set("rom_author",           "....");
-ini_set("rom_device",           "Nexus 4 Slim");
-ini_set("rom_date",             "29-11-2013");
+ini_set("rom_author",           "mrtur");
+ini_set("rom_device",           "Nexus 4");
+ini_set("rom_date",             "03-12-2013");
+
+##
+# Show Animated Splash
+#
+anisplash(
+#  #-- Number of Loop
+    5,
+  
+  #-- Frame 1 [ Image, duration in millisecond ]. <AROMA Resource Dir>/splash/a[1..6].png
+    "mrturdroidsplash0", 100,
+    "mrturdroidsplash1", 300
+);
 
 ##
 # Show Simple Splash
 #
 #splash(
-#  #-- Duration 2000ms / 2 seconds
-#    4000,
+  #-- Duration 2000ms / 2 seconds
+#    10000,
   
   #-- <AROMA Resource Dir>/sample.png
-#    "archidroidsplash"
+#    "mrturdroidsplash"
 #);
 
 #
@@ -55,38 +67,41 @@ fontresload( "0", "ttf/Roboto-Regular.ttf", "14" );
 fontresload( "1", "ttf/Roboto-Regular.ttf", "18" );
 
 theme("Black&White");
-resexec("exec/archidroid_init.sh");
+resexec("exec/mrturdroid_init.sh");
+loadlang("langs/pl.lang");
 # Is this aroma_fast ON or OFF
-#setvar("aroma_fast","OFF");
+setvar("aroma_fast","OFF");
+# Is this aroma_lang choise ON or OFF
+setvar("aroma_lang","OFF");
+
 if getvar("aroma_fast")=="OFF" then
-
-
 viewbox(
   #-- Title
-    "Welcome!",
+    "Witaj!",
   
   #-- Text
-    "Hello master, root@ArchiDroid here. Welcome to AROMA. You are about to install <b>"+
+    "Witaj w AROMA. Instalujesz <b>"+
 	  #-- Get Config Value
 	  ini_get("rom_name")+
-	"</b> for <b>"+ini_get("rom_device")+"</b>.\n\n"+
+	"</b> dla <b>"+ini_get("rom_device")+"</b>.\n\n"+
 	
-      "  Version:\t\t\t <b><#selectbg_g>"+ini_get("rom_version")+"</#></b>\n"+
-      "  Released:\t\t <b><#selectbg_g>"+ini_get("rom_date")+"</#></b>\n\n\n"+
+      "  Wersja:\t\t\t <b><#selectbg_g>"+ini_get("rom_version")+"</#></b>\n"+
+      "  Data powstania:\t <b><#selectbg_g>"+ini_get("rom_date")+"</#></b>\n\n\n"+
 
-    "Press <b>Next</b> to continue the installation.",
+    "Wybierz <b>Dalej</b> jeżeli chcesz kontynuować.",
   
   #-- Icon
     "@welcome"
 );
-
+if getvar("aroma_lang")!="OFF" then
 form(
-  "ArchiDroid Language",
+  "MrturDroid Language",
   "Which language would you like to use?",
-  "@confirm",
+  #"@confirm",
+  "@welcome",
   "lang.prop",
   
-  "language","<#selectbg_g>Language</#>","","group",
+  #"language","<#selectbg_g>Language</#>","","group",
   #"langs/al.lang","Albanian","Shqiptar, thanks to CEPi","select",
   #"langs/cr.lang","Croatian","Hrvatski, thanks to gastonmazzacane","select",
   "langs/en.lang","English", "","select",
@@ -99,6 +114,8 @@ form(
 );
 
 loadlang(file_getprop("/tmp/aroma-data/lang.prop","language"));
+
+endif;
 
 #textbox(
   #-- Title
@@ -116,13 +133,14 @@ loadlang(file_getprop("/tmp/aroma-data/lang.prop","language"));
 
 agreebox(
   #-- Title
-    "<~archidroid.tos>",
+    "<~mrturdroid.tos>",
   
   #-- Subtitle / Description
     "",
   
   #-- Icon
-    "@license",
+	#"@license",
+    "@welcome",
   
   #-- Text Content ( Read from <AROMA Resource Dir>/read_me.txt )
     resread("read_me.txt"),
@@ -136,13 +154,14 @@ agreebox(
 
 agreebox(
   #-- Title
-    "<~archidroid.tos>",
+    "<~mrturdroid.tos>",
   
   #-- Subtitle / Description
     "",
   
   #-- Icon
-    "@license",
+    #"@license",
+    "@welcome",	
   
   #-- Text Content ( Read from <AROMA Resource Dir>/read_me2.txt )
     resread("read_me2.txt"),
@@ -155,40 +174,43 @@ agreebox(
 );
 
 form(
-  "<~archidroid.preset>",
-  "<~archidroid.preset.desc>",
-  "@apps",
-  "archidroidinstallmode.prop",
+  "<~mrturdroid.preset>",
+  "<~mrturdroid.preset.desc>",
+  #"@apps",
+  "@welcome",  
+  "mrturdroidinstallmode.prop",
   
-  "preset","<#selectbg_g><~archidroid.preset.group></#>","","group",
-  "custom","<~archidroid.preset.custom>", "<~archidroid.preset.custom.desc>","select",
-  "previous","<~archidroid.preset.previous>","<~archidroid.preset.previous.desc>","select.selected",
-  "barebones","<~archidroid.preset.barebones>","<~archidroid.preset.barebones.desc>","select",
-  "mrtur","<~archidroid.preset.mrtur>","<~archidroid.preset.mrtur.desc>","select"
+  "preset","<#selectbg_g><~mrturdroid.preset.group></#>","","group",
+  "custom","<~mrturdroid.preset.custom>", "<~mrturdroid.preset.custom.desc>","select",
+  "previous","<~mrturdroid.preset.previous>","<~mrturdroid.preset.previous.desc>","select.selected",
+  "barebones","<~mrturdroid.preset.barebones>","<~mrturdroid.preset.barebones.desc>","select",
+  "mrtur","<~mrturdroid.preset.mrtur>","<~mrturdroid.preset.mrtur.desc>","select"
 );
 else
-loadlang("langs/pl.lang");
+#loadlang("langs/pl.lang");
 form(
-  "<~archidroid.preset>",
-  "<~archidroid.preset.desc>",
-  "@apps",
-  "archidroidwipe.prop",
+  "<~mrturdroid.preset>",
+  "<~mrturdroid.preset.desc>",
+  #"@apps",
+  "@welcome",
+  "mrturdroidwipe.prop",
   
-  "wipe","<#selectbg_g><~archidroid.preset.group></#>","","group",
+  "wipe","<#selectbg_g><~mrturdroid.preset.group></#>","","group",
   "yes","Full Wipe", "Czyści wszelkie dane użytkownika i ustawienia. Nie rusza Internal SD","select.selected",
   "no","Aktualizacja","W razie problemów wgraj ROM jeszcze raz z opcją Full Wipe","select"
 );
 
 form(
-  "<~archidroid.preset>",
-  "<~archidroid.preset.desc>",
-  "@apps",
-  "archidroidinstallmode.prop",
+  "<~mrturdroid.preset>",
+  "<~mrturdroid.preset.desc>",
+  #"@apps",
+  "@welcome",
+  "mrturdroidinstallmode.prop",
   
-  "preset","<#selectbg_g><~archidroid.preset.group></#>","","group",
-  "custom","<~archidroid.preset.custom>", "<~archidroid.preset.custom.desc>","select",
-  "previous","<~archidroid.preset.previous>","<~archidroid.preset.previous.desc>","select",
-  "barebones","<~archidroid.preset.barebones>","<~archidroid.preset.barebones.desc>","select",
+  "preset","<#selectbg_g><~mrturdroid.preset.group></#>","","group",
+  "custom","<~mrturdroid.preset.custom>", "<~mrturdroid.preset.custom.desc>","select",
+  "previous","<~mrturdroid.preset.previous>","<~mrturdroid.preset.previous.desc>","select",
+  "barebones","<~mrturdroid.preset.barebones>","<~mrturdroid.preset.barebones.desc>","select",
   "mrtur","mrtur","Własne ustawienia mrtur'a","select.selected"
 );
 endif;
@@ -198,18 +220,15 @@ endif;
 #######################
 
 setvar("preset_version","2");
-if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "previous" then
-  setvar("preset_version_probe",read("/data/media/0/ArchiDroid/AromaPreset/slim/version.txt"));
+if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "previous" then
+  setvar("preset_version_probe",read("/data/media/0/MrturDroid/AromaPreset/slim/version.txt"));
   if getvar("preset_version")!=getvar("preset_version_probe") then
-    alert("ArchiDroid Wizard","<~archidroid.detect.previouspreset.fail>","@alert");
-    writetmpfile("archidroidinstallmode.prop","preset=custom\n");
+    alert("MrturDroid Wizard","<~mrturdroid.detect.previouspreset.fail>","@welcome");
+    writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
   else
-    writetmpfile("archidroid.prop",read("/data/media/0/ArchiDroid/AromaPreset/slim/archidroid.prop"));
-#    writetmpfile("archidroidboeffla.prop",read("/data/media/0/ArchiDroid/AromaPreset/slim/archidroidboeffla.prop"));
-#    writetmpfile("archidroidtemasek.prop",read("/data/media/0/ArchiDroid/AromaPreset/slim/archidroidtemasek.prop"));
-#    writetmpfile("archidroidboefflasound.prop",read("/data/media/0/ArchiDroid/AromaPreset/slim/archidroidboefflasound.prop"));
-    writetmpfile("archidroidxposed.prop",read("/data/media/0/ArchiDroid/AromaPreset/slim/archidroidxposed.prop"));
-    writetmpfile("archidroidbuild.prop",read("/data/media/0/ArchiDroid/AromaPreset/slim/archidroidbuild.prop"));
+    writetmpfile("mrturdroid.prop",read("/data/media/0/MrturDroid/AromaPreset/slim/mrturdroid.prop"));
+    writetmpfile("mrturdroidxposed.prop",read("/data/media/0/MrturDroid/AromaPreset/slim/mrturdroidxposed.prop"));
+    writetmpfile("mrturdroidbuild.prop",read("/data/media/0/MrturDroid/AromaPreset/slim/mrturdroidbuild.prop"));
   endif;
 endif;
 
@@ -217,9 +236,9 @@ endif;
 ### BARE BONES ###
 ##################
 
-if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "barebones" then
+if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "barebones" then
   writetmpfile(
-    "archidroid.prop",
+    "mrturdroid.prop",
 
     "kernel=stock\n"+
     "dpi=320\n"+
@@ -261,7 +280,7 @@ endif;
 ### mrtur ###
 #############
 
-if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "mrtur" then
+if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur" then
   textbox(
     #-- Title
       "Preset",
@@ -277,12 +296,12 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "mrtur
   );
 
   writetmpfile(
-    "archidroid.prop",
-    "kernel=stock\n"+
+    "mrturdroid.prop",
+    "kernel=franco\n"+
     "dpi=268\n"+
     "launcher=nova\n"+
     "keyboard=touchpal\n"+
-    "bootanimation=archi\n"+
+    "bootanimation=mrtur\n"+
     "xposed=0\n"+
     "crossbreeder=1\n"+
     "gapps=1\n"+
@@ -299,7 +318,6 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "mrtur
     "greenify=0\n"+
     "lmt=0\n"+
     "mxplayer=1\n"+
-    "spiritfm=0\n"+
     "bbs=0\n"+
     "cooltool=1\n"+
     "rootbrowser=0\n"+
@@ -313,14 +331,14 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "mrtur
   );
 
   writetmpfile(
-    "archidroidxposed.prop",
+    "mrturdroidxposed.prop",
 
     "appsettings=0\n"+
 	"bootmanager=0\n"+
     "xprivacy=0\n"
   );
   writetmpfile(
-    "archidroidbuild.prop",
+    "mrturdroidbuild.prop",
 
     "fastdormancy=1\n"
   );
@@ -330,49 +348,49 @@ endif;
 ### CUSTOM TYPE INSTALATION ###
 ###############################
 
-if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custom" then
+if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custom" then
   form(
-    "<~archidroid.custom>",
-    "<~archidroid.custom.desc>",
-    "@apps",
-    "archidroid.prop",
+    "<~mrturdroid.custom>",
+    "<~mrturdroid.custom.desc>",
+    #"@apps",
+	"@welcome",
+    "mrturdroid.prop",
     
     "kernel","<#selectbg_g>Kernel</#>","","group",
-    "stock","Stock","<~archidroid.kernel.stock.desc>","select.selected",
-    "franco","Franco","<~archidroid.kernel.franco.desc>","select",
+    "stock","Stock(Slim)","<~mrturdroid.kernel.stock.desc>","select.selected",
+    "franco","Franco","<~mrturdroid.kernel.franco.desc>","select",
 
     "dpi","<#selectbg_g>DPI</#>","","group",
-    "240","240 DPI","<~archidroid.dpi.240.desc>","select",
-    #"241","241 DPI","<~archidroid.dpi.241.desc>","select",
-	"268","268 DPI","<~archidroid.dpi.268.desc>","select.selected",
-    "280","280 DPI","<~archidroid.dpi.280.desc>","select",
-    "320","320 DPI","<~archidroid.dpi.320.desc>","select",
+    "240","240 DPI","<~mrturdroid.dpi.240.desc>","select",
+	"268","268 DPI","<~mrturdroid.dpi.268.desc>","select.selected",
+    "280","280 DPI","<~mrturdroid.dpi.280.desc>","select",
+    "320","320 DPI","<~mrturdroid.dpi.320.desc>","select",
 
     "launcher","<#selectbg_g>Launcher</#>","","group",
-    "nova","Nova Launcher","<~archidroid.launcher.nova.desc>","select.selected",
-    "stock","Stock Launcher","<~archidroid.launcher.stock.desc>","select",
-    "none","<~common.none>","<~archidroid.launcher.none.desc>","select",
+    "nova","Nova Launcher","<~mrturdroid.launcher.nova.desc>","select.selected",
+    "stock","Stock Launcher","<~mrturdroid.launcher.stock.desc>","select",
+    "none","<~common.none>","<~mrturdroid.launcher.none.desc>","select",
 
-    "keyboard","<#selectbg_g><~archidroid.keyboard></#>","","group",
-    "touchpal","TouchPal Keyboard","<~archidroid.keyboard.touchpal.desc>","select.selected",
-    "hackers","Hacker's Keyboard","<~archidroid.keyboard.hackers.desc>","select",
-    "both","TouchPal + Hacker's Keyboard","<~archidroid.keyboard.both.desc>","select",
-    "stock","Stock","<~archidroid.keyboard.stock.desc>","select",
-    "none","<~common.none>","<~archidroid.keyboard.none.desc>","select",
+    "keyboard","<#selectbg_g><~mrturdroid.keyboard></#>","","group",
+    "touchpal","TouchPal Keyboard","<~mrturdroid.keyboard.touchpal.desc>","select.selected",
+    "hackers","Hacker's Keyboard","<~mrturdroid.keyboard.hackers.desc>","select",
+    "both","TouchPal + Hacker's Keyboard","<~mrturdroid.keyboard.both.desc>","select",
+    "stock","Stock","<~mrturdroid.keyboard.stock.desc>","select",
+    "none","<~common.none>","<~mrturdroid.keyboard.none.desc>","select",
 
-    "bootanimation","<#selectbg_g><~archidroid.bootanimation></#>","","group",
-    "archi","ArchiDroid","<~archidroid.bootanimation.archi.desc>","select.selected",
-    "stock","Slim","<~archidroid.bootanimation.stock.desc>","select",
-    "nexus","Nexus","<~archidroid.bootanimation.nexus.desc>","select",
-    "google","Google","<~archidroid.bootanimation.google.desc>","select",
-    "none","<~common.none>","<~archidroid.bootanimation.none.desc>","select",
+    "bootanimation","<#selectbg_g><~mrturdroid.bootanimation></#>","","group",
+    "mrtur","MrturDroid","<~mrturdroid.bootanimation.mrtur.desc>","select.selected",
+    "stock","Slim","<~mrturdroid.bootanimation.stock.desc>","select",
+    "nexus","Nexus","<~mrturdroid.bootanimation.nexus.desc>","select",
+    "google","Google","<~mrturdroid.bootanimation.google.desc>","select",
+    "none","<~common.none>","<~mrturdroid.bootanimation.none.desc>","select",
 
-    "other","<#selectbg_g><~archidroid.other></#>","","group",
-    "xposed","Xposed Framework","<~archidroid.xposed.desc>","check.checked",
-    "crossbreeder","Crossbreeder","<~archidroid.crossbreeder.desc>","check.checked",
+    "other","<#selectbg_g><~mrturdroid.other></#>","","group",
+    "xposed","Xposed Framework","<~mrturdroid.xposed.desc>","check.checked",
+    "crossbreeder","Crossbreeder","<~mrturdroid.crossbreeder.desc>","check.checked",
 
     "googleapps","<#selectbg_g>Google Apps</#>","","group",
-    "gapps","Google Apps","<~archidroid.gapps.desc>","check.checked",
+    "gapps","Google Apps","<~mrturdroid.gapps.desc>","check.checked",
     "gcalendar","Google Calendar [<~common.inverted>]","<~common.replaces> Slim Calendar","check.checked",
     "gchrome","Google Chrome [<~common.inverted>]","","check.checked",
     "gkeep","Google Keep [<~common.inverted>]","","check.checked",
@@ -383,59 +401,61 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     "gplus","Google Plus [<~common.inverted>]","","check",
     "gtranslate","Google Translate [<~common.inverted>]","","check.checked",
 
-    "archiapps","<#selectbg_g>ArchiDroid Apps</#>","","group",
-    "titaniumbackup","Titanium Backup","<~archidroid.apps.titaniumbackup.desc>","check.checked",
-    "greenify","Greenify","<~archidroid.apps.greenify.desc>","check.checked",
-    "lmt","LMT","<~archidroid.apps.lmt.desc>","check",
-    "mxplayer","MXPlayer","<~archidroid.apps.mxplayer.desc>","check.checked",
-    "bbs","BetterBatteryStats","<~archidroid.apps.bbs.desc>","check.checked",
-    "cooltool","CoolTool","<~archidroid.apps.cooltool.desc>","check.checked",
-    "rootbrowser","Root Browser","<~archidroid.apps.rootbrowser.desc>","check",
-    "totalcommander","Total Commander","<~archidroid.apps.totalcommander.desc>","check.checked",	
-    "adobeflash","Adobe Flash Player","<~archidroid.apps.adobeflash.desc>","check.checked",
-    "youtube","YouTube [<~common.inverted>]","<~archidroid.apps.youtube.desc>","check.checked",
-    "facebook","Facebook + Messenger [<~common.inverted>]","<~archidroid.apps.facebook.desc>","check.checked",
+    "mrturapps","<#selectbg_g>MrturDroid Apps</#>","","group",
+    "titaniumbackup","Titanium Backup","<~mrturdroid.apps.titaniumbackup.desc>","check.checked",
+    "greenify","Greenify","<~mrturdroid.apps.greenify.desc>","check.checked",
+    "lmt","LMT","<~mrturdroid.apps.lmt.desc>","check",
+    "mxplayer","MXPlayer","<~mrturdroid.apps.mxplayer.desc>","check.checked",
+    "bbs","BetterBatteryStats","<~mrturdroid.apps.bbs.desc>","check.checked",
+    "cooltool","CoolTool","<~mrturdroid.apps.cooltool.desc>","check.checked",
+    "rootbrowser","Root Browser","<~mrturdroid.apps.rootbrowser.desc>","check",
+    "totalcommander","Total Commander","<~mrturdroid.apps.totalcommander.desc>","check.checked",	
+    "adobeflash","Adobe Flash Player","<~mrturdroid.apps.adobeflash.desc>","check.checked",
+    "youtube","YouTube [<~common.inverted>]","<~mrturdroid.apps.youtube.desc>","check.checked",
+    "facebook","Facebook + Messenger [<~common.inverted>]","<~mrturdroid.apps.facebook.desc>","check.checked",
 
-    "architweaks","<#selectbg_g>ArchiDroid Tweaks</#>","","group",
-    "hdvoice","HD Voice","<~archidroid.tweaks.hdvoice.desc>","check.checked",
-    "buildtweaks","Add build.prop Tweaks","<~archidroid.tweaks.buildtweaks.desc>","check.checked",
-    "nocell","Remove Cell Broadcasts","<~archidroid.tweaks.nocell.desc>","check.checked"
+    "mrturtweaks","<#selectbg_g>MrturDroid Tweaks</#>","","group",
+    "hdvoice","HD Voice","<~mrturdroid.tweaks.hdvoice.desc>","check.checked",
+    "buildtweaks","Add build.prop Tweaks","<~mrturdroid.tweaks.buildtweaks.desc>","check.checked",
+    "nocell","Remove Cell Broadcasts","<~mrturdroid.tweaks.nocell.desc>","check.checked"
   );
-  write("/data/media/0/ArchiDroid/AromaPreset/slim/archidroid.prop",
-    readtmpfile("archidroid.prop");
+  write("/data/media/0/MrturDroid/AromaPreset/slim/mrturdroid.prop",
+    readtmpfile("mrturdroid.prop");
   );
 
-  if file_getprop("/tmp/aroma-data/archidroid.prop","xposed") == "1" then
+  if file_getprop("/tmp/aroma-data/mrturdroid.prop","xposed") == "1" then
     form(
-      "<~archidroid.custom.extra>",
-      "<~archidroid.custom.desc>",
-      "@apps",
-      "archidroidxposed.prop",
+      "<~mrturdroid.custom.extra>",
+      "<~mrturdroid.custom.desc>",
+      #"@apps",
+      "@welcome",
+      "mrturdroidxposed.prop",
 
       "modules","<#selectbg_g>Xposed Modules</#>","","group",
-      "appsettings","App Settings","<~archidroid.xposed.appsettings.desc>","check.checked",
-      "bootmanager","BootManager","<~archidroid.xposed.bootmanager.desc>","check.checked",	  
-      "xprivacy","XPrivacy","<~archidroid.xposed.xprivacy.desc>","check.checked"
+      "appsettings","App Settings","<~mrturdroid.xposed.appsettings.desc>","check.checked",
+      "bootmanager","BootManager","<~mrturdroid.xposed.bootmanager.desc>","check.checked",	  
+      "xprivacy","XPrivacy","<~mrturdroid.xposed.xprivacy.desc>","check.checked"
     );
-    write("/data/media/0/ArchiDroid/AromaPreset/slim/archidroidxposed.prop",
-      readtmpfile("archidroidxposed.prop");
+    write("/data/media/0/MrturDroid/AromaPreset/slim/mrturdroidxposed.prop",
+      readtmpfile("mrturdroidxposed.prop");
     );
   endif;
-  if file_getprop("/tmp/aroma-data/archidroid.prop","buildtweaks") == "1" then
+  if file_getprop("/tmp/aroma-data/mrturdroid.prop","buildtweaks") == "1" then
     form(
-      "<~archidroid.custom.extra>",
-      "<~archidroid.custom.desc>",
-      "@apps",
-      "archidroidbuild.prop",
+      "<~mrturdroid.custom.extra>",
+      "<~mrturdroid.custom.desc>",
+      #"@apps",
+      "@welcome",
+      "mrturdroidbuild.prop",
 
       "build","<#selectbg_g>Build.prop Tweaks</#>","","group",
-      "fastdormancy","Fast Dormancy","<~archidroid.buildtweaks.fastdormancy.desc>","check.checked"
+      "fastdormancy","Fast Dormancy","<~mrturdroid.buildtweaks.fastdormancy.desc>","check.checked"
     );
-    write("/data/media/0/ArchiDroid/AromaPreset/slim/archidroidbuild.prop",
-      readtmpfile("archidroidbuild.prop");
+    write("/data/media/0/MrturDroid/AromaPreset/slim/mrturdroidbuild.prop",
+      readtmpfile("mrturdroidbuild.prop");
     );
   endif;
-  write("/data/media/0/ArchiDroid/AromaPreset/slim/version.txt",getvar("preset_version"));
+  write("/data/media/0/MrturDroid/AromaPreset/slim/version.txt",getvar("preset_version"));
 endif;
 
 
@@ -448,31 +468,32 @@ setvar(
     "resexec_retstatus",
   
   #-- Run Shell
-    resexec("exec/archidroid_detect.sh")
+    resexec("exec/mrturdroid_detect.sh")
 );
 
 if getvar("resexec_retstatus")=="0" || getvar("resexec_retstatus")=="1" then
 	if
 		confirm(
 			#-- Title
-			"ArchiDroid Detect",
+			"MrturDroid Detect",
 			#-- Text
-			"<~archidroid.detect.fail>",
+			"<~mrturdroid.detect.fail>",
 			#-- Icon (Optional)
-			"@info",
+			#"@info",
+			"@welcome",
 			#-- Yes Text
-			"<~archidroid.detect.fail.yes>",
+			"<~mrturdroid.detect.fail.yes>",
 			#-- No Text
-			"<~archidroid.detect.fail.no>"
+			"<~mrturdroid.detect.fail.no>"
 		)=="yes"
 	then
-		alert("ArchiDroid Detect","<~archidroid.detect.fail.alert.yes>","@info");
+		alert("MrturDroid Detect","<~mrturdroid.detect.fail.alert.yes>","@welcome");
 		writetmpfile(
-			"archidroidwipe.prop",
+			"mrturdroidwipe.prop",
 			"wipe=yes\n"
 		);
 	else
-		alert("ArchiDroid Detect","<~archidroid.detect.fail.alert.no>","@alert");
+		alert("MrturDroid Detect","<~mrturdroid.detect.fail.alert.no>","@welcome");
 		setvar("resexec_retstatus","2");
 	endif;
 endif;
@@ -480,48 +501,50 @@ if getvar("resexec_retstatus")=="2" then
 	if
 		confirm(
 			#-- Title
-			"ArchiDroid Detect",
+			"MrturDroid Detect",
 			#-- Text
-			"<~archidroid.detect.pass>",
+			"<~mrturdroid.detect.pass>",
 			#-- Icon (Optional)
-			"@info",
+			#"@info",
+			"@welcome",
 			#-- Yes Text
-			"<~archidroid.detect.pass.yes>",
+			"<~mrturdroid.detect.pass.yes>",
 			#-- No Text
-			"<~archidroid.detect.pass.no>"
+			"<~mrturdroid.detect.pass.no>"
 		)=="yes"
 	then
 		writetmpfile(
-			"archidroidwipe.prop",
+			"mrturdroidwipe.prop",
 			"wipe=no\n"+
 			"force=no\n"
 		);
 		if
 			confirm(
 				#-- Title
-				"ArchiDroid Detect",
+				"MrturDroid Detect",
 				#-- Text
-				"<~archidroid.detect.force>",
+				"<~mrturdroid.detect.force>",
 				#-- Icon (Optional)
-			"@alert"
+			#"@alert"
+			"@welcome"
 			)=="yes"
 		then
 			writetmpfile(
-				"archidroidwipe.prop",
+				"mrturdroidwipe.prop",
 				"wipe=no\n"+
 				"force=yes\n"
 			);
 		else
 			writetmpfile(
-				"archidroidwipe.prop",
+				"mrturdroidwipe.prop",
 				"wipe=no\n"+
 				"force=no\n"
 			);
 		endif;
 	else
-		alert("ArchiDroid Detect","<~archidroid.detect.pass.alert.no>","@info");
+		alert("MrturDroid Detect","<~mrturdroid.detect.pass.alert.no>","@welcome");
 		writetmpfile(
-			"archidroidwipe.prop",
+			"mrturdroidwipe.prop",
 			"wipe=yes\n"
 		);
 	endif;
@@ -531,9 +554,10 @@ endif;
 ini_set("text_next", "<~common.flash>");
 
 viewbox(
-    "<~archidroid.prepinstall>",
-    "<~archidroid.prepinstall.desc>",
-    "@alert"
+    "<~mrturdroid.prepinstall>",
+    "<~mrturdroid.prepinstall.desc>",
+    #"@alert"
+    "@welcome"
 );
 
 ini_set("text_next", "<~common.finish>");
@@ -543,23 +567,25 @@ ini_set("text_next", "<~common.finish>");
       "<~common.flashing>",
 	
 	#-- Installation Process message
-	  "<~archidroid.install.desc>",
+	  "<~mrturdroid.install.desc>",
 	
 	#-- Installation Icon
-      "@install",
+      #"@install",
+	  "@welcome",
 	
 	#-- Installation Finish Message
-	  "<~archidroid.install.finish>"
+	  "<~mrturdroid.install.finish>"
 );
 
 if
   confirm(
 	#-- Title
-	  "ArchiDroid Wizard",
+	  "MrturDroid Wizard",
 	#-- Text
-	  "<~archidroid.wizard.reboot>",
+	  "<~mrturdroid.wizard.reboot>",
 	#-- Icon (Optional)
-	  "@confirm",
+	  #"@confirm",
+	  "@welcome",
 	#-- Yes Text
 	  "<~text_yes>",
 	#-- No Text
@@ -576,13 +602,14 @@ ini_set("text_next", "<~common.finish>");
       "<~common.flashing>",
 	
 	#-- Installation Process message
-	  "<~archidroid.install.desc>",
+	  "<~mrturdroid.install.desc>",
 	
 	#-- Installation Icon
-      "@install",
+      #"@install",
+      "@welcome",
 	
 	#-- Installation Finish Message
-      "<~archidroid.install.finish>"
+      "<~mrturdroid.install.finish>"
 );
   reboot("onfinish");
 endif;

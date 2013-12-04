@@ -3,8 +3,8 @@
 ##################
 #  Kernel
 #
-# <#selectbg_g>Stock</#>
-# Franco
+# Stock(Slim)
+# <#selectbg_g>Franco</#>
 
 ##################
 #  DPI
@@ -70,7 +70,7 @@
 # Facebook
 
 ##################
-#  ArchiDroid Tweaks
+#  MrturDroid Tweaks
 #
 # <#selectbg_g>Mrtur Bootanimation</#>
 # <#selectbg_g>HD Voice</#>

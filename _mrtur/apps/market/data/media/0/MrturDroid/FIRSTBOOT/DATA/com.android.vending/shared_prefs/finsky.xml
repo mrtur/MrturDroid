@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <int name="last-replicated-database-version" value="7" />
+    <string name="server_token:1:mrturmrtur@gmail.com">EKDx2pGkKA==
+    </string>
+    <string name="gcm-registration-id-on-server">APA91bGr_7W0ZyiRwDekuJifd93U7T_dIhK7ZaNhJ8a0PchKQMvlg7BDuLVaBvtw7VAS_SWBNxPPf1W_Z4rKs6b1SPMbMRM6yqzCf7Afb05RhgHHXwMn9WhLOS6adBJgmiCr-1IleG4XzWFKLB4VqkXX0hqtSsfZCQ</string>
+    <long name="dailyhygiene-holdoff-expiration-timestamp-ms" value="-9223372036854775808" />
+    <int name="replicated-system-apps-hashmrturmrtur@gmail.com" value="1727921336" />
+    <string name="server_token:3:mrturmrtur@gmail.com">EPON25GkKA==
+    </string>
+    <int name="last_version_code" value="80240022" />
+    <int name="replicated-account-apps-hash:mrturmrtur@gmail.com" value="1608048801" />
+    <string name="widgetUrl3">suggest?sdt=1&amp;swc=false</string>
+    <boolean name="auto_update_enabled" value="false" />
+    <string name="widgetUrl0">suggest?sdt=1&amp;sdt=5&amp;swc=false</string>
+    <string name="widgetUrl1">suggest?sdt=5&amp;swc=false</string>
+    <boolean name="update_over_wifi_only" value="false" />
+    <string name="device-config-token">1384090398626</string>
+    <long name="wifi-auto-update-first-fail-ms" value="1384090356359" />
+    <long name="last-update-avail-notification-timestamp-ms" value="1384090356417" />
+    <long name="dailyhygiene-lastsuccess" value="1384090356425" />
+    <int name="wifi-auto-update-failed-attempts" value="1" />
+    <string name="autoAcquireTagsmrturmrtur@gmail.com"></string>
+    <string name="account">mrturmrtur@gmail.com</string>
+    <string name="experiment-listmrturmrtur@gmail.com">nocache:dfe:dc:1,nocache:dfe:uc:PL,apk_translations,buyer_currency,buyer_currency_in_app,checkin.set_asset_paid_app_field,content_ratings,localized_images,market_emails,new_merchant_signup,nocache:billing.use_charging_poller,nocache:billing.use_provisioning_poller,nocache:billing.use_provisioning_poller_inapp,nocache:billing.use_provisioning_poller_subs,nocache:enable_play_country,nocache:enable_tablet_large,nocache:encrypted_apk,nocache:mixer:use_windsearch,nocache:recs:automated_weight_adjuster_12,nocache:recs:books_annotate_merch_collection_20130620_50,nocache:recs:laser_apps_1_20131106_00,nocache:recs:movies_annotate_merch_collection_20130620_50,nocache:recs:weights_movies_20130614_40,nocache:search:firesearch_popularity_score:30d,nocache:use_gaia_mint_instead_of_checkout_auth_token,nocache:user_challenge,prod_baseline,recent_changes,recs:books_portrait_20121210_75,vca:enable_onetree_search,vca:original_recommend_data_list</string>
+    <boolean name="auto-update-first-time-for-accounts" value="true" />
+    <string name="last-tos-tokenmrturmrtur@gmail.com">dXRvczpBTkRST0lEX0FQUFMrT0NFQU4sY2hlY2tib3hNYXJrZXRpbmdFbWFpbHM6MQ</string>
+</map>

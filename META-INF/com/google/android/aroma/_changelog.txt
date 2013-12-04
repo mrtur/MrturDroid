@@ -1,12 +1,1 @@
-ArchiDroid 2.2.1
-- [!] Added "Previous Preset" function to AROMA
-# Now you can load your preset chosen during previous flashing, as long as it passes integrity check
-# Please note that this function works from now onwards, so it won't load settings from 2.2.0
-
-- Added AROMA File Manager (built-in)
-# It's available under /data/media/0/clockworkmod/aromafm/aromafm.zip
-- bootanimation "Nexus"
-- bootanimation "Google"
-
-- Added French language, thanks to @nmeuret
-- Updated CM source
+ArchiDroid 2.2.2

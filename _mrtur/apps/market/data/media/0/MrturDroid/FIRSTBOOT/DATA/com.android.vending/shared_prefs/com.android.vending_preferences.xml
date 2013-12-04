@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <boolean name="update-notifications" value="true" />
+    <string name="auto-update-mode">0</string>
+    <boolean name="password-restrict" value="true" />
+    <boolean name="auto-add-shortcuts" value="false" />
+</map>
