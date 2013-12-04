@@ -75,8 +75,8 @@
 # <#selectbg_g>Mrtur Bootanimation</#>
 # <#selectbg_g>HD Voice</#>
 # <#selectbg_g>Build.prop Tweaks</#>
-# <#selectbg_g>Remove Cell Broadcasts</#>
 # <#selectbg_g>Fastdormancy</#>
+# Zerowakeup
 
 
 Zgadzasz się, wybierz <b><#selectbg_g>"Next"</#></b> jeżeli nie, wybierz <b><#selectbg_g>"Back"</#></b>

@@ -270,8 +270,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "bareb
     "youtube=0\n"+
     "facebook=0\n"+
     "hdvoice=0\n"+
-    "buildtweaks=0\n"+
-    "nocell=0\n"
+    "buildtweaks=0\n"
   );
 endif;
 
@@ -326,8 +325,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
     "youtube=1\n"+
     "facebook=0\n"+
     "hdvoice=1\n"+
-    "buildtweaks=1\n"+
-    "nocell=1\n"
+    "buildtweaks=1\n"
   );
 
   writetmpfile(
@@ -340,7 +338,8 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
   writetmpfile(
     "mrturdroidbuild.prop",
 
-    "fastdormancy=1\n"
+    "fastdormancy=1\n"+
+    "zerowakeup=0\n"	
   );
 endif;
 
@@ -362,7 +361,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 
     "dpi","<#selectbg_g>DPI</#>","","group",
     "240","240 DPI","<~mrturdroid.dpi.240.desc>","select",
-	"268","268 DPI","<~mrturdroid.dpi.268.desc>","select.selected",
+    "268","268 DPI","<~mrturdroid.dpi.268.desc>","select.selected",
     "280","280 DPI","<~mrturdroid.dpi.280.desc>","select",
     "320","320 DPI","<~mrturdroid.dpi.320.desc>","select",
 
@@ -416,8 +415,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 
     "mrturtweaks","<#selectbg_g>MrturDroid Tweaks</#>","","group",
     "hdvoice","HD Voice","<~mrturdroid.tweaks.hdvoice.desc>","check.checked",
-    "buildtweaks","Add build.prop Tweaks","<~mrturdroid.tweaks.buildtweaks.desc>","check.checked",
-    "nocell","Remove Cell Broadcasts","<~mrturdroid.tweaks.nocell.desc>","check.checked"
+    "buildtweaks","Add build.prop Tweaks","<~mrturdroid.tweaks.buildtweaks.desc>","check.checked"
   );
   write("/data/media/0/MrturDroid/AromaPreset/slim/mrturdroid.prop",
     readtmpfile("mrturdroid.prop");
@@ -449,7 +447,8 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
       "mrturdroidbuild.prop",
 
       "build","<#selectbg_g>Build.prop Tweaks</#>","","group",
-      "fastdormancy","Fast Dormancy","<~mrturdroid.buildtweaks.fastdormancy.desc>","check.checked"
+      "fastdormancy","Fast Dormancy","<~archidroid.buildtweaks.fastdormancy.desc>","check.checked",
+      "zerowakeup","ZeroWakeUp","<~mrturdroid.buildtweaks.zerowakeup.desc>","check"
     );
     write("/data/media/0/MrturDroid/AromaPreset/slim/mrturdroidbuild.prop",
       readtmpfile("mrturdroidbuild.prop");
