@@ -428,10 +428,11 @@ rm -f $AD/INSTALL
 rm -f $AD/UPDATE
 rm -f $AD/FORCE
 rm -Rf $AD/FIRSTBOOT
-sysrw
+
+sysrw || mount -o remount,rw /system
 rm -f $0
 busybox sync
-sysro
+#sysro || mount -o remount,ro /system
 
 if [ ! -e "$0" ]; then
 	echo "INFO: Could not detect RunOnce in init.d after cleanup, that's good" >> $LOG
@@ -439,16 +440,20 @@ else
 	echo "ERROR: I've detected RunOnce still in init.d after cleanup, that's not good, please investigate" >> $LOG
 fi
 
-# Execute hot reboot if we need it
+# Execute a reboot if we need it
 if [ $ADRELOAD -eq 1 ]; then
 	echo "INFO: Hot reboot required, I'm killing system_server right now." >> $LOG
 	# Finish
 	echo "INFO: ArchiDroid RunOnce finished" >> $LOG
 	echo "`date`" >> $LOG
 	busybox sync
-	#reboot
-	killall system_server
+	tinyplay $AD/System/reboot.wav > /dev/null 2>&1
+	reboot
+	#killall system_server
+	#sleep 10
 else
+	sleep 20
+	sysro || mount -o remount,ro /system
 	# Finish
 	echo "INFO: ArchiDroid RunOnce finished" >> $LOG
 	echo "`date`" >> $LOG

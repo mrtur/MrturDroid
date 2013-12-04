@@ -36,6 +36,9 @@ if [ ! -e $AD/INIT_BACKGROUND ]; then
 else
 	# We're running in background so let's proceed
 	rm -f $AD/INIT_BACKGROUND
+# Custom boot sound support
+if [ -e $AD/PowerOn.wav ]; then
+	tinyplay $AD/PowerOn.wav > /dev/null 2>&1 &
 fi
 
 # Cool ArchiDroid Banner
@@ -94,10 +97,12 @@ if [ -e $AD/HARD_REBOOT_REQUIRED ]; then
 	echo "INFO: HARD_REBOOT_REQUIRED found, I'm rebooting device now..." >> $LOG
 	rm -f $AD/SOFT_REBOOT_REQUIRED
 	rm -f $AD/HARD_REBOOT_REQUIRED
+	tinyplay $AD/System/reboot.wav > /dev/null 2>&1
 	reboot
 elif [ -e $AD/SOFT_REBOOT_REQUIRED ]; then
 	echo "INFO: SOFT_REBOOT_REQUIRED found, I'm rebooting android interface now..." >> $LOG
 	rm -f $AD/SOFT_REBOOT_REQUIRED
+	tinyplay $AD/System/reboot.wav > /dev/null 2>&1
 	killall system_server
 fi
 
