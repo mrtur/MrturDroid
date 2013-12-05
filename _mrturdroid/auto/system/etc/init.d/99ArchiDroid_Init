@@ -37,8 +37,9 @@ else
 	# We're running in background so let's proceed
 	rm -f $AD/INIT_BACKGROUND
 # Custom boot sound support
-if [ -e $AD/PowerOn.wav ]; then
-	tinyplay $AD/PowerOn.wav > /dev/null 2>&1 &
+if [ -e $AD/System/reboot.wav ]; then
+	#tinyplay $AD/PowerOn.wav > /dev/null 2>&1 &
+	tinyplay $AD/System/reboot.wav > /dev/null 2>&1 $
 fi
 
 # Cool ArchiDroid Banner
