@@ -23,9 +23,9 @@
 ##################
 #  Klawiatura
 #  
-# <#selectbg_g>TouchPal Keyboard</#>
+# TouchPal Keyboard
 # Hacker's Keyboard
-# TouchPal + Hacker's Keyboard
+# <#selectbg_g>TouchPal + Hacker's Keyboard</#>
 # Stock 
 
 ##################
@@ -37,8 +37,15 @@
 ##################
 #  Xposed Framework
 #
-# Yes
-# <#selectbg_g>No</#> 
+# <#selectbg_g>Yes</#>
+# No 
+
+##################
+#  Xposed Modules
+#
+# <#selectbg_g>AppSettings</#>
+# <#selectbg_g>Bootmanager</#>
+# XPrivacy
 
 ##################
 #  Google Apps
@@ -65,7 +72,7 @@
 # <#selectbg_g>CoolTool</#>
 # Root Browser
 # <#selectbg_g>Total Commander</#>
-# <#selectbg_g>Adobe Flash Player</#>
+# Adobe Flash Player
 # <#selectbg_g>YouTube</#>
 # Facebook
 
@@ -76,7 +83,7 @@
 # <#selectbg_g>HD Voice</#>
 # <#selectbg_g>Build.prop Tweaks</#>
 # <#selectbg_g>Fastdormancy</#>
-# Zerowakeup
+# <#selectbg_g>Zerowakeup</#>
 
 
 Zgadzasz się, wybierz <b><#selectbg_g>"Next"</#></b> jeżeli nie, wybierz <b><#selectbg_g>"Back"</#></b>
