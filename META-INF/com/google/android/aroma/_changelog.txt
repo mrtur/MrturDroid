@@ -1,1 +1,5 @@
-ArchiDroid 2.2.2
+ArchiDroid 2.2.3
+
+1. Aktualizacja:
+-TotalCommander 2.0.3
+-TricksterMOD 2.9.832

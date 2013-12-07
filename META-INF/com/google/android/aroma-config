@@ -130,17 +130,17 @@ endif;
 
 #textbox(
   #-- Title
-#    "Changelog",
+    "Changelog",
   
   #-- Subtitle
-#    "",
+    "",
   
   #-- Icon
-#    "@info",
+    "@welcome",
   
   #-- Arg 4
-#    resread("_changelog.txt")
-#);
+    resread("_changelog.txt")
+);
 
 agreebox(
   #-- Title
