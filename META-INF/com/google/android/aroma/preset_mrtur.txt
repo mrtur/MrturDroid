@@ -86,4 +86,4 @@
 # <#selectbg_g>Zerowakeup</#>
 
 
-Zgadzasz się, wybierz <b><#selectbg_g>"Next"</#></b> jeżeli nie, wybierz <b><#selectbg_g>"Back"</#></b>
+Zgadzasz się, wybierz <b><#selectbg_g>"Dalej"</#></b> jeżeli nie, wybierz <b><#selectbg_g>"Wstecz"</#></b>

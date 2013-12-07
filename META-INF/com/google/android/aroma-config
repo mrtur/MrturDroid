@@ -40,11 +40,22 @@ ini_set("rom_date",             "03-12-2013");
 #
 anisplash(
 #  #-- Number of Loop
-    5,
+    1,
   
   #-- Frame 1 [ Image, duration in millisecond ]. <AROMA Resource Dir>/splash/a[1..6].png
-    "mrturdroidsplash0", 100,
-    "mrturdroidsplash1", 300
+    "mrturdroidsplash13", 100,
+    "mrturdroidsplash12", 100,
+	"mrturdroidsplash11", 100,
+	"mrturdroidsplash10", 100,
+	"mrturdroidsplash09", 100,
+	"mrturdroidsplash08", 100,
+	"mrturdroidsplash07", 100,
+	"mrturdroidsplash06", 100,
+	"mrturdroidsplash05", 100,
+	"mrturdroidsplash04", 100,
+	"mrturdroidsplash03", 100,
+	"mrturdroidsplash02", 100,
+	"mrturdroidsplash01", 500
 );
 
 ##
@@ -356,8 +367,8 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
     "mrturdroid.prop",
     
     "kernel","<#selectbg_g>Kernel</#>","","group",
-    "stock","Stock(Slim)","<~mrturdroid.kernel.stock.desc>","select.selected",
-    "franco","Franco","<~mrturdroid.kernel.franco.desc>","select",
+    "stock","Stock(Slim)","<~mrturdroid.kernel.stock.desc>","select",
+    "franco","Franco","<~mrturdroid.kernel.franco.desc>","select.selected",
 
     "dpi","<#selectbg_g>DPI</#>","","group",
     "240","240 DPI","<~mrturdroid.dpi.240.desc>","select",
@@ -392,13 +403,13 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
     "gapps","Google Apps","<~mrturdroid.gapps.desc>","check.checked",
     "gcalendar","Google Calendar [<~common.inverted>]","<~common.replaces> Slim Calendar","check.checked",
     "gchrome","Google Chrome [<~common.inverted>]","","check.checked",
-    "gkeep","Google Keep [<~common.inverted>]","","check.checked",
+    "gkeep","Google Keep [<~common.inverted>]","","check",
     "gmail","Google Mail (Gmail) [<~common.inverted>]","","check.checked",
     "gmaps","Google Maps [<~common.inverted>]","","check.checked",
     "gvoice","Google Voice","","check.checked",
     "ghangouts","Google Hangouts [<~common.inverted>]","","check",
     "gplus","Google Plus [<~common.inverted>]","","check",
-    "gtranslate","Google Translate [<~common.inverted>]","","check.checked",
+    "gtranslate","Google Translate [<~common.inverted>]","","check",
 
     "mrturapps","<#selectbg_g>MrturDroid Apps</#>","","group",
     "titaniumbackup","Titanium Backup","<~mrturdroid.apps.titaniumbackup.desc>","check.checked",
@@ -409,9 +420,9 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
     "cooltool","CoolTool","<~mrturdroid.apps.cooltool.desc>","check.checked",
     "rootbrowser","Root Browser","<~mrturdroid.apps.rootbrowser.desc>","check",
     "totalcommander","Total Commander","<~mrturdroid.apps.totalcommander.desc>","check.checked",	
-    "adobeflash","Adobe Flash Player","<~mrturdroid.apps.adobeflash.desc>","check.checked",
+    "adobeflash","Adobe Flash Player","<~mrturdroid.apps.adobeflash.desc>","check",
     "youtube","YouTube [<~common.inverted>]","<~mrturdroid.apps.youtube.desc>","check.checked",
-    "facebook","Facebook + Messenger [<~common.inverted>]","<~mrturdroid.apps.facebook.desc>","check.checked",
+    "facebook","Facebook + Messenger [<~common.inverted>]","<~mrturdroid.apps.facebook.desc>","check",
 
     "mrturtweaks","<#selectbg_g>MrturDroid Tweaks</#>","","group",
     "hdvoice","HD Voice","<~mrturdroid.tweaks.hdvoice.desc>","check.checked",
