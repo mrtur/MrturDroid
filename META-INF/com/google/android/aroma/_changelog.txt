@@ -5,3 +5,6 @@ ArchiDroid 2.2.3
 -TricksterMOD 2.9.832
 -CoolTool 5.1.1
 -XPrivacy 10.40
+
+2. Poprawki
+- usunięcie tinyplay (nie działa na Nexus4)

@@ -447,8 +447,6 @@ if [ $ADRELOAD -eq 1 ]; then
 	echo "INFO: ArchiDroid RunOnce finished" >> $LOG
 	echo "`date`" >> $LOG
 	busybox sync
-	#tinyplay $AD/System/reboot.wav > /dev/null 2>&1
-	#reboot
 	killall system_server
 	sleep 10
 else
