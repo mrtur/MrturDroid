@@ -1,10 +1,12 @@
-ArchiDroid 2.2.3
+ArchiDroid 2.4.0
 
 1. Aktualizacja:
+-Przejście na Android 4.4.1 (WYMAGANE FULL WIPE)
 -TotalCommander 2.0.3
 -TricksterMOD 2.9.832
 -CoolTool 5.1.1
 -XPrivacy 10.40
-
+-nowa Mms.pak (INVERTED)
 2. Poprawki
 - usunięcie tinyplay (nie działa na Nexus4)
+- usunięcie MXPlayer (na razie nie działa na 4.4.1)

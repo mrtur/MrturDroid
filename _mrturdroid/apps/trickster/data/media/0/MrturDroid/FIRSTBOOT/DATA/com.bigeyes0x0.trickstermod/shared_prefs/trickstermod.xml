@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <long name="script_crc" value="2842010836" />
+    <string name="android_id">81247846c100044b</string>
+    <string name="kernel_version">Linux version 3.4.0-franco.Kernel-nightly (francisco@francisco) (gcc version 4.7 (GCC) ) #193 SMP PREEMPT Sun Oct 27 15:52:34 WET 2013</string>
+    <int name="last_current_tab" value="3" />
+    <boolean name="dirty_boot" value="false" />
+    <int name="theme" value="1" />
+</map>

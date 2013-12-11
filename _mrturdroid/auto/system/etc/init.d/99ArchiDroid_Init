@@ -15,6 +15,22 @@ LOG="$AD/Init.log" # "/dev/null" is no verbose
 echo -n "" > $LOG
 exec 2>>$LOG
 
+ADARGS() {
+	# $1 - what we're looking for
+	# $2 - where we're looking for
+	if [ ! -z `echo "$2" | grep -i "$1"` ]; then
+		return 0
+	else
+		return 1
+	fi
+}
+
+# Parse args to variables
+if ADARGS "background" "$@" ; then
+	BACKGROUND=1
+else
+	BACKGROUND=0
+fi
 echo "`date`" >> $LOG
 echo "`uname -a`" >> $LOG
 echo "INFO: ArchiDroid_Init executed!" >> $LOG
@@ -26,16 +42,17 @@ if [ -e /system/etc/init.d/98ArchiDroid_RunOnce ]; then
 fi
 
 # Now we need to make sure that this is background process to prevent slowing down bootup
-if [ ! -e $AD/INIT_BACKGROUND ]; then
+if [ $BACKGROUND -ne 1 ]; then
 	# We're not running in background, let's start a child and tell him that he's running in background
-	touch $AD/INIT_BACKGROUND
-	sh $0 &
+	echo "INFO: Spawning child!" >> $LOG
+	sh $0 "background" &
 	
 	# Nothing to do here anymore, exit call
 	exit 1
 else
 	# We're running in background so let's proceed
-	rm -f $AD/INIT_BACKGROUND
+	echo "INFO: I'm a child!" >> $LOG
+fi
 
 # Cool ArchiDroid Banner
 if [ -e /system/bin/boot-dmesg ]; then

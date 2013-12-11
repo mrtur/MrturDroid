@@ -21,79 +21,124 @@ fi
 echo -n "" > $LOG
 exec 2>>$LOG
 
-
-# Main code
+ADARGS() {
+	# $1 - what we're looking for
+	# $2 - where we're looking for
+	if [ ! -z `echo "$2" | grep -i "$1"` ]; then
+		return 0
+	else
+		return 1
+	fi
+}
 
 DBUPDATE() {
 	# Thanks to idcrisis, modified by JustArchi
-	WHAT=$1
-	VARIABLE=$2
-	VAL=$3
-	DONE=0
-	TRY=0
-	SQLITE3='/system/xbin/sqlite3'
-
+	local DONE=0
+	local TRY=0
+	local SQLITE3='/system/xbin/sqlite3'
+	local VAL1=""
+	local VAL2=""
+	local ID=""
+	
 	while [ $DONE -ne 1 ] ; do
 		TRY=`expr $TRY + 1`
-		# Try to update value first if exists
-		busybox sync
-		CHECK=`$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "update $WHAT set value='$VAL' where name='$VARIABLE';" 2>/dev/null`
-		busybox sync
-		
-		# See if it worked
-		VAL1=""
-		VAL1=`$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "select value from $WHAT where name='$VARIABLE';" 2>/dev/null`
-		
-		# If not create it
-		if [ "$VAL1" != "" ]; then
-			# Looks good
-			DONE=1
-			return 0
-		else
-			#ID=""
-			#ID=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select max(_id)+100 from $WHAT;"`
-			#if [ "$ID" == "" ]; then 
-			#	ID='null'
-			#fi
-			ID='null'
-
-			CHECK=`$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "insert into $WHAT values($ID, '$VARIABLE', '$VAL');" 2>/dev/null`
-			busybox sync
-		fi
-		
-		# Check if in fact we modified that
-		VAL1=`$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "select value from $WHAT where name='$VARIABLE';" 2>/dev/null`
-		if [ "$VAL1" != "" ]; then
-			# Looks good
-			if [ $TRY -gt 1 ]; then
-				echo "INFO: DBUPDATE SUCCEEDED with $WHAT $VARIABLE $VAL. It was our $TRY try" >> $LOG
-			fi
-			DONE=1
-			return 0
-		else
-			# We failed, let's try maximum of 3 times before giving up
-			echo "WARNING: DBUPDATE() FAILED with $WHAT $VARIABLE $VAL. This is our $TRY try" >> $LOG
-			sleep 1
-			if [ $TRY -ge 5 ]; then
-				echo "ERROR: Could not update $WHAT $VARIABLE $VAL after $TRY times. I'm giving up here, please investigate!" >> $LOG
+		if [ "$4" == "APPEND" ]; then
+			# Append mode, value should exist already then
+			VAL1=`$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null`
+			VAL1=$VAL1$5$3
+			
+			# Let's update it now
+			$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "update $1 set value='$VAL1' where name='$2';" 2>/dev/null
+			
+			# See if it worked
+			VAL2=`$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null`
+			
+			if [ "$VAL1" == "$VAL2" ]; then
+				# Looks good
+				if [ $TRY -gt 1 ]; then
+					echo "INFO: DBUPDATE APPEND SUCCEEDED with $@. It was our $TRY try" >> $LOG
+				fi
 				DONE=1
-				return 1
+				return 0
+			else
+				# We failed, let's try maximum of 5 times before giving up
+				echo "WARNING: DBUPDATE APPEND FAILED with $@. This is our $TRY try" >> $LOG
+				sleep 1
+				if [ $TRY -ge 5 ]; then
+					echo "ERROR: Could not update $@ after $TRY times. I'm giving up here, please investigate!" >> $LOG
+					DONE=1
+					return 1
+				fi
+			fi
+		else
+			# Try to update value first if exists
+			busybox sync
+			$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "update $1 set value='$3' where name='$2';" 2>/dev/null
+			busybox sync
+			
+			# See if it worked
+			VAL1=`$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null`
+			
+			# If not create it
+			if [ "$VAL1" != "" ]; then
+				# Looks good
+				DONE=1
+				return 0
+			else
+				#ID=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select max(_id)+100 from $1;"`
+				#if [ "$ID" == "" ]; then 
+				#	ID='null'
+				#fi
+				ID='null'
+
+				$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "insert into $1 values($ID, '$2', '$3');" 2>/dev/null
+				busybox sync
+			fi
+			
+			# Check if in fact we modified that
+			VAL1=`$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null`
+			if [ "$VAL1" != "" ]; then
+				# Looks good
+				if [ $TRY -gt 1 ]; then
+					echo "INFO: DBUPDATE SUCCEEDED with $@. It was our $TRY try" >> $LOG
+				fi
+				DONE=1
+				return 0
+			else
+				# We failed, let's try maximum of 5 times before giving up
+				echo "WARNING: DBUPDATE FAILED with $@. This is our $TRY try" >> $LOG
+				sleep 1
+				if [ $TRY -ge 5 ]; then
+					echo "ERROR: Could not update $@ after $TRY times. I'm giving up here, please investigate!" >> $LOG
+					DONE=1
+					return 1
+				fi
 			fi
 		fi
 	done
 }
+
+# Parse args to variables
+if ADARGS "background" "$@" ; then
+	BACKGROUND=1
+else
+	BACKGROUND=0
+fi
+if ADARGS "forcedsemaphore" "$@" ; then
+	FORCEDSEMAPHORE=1
+else
+	FORCEDSEMAPHORE=0
+fi
 
 echo "`date`" >> $LOG
 echo "`uname -a`" >> $LOG
 echo "INFO: ArchiDroid_RunOnce executed!" >> $LOG
 
 # Now we need to make sure that this is background process to prevent slowing down bootup
-if [ ! -e $AD/RUNONCE_BACKGROUND ]; then
+if [ $BACKGROUND -ne 1 ]; then
 	# We're not running in background, let's start a child and tell him that he's running in background
-	# Clean old log and write initial information
 	echo "INFO: Spawning child!" >> $LOG
-	touch $AD/RUNONCE_BACKGROUND
-	sh $0 &
+	sh $0 "background" &
 
 	# Nothing to do here anymore, exit call
 	exit 1
@@ -105,15 +150,6 @@ fi
 
 # We don't need to reload anything for now
 ADRELOAD=0
-
-# Cool ArchiDroid Banner
-if [ -e /system/bin/boot-dmesg ]; then
-	echo "INFO: boot-dmesg detected, turning on logcat banner" >> $LOG
-	ADBANNER=1
-else
-	echo "INFO: boot-dmesg NOT detected, turning off logcat banner" >> $LOG
-	ADBANNER=0
-fi
 
 # Don't force install mode, unless FORCE file exists
 if [ -e $AD/FORCE ]; then
@@ -127,9 +163,14 @@ fi
 # We want some sqlite3 updates and settings but only if INSTALL mode is enabled
 if [ -e $AD/INSTALL ] || [ $FORCE -eq 1 ]; then
 	echo "INFO: Install mode detected, I'm either after full wipe or forced to think so. Turning on ADMANY and DBUPDATE" >> $LOG
+	INSTALLMODE=1
 	if [ -d $AD/FIRSTBOOT/DATA ]; then
+		ADMANY=0
 		cd $AD/FIRSTBOOT/DATA
-		ADMANY=`ls | wc -l`
+		for folder in `find . -mindepth 1 -maxdepth 1 -type d` ; do
+			echo "I found $folder which need merging (data)" >> $LOG
+			ADMANY=`expr $ADMANY + 1`
+		done
 	else
 		ADMANY=0
 	fi
@@ -138,20 +179,38 @@ if [ -e $AD/INSTALL ] || [ $FORCE -eq 1 ]; then
 	ADRELOAD=1
 elif [ -e $AD/UPDATE ]; then
 	echo "INFO: Update mode detected. Turning off ADMANY and DBUPDATE" >> $LOG
+	INSTALLMODE=0
 	DBUPDATE=0
 	ADMANY=0
 else
 	# Panic
 	echo "FATAL ERROR: Could not detect Install/Update mode, ABORTING RUNONCE, PLEASE INVESTIGATE" >> $LOG
+	sysrw || mount -o remount,rw /system
+	rm -f $0
+	sysro || mount -o remount,ro /system
 	exit 2
 fi
 
+rm -f $AD/RunOnce.log.0
+if [ -e $AD/WORKING ]; then
+	exit 9
+else
+	touch $AD/WORKING
+fi
+# Cool ArchiDroid Banner
+if [ -e /system/bin/boot-dmesg ]; then
+	echo "INFO: boot-dmesg detected, turning on logcat banner" >> $LOG
+	ADBANNER=1
+else
+	echo "INFO: boot-dmesg NOT detected, turning off logcat banner" >> $LOG
+	ADBANNER=0
+fi
 # ArchiDroid Semaphore
 # Wait until we see some android processes to consider boot is more or less complete (credits to AndiP71)
 # Also respect number of loops, maybe something went wrong
 echo "INFO: RunOnce Semaphore started" >> $LOG
 LOOP=0
-while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
+while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ; do
 
 	if [ $ADBANNER -eq 1 ]; then
 		echo "
@@ -181,10 +240,10 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 
 			if [ $SAMMY -eq 1 ]; then
 				echo "INFO: Applying standard preset DBUPDATE" >> $LOG
-			DBUPDATE system notification_sound 'content://media/internal/audio/media/32'
-			DBUPDATE system ringtone 'content://media/internal/audio/media/42'				
-			DBUPDATE secure advanced_reboot 1
-			DBUPDATE secure ui_inverted_mode 2			
+			#DBUPDATE system notification_sound 'content://media/internal/audio/media/32'
+			#DBUPDATE system ringtone 'content://media/internal/audio/media/42'				
+			#DBUPDATE secure advanced_reboot 1
+			#DBUPDATE secure ui_inverted_mode 2			
 			DBUPDATE global transition_animation_scale 0.0
 			DBUPDATE global animator_duration_scale 0.0
 			DBUPDATE global window_animation_scale 0.0
@@ -192,7 +251,7 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 			DBUPDATE global install_non_market_apps 1
 			DBUPDATE global package_verifier_enable 0			
 			DBUPDATE system haptic_feedback_enabled 0
-			DBUPDATE system power_menu_screenshot_enabled 1
+			#DBUPDATE system power_menu_screenshot_enabled 1
 			DBUPDATE system status_bar_battery 1
 			DBUPDATE system screen_off_timeout 30000			
 			#DBUPDATE system statusbar_clock_date_display 1
@@ -377,53 +436,55 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 		cd $AD/FIRSTBOOT/DATA
 		for FOLDER in * ; do
 			if [ -d /data/data/$FOLDER ]; then
-				echo "INFO: I'm merging $FOLDER, called by ADMANY" >> $LOG
+				echo "INFO: I'm currently merging $FOLDER, called by ADMANY" >> $LOG
 				ADOWNER=`ls -ld /data/data/$FOLDER | awk '{print $3}'`
 				mkdir /data/data/$FOLDER/_ADTEMP
 				cp -R $FOLDER/* /data/data/$FOLDER/_ADTEMP/
 				
-				# I hate using implementations like this one, our shell is very limited. Forgive me
-				echo "cd /data/data/$FOLDER/_ADTEMP && cp -R * .." | su "$ADOWNER"
+				su "$ADOWNER" -c "cd /data/data/$FOLDER/_ADTEMP && cp -R * .. && touch /data/data/$FOLDER/DONE"
 				
-				if [ $? -eq 0 ]; then
+				if [ ! -e /data/data/$FOLDER/DONE ]; then
 					echo "INFO: It looks like everything ended successfully on $FOLDER" >> $LOG
+					rm -f /data/data/$FOLDER/DONE
 				else
-					echo "ERROR: su failed on $FOLDER, falling back to dirty chmod 777, please investigate" >> $LOG
+					echo "ERROR: su failed on $FOLDER, falling back to dirty chmod permissions, please investigate!" >> $LOG
 					cd /data/data/$FOLDER/_ADTEMP && cp -R * .. && cd $AD/FIRSTBOOT/DATA
-					busybox chmod -R 777 /data/data/$FOLDER/*
+					busybox chmod -R 777 /data/data/$FOLDER/* >/dev/null 2>&1
 				fi
 
 				# And we're done!
 				rm -Rf $FOLDER
 				rm -Rf /data/data/$FOLDER/_ADTEMP
 				ADOWNER=""
-				ADMANY=`ls | wc -l`
+				ADMANY=`expr $ADMANY - 1`
 				echo "INFO: $ADMANY to go" >> $LOG
 			fi
 		done
-		#ADMANY=`ls | wc -l`
 	fi
 
 	# Sleeping time
+	FORCEDSEMAPHORE=0
 	LOOP=`expr $LOOP + 1`
 	sleep 2
 done
 
 if [ $LOOP -ge 150 ]; then
 	echo "ERROR: I looped $LOOP times and needed to exit from infinite loop, not good (RunOnce Semaphore)" >> $LOG
+elif [ $LOOP -eq 0 ]; then
+	echo "ERROR: I didn't even entered semaphore, forcing it this time, it may cause unexpected behaviour!" >> $LOG
+	sh $0 "background" "forcedsemaphore" &
+	exit 3
 else
 	echo "INFO: I looped $LOOP times and didn't have to exit from infinite loop, that's nice (RunOnce Semaphore)" >> $LOG
 fi
 
-# Now that is checked, let's just wait another tiny little bit
-sleep 8
-
-# If we have any more runonce scripts then it's the right place for that
+# Post-Installation functions
+if [ $INSTALLMODE -eq 1 ]; then
+	echo "INFO: Calling Post-Installation functions (if any)" >> $LOG
+fi
 
 # I'm runonce script so let's clean everything and delete myself
-
-# NOTICE
-# ArchiDroid has sysro/sysrw support, change that to remount system rw if needed
+rm -f $AD/WORKING
 rm -f $AD/INSTALL
 rm -f $AD/UPDATE
 rm -f $AD/FORCE

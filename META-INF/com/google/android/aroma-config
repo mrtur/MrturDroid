@@ -30,7 +30,7 @@
 #
 ini_set("dp","3");
 ini_set("rom_name",             "MrturDroid");
-ini_set("rom_version",          "2.2.3");
+ini_set("rom_version",          "2.4.0");
 ini_set("rom_author",           "mrtur");
 ini_set("rom_device",           "Nexus 4");
 ini_set("rom_date",             "XX-12-2013");
@@ -128,7 +128,7 @@ loadlang(file_getprop("/tmp/aroma-data/lang.prop","language"));
 
 endif;
 
-#textbox(
+textbox(
   #-- Title
     "Changelog",
   
@@ -230,7 +230,7 @@ endif;
 ### PREVIOUS PRESET ###
 #######################
 
-setvar("preset_version","2");
+setvar("preset_version","3");
 if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "previous" then
   setvar("preset_version_probe",read("/data/media/0/MrturDroid/AromaPreset/slim/version.txt"));
   if getvar("preset_version")!=getvar("preset_version_probe") then
@@ -283,6 +283,19 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "bareb
     "hdvoice=0\n"+
     "buildtweaks=0\n"
   );
+  writetmpfile(
+    "mrturdroidxposed.prop",
+
+    "appsettings=0\n"+
+	"bootmanager=0\n"+
+    "xprivacy=0\n"
+  );
+  writetmpfile(
+    "mrturdroidbuild.prop",
+
+    "fastdormancy=0\n"+
+    "zerowakeup=0\n"	
+  );
 endif;
 
 
@@ -307,7 +320,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 
   writetmpfile(
     "mrturdroid.prop",
-    "kernel=franco\n"+
+    "kernel=stock\n"+
     "dpi=268\n"+
     "launcher=nova\n"+
     "keyboard=both\n"+
@@ -327,7 +340,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
     "titaniumbackup=1\n"+
     "greenify=0\n"+
     "lmt=0\n"+
-    "mxplayer=1\n"+
+    "mxplayer=0\n"+
     "bbs=0\n"+
     "cooltool=1\n"+
     "rootbrowser=0\n"+
@@ -367,8 +380,8 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
     "mrturdroid.prop",
     
     "kernel","<#selectbg_g>Kernel</#>","","group",
-    "stock","Stock(Slim)","<~mrturdroid.kernel.stock.desc>","select",
-    "franco","Franco","<~mrturdroid.kernel.franco.desc>","select.selected",
+    "stock","Stock(Slim)","<~mrturdroid.kernel.stock.desc>","select.selected",
+    #"franco","Franco","<~mrturdroid.kernel.franco.desc>","select.selected",
 
     "dpi","<#selectbg_g>DPI</#>","","group",
     "240","240 DPI","<~mrturdroid.dpi.240.desc>","select",
@@ -415,7 +428,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
     "titaniumbackup","Titanium Backup","<~mrturdroid.apps.titaniumbackup.desc>","check.checked",
     "greenify","Greenify","<~mrturdroid.apps.greenify.desc>","check.checked",
     "lmt","LMT","<~mrturdroid.apps.lmt.desc>","check",
-    "mxplayer","MXPlayer","<~mrturdroid.apps.mxplayer.desc>","check.checked",
+    #"mxplayer","MXPlayer","<~mrturdroid.apps.mxplayer.desc>","check.checked",
     "bbs","BetterBatteryStats","<~mrturdroid.apps.bbs.desc>","check.checked",
     "cooltool","CoolTool","<~mrturdroid.apps.cooltool.desc>","check.checked",
     "rootbrowser","Root Browser","<~mrturdroid.apps.rootbrowser.desc>","check",

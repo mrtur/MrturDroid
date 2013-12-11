@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <string name="MIC_BOOST">0</string>
+    <string name="FSYNC">1</string>
+    <string name="HS_BOOST">0</string>
+    <string name="GPU_MAX_CLK">400</string>
+    <string name="FFC">0</string>
+    <string name="MPDECISION">0</string>
+    <string name="VOL_BOOST">0</string>
+    <string name="FDT2W">1</string>
+    <string name="MPU_VOL">900:925:950:975:1025:1050:1075:1125:1150:1175:1187:1200</string>
+    <string name="TEMP_LIMIT">70</string>
+    <string name="VIB_STR">100</string>
+    <string name="GPU_GOV">interactive</string>
+</map>
