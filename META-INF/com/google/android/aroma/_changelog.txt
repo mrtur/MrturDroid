@@ -15,5 +15,5 @@ ArchiDroid 2.4.0
 3. ISTOTNE ZMIANY
 -Przejście na Android 4.4.1 (WYMAGANE FULL WIPE)
 -Opcje programistyczne oraz ADB odblokowane na starcie
--Zmieniona ikona (lockscreen_lock_icon) na starcie. Możliwość zmiany w systemie -> Ustawienia -> zabezpieczenia ->Theme style -> Lock Hanlde Icon
+-Zmieniona ikona (lockscreen_lock_icon) na starcie. Możliwość zmiany w systemie -> Ustawienia -> zabezpieczenia ->Theme style -> Lock Handle Icon
 
