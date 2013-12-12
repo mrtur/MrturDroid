@@ -1,4 +1,4 @@
-ArchiDroid 2.4.0
+﻿ArchiDroid 2.4.0
 
 1. Aktualizacja:
 -TotalCommander 2.0.3
@@ -7,6 +7,7 @@ ArchiDroid 2.4.0
 -XPrivacy 10.41
 -Inverts Mms.apk
 -Inverts (Facebook + Messenger, Google Hangouts/Chrome)
+-NovaLauncher 2.3
 2. Poprawki
 - usunięcie tinyplay (nie działa na Nexus4)
 - usunięcie MXPlayer (na razie nie działa na 4.4.1)

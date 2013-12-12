@@ -4,7 +4,6 @@
 #  Kernel
 #
 # <#selectbg_g>Stock(Slim)</#>
-# Franco
 
 ##################
 #  DPI
