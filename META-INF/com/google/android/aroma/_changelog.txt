@@ -6,7 +6,8 @@ ArchiDroid 2.4.0
 -TricksterMOD 2.9.832
 -CoolTool 5.1.1
 -XPrivacy 10.41
--nowa Mms.pak (INVERTED)
+-Inverts Mms.apk
+-Inverts (Facebook + Messenger, Google Hangouts/Chrome)
 2. Poprawki
 - usunięcie tinyplay (nie działa na Nexus4)
 - usunięcie MXPlayer (na razie nie działa na 4.4.1)
