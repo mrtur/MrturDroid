@@ -319,6 +319,7 @@ endif;
 if file_getprop("/tmp/aroma-data/mrturdroid.prop","kernel") == "franco" then
 	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Flashing Franco Kernel");
 	package_extract_file("_mrturdroid/kernels/franco/boot.img", "/dev/block/platform/msm_sdcc.1/by-name/boot");
+	package_extract_dir("_mrturdroid/kernels/franco/files", "/");
 	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing Trickster");
 	package_extract_dir("_mrturdroid/apps/trickster", "/"); 
 	

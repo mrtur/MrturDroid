@@ -381,7 +381,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
     
     "kernel","<#selectbg_g>Kernel</#>","","group",
     "stock","Stock(Slim)","<~mrturdroid.kernel.stock.desc>","select.selected",
-    #"franco","Franco","<~mrturdroid.kernel.franco.desc>","select.selected",
+    "franco","Franco","<~mrturdroid.kernel.franco.desc>","select",
 
     "dpi","<#selectbg_g>DPI</#>","","group",
     "240","240 DPI","<~mrturdroid.dpi.240.desc>","select",
