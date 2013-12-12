@@ -7,13 +7,9 @@ ArchiDroid 2.4.0
 -XPrivacy 10.41
 -Inverts Mms.apk
 -Inverts (Facebook + Messenger, Google Hangouts/Chrome)
-
 2. Poprawki
 - usunięcie tinyplay (nie działa na Nexus4)
 - usunięcie MXPlayer (na razie nie działa na 4.4.1)
-
-3. ISTOTNE ZMIANY
+3. ZMIANY
 -Przejście na Android 4.4.1 (WYMAGANE FULL WIPE)
--Opcje programistyczne oraz ADB odblokowane na starcie
--Zmieniona ikona (lockscreen_lock_icon) na starcie. Możliwość zmiany w systemie -> Ustawienia -> zabezpieczenia ->Theme style -> Lock Handle Icon
-
+-ikona odblokowania zmieniona na MrturDroid. Jest możliwość zmiany w: ustawienia -> zabezpieczenia -> Theme style

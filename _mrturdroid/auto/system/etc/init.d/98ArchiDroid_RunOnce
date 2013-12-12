@@ -266,6 +266,11 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 			#DBUPDATE secure lockscreen_lock_color -2
 			#DBUPDATE secure lockscreen_dots_color -2
 			DBUPDATE secure lockscreen_lock_icon '/data/data/com.android.settings/files/lock_icon1386830081392.png'
+			DBUPDATE system notification_alpha 0.0
+			DBUPDATE system power_menu_config '**poweroff**|empty|**reboot**|empty|**screenshot**|empty|**sound**|empty'
+			DBUPDATE system navigation_bar_config '**recents**|**null**|empty|**home**|**null**|empty|**back**|**null**|empty'
+			DBUPDATE system navigation_bar_height 60
+			DBUPDATE system navigation_bar_width 60
 			
 			else
 				echo "INFO: Applying mrtur preset DBUPDATE" >> $LOG
@@ -283,7 +288,7 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 			#DBUPDATE global cdma_cell_broadcast_sms 1
 			DBUPDATE global data_roaming 0
 			#DBUPDATE global default_install_location 0
-			DBUPDATE global development_settings_enabled 1
+			#DBUPDATE global development_settings_enabled 1
 			#DBUPDATE global device_provisioned 1
 			DBUPDATE global dock_audio_media_enabled 1
 			DBUPDATE global dock_sounds_enabled 0
@@ -337,7 +342,7 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 			#DBUPDATE secure selected_spell_checker_subtype 0
 			#DBUPDATE secure speak_password 0
 			#DBUPDATE secure touch_exploration_enabled 0
-			DBUPDATE secure ui_inverted_mode 2
+			#DBUPDATE secure ui_inverted_mode 2
 			#DBUPDATE secure user_setup_complete 1
 			DBUPDATE system accelerometer_rotation 0
 			DBUPDATE system auto_brightness_backlight 14,28,37,51,71,80,96,108,255,255,255,255
@@ -362,37 +367,38 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 			#DBUPDATE system navigation_bar_button_alpha 0.5
 			#DBUPDATE system navigation_bar_glow_duration_off 10
 			#DBUPDATE system navigation_bar_glow_duration_on 100
-			#DBUPDATE system navigation_bar_height 60
-			#DBUPDATE system navigation_bar_width 72
+			DBUPDATE system navigation_bar_height 60
+			DBUPDATE system navigation_bar_width 60
 			#DBUPDATE system next_alarm_formatted
 			#DBUPDATE system noise_suppression 0
 			#DBUPDATE system notif_alpha 0.0
 			#DBUPDATE system notif_wallpaper_alpha 0.1
 			#DBUPDATE system notification_light_pulse 1
-			DBUPDATE system pie_background_alpha 1.0
-			DBUPDATE system pie_button_alpha 0.45
-			DBUPDATE system pie_button_color '-16777216'
-			DBUPDATE system pie_button_pressed_alpha 1.0
-			DBUPDATE system pie_button_pressed_color '-16777216'
-			DBUPDATE system pie_buttons_config '**expanded_desktop**|**null**|empty|**home**|**null**|empty|**recents**|**null**|empty|**back**|**null**|empty'
-			DBUPDATE system pie_controls 1
-			DBUPDATE system pie_disable_statusbar_info 0
-			DBUPDATE system pie_gravity 6
-			DBUPDATE system pie_icon_color '-13388315'
-			DBUPDATE system pie_show_snap 0
-			DBUPDATE system pie_show_text 0
-			DBUPDATE system pie_size 1.5
-			DBUPDATE system pie_snap_color '-16777216'
-			DBUPDATE system pie_softkeyboard_is_showing 0
-			DBUPDATE system pie_text_color '-13388315'
-			DBUPDATE system pie_trigger_gravity_left_right 80
-			DBUPDATE system pie_trigger_height 0.68
-			DBUPDATE system pie_trigger_show 0
-			DBUPDATE system pie_trigger_thickness 13.5
+			#DBUPDATE system pie_background_alpha 1.0
+			#DBUPDATE system pie_button_alpha 0.45
+			#DBUPDATE system pie_button_color '-16777216'
+			#DBUPDATE system pie_button_pressed_alpha 1.0
+			#DBUPDATE system pie_button_pressed_color '-16777216'
+			#DBUPDATE system pie_buttons_config '**expanded_desktop**|**null**|empty|**home**|**null**|empty|**recents**|**null**|empty|**back**|**null**|empty'
+			#DBUPDATE system pie_controls 1
+			#DBUPDATE system pie_disable_statusbar_info 0
+			#DBUPDATE system pie_gravity 6
+			#DBUPDATE system pie_icon_color '-13388315'
+			#DBUPDATE system pie_show_snap 0
+			#DBUPDATE system pie_show_text 0
+			#DBUPDATE system pie_size 1.5
+			#DBUPDATE system pie_snap_color '-16777216'
+			#DBUPDATE system pie_softkeyboard_is_showing 0
+			#DBUPDATE system pie_text_color '-13388315'
+			#DBUPDATE system pie_trigger_gravity_left_right 80
+			#DBUPDATE system pie_trigger_height 0.68
+			#DBUPDATE system pie_trigger_show 0
+			#DBUPDATE system pie_trigger_thickness 13.5
 			#DBUPDATE system pointer_speed 0
-			DBUPDATE system power_menu_airplane_enabled 0
+			#DBUPDATE system power_menu_airplane_enabled 0
 			#DBUPDATE system power_menu_expanded_desktop_enabled 1
-			DBUPDATE system power_menu_screenshot_enabled 1
+			#DBUPDATE system power_menu_screenshot_enabled 1
+			DBUPDATE system power_menu_config '**poweroff**|empty|**reboot**|empty|**screenshot**|empty|**sound**|empty'			
 			DBUPDATE system power_ui_low_battery_warning_policy 1
 			#DBUPDATE system quick_settings_tile_content
 			#DBUPDATE system radio.data.stall.recovery.action 0
@@ -409,7 +415,7 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 			DBUPDATE system statusbar_clock_style 1
 			DBUPDATE system system_power_enable_crt_off 0
 			DBUPDATE system system_profiles_enabled 0
-			DBUPDATE system systemui_navbar_config '**recents**|**null**|empty|**home**|**null**|empty|**back**|**null**|empty'
+			DBUPDATE system navigation_bar_config '**recents**|**null**|empty|**home**|**null**|empty|**back**|**null**|empty'			
 			#DBUPDATE system tablet_ui 0
 			#DBUPDATE system toggle_notification_and_qs_shade 0
 			DBUPDATE system transition_animation_scale 1.0
