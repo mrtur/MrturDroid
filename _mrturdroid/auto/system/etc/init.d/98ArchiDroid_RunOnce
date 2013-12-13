@@ -434,6 +434,8 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 			#DBUPDATE system volume_voice 4
 			DBUPDATE system wakeup_when_plugged_unplugged 0
 			DBUPDATE system window_animation_scale 1.0
+			#DBUPDATE system notification_sound 'content://media/internal/audio/media/32'
+			DBUPDATE system ringtone 'content://media/internal/audio/media/25'
 			
 			fi
 			
