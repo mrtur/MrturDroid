@@ -1,7 +1,7 @@
 ﻿MrturDroid 2.4.1
 
 1. Aktualizacja:
-
+-XPrivacy 1.10.43
 2. Poprawki
 
 3. ISTOTNE ZMIANY
