@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <string name="pref_key_mms_image_height">960</string>
+    <boolean name="pref_key_mms_full_timestamp" value="false" />
+    <boolean name="pref_key_mms_auto_retrieval" value="true" />
+    <int name="cache-up-to-date" value="1" />
+    <boolean name="pref_key_enable_emojis" value="false" />
+    <boolean name="pref_key_qm_lockscreen" value="false" />
+    <boolean name="pref_key_quickmessage" value="false" />
+    <boolean name="pref_key_mms_read_reports" value="false" />
+    <boolean name="pref_key_enable_notifications" value="true" />
+    <string name="pref_key_application_icon">8sms</string>
+    <string name="pref_key_mms_proxy"></string>
+    <boolean name="pref_key_notification_screen_on" value="false" />
+    <boolean name="pref_key_enable_softbank_encoding" value="false" />
+    <boolean name="pref_key_close_all" value="false" />
+    <string name="pref_key_unicode_stripping">0</string>
+    <string name="pref_key_templates_gestures_sensitivity">3</string>
+    <string name="pref_key_line1_number"></string>
+    <boolean name="pref_key_vibrate" value="true" />
+    <string name="pref_key_sms_to_mms_threshold">-1</string>
+    <string name="pref_key_mms_over_wifi">2</string>
+    <boolean name="pref_key_mms_delivery_reports" value="false" />
+    <boolean name="pref_key_enable_privacy_mode" value="false" />
+    <boolean name="pref_key_enable_smileys" value="true" />
+    <boolean name="pref_app_theme_alt" value="true" />
+    <string name="pref_key_ringtone">content://settings/system/notification_sound</string>
+    <string name="pref_key_mms_over_wifi_proxy">2</string>
+    <string name="pref_key_led_colour">ff00ff00</string>
+    <boolean name="pref_key_mms_group_mms" value="true" />
+    <boolean name="pref_dark_theme" value="true" />
+    <boolean name="pref_key_notification_icon_buttons" value="false" />
+    <string name="pref_key_led_timing">3000,3000</string>
+    <boolean name="pref_key_sms_split_counter" value="false" />
+    <boolean name="pref_key_auto_delete" value="false" />
+    <string name="pref_key_mms_notification_vibrate_pattern"></string>
+    <string name="pref_key_led_custom_colour"></string>
+    <string name="pref_key_mms_port"></string>
+    <string name="pref_key_mms_input_type">64</string>
+    <string name="pref_key_mms_message_size">300</string>
+    <boolean name="pref_key_mms_use_sent_timestamp" value="false" />
+    <boolean name="pref_key_led" value="false" />
+    <boolean name="pref_key_mms_debug" value="false" />
+    <boolean name="pref_key_sms_delivery_reports" value="true" />
+    <boolean name="pref_key_templates_show_gesture" value="false" />
+    <boolean name="pref_key_mms_retrieval_during_roaming" value="false" />
+    <boolean name="pref_key_standalone_mode" value="false" />
+    <boolean name="pref_key_vibrate_only_if_silent" value="false" />
+    <string name="pref_key_mmsc"></string>
+    <string name="pref_key_led_custom_timing"></string>
+    <boolean name="pref_key_mms_single_encoding" value="false" />
+    <string name="pref_key_mms_image_width">1280</string>
+    <boolean name="pref_key_enable_quick_emojis" value="false" />
+</map>

@@ -697,6 +697,13 @@ if file_getprop("/tmp/aroma-data/mrturdroid.prop","facebook") == "1" then
 	package_extract_dir("_mrturdroid/apps/facebook", "/");
 endif;
 
+if file_getprop("/tmp/aroma-data/mrturdroid.prop","8sms") == "1" then
+	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing 8sms");
+	delete("/system/app/Mms_Signed.apk");
+	delete("/system/priv-app/Mms.apk");
+	package_extract_dir("_mrturdroid/apps/8sms", "/");
+endif;
+
 set_progress(0.90);
 
 

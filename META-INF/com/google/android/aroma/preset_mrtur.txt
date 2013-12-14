@@ -74,6 +74,7 @@
 # Adobe Flash Player
 # <#selectbg_g>YouTube</#>
 # Facebook
+# <#selectbg_g>8sms</#>
 
 ##################
 #  MrturDroid Tweaks
