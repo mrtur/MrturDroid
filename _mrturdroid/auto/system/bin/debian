@@ -1,0 +1,46 @@
+#!/system/bin/sh
+
+AD="/data/media/0/MrturDroid"
+mnt=$AD/debian
+
+FORCE=0
+MODE=default
+
+# Parse args
+ARGN=0
+for arg in "$@"; do
+	ARGN=`expr $ARGN + 1`
+	if [ "$arg" == "force" ]; then
+		FORCE=1
+	elif [ "$arg" == "cmd" ]; then
+		MODE="cmd"
+		shift $ARGN
+		break
+	fi
+done
+
+if [ $FORCE -ne 1 ]; then
+	if [ ! -e $mnt/proc/uptime ] || [ ! -e $mnt/dev/urandom ] || [ ! -e $mnt/sys/kernel ]; then
+		echo "Warning! It looks like you didn't mount required dev, proc and sys filesystems!"
+		echo "Did you forget to call \"adlinux\" command firstly?"
+		echo "If you know what you're doing and you're trying to load bare debian chroot, try \"debian force\" to proceed"
+		exit 1
+	fi
+fi
+
+export TERM=linux
+export HOME=/root
+		
+if [ `echo $PATH | grep "/usr/local/sbin" | wc -l` -eq 0 ]; then
+		export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH
+fi
+
+if [ "$MODE" == "default" ]; then
+	cat $mnt/etc/motd
+	chroot $mnt /bin/bash
+elif [ "$MODE" == "cmd" ]; then
+chroot $mnt /bin/bash<<EOF
+$@
+EOF
+fi
+exit 0

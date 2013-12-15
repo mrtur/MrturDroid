@@ -1,0 +1,135 @@
+#!/system/bin/sh
+
+# ArchiDroid Debian/Linux Booter
+
+if [ `whoami` != "root" ]; then
+	echo "Sorry, but I require root access, forking a rooted shell for you..."
+	su || echo "Failed!"
+	exit 0
+fi
+
+AD="/data/media/0/MrturDroid"
+mnt=$AD/debian
+
+echo "Welcome to ArchiDroid Debian/Linux Booter!"
+echo "Checking access to $AD"
+mkdir -p $AD/tmp
+cd $AD/tmp
+touch test
+CHECK1=$?
+rm -f test
+CHECK2=$?
+if [ $CHECK1 -ne 0 ] || [ $CHECK2 -ne 0 ]; then
+	echo "Sorry, access test failed. Make sure that $AD/tmp is not being owned by root or give me root access"
+	exit 1
+else
+	echo "Access test passed, we're ready to go!"
+fi
+
+if [ $# -eq 0 ]; then
+	echo "Usage: $0 <MODE>"
+	echo ""
+	echo ""
+	echo "Available modes:"
+	echo ""
+	echo "default	Will mount /data /system /storage/sdcard0 /storage/sdcard1 and core filesystems in chroot. Default suggested mode"
+	echo ""
+	echo "safe	Will mount only core filesystems in chroot. Useful if you don't want to share your storage in chroot"
+	echo ""
+	echo "bare	Won't mount even core filesystems such as /proc /dev or /sys. Requires \"debian force\" to enter chroot. This is the \"real\" safe mode. You won't be able to interact with an android in any way, while debian itself will work in very limited environment, making core functions unavailable. Suggested only for testing purposes"
+	echo ""
+	echo "rebuild	Will automatically reboot your device and remove debian folder in the safe way. WILL CAUSE ALL DEBIAN DATA TO BE LOST!"
+	echo ""
+	echo "unmount	Will automatically reboot your device to safely unmount debian environment"
+	echo ""
+	echo ""
+	echo -n "Your choice: "
+	read CHOICE
+else
+	CHOICE="$1"
+fi
+
+case "$CHOICE" in
+	"unmount")
+		reboot
+		exit 0
+		;;
+	"rebuild")
+		sysrw
+
+echo "#!/system/bin/sh
+rm -rf $mnt
+sysrw
+rm -f \$0
+sysro
+exit 0" > /system/etc/init.d/91ArchiDroid_RebuildDebian
+
+		chmod 755 /system/etc/init.d/91ArchiDroid_RebuildDebian
+		busybox sync
+		reboot
+		exit 0
+		;;
+	"default")
+		echo "Ok, detected $CHOICE"
+		;;
+	"safe")
+		echo "Ok, detected $CHOICE"
+		;;
+	"bare")
+		echo "Ok, detected $CHOICE"
+		;;
+	*)
+		echo "Sorry, could not detect any valid choice, exiting"
+		exit 1
+esac
+
+if [ -e $mnt/proc/uptime ] && [ -e $mnt/dev/urandom ] && [ -e $mnt/sys/kernel ]; then
+	echo "It looks like your debian is already booted, skipping booting and mode selection..."
+else
+	echo "It looks like your debian isn't booted yet, booting..."
+
+	if [ ! -e $mnt/bin/bash ]; then
+		mkdir -p $mnt
+		echo "It looks like it's your first installation. Unpacking your debian..."
+		busybox tar -xf $AD/System/debian.tar.bz2 -C $mnt
+		echo "Done!"
+	fi
+
+	echo "Booting debian..."
+
+	case "$CHOICE" in
+	"default")
+		echo "Mounting /dev /dev/pts /dev/shm /proc /sys /system /data /storage/sdcard0 /storage/sdcard1"
+		busybox mount --bind /dev $mnt/dev
+		busybox mount --bind /dev/pts $mnt/dev/pts
+		mkdir -p $mnt/dev/shm
+		busybox mount --bind /dev/shm $mnt/dev/shm
+		busybox mount -t proc proc $mnt/proc
+		busybox mount -t sysfs sysfs $mnt/sys
+		busybox mount --bind /system $mnt/system
+		busybox mount --bind /data $mnt/data
+		busybox mount --bind /storage/sdcard0 $mnt/storage/sdcard0
+		busybox mount --bind /storage/sdcard1 $mnt/storage/sdcard1
+		;;
+	"safe")
+		echo "Mounting /dev /dev/pts /dev/shm /proc /sys, SKIPPING /system /data /storage/sdcard0 /storage/sdcard1"
+		busybox mount --bind /dev $mnt/dev
+		busybox mount --bind /dev/pts $mnt/dev/pts
+		mkdir -p $mnt/dev/shm
+		busybox mount --bind /dev/shm $mnt/dev/shm
+		busybox mount -t proc proc $mnt/proc
+		busybox mount -t sysfs sysfs $mnt/sys
+		;;
+	"bare")
+		echo "Not mounting anything!"
+		;;
+	*)
+		echo "Sorry, could not detect any valid choice, exiting"
+		exit 1
+	esac
+fi
+
+echo "ArchiDroid Debian environment ready!"
+echo "Type \"debian\" to enter chroot"
+
+exit 0
