@@ -33,7 +33,7 @@ ini_set("rom_name",             "MrturDroid");
 ini_set("rom_version",          "2.4.1");
 ini_set("rom_author",           "mrtur");
 ini_set("rom_device",           "Nexus 4");
-ini_set("rom_date",             "XX-12-2013");
+ini_set("rom_date",             "14-12-2013");
 
 ##
 # Show Animated Splash
