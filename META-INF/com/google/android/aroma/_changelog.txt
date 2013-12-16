@@ -3,6 +3,7 @@
 1. Aktualizacja:
 - XPrivacy 1.10.43
 - Updated GAPPS to PA-GAPPS 2013-12-12
+- MX Player 1.7.21 - już działa na Androidze 4.4.1
 
 2. Poprawki
 - brak
@@ -10,4 +11,6 @@
 3. ISTOTNE ZMIANY
 - Android 4.4.2 (baza Slim-mako-4.4.2.beta.1.6-WEEKLY-2037)
 - Dodano aplikację 8sms jako zamiennik systemowej Mms.apk
+- Dodano Debiana (Dzięki JustArchi)
+- Dodano możliwość pobierania MrturDroida z GitHub'a (Dzięki JustArchi)
 
