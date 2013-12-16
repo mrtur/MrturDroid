@@ -1,3 +1,3 @@
 #!/system/bin/sh
 
-reboot recovery
+-c "reboot recovery"
