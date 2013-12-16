@@ -26,7 +26,7 @@ if [ -d $ourFolder/$VERSION ]; then
 	echo ""
 	echo ""
 else
-	echo "Repository isn't available yet, cloning ArchiDroid repository branch $VERSION"
+	echo "Repository isn't available yet, cloning MrturDroid repository branch $VERSION"
 	cd $ourFolder
 	git clone --branch $VERSION --depth 1 $ourLink $VERSION
 	cd $ourFolder/$VERSION

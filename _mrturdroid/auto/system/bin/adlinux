@@ -2,7 +2,7 @@
 
 # ArchiDroid Debian/Linux Booter
 
-if [ `whoami` != "root" ]; then
+if [ -z `whoami | grep -i "root"` ] && [ -z `whoami | grep -i "uid 0"` ]; then
 	echo "Sorry, but I require root access, forking a rooted shell for you..."
 	su || echo "Failed!"
 	exit 0
@@ -91,7 +91,7 @@ else
 	if [ ! -e $mnt/bin/bash ]; then
 		mkdir -p $mnt
 		echo "It looks like it's your first installation. Unpacking your debian..."
-		busybox tar -xf $AD/System/debian.tar.bz2 -C $mnt
+		busybox tar -xf $AD/System/debian.tar.gz -C $mnt
 		echo "Done!"
 	fi
 
@@ -109,7 +109,12 @@ else
 		busybox mount --bind /system $mnt/system
 		busybox mount --bind /data $mnt/data
 		busybox mount --bind /storage/sdcard0 $mnt/storage/sdcard0
-		busybox mount --bind /storage/sdcard1 $mnt/storage/sdcard1
+		
+		if [ -e /storage/sdcard1 ]; then
+			busybox mount --bind /storage/sdcard1 $mnt/storage/sdcard1
+		elif [ -e /storage/extSdCard ]; then
+			busybox mount --bind /storage/extSdCard $mnt/storage/sdcard1
+		fi
 		;;
 	"safe")
 		echo "Mounting /dev /dev/pts /dev/shm /proc /sys, SKIPPING /system /data /storage/sdcard0 /storage/sdcard1"
