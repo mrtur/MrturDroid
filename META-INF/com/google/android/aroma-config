@@ -339,7 +339,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
     "titaniumbackup=1\n"+
     "greenify=0\n"+
     "lmt=0\n"+
-    "mxplayer=0\n"+
+    "mxplayer=1\n"+
     "bbs=0\n"+
     "cooltool=1\n"+
     "rootbrowser=0\n"+
@@ -428,7 +428,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
     "titaniumbackup","Titanium Backup","<~mrturdroid.apps.titaniumbackup.desc>","check.checked",
     "greenify","Greenify","<~mrturdroid.apps.greenify.desc>","check.checked",
     "lmt","LMT","<~mrturdroid.apps.lmt.desc>","check",
-    #"mxplayer","MXPlayer","<~mrturdroid.apps.mxplayer.desc>","check.checked",
+    "mxplayer","MXPlayer","<~mrturdroid.apps.mxplayer.desc>","check.checked",
     "bbs","BetterBatteryStats","<~mrturdroid.apps.bbs.desc>","check.checked",
     "cooltool","CoolTool","<~mrturdroid.apps.cooltool.desc>","check.checked",
     "rootbrowser","Root Browser","<~mrturdroid.apps.rootbrowser.desc>","check",
