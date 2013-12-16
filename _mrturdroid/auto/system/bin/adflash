@@ -24,8 +24,8 @@ if [ $# -eq 0 ]; then
 	echo "Usage: $0 <VERSION>"
 	echo ""
 	echo "Available versions:"
-	echo "s		Slim"
-	echo "sw	Slim_work"
+	echo "s -> Slim"
+	echo "sw -> Slim_work"
 	echo ""
 	echo -n "Your choice: "
 	read VERSION
