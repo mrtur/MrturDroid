@@ -1,6 +1,6 @@
 #!/system/bin/sh
 
-AD="/data/media/0/ArchiDroid"
+AD="/data/media/0/MrturDroid"
 mnt=$AD/debian
 
 # Check if we're running as root
@@ -11,11 +11,11 @@ fi
 
 # Check if we're not deleting content from mounted debian
 if [ -e $mnt/proc/uptime ] || [ -e $mnt/dev/urandom ] || [ -e $mnt/sys/kernel ]; then
-	echo "WARNING! You just tried to delete ArchiDroid with running debian, use \"adlinux unmount\" firstly!"
+	echo "WARNING! You just tried to delete MrturDroid with running debian, use \"adlinux unmount\" firstly!"
 	exit 1
 fi
 
 rm -rf $AD
 #reboot recovery
-echo "Done, ArchiDroid folder removed"
+echo "Done, MrturDroid folder removed"
 exit 0
