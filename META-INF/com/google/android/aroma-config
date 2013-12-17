@@ -33,7 +33,7 @@ ini_set("rom_name",             "MrturDroid");
 ini_set("rom_version",          "2.4.2");
 ini_set("rom_author",           "mrtur");
 ini_set("rom_device",           "Nexus 4");
-ini_set("rom_date",             "17-12-2013");
+ini_set("rom_date",             "18-12-2013");
 
 ##
 # Show Animated Splash
@@ -280,7 +280,8 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "bareb
     "facebook=0\n"+
     "8sms=0\n"+	
     "hdvoice=0\n"+
-    "buildtweaks=0\n"
+    "buildtweaks=0\n"+
+    "debianoff=1\n"
   );
   writetmpfile(
     "mrturdroidxposed.prop",
@@ -349,7 +350,8 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
     "facebook=0\n"+
     "8sms=1\n"+	
     "hdvoice=1\n"+
-    "buildtweaks=1\n"
+    "buildtweaks=0\n"+
+    "debianoff=0\n"
   );
 
   writetmpfile(
@@ -440,7 +442,8 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 
     "mrturtweaks","<#selectbg_g>MrturDroid Tweaks</#>","","group",
     "hdvoice","HD Voice","<~mrturdroid.tweaks.hdvoice.desc>","check.checked",
-    "buildtweaks","Add build.prop Tweaks","<~mrturdroid.tweaks.buildtweaks.desc>","check.checked"
+    "buildtweaks","Add build.prop Tweaks","<~mrturdroid.tweaks.buildtweaks.desc>","check.checked",
+	"debianoff","Debian Off","<~mrturdroid.tweaks.debianoff.desc>","check.checked"	  	
   );
   write("/data/media/0/MrturDroid/AromaPreset/slim/mrturdroid.prop",
     readtmpfile("mrturdroid.prop");

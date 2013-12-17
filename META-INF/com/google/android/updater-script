@@ -706,13 +706,28 @@ endif;
 
 set_progress(0.90);
 
-
 # One more fix to logcat
 ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Syncing System");
 #set_perm(1000, 1000, 0771, "/data");
 #set_perm_recursive(1000, 1000, 0771, 0644, "/data/app");
 #set_perm_recursive(0, 0, 0771, 0660, "/data/data");
 run_program("/sbin/sync");
+
+set_progress(0.91);
+
+##################
+### DEBIAN OFF ###
+##################
+
+if file_getprop("/tmp/aroma-data/mrturdroid.prop","debianoff") == "1" then
+	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Delete Debian");
+	delete_recursive("/data/media/0/MrturDroid/debian");
+	delete_recursive("/data/media/0/MrturDroid/tmp");
+	delete_recursive("/data/media/0/MrturDroid/GitHub");
+	delete_recursive("/data/media/0/MrturDroid/GitHubArchi");
+	delete_recursive("/data/media/0/MrturDroid/System");	
+	delete("/system/bin/adflash","/system/bin/adlinux","/system/bin/adflasharchi","/system/bin/debian","/system/bin/openssl","/system/bin/curl");
+endif;
 
 set_progress(0.92);
 

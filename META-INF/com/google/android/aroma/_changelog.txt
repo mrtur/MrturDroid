@@ -13,4 +13,5 @@
 - Dodano aplikację 8sms jako zamiennik systemowej Mms.apk
 - Dodano Debiana (THX JustArchi)
 - Dodano mozliwosc pobierania MrturDroida z GitHub'a (THX JustArchi)
+- Dodano mozliwosc usuniecia Debiana (opcja w aroma)
 
