@@ -162,7 +162,7 @@ elif [ "$MODE" == "git" ]; then
 fi
 
 if [ $NOZIP -eq 1 ]; then
-	"Nozip detected, finishing!"
+	echo "Nozip detected, finishing!"
 	exit 0
 fi
 
