@@ -262,10 +262,10 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 			#DBUPDATE system statusbar_clock_style 1
 			#DBUPDATE global adb_enabled 1
 			#DBUPDATE global development_settings_enabled 1
-			#DBUPDATE secure lockscreen_frame_color -2
-			#DBUPDATE secure lockscreen_lock_color -2
-			#DBUPDATE secure lockscreen_dots_color -2
-			DBUPDATE secure lockscreen_lock_icon '/data/data/com.android.settings/files/lock_icon1386830081392.png'
+			#DBUPDATE secure lockscreen_frame_color '-2'
+			#DBUPDATE secure lockscreen_lock_color '-2'
+			#DBUPDATE secure lockscreen_dots_color '-2'
+			#DBUPDATE secure lockscreen_lock_icon '/data/data/com.android.settings/files/lock_icon1387346611174.png'
 			DBUPDATE system notification_alpha 0.0
 			DBUPDATE system power_menu_config '**poweroff**|empty|**reboot**|empty|**screenshot**|empty|**sound**|empty'
 			DBUPDATE system navigation_bar_config '**recents**|**null**|empty|**home**|**null**|empty|**back**|**null**|empty'
