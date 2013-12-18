@@ -6,4 +6,6 @@ ArchiDroid_FstrimAll - Same as above but also calls fstrim() on /cache /preload 
 
 ArchiDroid_RemoveMrturDroid - Removes MrturDroid folder completely and reboots into recovery, allowing you to flash other ROM without any junk left by MrturDroid. Please don't use this script during updates and cleaning, as MrturDroid needs this folder.
 
+ArchiDroid_RemoveArchiDroid - Removes ArchiDroid folder completely and reboots into recovery, allowing you to flash other ROM without any junk left by ArchiDroid. Please don't use this script during updates and cleaning, as ArchiDroid needs this folder.
+
 ArchiDroid_TemporaryUnroot - Performs temporary unrooting "on the fly". This allows opening/using some apps which require the device to be unrooted. Works only with poorly-designed apps.

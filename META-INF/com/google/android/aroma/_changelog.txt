@@ -10,7 +10,7 @@
 
 3. ISTOTNE ZMIANY
 - Android 4.4.2 (Slim-mako-4.4.2.beta.1.7-WEEKLY-2077)
-- Dodano aplikację 8sms jako zamiennik systemowej Mms.apk
+- Dodano aplikację 8sms jako propozycje zamieny systemowej Mms.apk (wybor w aroma)
 - Dodano Debiana (THX JustArchi)
 - Dodano mozliwosc pobierania MrturDroida z GitHub'a (THX JustArchi)
 - Dodano mozliwosc usuniecia Debiana (opcja w aroma)

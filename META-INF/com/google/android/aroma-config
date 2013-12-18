@@ -106,7 +106,6 @@ if getvar("aroma_lang")!="OFF" then
 form(
   "MrturDroid Language",
   "Which language would you like to use?",
-  #"@confirm",
   "@welcome",
   "lang.prop",
   
@@ -148,7 +147,6 @@ agreebox(
     "",
   
   #-- Icon
-	#"@license",
     "@welcome",
   
   #-- Text Content ( Read from <AROMA Resource Dir>/read_me.txt )
@@ -169,7 +167,6 @@ agreebox(
     "",
   
   #-- Icon
-    #"@license",
     "@welcome",	
   
   #-- Text Content ( Read from <AROMA Resource Dir>/read_me2.txt )
@@ -185,7 +182,6 @@ agreebox(
 form(
   "<~mrturdroid.preset>",
   "<~mrturdroid.preset.desc>",
-  #"@apps",
   "@welcome",  
   "mrturdroidinstallmode.prop",
   
@@ -200,7 +196,6 @@ else
 form(
   "<~mrturdroid.preset>",
   "<~mrturdroid.preset.desc>",
-  #"@apps",
   "@welcome",
   "mrturdroidwipe.prop",
   
@@ -212,7 +207,6 @@ form(
 form(
   "<~mrturdroid.preset>",
   "<~mrturdroid.preset.desc>",
-  #"@apps",
   "@welcome",
   "mrturdroidinstallmode.prop",
   
@@ -220,7 +214,7 @@ form(
   "custom","<~mrturdroid.preset.custom>", "<~mrturdroid.preset.custom.desc>","select",
   "previous","<~mrturdroid.preset.previous>","<~mrturdroid.preset.previous.desc>","select",
   "barebones","<~mrturdroid.preset.barebones>","<~mrturdroid.preset.barebones.desc>","select",
-  "mrtur","mrtur","Własne ustawienia mrtur'a","select.selected"
+  "mrtur","<~mrturdroid.preset.mrtur>","<~mrturdroid.preset.mrtur.desc>","select.selected"
 );
 endif;
 
@@ -228,7 +222,7 @@ endif;
 ### PREVIOUS PRESET ###
 #######################
 
-setvar("preset_version","3");
+setvar("preset_version","4");
 if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "previous" then
   setvar("preset_version_probe",read("/data/media/0/MrturDroid/AromaPreset/slim/version.txt"));
   if getvar("preset_version")!=getvar("preset_version_probe") then
@@ -377,7 +371,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
   form(
     "<~mrturdroid.custom>",
     "<~mrturdroid.custom.desc>",
-    #"@apps",
 	"@welcome",
     "mrturdroid.prop",
     
@@ -453,7 +446,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
     form(
       "<~mrturdroid.custom.extra>",
       "<~mrturdroid.custom.desc>",
-      #"@apps",
       "@welcome",
       "mrturdroidxposed.prop",
 
@@ -470,7 +462,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
     form(
       "<~mrturdroid.custom.extra>",
       "<~mrturdroid.custom.desc>",
-      #"@apps",
       "@welcome",
       "mrturdroidbuild.prop",
 
@@ -506,7 +497,6 @@ if getvar("resexec_retstatus")=="0" || getvar("resexec_retstatus")=="1" then
 			#-- Text
 			"<~mrturdroid.detect.fail>",
 			#-- Icon (Optional)
-			#"@info",
 			"@welcome",
 			#-- Yes Text
 			"<~mrturdroid.detect.fail.yes>",
@@ -532,7 +522,6 @@ if getvar("resexec_retstatus")=="2" then
 			#-- Text
 			"<~mrturdroid.detect.pass>",
 			#-- Icon (Optional)
-			#"@info",
 			"@welcome",
 			#-- Yes Text
 			"<~mrturdroid.detect.pass.yes>",
@@ -552,7 +541,6 @@ if getvar("resexec_retstatus")=="2" then
 				#-- Text
 				"<~mrturdroid.detect.force>",
 				#-- Icon (Optional)
-			#"@alert"
 			"@welcome"
 			)=="yes"
 		then
@@ -583,7 +571,6 @@ ini_set("text_next", "<~common.flash>");
 viewbox(
     "<~mrturdroid.prepinstall>",
     "<~mrturdroid.prepinstall.desc>",
-    #"@alert"
     "@welcome"
 );
 
@@ -597,7 +584,6 @@ ini_set("text_next", "<~common.finish>");
 	  "<~mrturdroid.install.desc>",
 	
 	#-- Installation Icon
-      #"@install",
 	  "@welcome",
 	
 	#-- Installation Finish Message
@@ -611,7 +597,6 @@ if
 	#-- Text
 	  "<~mrturdroid.wizard.reboot>",
 	#-- Icon (Optional)
-	  #"@confirm",
 	  "@welcome",
 	#-- Yes Text
 	  "<~text_yes>",
@@ -632,7 +617,6 @@ ini_set("text_next", "<~common.finish>");
 	  "<~mrturdroid.install.desc>",
 	
 	#-- Installation Icon
-      #"@install",
       "@welcome",
 	
 	#-- Installation Finish Message

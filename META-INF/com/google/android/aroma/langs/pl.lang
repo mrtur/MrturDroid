@@ -89,7 +89,7 @@ mrturdroid.preset.barebones.desc=Czysty Slim. Tylko dla testów ewentualnych bł
 mrturdroid.preset.previous=Poprzedni Preset
 mrturdroid.preset.previous.desc=Ładuje Twój poprzednio wybrany preset (o ile dostępny)
 mrturdroid.preset.mrtur=Preset by mrtur
-mrturdroid.preset.mrtur.desc=Ładuje moje własne ustawienia. W zasadzie tylko dla mnie ;)
+mrturdroid.preset.mrtur.desc=Ładuje moje własne ustawienia. W zasadzie tylko dla mnie,ale jak chcesz to testuj ;)
 
 mrturdroid.detect.previouspreset.fail=Nie mogłem załadować Twojego poprzedniego presetu, ponieważ nie przeszedł testów integralności lub nie został znaleziony
 
@@ -146,7 +146,7 @@ mrturdroid.apps.8sms.desc=Doba alternatywa dla systemowej Mms.apk
 mrturdroid.tweaks.hdvoice.desc=Włącza HD Voice o ile dostępne
 mrturdroid.tweaks.buildtweaks.desc=Wiele tweaków build.prop, w tym m.in. głębszy sen oraz większa wydajność
 mrturdroid.tweaks.openpdroid.desc=Spatchuj ROM ze wsparciem dla OpenPDroid o ile dostępny
-mrturdroid.tweaks.debianoff.desc=Zaznacz jeżeli nie chcesz mieć i uzywać środowiska Debian.
+mrturdroid.tweaks.debianoff.desc=Zaznacz jeżeli nie masz zamiaru używać środowiska Debian
 
 mrturdroid.xposed.appsettings.desc=Pozwala na zarządzanie ustawieniami specyficznymi dla danych aplikacji. Bardzo użyteczny moduł
 mrturdroid.xposed.bootmanager.desc=Pozwala na zarządzanie jakie aplikacje będą ładowane wraz ze startem systemu.
