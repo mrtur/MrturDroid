@@ -1,6 +1,7 @@
 ﻿MrturDroid 2.4.3
 
 1. Aktualizacja:
+- XPrivacy 1.10.49
 
 2. Poprawki
 - preset mrtur
