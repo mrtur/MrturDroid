@@ -158,15 +158,15 @@ if [ $NOZIP -eq 1 ]; then
 fi
 
 echo "Zipping MrturDroid to flashable version..."
-zip -qry -1 MrturDroid.zip . -x ".git/*" "__screenshots/*"
+zip -qry -1 MrturDroid_$VERSION.zip . -x ".git/*" "__screenshots/*"
 if [ $? -ne 0 ]; then
 	echo "Zipping failed, aborting"
 	exit 1
 fi
 	
-rm -f $AD/MrturDroid.zip
-mv MrturDroid.zip $AD/MrturDroid.zip
-echo "Done, you can find your flashable rom in $AD/MrturDroid.zip"
+rm -f $AD/MrturDroid_$VERSION.zip
+mv MrturDroid_$VERSION.zip $AD/MrturDroid_$VERSION.zip
+echo "Done, you can find your flashable rom in $AD/MrturDroid_$VERSION.zip"
 
 if [ "$MODE" == "direct" ]; then
 	cd $AD/tmp && rm -rf *
