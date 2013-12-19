@@ -2,6 +2,7 @@
 
 1. Aktualizacja:
 - XPrivacy 1.10.49
+- Cool Tool 5.2
 
 2. Poprawki
 - preset mrtur
