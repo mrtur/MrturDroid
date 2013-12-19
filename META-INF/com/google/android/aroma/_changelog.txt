@@ -6,6 +6,7 @@
 
 2. Poprawki
 - preset mrtur
+- adflasher and nozip (GITHUB)
 
 3. ISTOTNE ZMIANY
 
