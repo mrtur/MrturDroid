@@ -31,13 +31,7 @@
 #  Global Tweaks
 #
 # <#selectbg_g>CrossBreeder</#>
-# None
-
-##################
-#  Xposed Framework
-#
-# <#selectbg_g>Yes</#>
-# No 
+# <#selectbg_g>Xposed Framework</#>
 
 ##################
 #  Xposed Modules
@@ -74,7 +68,6 @@
 # Adobe Flash Player
 # <#selectbg_g>YouTube</#>
 # Facebook
-# 8sms
 
 ##################
 #  MrturDroid Tweaks
@@ -84,7 +77,7 @@
 # <#selectbg_g>Build.prop Tweaks</#>
 # Debian On
 # <#selectbg_g>Fastdormancy</#>
-# <#selectbg_g>Zerowakeup</#>
+# Zerowakeup
 
 
 Zgadzasz się, wybierz <b><#selectbg_g>"Dalej"</#></b> jeżeli nie, wybierz <b><#selectbg_g>"Wstecz"</#></b>
