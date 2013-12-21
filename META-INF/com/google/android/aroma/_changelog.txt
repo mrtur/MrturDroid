@@ -8,6 +8,7 @@
 - preset mrtur
 - adflasher and nozip (GITHUB)
 - ROM zip pobrany z githuba posiada w nazwie nazwe brancha (MrturDroid_branch.zip)
+- wylaczona instalcja 8sms, już nie jest potrzebna
 
 3. ISTOTNE ZMIANY
 
