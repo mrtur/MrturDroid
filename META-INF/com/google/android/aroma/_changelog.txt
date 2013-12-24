@@ -11,5 +11,5 @@
 - wylaczona instalcja 8sms, już nie jest potrzebna
 
 3. ISTOTNE ZMIANY
-
+- nowa baza Slim-mako-4.4.2.beta.1.9-WEEKLY-2116
 
