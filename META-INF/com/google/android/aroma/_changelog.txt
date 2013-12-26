@@ -3,6 +3,7 @@
 1. Aktualizacja:
 - XPrivacy 1.11
 - Cool Tool 5.2
+- Hackers keyboard 1.37
 
 2. Poprawki
 - preset mrtur
