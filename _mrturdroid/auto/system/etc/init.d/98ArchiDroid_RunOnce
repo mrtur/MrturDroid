@@ -266,7 +266,7 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 			#DBUPDATE system notification_sound 'content://media/internal/audio/media/32'
 			#DBUPDATE system ringtone 'content://media/internal/audio/media/42'				
 			#DBUPDATE secure advanced_reboot 1
-			#DBUPDATE secure ui_inverted_mode 2			
+			DBUPDATE secure ui_inverted_mode 2			
 			DBUPDATE global transition_animation_scale 0.0
 			DBUPDATE global animator_duration_scale 0.0
 			DBUPDATE global window_animation_scale 0.0
@@ -363,7 +363,7 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 			#DBUPDATE secure selected_spell_checker_subtype 0
 			#DBUPDATE secure speak_password 0
 			#DBUPDATE secure touch_exploration_enabled 0
-			#DBUPDATE secure ui_inverted_mode 2
+			DBUPDATE secure ui_inverted_mode 2
 			#DBUPDATE secure user_setup_complete 1
 			DBUPDATE system accelerometer_rotation 0
 			DBUPDATE system auto_brightness_backlight 14,28,37,51,71,80,96,108,255,255,255,255
