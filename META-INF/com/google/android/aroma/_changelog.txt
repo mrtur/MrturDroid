@@ -13,6 +13,6 @@
 
 3. ISTOTNE ZMIANY
 - nowa baza Slim-mako-4.4.2.beta.1.9-WEEKLY-2116
-- wylaczona instalacja crossbreeder'a. Wymagana jest oddzielna instalcja poprzez recovery (jezeli ktos potrzebuje)
+- wylaczona instalacja crossbreeder'a. Wymagana jest oddzielna instalacja poprzez recovery (jezeli ktos potrzebuje)
 - dodano mozliwosc instalacji kernela Semaphore
 
