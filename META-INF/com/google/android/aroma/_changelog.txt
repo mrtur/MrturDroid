@@ -1,18 +1,9 @@
-﻿MrturDroid 2.4.3
+﻿MrturDroid 2.4.4
 
 1. Aktualizacja:
-- XPrivacy 1.11
-- Cool Tool 5.2
-- Hackers keyboard 1.37
 
 2. Poprawki
-- preset mrtur
-- adflasher and nozip (GITHUB)
-- ROM zip pobrany z githuba posiada w nazwie nazwe brancha (MrturDroid_branch.zip)
-- wylaczona instalcja 8sms, już nie jest potrzebna
 
 3. ISTOTNE ZMIANY
-- nowa baza Slim-mako-4.4.2.beta.1.9-WEEKLY-2116
-- wylaczona instalacja crossbreeder'a. Wymagana jest oddzielna instalacja poprzez recovery (jezeli ktos potrzebuje)
-- dodano mozliwosc instalacji kernela Semaphore
+
 
