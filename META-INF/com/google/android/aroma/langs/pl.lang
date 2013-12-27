@@ -99,6 +99,7 @@ mrturdroid.custom.desc=Zmodyfikuj proszę poniższe ustawienia do Twoich predysp
 
 mrturdroid.kernel.stock.desc=Pochodzący prosto od Slim
 mrturdroid.kernel.franco.desc=Zalecany jako alternatywa dla stocka
+mrturdroid.kernel.semaphore.desc=Alternatywa dla stocka
 
 mrturdroid.dpi.240.desc=UWAGA! Możliwe niewielkie bugi graficzne
 mrturdroid.dpi.268.desc=Zalecane przez autorów Slim

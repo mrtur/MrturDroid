@@ -335,6 +335,27 @@ if file_getprop("/tmp/aroma-data/mrturdroid.prop","kernel") == "franco" then
     #delete("/tmp/stock.img");
 endif;
 
+### SEMAPHORE ###
+if file_getprop("/tmp/aroma-data/mrturdroid.prop","kernel") == "semaphore" then
+	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Flashing Semaphore Kernel");
+	set_perm_recursive(0, 0, 0755, 0755, "/system/etc/init.d");
+	package_extract_dir("_mrturdroid/kernels/semaphore", "/tmp");
+	package_extract_dir("kernel", "/tmp");
+	set_perm(0, 0, 0777, "/tmp/mkbootimg.sh");
+	set_perm(0, 0, 0777, "/tmp/mkbootimg");
+	set_perm(0, 0, 0777, "/tmp/unpackbootimg");
+	set_perm(0, 0, 0777, "/tmp/busybox");
+	set_perm(0, 0, 0777, "/tmp/install_kernel");
+	run_program("/tmp/install_kernel");
+	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing Trickster");
+	package_extract_dir("_mrturdroid/apps/trickster", "/"); 
+	
+	# Not needed since zygote kernel panic fix
+    #package_extract_file("boot.img", "/tmp/stock.img");
+    #write_raw_image("/tmp/stock.img", "/dev/block/mmcblk0p5");
+    #delete("/tmp/stock.img");
+endif;
+
 set_progress(0.6);
 
 ###############
