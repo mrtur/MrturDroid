@@ -5,5 +5,6 @@
 2. Poprawki
 
 3. ISTOTNE ZMIANY
+- nowa baza Slim-mako-4.4.2.beta.1.95-WEEKLY-2162
 
 
