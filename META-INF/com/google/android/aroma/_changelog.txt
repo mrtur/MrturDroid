@@ -3,7 +3,7 @@
 1. Aktualizacja:
 - App Settings 1.7.1
 - Titanium Backup 6.1.5.1
-- Cool Tool 5.3
+- Cool Tool 5.3.1
 
 2. Poprawki
 - crossbreder znowu aktywny
