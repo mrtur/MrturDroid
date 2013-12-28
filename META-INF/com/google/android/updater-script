@@ -302,7 +302,7 @@ set_progress(0.54);
 #################
 ### BAREBONES ###
 #################
-if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "barebones" then
+if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "barebones" then
 	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Flashing Stock Kernel");
     package_extract_file("boot.img", "/dev/block/platform/msm_sdcc.1/by-name/boot");
 	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Applying 320 DPI");
