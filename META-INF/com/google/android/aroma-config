@@ -217,63 +217,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "previ
   endif;
 endif;
 
-##################
-### BARE BONES ###
-##################
-
-if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "barebones" then
-  writetmpfile(
-    "mrturdroid.prop",
-
-    "kernel=stock\n"+
-    "dpi=320\n"+
-    "launcher=stock\n"+
-    "keyboard=stock\n"+
-    "bootanimation=none\n"+
-    "xposed=0\n"+
-    "crossbreeder=0\n"+		
-    "gapps=0\n"+
-    "gcalendar=0\n"+
-    "gchrome=0\n"+
-    "gkeep=0\n"+
-    "gmail=0\n"+
-    "gmaps=0\n"+
-    "gvoice=0\n"+
-    "ghangouts=0\n"+
-    "gplus=0\n"+
-    "gtranslate=0\n"+
-    "titaniumbackup=0\n"+
-    "greenify=0\n"+
-    "lmt=0\n"+
-    "mxplayer=0\n"+
-    "spiritfm=0\n"+
-    "bbs=0\n"+
-    "cooltool=0\n"+
-    "rootbrowser=0\n"+
-    "totalcommander=0\n"+	
-    "adobeflash=0\n"+
-    "youtube=0\n"+
-    "facebook=0\n"+
-    "hdvoice=0\n"+
-    "buildtweaks=0\n"+
-    "debianoff=1\n"
-  );
-  writetmpfile(
-    "mrturdroidxposed.prop",
-
-    "appsettings=0\n"+
-	"bootmanager=0\n"+
-    "xprivacy=0\n"
-  );
-  writetmpfile(
-    "mrturdroidbuild.prop",
-
-    "fastdormancy=0\n"+
-    "zerowakeup=0\n"	
-  );
-endif;
-
-
 #############
 ### mrtur ###
 #############
