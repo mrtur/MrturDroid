@@ -69,6 +69,22 @@ else
 	ADBANNER=0
 fi
 
+# Zipalign, disabled for a while
+if [ $ROM -eq 9 ]; then #Always false
+	echo "INFO: Performing ZIPALIGN of apks" >> $LOG
+	for apk in /data/app/*.apk ; do
+		zipalign -c 4 $apk;
+		ZIPCHECK=$?;
+		if [ $ZIPCHECK -eq 1 ]; then
+			zipalign -f 4 $apk /cache/$(basename $apk)
+			if [ -e /cache/$(basename $apk) ]; then
+				cp -f /cache/$(basename $apk) $apk
+				rm -f /cache/$(basename $apk)
+				busybox chmod 644 $apk
+			fi
+		fi
+	done
+fi
 # ArchiDroid Semaphore
 # Wait until we see some android processes to consider boot is more or less complete (credits to AndiP71)
 # Also respect number of loops, maybe something went wrong
