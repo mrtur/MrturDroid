@@ -37,9 +37,9 @@ ini_set("rom_date",             "XX-12-2013");
 
 ##
 # Show Animated Splash
-#
+##
 anisplash(
-#  #-- Number of Loop
+  #-- Number of Loop
     1,
   
   #-- Frame 1 [ Image, duration in millisecond ]. <AROMA Resource Dir>/splash/a[1..6].png
@@ -57,17 +57,6 @@ anisplash(
 	"mrturdroidsplash02", 100,
 	"mrturdroidsplash01", 500
 );
-
-##
-# Show Simple Splash
-#
-#splash(
-  #-- Duration 2000ms / 2 seconds
-#    10000,
-  
-  #-- <AROMA Resource Dir>/sample.png
-#    "mrturdroidsplash"
-#);
 
 #
 # Set Small Font to Support all fonts
@@ -109,16 +98,9 @@ form(
   "@welcome",
   "lang.prop",
   
-  #"language","<#selectbg_g>Language</#>","","group",
-  #"langs/al.lang","Albanian","Shqiptar, thanks to CEPi","select",
-  #"langs/cr.lang","Croatian","Hrvatski, thanks to gastonmazzacane","select",
+  "language","<#selectbg_g>Language</#>","","group",
   "langs/en.lang","English", "","select",
-  #"langs/fi.lang","Finnish","Suomi, thanks to amppen","select",
-  #"langs/fr.lang","French","Français, thanks to nmeuret","select",
-  #"langs/de.lang","German","Deutsch, thanks to beyerservice","select",
   "langs/pl.lang","Polish","Polski","select.selected"
-  #"langs/ru.lang","Russian","Pусский, thanks to egotheist","select",
-  #"langs/tr.lang","Turkish","Türkçe, thanks to ZiR0 & MadCoderz","select"
 );
 
 loadlang(file_getprop("/tmp/aroma-data/lang.prop","language"));
@@ -192,7 +174,7 @@ form(
   "mrtur","<~mrturdroid.preset.mrtur>","<~mrturdroid.preset.mrtur.desc>","select"
 );
 else
-#loadlang("langs/pl.lang");
+
 form(
   "<~mrturdroid.preset>",
   "<~mrturdroid.preset.desc>",
@@ -374,7 +356,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
     
     "kernel","<#selectbg_g>Kernel</#>","","group",
     "stock","Stock(Slim)","<~mrturdroid.kernel.stock.desc>","select.selected",
-    #"franco","Franco","<~mrturdroid.kernel.franco.desc>","select",
     "semaphore","Semaphore","<~mrturdroid.kernel.semaphore.desc>","select",	
 
     "dpi","<#selectbg_g>DPI</#>","","group",
@@ -430,7 +411,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
     "adobeflash","Adobe Flash Player","<~mrturdroid.apps.adobeflash.desc>","check",
     "youtube","YouTube [<~common.inverted>]","<~mrturdroid.apps.youtube.desc>","check.checked",
     "facebook","Facebook + Messenger [<~common.inverted>]","<~mrturdroid.apps.facebook.desc>","check",
-    #"8sms","8sms","<~mrturdroid.apps.8sms.desc>","check"
 
     "mrturtweaks","<#selectbg_g>MrturDroid Tweaks</#>","","group",
     "hdvoice","HD Voice","<~mrturdroid.tweaks.hdvoice.desc>","check.checked",
