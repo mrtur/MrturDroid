@@ -546,7 +546,6 @@ if [ $INSTALLMODE -eq 1 ]; then
 fi
 
 # I'm runonce script so let's clean everything and delete myself
-
 rm -f $AD/INSTALL
 rm -f $AD/UPDATE
 rm -f $AD/FORCE
@@ -565,12 +564,13 @@ fi
 
 # Execute a reboot if we need it
 if [ $ADRELOAD -eq 1 ]; then
-	echo "INFO: Hot reboot required, I'm killing system_server right now." >> $LOG
-	# Finish
+	echo "INFO: Reboot required, I'm rebooting the device right now" >> $LOG
 	echo "INFO: ArchiDroid RunOnce finished" >> $LOG
 	echo "`date`" >> $LOG
 	busybox sync
-	killall system_server
+
+	reboot
+	#killall system_server
 	sleep 10
 else
 	# We should call Init if reboot isn't required
@@ -578,6 +578,7 @@ else
 
 	sleep 20
 	sysro || mount -o remount,ro /system
+
 	# Finish
 	echo "INFO: ArchiDroid RunOnce finished" >> $LOG
 	echo "`date`" >> $LOG
