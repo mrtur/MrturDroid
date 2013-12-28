@@ -94,7 +94,7 @@ fi
 
 # Sqlite VACUUM & REINDEX
 echo "INFO: Performing VACUUM & REINDEX of databases" >> $LOG
-busybox mount -o remount,rw /
+mount -o remount,rw /
 for i in `busybox find /data/data -iname "*.db"`; do
 	sqlite3 $i 'VACUUM;'
 	sqlite3 $i 'REINDEX;'
@@ -103,7 +103,7 @@ for i in `busybox find /data/system -iname "*.db"`; do
 	sqlite3 $i 'VACUUM;'
 	sqlite3 $i 'REINDEX;'
 done
-busybox mount -o remount,ro /
+mount -o remount,ro /
 
 # Zipalign, disabled for a while
 if [ $ROM -eq 9 ]; then #Always false
@@ -165,8 +165,8 @@ if [ -e /dev/block/mmcblk1p1 ] && [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] 
 	# Further improvements by JustArchi
 
 	echo "INFO: Detected sd card but it's not mounted yet" >> $LOG
-	echo "INFO: Giving Android 20 more seconds to initialize external sd card..." >> $LOG
-	sleep 20
+	echo "INFO: Giving Android 30 more seconds to initialize external sd card..." >> $LOG
+	sleep 30
 	echo "INFO: Time passed!" >> $LOG
 	if [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] && [ `mount | grep -i "extSdCard" | wc -l` -eq 0 ]; then
 		echo "INFO: External sd card is still not mounted, mounting..." >> $LOG
@@ -178,9 +178,17 @@ if [ -e /dev/block/mmcblk1p1 ] && [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] 
 		fi
 
 		if [ -e /storage/sdcard1 ]; then
-			busybox mount -t auto /dev/block/mmcblk1p1 /storage/sdcard1
+			if [ -e /dev/block/vold/179:49 ]; then
+				busybox mount -t auto -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 /dev/block/vold/179:49 /storage/sdcard1
+			else
+				busybox mount -t auto -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 /dev/block/mmcblk1p1 /storage/sdcard1
+			fi
 		elif [ -e /storage/extSdCard ]; then
-			busybox mount -t auto /dev/block/mmcblk1p1 /storage/extSdCard
+			if [ -e /dev/block/vold/179:49 ]; then
+				busybox mount -t auto -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 /dev/block/vold/179:49 /storage/extSdCard
+			else
+				busybox mount -t auto -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 /dev/block/mmcblk1p1 /storage/extSdCard
+			fi
 		fi
 
 		if [ `mount | grep "sdcard1" | wc -l` -eq 0 ]; then
