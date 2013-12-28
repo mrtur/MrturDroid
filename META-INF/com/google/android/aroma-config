@@ -249,6 +249,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "bareb
     "keyboard=stock\n"+
     "bootanimation=none\n"+
     "xposed=0\n"+
+    "crossbreeder=0\n"+		
     "gapps=0\n"+
     "gcalendar=0\n"+
     "gchrome=0\n"+
@@ -318,7 +319,8 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
     "keyboard=both\n"+
     "bootanimation=mrtur\n"+
     "xposed=1\n"+
-    "gapps=1\n"+
+    "crossbreeder=1\n"+	
+	"gapps=1\n"+
     "gcalendar=1\n"+
     "gchrome=0\n"+
     "gkeep=0\n"+
@@ -402,7 +404,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 
     "other","<#selectbg_g><~mrturdroid.other></#>","","group",
     "xposed","Xposed Framework","<~mrturdroid.xposed.desc>","check.checked",
-    #"crossbreeder","Crossbreeder","<~mrturdroid.crossbreeder.desc>","check.checked",
+    "crossbreeder","Crossbreeder","<~mrturdroid.crossbreeder.desc>","check.checked",
 
     "googleapps","<#selectbg_g>Google Apps</#>","","group",
     "gapps","Google Apps","<~mrturdroid.gapps.desc>","check.checked",
