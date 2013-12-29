@@ -9,6 +9,29 @@
 # Initial variables, you should NOT change them unless you know what you're doing
 AD="/data/media/0/MrturDroid"
 LOG="$AD/RunOnce.log" # "/dev/null" is no verbose
+ADSTATUS="/dev/ARCHIDROID_RUNONCE_STATUS"
+
+if [ ! -e $ADSTATUS ]; then
+	# First boot, good
+	echo -n $$ > $ADSTATUS
+else
+	ADSIGNAL=`cat $ADSTATUS`
+	if [ $ADSIGNAL == "FINISHED" ]; then
+		# Something tried to execute already finished init, halt
+		echo "This script has been executed already"
+		exit 0
+	else
+		kill -s 0 $ADSIGNAL >/dev/null 2>&1
+		ADSIGNAL=$?
+		if [ $ADSIGNAL -eq 0 ]; then
+			# Something tried to execute already running init, double-execution?
+			exit 3
+		else
+			# Old PID is dead and didn't exit properly, it looks like init re-executed itself f.e. for background purpose, allow that
+			echo -n $$ > $ADSTATUS
+		fi
+	fi
+fi
 
 # Redirect stderr to our log, just in case something bad happen
 #exec 1>$LOG # Use "exec 1>>$LOG" for append
@@ -187,24 +210,16 @@ else
 	sysrw || mount -o remount,rw /system
 	rm -f $0
 	sysro || mount -o remount,ro /system
+
+	# Init depends on us
+	sh /system/etc/init.d/99ArchiDroid_Init "background" "force" &
+	
 	exit 2
 fi
 
 rm -f $AD/RunOnce.log.0
-if [ -e $AD/WORKING ]; then
-	exit 9
-else
-	touch $AD/WORKING
-fi
 
-# Cool ArchiDroid Banner
-if [ -e /system/bin/boot-dmesg ]; then
-	echo "INFO: boot-dmesg detected, turning on logcat banner" >> $LOG
-	ADBANNER=1
-else
-	echo "INFO: boot-dmesg NOT detected, turning off logcat banner" >> $LOG
-	ADBANNER=0
-fi
+
 
 # ArchiDroid Semaphore
 # Wait until we see some android processes to consider boot is more or less complete (credits to AndiP71)
@@ -213,27 +228,7 @@ echo "INFO: RunOnce Semaphore started" >> $LOG
 LOOP=0
 while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ; do
 
-	if [ $ADBANNER -eq 1 ]; then
-		echo "
-*******************************************************************************
-*             _                _      _  ____               _      _          *
-*            / \    _ __  ___ | |__  (_)|  _ \  _ __  ___  (_)  __| |         *
-*           / _ \  | '__|/ __|| '_ \ | || | | || '__|/ _ \ | | / _\` |         *
-*          / ___ \ | |  | (__ | | | || || |_| || |  | (_) || || (_| |         *
-*         /_/   \_\|_|   \___||_| |_||_||____/ |_|   \___/ |_| \__,_|         *
-*                                                                             *
-*******************************************************************************
-*                  _                       _  _                               *
-*                 | |     ___    __ _   __| |(_) _ __    __ _                 *
-*                 | |    / _ \  / _\` | / _\` || || '_ \  / _\` |                *
-*                 | |___| (_) || (_| || (_| || || | | || (_| |                *
-*                 |_____|\___/  \__,_| \__,_||_||_| |_| \__, |                *
-*                                                       |___/                 *
-*******************************************************************************
-*            root@ArchiDroid:~# Waiting for ArchiDroid to load...             *
-*******************************************************************************
-"
-	fi
+
 	
 	if [ $DBUPDATE -eq 1 ]; then
 		if [ -e /data/data/com.android.providers.settings/databases/settings.db ]; then
@@ -523,7 +518,7 @@ if [ $INSTALLMODE -eq 1 ]; then
 fi
 
 # I'm runonce script so let's clean everything and delete myself
-rm -f $AD/WORKING
+
 rm -f $AD/INSTALL
 rm -f $AD/UPDATE
 rm -f $AD/FORCE
@@ -551,10 +546,14 @@ if [ $ADRELOAD -eq 1 ]; then
 	#killall system_server
 	sleep 10
 else
+	# We should call Init if reboot isn't required
+	sh /system/etc/init.d/99ArchiDroid_Init "background" "force" &
+
 	sleep 20
 	sysro || mount -o remount,ro /system
 	# Finish
 	echo "INFO: ArchiDroid RunOnce finished" >> $LOG
 	echo "`date`" >> $LOG
+	echo -n "FINISHED" > $ADSTATUS
 fi
 exit 0
