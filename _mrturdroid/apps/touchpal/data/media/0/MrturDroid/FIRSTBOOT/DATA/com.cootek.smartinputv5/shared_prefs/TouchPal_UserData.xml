@@ -1,2 +1,9 @@
 <?xml version='1.0' encoding='utf-8' standalone='yes' ?>
-<map />
+<map>
+    <string name="13883358193501">/SETTING/FUNCTIONBAR/edit,TRUE</string>
+    <string name="1388335765989">/SETTING/VIBRATE_TIME,0</string>
+    <string name="13883358193502">/SETTING/FUNCTIONBAR/hw_mask,TRUE</string>
+    <string name="13883358193503">/SETTING/FUNCTIONBAR/twitter,FALSE</string>
+    <string name="1388335819350">/SETTING/FUNCTIONBAR/voice,TRUE</string>
+    <string name="13883358193504">/SETTING/FUNCTIONBAR/more,TRUE</string>
+</map>

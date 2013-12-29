@@ -1,58 +1,73 @@
 <?xml version='1.0' encoding='utf-8' standalone='yes' ?>
 <map>
-    <int name="GUIDE_PLAY_STATE" value="1" />
     <boolean name="API_INPUT_CONNECTION_DISABLED" value="false" />
+    <int name="GUIDE_PLAY_STATE" value="1" />
     <boolean name="V4_USRDICT_IMPORTED" value="true" />
     <int name="KEYBOARD_LAYOUT_LAYOUT_english" value="1" />
     <string name="QUICK_SETTINGS_NEW_SETTINGS">WAVE_ENABLE:true/skin:false/typing_speed:false/language:false/feedback:false</string>
     <boolean name="FIRST_START_KEYBOARD" value="false" />
-    <string name="CELL_DICTIONARY_CELLDICT_english"></string>
+    <int name="SLIDE_INPUT_TIP_STATE" value="2" />
+    <string name="CURRENT_HOTWORD_DICTIONARY_ID">com.cootek.smartinputv5.language.english</string>
+    <string name="CELL_DICTIONARY_CELLDICT_english">en_hotword.tpc</string>
     <int name="HANDWRITE_RECOG_RANGE_RECOGRANGE_chinese_pinyin" value="261903" />
+    <int name="KEYBOARD_POSITION" value="0" />
     <string name="LBS_NOTIFIED_LOCATION"></string>
     <boolean name="PREDICT_NEXT_WORD_NEXTWORD_western" value="true" />
-    <int name="NEXT_CONTACT_IMPORT_TIME" value="23111431" />
-    <int name="LANGUAGE_USED_TIMES_LANGUAGE_polish" value="7" />
+    <int name="SPACE_LONG_PRESS_TIP_STATE" value="2" />
+    <boolean name="FIRST_DEL_WIZARD" value="false" />
+    <int name="LANGUAGE_USED_TIMES_LANGUAGE_polish" value="40" />
+    <int name="NEXT_CONTACT_IMPORT_TIME" value="23177768" />
+    <string name="FUNCTIONBAR_SETTINGS">voice:true/edit:true/twitter:false/</string>
     <int name="KEYBOARD_SUBTYPE_P_SUBTYPE_western" value="2" />
     <int name="PRODUCT_TYPE" value="1" />
+    <int name="IME_CUR_VERSION" value="5465" />
     <boolean name="TOUCH_CORRECT" value="true" />
-    <int name="IME_CUR_VERSION" value="5452" />
-    <string name="CELL_DICTIONARY_CELLDICT_chinese"></string>
     <boolean name="FIRST_START_INPUTMETHOD" value="false" />
-    <boolean name="SHOW_EMOJI_IN_APP_TIP" value="false" />
+    <string name="CELL_DICTIONARY_CELLDICT_chinese"></string>
     <boolean name="SHOW_PROMOTE_PINYIN_ADDONS" value="true" />
-    <boolean name="ADAPTIVE_LEARNING_ADTLEARNING_western" value="true" />
+    <boolean name="SHOW_EMOJI_IN_APP_TIP" value="false" />
     <string name="ALREADY_OWN_PKGS_DOWNLOADLIMITATION_DOWNLOAD_LANGUAGE">cootek.smartinput.android.language.polish/cootek.smartinput.android.language.english/</string>
+    <boolean name="ADAPTIVE_LEARNING_ADTLEARNING_western" value="true" />
     <boolean name="english" value="true" />
     <int name="LAST_NOTIFY_UPDATE" value="0" />
     <boolean name="polish" value="true" />
-    <int name="AUTO_BACKUP_DICTIONARY_TIME" value="23069671" />
     <boolean name="INVITE_SUCCEED" value="true" />
-    <string name="STATISTIC_DATA">polish_qwerty_total 25 </string>
+    <int name="AUTO_BACKUP_DICTIONARY_TIME" value="23139249" />
+    <string name="STATISTIC_DATA">polish_qwerty_total 210 polish_qwerty_curve 31 polish_qwerty_ocean 44 polish_qwerty_oc_length 9#4#3#5#7#9#2#1#0#1#1#2#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0 polish_qwerty_oc_input 9#4#3#6#6#9#2#1#0#1#1#2#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0 polish_qwerty_oc_correct 44 polish_qwerty_oc_equal_length 43 polish_qwerty_oc_env_word 9 polish_qwerty_oc_predict_length 1#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0 </string>
     <boolean name="SYS_USER_DIC_IMPORTED" value="true" />
     <boolean name="SHOW_INSTALL_INCOMPATIBLE_LANGUAGE" value="true" />
-    <int name="PAOPAO_NEXT_QUERY_UPDATE_TIME" value="0" />
+    <int name="VIBRATE_TIME" value="0" />
     <boolean name="ENV_WORD" value="true" />
+    <int name="PAOPAO_NEXT_QUERY_UPDATE_TIME" value="0" />
     <boolean name="DOWNSLIDE_SYMBOLS" value="true" />
-    <string name="SERVER_USER_TOKEN">7a272234-1dff-441d-9f24-88008f25deb2</string>
+    <boolean name="SMART_AUTOSPACE" value="true" />
+    <int name="LAST_ACTIVATION_SUCCESS_TIME" value="1388151803" />
     <boolean name="FORWARD_PREDICTION" value="true" />
-    <int name="LAST_ACTIVATION_SUCCESS_TIME" value="1384090265" />
-    <boolean name="SHOW_LANG_FIRST_SETUP_DLG_LANGUAGE_polish" value="false" />
+    <string name="SERVER_USER_TOKEN">0a71cb94-6148-45d6-88c3-d50c8bac5c9b</string>
+    <int name="KEYBOARD_HEIGHT_NORMAL_P" value="424" />
+    <boolean name="ONE_HANDED_LAYOUT" value="false" />
     <boolean name="DICTIONARY_COMPLETE_COMPLETEDICTIONARY_polish" value="true" />
-    <boolean name="AUTOSPACE_ENABLE" value="true" />
+    <boolean name="SHOW_LANG_FIRST_SETUP_DLG_LANGUAGE_polish" value="false" />
+    <int name="KEYBOARD_BOTTOM_MARGIN" value="0" />
     <int name="SYMBOL_KEYBOARD_LAYOUT" value="2" />
+    <boolean name="AUTOSPACE_ENABLE" value="true" />
     <boolean name="OPEN_PAOPAO_PANEL_FIRST" value="false" />
+    <int name="NEXT_LOCALIZE_WEB_TIME" value="23139249" />
     <long name="FIRST_INSTALL_TIME" value="1384090199061" />
     <boolean name="SHOW_TUTORIAL" value="true" />
     <int name="FIRST_START_TIME" value="1384090256" />
     <boolean name="NEED_REFRESH_MORE_TAB_NEW_TAG" value="false" />
-    <int name="PAOPAO_NEXT_QUERY_NEWS_TIME" value="0" />
-    <int name="CURRENT_DICTIONARY_TIMESTAMP" value="20130709" />
-    <int name="PAOPAO_LAST_NEWS_ID" value="0" />
+    <boolean name="CURVE_PREDICTION" value="false" />
+    <int name="PAOPAO_NEXT_QUERY_NEWS_TIME" value="23139249" />
+    <boolean name="ADVANCED_VIBRATION" value="false" />
+    <int name="CURRENT_DICTIONARY_TIMESTAMP" value="20131029" />
+    <int name="PAOPAO_LAST_NEWS_ID" value="20" />
     <boolean name="FUNCTIONBAR" value="true" />
-    <int name="SMS_NEXT_IMPORT_TIME" value="23078311" />
     <boolean name="SHOW_LANGPACKS_ADDON" value="true" />
+    <int name="SMS_NEXT_IMPORT_TIME" value="23144648" />
     <boolean name="IS_CHINESE_LANGUAGE_ENABLED" value="false" />
-    <boolean name="CONTACT_IMPORTED" value="true" />
     <string name="ACTIVATE_IDENTIFIER">c4:43:8f:a9:53:29##e0a5d7fa8acfe91e</string>
+    <boolean name="CONTACT_IMPORTED" value="true" />
     <int name="DEVICE_TYPE" value="1" />
+    <int name="USER_INPUT_DATA_UPLOAD_TIME" value="23139249" />
 </map>
