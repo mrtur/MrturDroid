@@ -9,6 +9,29 @@
 # Initial variables, you should NOT change them unless you know what you're doing
 AD="/data/media/0/MrturDroid"
 LOG="$AD/Init.log" # "/dev/null" is no verbose
+ADSTATUS="/dev/ARCHIDROID_INIT_STATUS"
+
+if [ ! -e $ADSTATUS ]; then
+	# First boot, good
+	echo -n $$ > $ADSTATUS
+else
+	ADSIGNAL=`cat $ADSTATUS`
+	if [ $ADSIGNAL == "FINISHED" ]; then
+		# Something tried to execute already finished init, halt
+		echo "This script has been executed already"
+		exit 0
+	else
+		kill -s 0 $ADSIGNAL >/dev/null 2>&1
+		ADSIGNAL=$?
+		if [ $ADSIGNAL -eq 0 ]; then
+			# Something tried to execute already running init, double-execution?
+			exit 3
+		else
+			# Old PID is dead and didn't exit properly, it looks like init re-executed itself f.e. for background purpose, allow that
+			echo -n $$ > $ADSTATUS
+		fi
+	fi
+fi
 
 # Redirect stderr to our log, just in case something bad happen
 #exec 1>$LOG # Use "exec 1>>$LOG" for append
@@ -85,6 +108,7 @@ if [ $ROM -eq 9 ]; then #Always false
 		fi
 	done
 fi
+
 # ArchiDroid Semaphore
 # Wait until we see some android processes to consider boot is more or less complete (credits to AndiP71)
 # Also respect number of loops, maybe something went wrong
@@ -160,7 +184,7 @@ if [ -e /dev/block/mmcblk1p1 ] && [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] 
 			echo "INFO: Success!" >> $LOG
 		fi
 	else
-		echo "INFO: OK, Android mounted our external sd card in given 20 seconds, aborting workaround" >> $LOG
+		echo "INFO: OK, Android mounted our external sd card in given 30 seconds, aborting workaround" >> $LOG
 	fi
 else
 	echo "INFO: OK, I don't need to mount external sd card" >> $LOG
