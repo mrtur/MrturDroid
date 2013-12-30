@@ -62,7 +62,7 @@ anisplash(
 # Set Small Font to Support all fonts
 #
 fontresload( "0", "ttf/lucon.ttf;ttf/DroidSansFallback.ttf;", "14" ); #-- Use sets of font (Font Family)
-fontresload( "1", "ttf/Roboto-Regular.ttf;ttf/DroidSansFallback.ttf;", "18" ); #-- Use sets of font (Font Family)
+fontresload( "1", "ttf/lucon.ttf;ttf/DroidSansFallback.ttf;", "18" ); #-- Use sets of font (Font Family)
 
 theme("Black&White");
 resexec("exec/mrturdroid_init.sh");
@@ -81,9 +81,9 @@ viewbox(
     "Witaj w AROMA. Instalujesz <b>"+
 	  #-- Get Config Value
 	  ini_get("rom_name")+
-	"</b> dla <b>"+ini_get("rom_device")+"</b>.\n\n"+
+	"</b> dla <b>"+ini_get("rom_device")+"</b>\n\n"+
 	
-      "  Wersja:\t\t\t <b><#selectbg_g>"+ini_get("rom_version")+"</#></b>\n"+
+      "  Wersja:\t\t <b><#selectbg_g>"+ini_get("rom_version")+"</#></b>\n"+
       "  Data powstania:\t <b><#selectbg_g>"+ini_get("rom_date")+"</#></b>\n\n\n"+
 
     "Wybierz <b>Dalej</b> jeżeli chcesz kontynuować.",
