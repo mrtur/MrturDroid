@@ -11,6 +11,7 @@
 - czyszczenie aroma
 - poprawka skryptów RunOnce, Init
 - dodano velvet.apk oraz googlesearch.apk w przypadku klawiatury TouchPal
+- wrocila ikona rekina w lockscreenie :)
 
 3. ISTOTNE ZMIANY
 - nowa baza Slim-mako-4.4.2.beta.1.95-WEEKLY-2162
