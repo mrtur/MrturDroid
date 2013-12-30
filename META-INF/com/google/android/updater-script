@@ -894,8 +894,13 @@ ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~
 assert(unmount("/data") || ui_print("(data is unmounted already)"));
 assert(unmount("/system") || ui_print("(system is unmounted already)"));
 
-ui_print("===================================");
-ui_print("  MrturDroid Flashed Successfully  ");
-ui_print("===================================");
+ui_print("###############################");
+ui_print("#  _____ _       _     _      #");
+ui_print("# |  ___(_)_ __ (_)___| |__   #");
+ui_print("# | |_  | | '_ \| / __| '_ \  #");
+ui_print("# |  _| | | | | | \__ \ | | | #");
+ui_print("# |_|   |_|_| |_|_|___/_| |_| #");
+ui_print("#                             #");
+ui_print("###############################");
 #run_program("/sbin/busybox", "cp", "/tmp/recovery.log", "/sdcard/recovery.log");
 set_progress(1.0);
