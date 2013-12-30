@@ -1,20 +1,13 @@
-﻿MrturDroid 2.4.4
+﻿MrturDroid 2.4.5
 
 1. Aktualizacja:
-- App Settings 1.7.1
-- Titanium Backup 6.1.5.1
-- Cool Tool 5.3.1
+
 
 2. Poprawki
-- crossbreder znowu aktywny
-- aplikacja mms.apk juz od SlimKat
-- czyszczenie aroma
-- poprawka skryptów RunOnce, Init
-- dodano velvet.apk oraz googlesearch.apk w przypadku klawiatury TouchPal
-- wrocila ikona rekina w lockscreenie :)
+
 
 3. ISTOTNE ZMIANY
-- nowa baza Slim-mako-4.4.2.beta.1.95-WEEKLY-2162
+
 
 
 
