@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
-<map>
-    <boolean name="com.google.android.voicesearch_PRODUCT_INSTALL" value="true" />
-    <boolean name="ch.gridvision.ppam.androidautomagicroot_PRODUCT_INSTALL" value="true" />
-    <boolean name="com.semaphore.sm_PRODUCT_INSTALL" value="true" />
-    <boolean name="au.com.phil.minepro_PRODUCT_INSTALL" value="true" />
-    <boolean name="com.google.android.gms_PRODUCT_INSTALL" value="true" />
-    <boolean name="com.alensw.picfolder_PRODUCT_INSTALL" value="true" />
-</map>

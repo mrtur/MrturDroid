@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8' standalone='yes' ?>
 <map>
-    <boolean name="option_commit_animation" value="true" />
+    <boolean name="option_commit_animation" value="false" />
     <string name="option_candidate_size_list">2</string>
     <boolean name="option_forbid_simple_candidate_style" value="false" />
     <boolean name="option_accessibility" value="false" />

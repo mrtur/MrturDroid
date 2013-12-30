@@ -1,9 +1,10 @@
 <?xml version='1.0' encoding='utf-8' standalone='yes' ?>
 <map>
-    <string name="13883358193501">/SETTING/FUNCTIONBAR/edit,TRUE</string>
-    <string name="1388335765989">/SETTING/VIBRATE_TIME,0</string>
-    <string name="13883358193502">/SETTING/FUNCTIONBAR/hw_mask,TRUE</string>
-    <string name="13883358193503">/SETTING/FUNCTIONBAR/twitter,FALSE</string>
-    <string name="1388335819350">/SETTING/FUNCTIONBAR/voice,TRUE</string>
-    <string name="13883358193504">/SETTING/FUNCTIONBAR/more,TRUE</string>
+    <string name="13883855575941">/SETTING/FUNCTIONBAR/edit,TRUE</string>
+    <string name="13883855575942">/SETTING/FUNCTIONBAR/hw_mask,TRUE</string>
+    <string name="13883855575943">/SETTING/FUNCTIONBAR/twitter,FALSE</string>
+    <string name="1388385552782">/SETTING/COMMIT_ANIMATION_ENABLED,FALSE</string>
+    <string name="13883855575944">/SETTING/FUNCTIONBAR/more,TRUE</string>
+    <string name="1388385530055">/SETTING/VIBRATE_TIME,0</string>
+    <string name="1388385557594">/SETTING/FUNCTIONBAR/voice,TRUE</string>
 </map>
