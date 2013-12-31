@@ -9,7 +9,29 @@
 # Initial variables, you should NOT change them unless you know what you're doing
 AD="/data/media/0/MrturDroid"
 LOG="$AD/Init.log" # "/dev/null" is no verbose
+ADSTATUS="/dev/ARCHIDROID_INIT_STATUS"
 
+if [ ! -e $ADSTATUS ]; then
+	# First boot, good
+	echo -n $$ > $ADSTATUS
+else
+	ADSIGNAL=`cat $ADSTATUS`
+	if [ $ADSIGNAL == "FINISHED" ]; then
+		# Something tried to execute already finished init, halt
+		echo "This script has been executed already"
+		exit 0
+	else
+		kill -s 0 $ADSIGNAL >/dev/null 2>&1
+		ADSIGNAL=$?
+		if [ $ADSIGNAL -eq 0 ]; then
+			# Something tried to execute already running init, double-execution?
+			exit 3
+		else
+			# Old PID is dead and didn't exit properly, it looks like init re-executed itself f.e. for background purpose, allow that
+			echo -n $$ > $ADSTATUS
+		fi
+	fi
+fi
 
 # Redirect stderr to our log, just in case something bad happen
 #exec 1>$LOG # Use "exec 1>>$LOG" for append
@@ -96,6 +118,49 @@ else
 	echo "INFO: I looped $LOOP times and didn't have to exit from infinite loop, that's nice (Init Semaphore)" >> $LOG
 fi
 
+if [ -e /dev/block/mmcblk1p1 ] && [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] && [ `mount | grep -i "extSdCard" | wc -l` -eq 0 ]; then
+	# Temporary workaround for mounting exFAT-formatted cards
+	# Initial idea by AndiP71, aka Lord Boeffla
+	# Further improvements by JustArchi
+
+	echo "INFO: Detected sd card but it's not mounted yet" >> $LOG
+	echo "INFO: Giving Android 30 more seconds to initialize external sd card..." >> $LOG
+	sleep 30
+	echo "INFO: Time passed!" >> $LOG
+	if [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] && [ `mount | grep -i "extSdCard" | wc -l` -eq 0 ]; then
+		echo "INFO: External sd card is still not mounted, mounting..." >> $LOG
+		if [ `lsmod | grep "exfat" | wc -l` -eq 0 ]; then
+			echo "WARNING: No exfat module found, it's either compiled in kernel or not loaded. Blindly loading..." >> $LOG
+			busybox insmod /system/lib/modules/exfat_core.ko >/dev/null 2>&1
+			busybox insmod /system/lib/modules/exfat_fs.ko >/dev/null 2>&1
+			echo "INFO: Blind load completed, proceeding with mounting now..."
+		fi
+
+		if [ -e /storage/sdcard1 ]; then
+			if [ -e /dev/block/vold/179:49 ]; then
+				busybox mount -t auto -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 /dev/block/vold/179:49 /storage/sdcard1
+			else
+				busybox mount -t auto -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 /dev/block/mmcblk1p1 /storage/sdcard1
+			fi
+		elif [ -e /storage/extSdCard ]; then
+			if [ -e /dev/block/vold/179:49 ]; then
+				busybox mount -t auto -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 /dev/block/vold/179:49 /storage/extSdCard
+			else
+				busybox mount -t auto -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 /dev/block/mmcblk1p1 /storage/extSdCard
+			fi
+		fi
+
+		if [ `mount | grep "sdcard1" | wc -l` -eq 0 ]; then
+				echo "ERROR: I failed to mount external sd card with automatic filesystem. Giving up here!" >> $LOG
+		else
+			echo "INFO: Success!" >> $LOG
+		fi
+	else
+		echo "INFO: OK, Android mounted our external sd card in given 30 seconds, aborting workaround" >> $LOG
+	fi
+else
+	echo "INFO: OK, I don't need to mount external sd card" >> $LOG
+fi
 
 # Execute a reboot if we need it
 if [ -e $AD/HARD_REBOOT_REQUIRED ]; then
@@ -112,7 +177,7 @@ fi
 # Finish
 echo "INFO: ArchiDroid Init finished" >> $LOG
 echo "`date`" >> $LOG
-
+echo -n "FINISHED" > $ADSTATUS
 
 # Finish
 exit 0
