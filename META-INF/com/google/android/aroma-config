@@ -61,8 +61,8 @@ anisplash(
 #
 # Set Small Font to Support all fonts
 #
-fontresload( "0", "ttf/lucon.ttf;ttf/DroidSansFallback.ttf;", "14" ); #-- Use sets of font (Font Family)
-fontresload( "1", "ttf/lucon.ttf;ttf/DroidSansFallback.ttf;", "18" ); #-- Use sets of font (Font Family)
+fontresload( "0", "ttf/lucon.ttf;", "14" ); #-- Use sets of font (Font Family)
+fontresload( "1", "ttf/lucon.ttf;", "18" ); #-- Use sets of font (Font Family)
 
 theme("Black&White");
 resexec("exec/mrturdroid_init.sh");
