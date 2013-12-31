@@ -69,8 +69,8 @@ terms.confirm2=Musisz wyrazić zgodę aby kontynuować!
 mrturdroid.tos=Warunki używania MrturDroid
 
 mrturdroid.detect.fail=MrturDroid nie mógł wykryć poprzedniej instalacji. Czy zrobiłeś full wipe lub posiadasz inny ROM?
-mrturdroid.detect.fail.yes=Tak
-mrturdroid.detect.fail.no=Nie
+mrturdroid.detect.fail.yes=Tak, nie mam MrturDroida
+mrturdroid.detect.fail.no=Nie, mam MrturDroida!
 mrturdroid.detect.fail.alert.yes=OK, wybrałem dla Ciebie tryb instalacyjny.
 mrturdroid.detect.fail.alert.no=To niedobrze. Sfałszuję wyniki, ale nie wybieraj trybu aktualizacji, jeśli nie posiadasz MrturDroida!
 mrturdroid.detect.pass=MrturDroid pomyślnie wykrył poprzednią instalację. Czy chciałbyś spróbować trybu aktualizacji?
