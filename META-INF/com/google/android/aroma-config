@@ -238,7 +238,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 
   writetmpfile(
     "mrturdroid.prop",
-    "kernel=semaphore\n"+
+    "kernel=stock\n"+
     "dpi=268\n"+
     "launcher=nova\n"+
     "keyboard=both\n"+
@@ -299,7 +299,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
     
     "kernel","<#selectbg_g>Kernel</#>","","group",
     "stock","Stock(Slim)","<~mrturdroid.kernel.stock.desc>","select.selected",
-    "semaphore","Semaphore","<~mrturdroid.kernel.semaphore.desc>","select",	
+    #"semaphore","Semaphore","<~mrturdroid.kernel.semaphore.desc>","select",	
 
     "dpi","<#selectbg_g>DPI</#>","","group",
     "240","240 DPI","<~mrturdroid.dpi.240.desc>","select",
