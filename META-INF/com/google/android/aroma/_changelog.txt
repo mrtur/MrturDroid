@@ -4,7 +4,7 @@
 
 
 2. Poprawki:
-
+- widget dash clock startuje już w stopniach Celsjusza.
 
 3. ISTOTNE ZMIANY:
 
