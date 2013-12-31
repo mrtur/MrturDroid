@@ -9,29 +9,7 @@
 # Initial variables, you should NOT change them unless you know what you're doing
 AD="/data/media/0/MrturDroid"
 LOG="$AD/RunOnce.log" # "/dev/null" is no verbose
-ADSTATUS="/dev/ARCHIDROID_RUNONCE_STATUS"
 
-if [ ! -e $ADSTATUS ]; then
-	# First boot, good
-	echo -n $$ > $ADSTATUS
-else
-	ADSIGNAL=`cat $ADSTATUS`
-	if [ $ADSIGNAL == "FINISHED" ]; then
-		# Something tried to execute already finished init, halt
-		echo "This script has been executed already"
-		exit 0
-	else
-		kill -s 0 $ADSIGNAL >/dev/null 2>&1
-		ADSIGNAL=$?
-		if [ $ADSIGNAL -eq 0 ]; then
-			# Something tried to execute already running init, double-execution?
-			exit 3
-		else
-			# Old PID is dead and didn't exit properly, it looks like init re-executed itself f.e. for background purpose, allow that
-			echo -n $$ > $ADSTATUS
-		fi
-	fi
-fi
 
 # Redirect stderr to our log, just in case something bad happen
 #exec 1>$LOG # Use "exec 1>>$LOG" for append
@@ -212,7 +190,7 @@ else
 	sysro || mount -o remount,ro /system
 
 	# Init depends on us
-	sh /system/etc/init.d/99ArchiDroid_Init "background" "force" &
+	#sh /system/etc/init.d/99ArchiDroid_Init "background" "force" &
 	
 	exit 2
 fi
@@ -547,13 +525,13 @@ if [ $ADRELOAD -eq 1 ]; then
 	sleep 10
 else
 	# We should call Init if reboot isn't required
-	sh /system/etc/init.d/99ArchiDroid_Init "background" "force" &
+	#sh /system/etc/init.d/99ArchiDroid_Init "background" "force" &
 
 	sleep 20
 	sysro || mount -o remount,ro /system
 	# Finish
 	echo "INFO: ArchiDroid RunOnce finished" >> $LOG
 	echo "`date`" >> $LOG
-	echo -n "FINISHED" > $ADSTATUS
+
 fi
 exit 0
