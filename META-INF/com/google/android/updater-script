@@ -349,7 +349,6 @@ else
 		ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Flashing Semaphore Kernel");
 		set_perm_recursive(0, 0, 0755, 0755, "/system/etc/init.d");
 		package_extract_dir("_mrturdroid/kernels/semaphore", "/tmp");
-		package_extract_dir("kernel", "/tmp");
 		set_perm(0, 0, 0777, "/tmp/mkbootimg.sh");
 		set_perm(0, 0, 0777, "/tmp/mkbootimg");
 		set_perm(0, 0, 0777, "/tmp/unpackbootimg");

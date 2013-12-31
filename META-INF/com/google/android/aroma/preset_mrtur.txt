@@ -3,8 +3,8 @@
 ##################
 #  Kernel
 #
-# <#selectbg_g>Stock(Slim)</#>
-# Semaphore
+# Stock(Slim)
+# <#selectbg_g>Semaphore</#>
 
 ##################
 #  DPI
