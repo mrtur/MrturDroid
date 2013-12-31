@@ -1,7 +1,7 @@
 ﻿MrturDroid 2.4.5
 
 1. Aktualizacja:
-
+- Cool Tool 5.3.3
 
 2. Poprawki:
 - widget dash clock startuje już w stopniach Celsjusza.
