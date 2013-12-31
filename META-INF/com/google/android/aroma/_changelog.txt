@@ -8,6 +8,7 @@
 - tymczasowo wylaczono instalcje kernela semaphore
 
 3. ISTOTNE ZMIANY:
+- nowa baza Slim-mako-4.4.2.beta.2-WEEKLY-2203
 
 
 
