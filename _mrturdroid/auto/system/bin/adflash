@@ -10,6 +10,7 @@ elif [ -d /storage/extSdCard/MrturDroid ]; then
 	AD="/storage/extSdCard/MrturDroid"
 else
 	AD="/data/media/0/MrturDroid"
+	NOEXTSD=1
 fi
 if [ -d $AD/GitHub ]; then
 	MODE="git"
@@ -48,18 +49,21 @@ if [ $# -eq 0 ]; then
 	echo "git			Sets up local git repository, which gives you delta upgrades and bandwidth saving"
 	echo "direct		Downloads targeted branch as .zip file directly from github"
 	echo ""
-	echo "MrturDroid will prioritize extsd if it contains MrturDroid folder and eventually fall back to intsd, you can override this here"
-	echo "Currently using MrturDroid in: $AD. If you're satisfied with this path you can just skip this question"
-	echo "extsd			Use external sd card (/storage/sdcard1 /storage/extSdCard)"
-	echo "intsd			Use internal sd card (/data/media/0)"
-	echo ""
-	echo "Other selectable options"
-	echo "nozip			Shows changelog and changes only"
-	echo ""
-	echo ""
-	echo "Example: git extsd"
-	echo -n "Your extra options: "
-	read EXTRA
+	if [ $NOEXTSD -eq 0 ]; then
+		echo "MrturDroid will prioritize extsd if it contains MrturDroid folder and eventually fall back to intsd, you can override this here"
+		echo "Currently using MrturDroid in: $AD. If you're satisfied with this path you can just skip this question"
+		echo "extsd			Use external sd card (/storage/sdcard1 /storage/extSdCard)"
+		echo "intsd			Use internal sd card (/data/media/0)"
+		echo ""
+	fi		
+		echo "Other selectable options"
+		echo "nozip			Shows changelog and changes only"
+		echo ""
+		echo ""
+		echo "Example: git nozip"
+		echo -n "Your extra options: "
+		read EXTRA
+
 else
 	VERSION="$1"
 	shift 1
