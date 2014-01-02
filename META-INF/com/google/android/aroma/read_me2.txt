@@ -3,7 +3,7 @@
 
 Ten ROM oparty jest na pracy wielu innych ludzi, ich modyfikacji, ich poprawek, ich skryptów i innych implementacjach.Podziękowania dla developerów:
 - Aroma & Aroma File Manager
-- ROMS: Archidroid | Slim Bean 
+- ROMS: Archidroid | Slim Kat
 - GApps: Paranoid Android GApps | Team BlackOut Inverts
 - Launcher: Nova Launcher
 - Klawiatura: TouchPal X | Hacker's Keyboard
