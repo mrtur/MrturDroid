@@ -6,13 +6,11 @@
 - MX Player 1.7.22
 
 2. Poprawki:
-- widget dash clock startuje już w stopniach Celsjusza.
+- widget dash clock startuje juz w stopniach Celsjusza.
+- optymalizacja RunOnce oraz Init (PID)
+- optymalizacja (debian, adflash, adlinux)
 
 
 3. ISTOTNE ZMIANY:
 - nowa baza Slim-mako-4.4.2.beta.2-WEEKLY-2203
 - fix semphore kernel instalka
-
-
-
-
