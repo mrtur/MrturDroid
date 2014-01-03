@@ -4,5 +4,6 @@
 
 2. Poprawki:
 - dodano opcje "clean" w adflash
+- market z funkcja multi-dpi
 
 3. ISTOTNE ZMIANY:
