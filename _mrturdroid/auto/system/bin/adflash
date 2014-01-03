@@ -48,6 +48,7 @@ if [ $# -eq 0 ]; then
 	echo "Currently using mode: $MODE. If you're satisfied with this mode you can just skip this question"
 	echo "git			Sets up local git repository, which gives you delta upgrades and bandwidth saving"
 	echo "direct		Downloads targeted branch as .zip file directly from github"
+	echo "clean			Cleans everything up, including local repo and tmp folder from MrturDroid directory specified below"
 	echo ""
 	if [ $NOEXTSD -eq 0 ]; then
 		echo "MrturDroid will prioritize extsd if it contains MrturDroid folder and eventually fall back to intsd, you can override this here"
@@ -66,22 +67,8 @@ if [ $# -eq 0 ]; then
 
 else
 	VERSION="$1"
-	shift 1
 	EXTRA="$@"
 fi
-
-case "$VERSION" in
-	"s")
-		VERSION="Slim"
-		;;
-	"sw")
-		VERSION="Slim_work"
-		;;
-	*)
-		echo "Sorry, could not detect any valid version, exiting"
-		exit 1
-esac
-echo "Ok, detected $VERSION"
 
 # Parse extra args
 for arg in $EXTRA; do
@@ -91,6 +78,9 @@ for arg in $EXTRA; do
 			;;
 		"direct")
 			MODE="direct"
+			;;
+		"clean")
+			MODE="clean"
 			;;
 		"nozip")
 			NOZIP=1
@@ -140,6 +130,26 @@ for arg in $EXTRA; do
 			continue
 	esac
 done
+
+if [ "$MODE" == "clean" ]; then
+	echo "Cleaning..."
+	rm -rf $AD/tmp
+	rm -rf $AD/GitHub
+	echo "Done, Removed $AD/tmp and $AD/GitHub folders"
+	exit 0
+fi
+
+case "$VERSION" in
+	"s")
+		VERSION="Slim"
+		;;
+	"sw")
+		VERSION="Slim_work"
+		;;
+	*)
+		echo "Sorry, could not detect any valid version, exiting"
+		exit 1
+esac
 
 echo ""
 	echo "Testing your internet connection..."
@@ -201,6 +211,7 @@ if [ "$MODE" == "direct" ]; then
 		exit 1
 	fi
 
+	rm -f mrturdroid_github.zip
 	cd _adflash/MrturDroid-$VERSION
 	if [ $? -ne 0 ]; then
 		echo "Something went wrong, aborting"

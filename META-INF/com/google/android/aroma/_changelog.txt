@@ -3,5 +3,6 @@
 1. Aktualizacja:
 
 2. Poprawki:
+- dodano opcje "clean" w adflash
 
 3. ISTOTNE ZMIANY:
