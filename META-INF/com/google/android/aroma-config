@@ -26,7 +26,7 @@
 ##
 # Initializing Rom Information
 #
-setvar("preset_version","5");
+setvar("preset_version","1");
 
 ini_set("dp","3");
 ini_set("rom_name",             "MrturDroid");
@@ -195,14 +195,14 @@ endif;
 
 	
 if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "previous" then
-	setvar("preset_version_probe",read("/data/media/0/MrturDroid/AromaPreset/slim/version.txt"));
+	setvar("preset_version_probe",read("/data/media/0/MrturDroid/AromaPreset/Slim_work/version.txt"));
 		if getvar("preset_version")!=getvar("preset_version_probe") then
 			alert("MrturDroid Wizard","<~mrturdroid.detect.previouspreset.fail>","@welcome");
 			writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
 		else
-			writetmpfile("mrturdroid.prop",read("/data/media/0/MrturDroid/AromaPreset/slim/mrturdroid.prop"));
-			writetmpfile("mrturdroidxposed.prop",read("/data/media/0/MrturDroid/AromaPreset/slim/mrturdroidxposed.prop"));
-			writetmpfile("mrturdroidbuild.prop",read("/data/media/0/MrturDroid/AromaPreset/slim/mrturdroidbuild.prop"));
+			writetmpfile("mrturdroid.prop",read("/data/media/0/MrturDroid/AromaPreset/Slim_work/mrturdroid.prop"));
+			writetmpfile("mrturdroidxposed.prop",read("/data/media/0/MrturDroid/AromaPreset/Slim_work/mrturdroidxposed.prop"));
+			writetmpfile("mrturdroidbuild.prop",read("/data/media/0/MrturDroid/AromaPreset/Slim_work/mrturdroidbuild.prop"));
 		endif;
 endif;
 
@@ -349,7 +349,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 	"buildtweaks","Add build.prop Tweaks","<~mrturdroid.tweaks.buildtweaks.desc>","check.checked",
 	"debianoff","Debian Off","<~mrturdroid.tweaks.debianoff.desc>","check.checked"
 	);
-	write("/data/media/0/MrturDroid/AromaPreset/slim/mrturdroid.prop",
+	write("/data/media/0/MrturDroid/AromaPreset/Slim_work/mrturdroid.prop",
 	readtmpfile("mrturdroid.prop");
 	);
 
@@ -365,7 +365,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		"bootmanager","BootManager","<~mrturdroid.xposed.bootmanager.desc>","check.checked",
 		"xprivacy","XPrivacy","<~mrturdroid.xposed.xprivacy.desc>","check.checked"
 		);
-		write("/data/media/0/MrturDroid/AromaPreset/slim/mrturdroidxposed.prop",
+		write("/data/media/0/MrturDroid/AromaPreset/Slim_work/mrturdroidxposed.prop",
 		readtmpfile("mrturdroidxposed.prop");
 		);
 	endif;
@@ -381,11 +381,11 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		"fastdormancy","Fast Dormancy","<~mrturdroid.buildtweaks.fastdormancy.desc>","check.checked",
 		"zerowakeup","ZeroWakeUp","<~mrturdroid.buildtweaks.zerowakeup.desc>","check"
 		);
-		write("/data/media/0/MrturDroid/AromaPreset/slim/mrturdroidbuild.prop",
+		write("/data/media/0/MrturDroid/AromaPreset/Slim_work/mrturdroidbuild.prop",
 		readtmpfile("mrturdroidbuild.prop");
 		);
 	endif;
-		write("/data/media/0/MrturDroid/AromaPreset/slim/version.txt",getvar("preset_version"));
+		write("/data/media/0/MrturDroid/AromaPreset/Slim_work/version.txt",getvar("preset_version"));
 endif;
 
 

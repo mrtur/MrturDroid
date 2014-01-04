@@ -26,6 +26,6 @@ mount -t $fs $system /system > /dev/null 2>&1
 
 # Init
 mkdir -p $AD
-mkdir -p $AD/AromaPreset/slim
+mkdir -p $AD/AromaPreset/Slim_work
 
 exit 0
