@@ -23,6 +23,10 @@
 # #   |_|  |_|_|   \__|\__,_|_|  |____/|_|  \___/|_|\__,_|   #
 # #                                                          #
 # ############################################################
+##
+# Initializing Rom Information
+#
+setvar("preset_version","5");
 
 ini_set("dp","3");
 ini_set("rom_name",             "MrturDroid");
@@ -84,8 +88,8 @@ if getvar("aroma_fast")=="OFF" then
 	#-- Get Config Value
 	ini_get("rom_name")+
 	"</b> dla <b>"+ini_get("rom_device")+"</b>\n\n"+
-	"  Wersja:\t\t <b><#selectbg_g>"+ini_get("rom_version")+"</#></b>\n"+
-	"  Data powstania:\t <b><#selectbg_g>"+ini_get("rom_date")+"</#></b>\n\n\n"+
+	"Wersja:\t\t <b><#selectbg_g>"+ini_get("rom_version")+"</#></b>\n"+
+	"Data powstania:\t <b><#selectbg_g>"+ini_get("rom_date")+"</#></b>\n\n\n"+
 	"Wybierz <b>Dalej</b> jeżeli chcesz kontynuować.",
 
 	#-- Icon
@@ -189,7 +193,6 @@ endif;
 ### PREVIOUS PRESET ###
 #######################
 
-setvar("preset_version","4");
 	
 if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "previous" then
 	setvar("preset_version_probe",read("/data/media/0/MrturDroid/AromaPreset/slim/version.txt"));
@@ -398,8 +401,7 @@ if getvar("aroma_fast")=="OFF" then
 	);
 
 	if getvar("resexec_retstatus")=="0" || getvar("resexec_retstatus")=="1" then
-		if
-			confirm(
+		if confirm(
 			#-- Title
 			"MrturDroid Detect",
 			#-- Text
@@ -424,8 +426,7 @@ if getvar("aroma_fast")=="OFF" then
 	endif;
 	
 	if getvar("resexec_retstatus")=="2" then
-		if
-			confirm(
+		if	confirm(
 			#-- Title
 			"MrturDroid Detect",
 			#-- Text
@@ -443,8 +444,7 @@ if getvar("aroma_fast")=="OFF" then
 			"wipe=no\n"+
 			"force=no\n"
 			);
-				if
-					confirm(
+				if	confirm(
 					#-- Title
 					"MrturDroid Detect",
 					#-- Text
@@ -499,8 +499,9 @@ if getvar("aroma_fast")=="OFF" then
 	"<~mrturdroid.install.finish>"
 	);
 
-	if
-		confirm(
+resexec("exec/mrturdroid_finish.sh");
+
+	if	confirm(
 		#-- Title
 		"MrturDroid Wizard",
 		#-- Text
