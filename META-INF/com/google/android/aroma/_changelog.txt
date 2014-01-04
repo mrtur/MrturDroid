@@ -1,6 +1,7 @@
 ﻿MrturDroid 2.4.6
 
 1. Aktualizacja:
+- Titanium Backup 6.1.5.2
 
 2. Poprawki:
 - dodano opcje "clean" w adflash
