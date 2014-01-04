@@ -548,24 +548,26 @@ else
 		set_perm(0, 0, 0777, "/tmp/tweaks.sh");
 		run_program("/tmp/tweaks.sh");
 		delete ("/tmp/tweaks.sh");
-	endif;
+
 			
-	if file_getprop("/tmp/aroma-data/mrturdroidbuild.prop","fastdormancy") == "0" then
-		ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Disabling Fast Dormancy");
-		package_extract_file("_mrturdroid/tweaks/build.prop/fdOFF.sh", "/tmp/fdOFF.sh");
-		set_perm(0, 0, 0777, "/tmp/fdOFF.sh");
-		run_program("/tmp/fdOFF.sh");
-		delete ("/tmp/fdOFF.sh");
-	endif;
+		if file_getprop("/tmp/aroma-data/mrturdroidbuild.prop","fastdormancy") == "0" then
+			ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Disabling Fast Dormancy");
+			package_extract_file("_mrturdroid/tweaks/build.prop/fdOFF.sh", "/tmp/fdOFF.sh");
+			set_perm(0, 0, 0777, "/tmp/fdOFF.sh");
+			run_program("/tmp/fdOFF.sh");
+			delete ("/tmp/fdOFF.sh");
+		endif;
 
-	if file_getprop("/tmp/aroma-data/mrturdroidbuild.prop","zerowakeup") == "1" then
-		ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Enabling ZeroWakeUp");
-		package_extract_file("_mrturdroid/tweaks/build.prop/zerowakeupON.sh", "/tmp/zerowakeupON.sh");
-		set_perm(0, 0, 0777, "/tmp/zerowakeupON.sh");
-		run_program("/tmp/zerowakeupON.sh");
-		delete("/tmp/zerowakeupON.sh");
+		if file_getprop("/tmp/aroma-data/mrturdroidbuild.prop","zerowakeup") == "1" then
+			ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Enabling ZeroWakeUp");
+			package_extract_file("_mrturdroid/tweaks/build.prop/zerowakeupON.sh", "/tmp/zerowakeupON.sh");
+			set_perm(0, 0, 0777, "/tmp/zerowakeupON.sh");
+			run_program("/tmp/zerowakeupON.sh");
+			delete("/tmp/zerowakeupON.sh");
+		endif;
+		
 	endif;
-
+	
 	set_progress(0.77);
 
 	#############
