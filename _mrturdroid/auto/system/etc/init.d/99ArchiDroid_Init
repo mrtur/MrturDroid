@@ -89,6 +89,12 @@ else
 fi
 
 
+# Which mode are we using?
+#
+# 1 - Nexus4
+#
+ROM=1 # Default to Nexus4
+
 # CrossBreeder support
 if [ -e /system/etc/CrossBreeder/zzCrossBreeder ]; then
 	echo "INFO: CrossBreeder found, calling start-stop-daemon!" >> $LOG
