@@ -221,10 +221,6 @@ set_progress(0.52);
 ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Flashing MrturDroid Init Scripts");
 ### IMPORTANT ###
 package_extract_dir("_mrturdroid/auto", "/");
-package_extract_file("_mrturdroid/scripts/mrturdroid_backend.sh", "/tmp/mrturdroid_backend.sh");
-set_perm(0, 0, 0777, "/tmp/mrturdroid_backend.sh");
-run_program("/tmp/mrturdroid_backend.sh");
-delete("/tmp/mrturdroid_backend.sh");
 if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur" then
 	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> mrtur </#><#ffffff>:~</#><#b0b0b0>#</#></b> Flashing mrtur's Preset");
  	package_extract_dir("_mrtur/auto", "/");
@@ -241,7 +237,6 @@ set_metadata("/system/bin/app_process", "uid", 0, "gid", 2000, "mode", 0755, "ca
 set_metadata("/system/bin/bdAddrLoader", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:hci_exec:s0");
 set_metadata("/system/bin/clatd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:clatd_exec:s0");
 set_metadata("/system/bin/debuggerd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:debuggerd_exec:s0");
-set_metadata("/system/xbin/debuggerd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:debuggerd_exec:s0");
 set_metadata("/system/bin/dhcpcd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:dhcp_exec:s0");
 set_metadata("/system/bin/dnsmasq", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:dnsmasq_exec:s0");
 set_metadata("/system/bin/drmserver", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:drmserver_exec:s0");
@@ -822,6 +817,9 @@ else
 			run_program("/tmp/install_init_entries.sh");
 			#run_program("/tmp/install_hw_entries.sh");
 			#run_program("/sbin/busybox","mv","-f","/system/etc/hw_config.sh.CBBAK","/system/etc/hw_config.sh");
+			run_program("/tmp/busybox","mv","-f","/system/bin/debuggerd.CBBAK","/system/bin/debuggerd");
+			set_perm(0, 2000, 0755, "/system/bin/debuggerd");
+			run_program("/tmp/install_debuggerd.sh");
 
 			run_program("/tmp/busybox","mv","/system/xbin/rngd","/system/xbin/rngd.bak");
 			run_program("/tmp/busybox","rm","-fr","/data/rngd.pid");

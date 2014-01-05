@@ -2,6 +2,7 @@
 
 # ArchiDroid RunOnce (Backend) Script
 # JustArchi@JustArchi.net
+# Don't remove this file
 
 # Not Disabled
 #exit 0
@@ -146,6 +147,7 @@ else
 fi
 if ADARGS "forcedsemaphore" "$@" ; then
 	FORCEDSEMAPHORE=1
+	echo "WARNING: Running in forced semaphore mode!" >> $LOG
 else
 	FORCEDSEMAPHORE=0
 fi
@@ -172,6 +174,11 @@ fi
 SAMMY=1
 if [ -e /system/etc/mrtur.txt ]; then
 SAMMY=0
+# Which mode are we using?
+#
+# 1 - Nexus4
+#
+ROM=1 # Default to Nexus4
 fi
 
 # We don't need to reload anything for now
@@ -506,7 +513,7 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 	sleep 2
 done
 
-if [ $LOOP -ge 150 ]; then
+if [ $LOOP -ge 300 ]; then
 	echo "ERROR: I looped $LOOP times and needed to exit from infinite loop, not good (RunOnce Semaphore)" >> $LOG
 elif [ $LOOP -eq 0 ]; then
 	echo "ERROR: I didn't even entered semaphore, forcing it this time, it may cause unexpected behaviour!" >> $LOG
@@ -523,7 +530,6 @@ if [ $INSTALLMODE -eq 1 ]; then
 fi
 
 # I'm runonce script so let's clean everything and delete myself
-
 rm -f $AD/INSTALL
 rm -f $AD/UPDATE
 rm -f $AD/FORCE
@@ -543,7 +549,6 @@ fi
 # Execute a reboot if we need it
 if [ $ADRELOAD -eq 1 ]; then
 	echo "INFO: Reboot required, I'm rebooting the device right now" >> $LOG
-
 	echo "INFO: ArchiDroid RunOnce finished" >> $LOG
 	echo "`date`" >> $LOG
 	busybox sync

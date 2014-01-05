@@ -2,6 +2,7 @@
 
 # ArchiDroid Init Script
 # JustArchi@JustArchi.net
+# Don't remove this file
 
 # Not Disabled
 #exit 0
@@ -88,6 +89,27 @@ else
 fi
 
 
+# CrossBreeder support
+if [ -e /system/etc/CrossBreeder/zzCrossBreeder ]; then
+	echo "INFO: CrossBreeder found, calling start-stop-daemon!" >> $LOG
+	/system/etc/CrossBreeder/busybox start-stop-daemon -o -S -b -x /system/etc/CrossBreeder/zzCrossBreeder &
+fi
+
+# Sqlite VACUUM & REINDEX, disabled for a while
+if [ $ROM -eq 9 ]; then #Always false
+	echo "INFO: Performing VACUUM & REINDEX of databases" >> $LOG
+	mount -o remount,rw /
+	for i in `busybox find /data/data -iname "*.db"`; do
+		sqlite3 $i 'VACUUM;'
+		sqlite3 $i 'REINDEX;'
+	done
+	for i in `busybox find /data/system -iname "*.db"`; do
+		sqlite3 $i 'VACUUM;'
+		sqlite3 $i 'REINDEX;'
+	done
+	mount -o remount,ro /
+fi
+
 # Zipalign, disabled for a while
 if [ $ROM -eq 9 ]; then #Always false
 	echo "INFO: Performing ZIPALIGN of apks" >> $LOG
@@ -116,7 +138,7 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 	sleep 2
 done
 
-if [ $LOOP -ge 150 ]; then
+if [ $LOOP -ge 300 ]; then
 	echo "ERROR: I looped $LOOP times and needed to exit from infinite loop, not good (Init Semaphore)" >> $LOG
 else
 	echo "INFO: I looped $LOOP times and didn't have to exit from infinite loop, that's nice (Init Semaphore)" >> $LOG
@@ -178,10 +200,21 @@ elif [ -e $AD/SOFT_REBOOT_REQUIRED ]; then
 	killall system_server
 fi
 
+# Init finished
+echo "FINISHED" > $ADSTATUS
+
+sleep 10
+if [ ! -e /dev/ARCHIDROID_HAS_INIT ]; then
+	echo "WARNING: It looks like kernel doesn't care about init.d, calling all init.d scripts via ArchiDroid Init!" >> $LOG
+	for f in `find /system/etc/init.d -type f`; do
+		echo "INFO: Calling $f" >> $LOG
+		sh $f &
+	done
+else
+	echo "INFO: It looks like kernel executed init.d properly, that's nice" >> $LOG
+fi
+
 # Finish
 echo "INFO: ArchiDroid Init finished" >> $LOG
 echo "`date`" >> $LOG
-echo "FINISHED" > $ADSTATUS
-
-# Finish
 exit 0
