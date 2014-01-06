@@ -221,7 +221,7 @@ else
 	sysrw || mount -o remount,rw /system
 	rm -f $0
 	sysro || mount -o remount,ro /system
-
+	
 	# Init depends on us
 	sh /system/etc/init.d/99ArchiDroid_Init "background" "force" &
 	echo "FINISHED" > $ADSTATUS
@@ -244,7 +244,7 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 	if [ $DBUPDATE -eq 1 ]; then
 		if [ -e /data/data/com.android.providers.settings/databases/settings.db ]; then
 			echo "INFO: Android created settings.db for me, how cute! Performing DBUPDATE" >> $LOG
-
+			
 			# Let's update selected keyboard according to our choice
 			# TODO: We should handle this internally, according to FIRSTBOOT instead of hardcoding keyboards
 			ONESHOT=1
@@ -260,16 +260,11 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 					#DBUPDATE secure enabled_input_methods "$KEYBOARDFULL" APPEND ":"
 				fi
 			done
-
-			if [ $SAMMY -eq 1 ]; then
-				echo "INFO: Applying standard preset DBUPDATE" >> $LOG
-			#DBUPDATE system notification_sound 'content://media/internal/audio/media/32'
-			#DBUPDATE system ringtone 'content://media/internal/audio/media/42'				
-			#DBUPDATE secure advanced_reboot 1
-			DBUPDATE secure ui_theme_mode 2			
-			DBUPDATE global transition_animation_scale 0.0
-			DBUPDATE global animator_duration_scale 0.0
-			DBUPDATE global window_animation_scale 0.0
+			
+			DBUPDATE secure advanced_reboot 1
+			DBUPDATE global transition_animation_scale 0.5
+			DBUPDATE global animator_duration_scale 0.5
+			DBUPDATE global window_animation_scale 0.5
 			DBUPDATE global wifi_scan_always_enabled 0
 			DBUPDATE global install_non_market_apps 1
 			DBUPDATE global package_verifier_enable 0			

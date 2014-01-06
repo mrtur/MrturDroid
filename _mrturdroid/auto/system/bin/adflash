@@ -152,17 +152,17 @@ case "$VERSION" in
 esac
 
 echo ""
-	echo "Testing your internet connection..."
-	curl google.com > /dev/null 2>&1
-	CHECK=$?
-	if [ $CHECK -ne 0 ]; then
-		echo "Something went wrong, test returned error code $CHECK."
-		echo "Sorry but I can't let you pass, either you don't have a valid connection with the internet or required components aren't working properly"
-		exit 1
-	else
+echo "Testing your internet connection..."
+curl google.com > /dev/null 2>&1
+CHECK=$?
+if [ $CHECK -ne 0 ]; then
+	echo "Something went wrong, test returned error code $CHECK."
+	echo "Sorry but I can't let you pass, either you don't have a valid connection with the internet or required components aren't working properly"
+	exit 1
+else
 	echo "Internet test passed successfully!"
-		echo ""
-	fi
+	echo ""
+fi
 
 if [ "$MODE" == "direct" ]; then
 	mkdir -p $AD/tmp
@@ -173,10 +173,12 @@ if [ "$MODE" == "direct" ]; then
 	echo ""
 	echo ""
 	echo "CHANGELOG EOF"
+
 	if [ $NOZIP -eq 1 ]; then
 		echo "Nozip detected, finishing!"
 		exit 0
 	fi
+
 	echo ""
 	echo "Ok, starting download from GitHub"
 	echo "Warning, it may take long time. Make sure that you have stable Wi-Fi connection"
