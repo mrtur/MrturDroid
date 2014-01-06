@@ -53,6 +53,7 @@
 # <#selectbg_g>Google Voice</#>
 # Google Hangouts
 # Google Plus
+# Google Play Music
 # Google Translate
 
 ##################

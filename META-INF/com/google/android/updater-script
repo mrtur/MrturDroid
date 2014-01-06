@@ -636,6 +636,12 @@ else
 		ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing Google Plus");
 		package_extract_dir("_mrturdroid/apps/gplus", "/");
 	endif;
+	
+	if file_getprop("/tmp/aroma-data/mrturdroid.prop","gplaymusic") == "1" then
+		ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing Google Play Music");
+		delete("/system/app/Apollo.apk");		
+		package_extract_dir("_mrturdroid/apps/gplaymusic", "/");
+	endif;	
 
 	if file_getprop("/tmp/aroma-data/mrturdroid.prop","gtranslate") == "1" then
 		ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing Google Translate");

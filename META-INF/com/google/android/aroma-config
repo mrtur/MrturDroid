@@ -243,6 +243,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 	"gvoice=1\n"+
 	"ghangouts=0\n"+
 	"gplus=0\n"+
+	"gplaymusic=0\n"+	
 	"gtranslate=0\n"+
 	"titaniumbackup=1\n"+
 	"greenify=0\n"+
@@ -330,6 +331,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 	"gvoice","Google Voice","","check.checked",
 	"ghangouts","Google Hangouts [<~common.inverted>]","","check",
 	"gplus","Google Plus [<~common.inverted>]","","check",
+	"gplaymusic","Google Play Music [<~common.inverted>]","<~mrturdroid.apps.gplaymusic.desc>","check",	
 	"gtranslate","Google Translate [<~common.inverted>]","","check",
 
 	"mrturapps","<#selectbg_g>MrturDroid Apps</#>","","group",
