@@ -10,3 +10,6 @@
 - naprawiono blad instalcji bez zaznaczonego Tweak w Aroma
 
 3. ISTOTNE ZMIANY:
+- Nowa baza Slim-mako-4.4.2.beta.2.1-WEEKLY-2249
+
+***Zalecam FULL WIPE przy instalacji***
