@@ -2,6 +2,7 @@
 
 1. Aktualizacja:
 - Titanium Backup 6.1.5.2
+- cURL to 7.34.0
 
 2. Poprawki:
 - dodano opcje "clean" w adflash
