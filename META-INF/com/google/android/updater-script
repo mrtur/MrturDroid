@@ -700,11 +700,6 @@ else
 		package_extract_dir("_mrturdroid/apps/totalcommander", "/");
 	endif;
 
-	if file_getprop("/tmp/aroma-data/mrturdroid.prop","adobeflash") == "1" then
-		ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing Adobe Flash Player");
-		package_extract_dir("_mrturdroid/apps/adobeflash", "/");
-	endif;
-
 	if file_getprop("/tmp/aroma-data/mrturdroid.prop","youtube") == "1" then
 		ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing YouTube");
 		package_extract_dir("_mrturdroid/apps/youtube", "/");

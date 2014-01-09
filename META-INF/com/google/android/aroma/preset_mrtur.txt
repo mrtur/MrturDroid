@@ -67,7 +67,6 @@
 # <#selectbg_g>CoolTool</#>
 # Root Browser
 # <#selectbg_g>Total Commander</#>
-# Adobe Flash Player
 # <#selectbg_g>YouTube</#>
 # Facebook
 

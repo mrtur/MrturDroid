@@ -7,3 +7,4 @@
 - wdrozone poprawki skryptow by Justarchi (ADALIS, frandom)
  
 3. ISTOTNE ZMIANY:
+- usunieto Adobe Flash Player
