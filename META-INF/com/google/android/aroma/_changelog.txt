@@ -1,7 +1,9 @@
 ﻿MrturDroid 2.4.7
 
 1. Aktualizacja:
+- Updated LMT to 2.0 RC7
 
 2. Poprawki:
-
+- wdrozone poprawki skryptow by Justarchi (ADALIS, frandom)
+ 
 3. ISTOTNE ZMIANY:
