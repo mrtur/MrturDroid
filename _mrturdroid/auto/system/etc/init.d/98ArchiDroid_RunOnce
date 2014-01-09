@@ -80,7 +80,6 @@ DBUPDATE() {
 	# Thanks to idcrisis, modified by JustArchi
 	local DONE=0
 	local TRY=0
-	local SQLITE3='/system/xbin/sqlite3'
 	local VAL1=""
 	local VAL2=""
 	local ID=""
@@ -89,14 +88,14 @@ DBUPDATE() {
 		TRY=`expr $TRY + 1`
 		if [ "$4" == "APPEND" ]; then
 			# Append mode, value should exist already then
-			VAL1=`$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null`
+			VAL1=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null`
 			VAL1=$VAL1$5$3
 			
 			# Let's update it now
-			$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "update $1 set value='$VAL1' where name='$2';" 2>/dev/null
+			sqlite3 /data/data/com.android.providers.settings/databases/settings.db "update $1 set value='$VAL1' where name='$2';" 2>/dev/null
 			
 			# See if it worked
-			VAL2=`$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null`
+			VAL2=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null`
 			
 			if [ "$VAL1" == "$VAL2" ]; then
 				# Looks good
@@ -118,11 +117,11 @@ DBUPDATE() {
 		else
 			# Try to update value first if exists
 			busybox sync
-			$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "update $1 set value='$3' where name='$2';" 2>/dev/null
+			sqlite3 /data/data/com.android.providers.settings/databases/settings.db "update $1 set value='$3' where name='$2';" 2>/dev/null
 			busybox sync
 			
 			# See if it worked
-			VAL1=`$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null`
+			VAL1=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null`
 			
 			# If not create it
 			if [ "$VAL1" != "" ]; then
@@ -136,12 +135,12 @@ DBUPDATE() {
 				#fi
 				ID='null'
 
-				$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "insert into $1 values($ID, '$2', '$3');" 2>/dev/null
+				sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into $1 values($ID, '$2', '$3');" 2>/dev/null
 				busybox sync
 			fi
 			
 			# Check if in fact we modified that
-			VAL1=`$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null`
+			VAL1=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null`
 			if [ "$VAL1" != "" ]; then
 				# Looks good
 				if [ $TRY -gt 1 ]; then
