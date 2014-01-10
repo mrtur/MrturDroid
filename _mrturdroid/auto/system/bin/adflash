@@ -4,7 +4,6 @@ VERSION=""
 TEMP=""
 NOZIP=0
 
-
 ADALIAS() {
 	# Because fuck you kernel, that's why
 	local CMD="$1"
