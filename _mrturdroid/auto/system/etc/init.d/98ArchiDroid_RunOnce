@@ -12,11 +12,11 @@ ADALIAS() {
 	local CMD="$1"
 	shift 1
 	if [ -e /system/xbin/$CMD ]; then
-		/system/xbin/$CMD "$@"
+		/system/xbin/$CMD $@
 	elif [ -e /system/bin/$CMD ]; then
-		/system/bin/$CMD "$@"
+		/system/bin/$CMD $@
 	else
-		$CMD "$@"
+		$CMD $@
 	fi
 }
 
@@ -41,11 +41,6 @@ ADSTATUS="/dev/ARCHIDROID_RUNONCE_STATUS"
 if [ ! -e $ADSTATUS ]; then
 	# First boot, good
 	echo $$ > $ADSTATUS
-	# Manage fallback log
-	if [ -e $LOG ]; then
-		rm -f $LOG2
-		mv $LOG $LOG2
-	fi
 else
 	ADSIGNAL=`cat $ADSTATUS`
 	if [ $ADSIGNAL == "FINISHED" ]; then
@@ -55,6 +50,12 @@ else
 	elif [ $ADSIGNAL == "RESTART" ]; then
 		# Backend restarts itself, good to know, allow that
 		echo $$ > $ADSTATUS
+
+		# Manage fallback log
+		if [ -e $LOG ]; then
+			rm -f $LOG2
+			mv $LOG $LOG2
+		fi
 	else
 		kill -s 0 $ADSIGNAL >/dev/null 2>&1
 		ADSIGNAL=$?
@@ -183,8 +184,9 @@ else
 fi
 
 echo "`date`" >> $LOG
-echo "`uname -a`" >> $LOG
 echo "MrturDroid `getprop ro.mrturdroid.version`" >> $LOG
+echo "`uname -a`" >> $LOG
+
 echo "INFO: ArchiDroid_RunOnce executed!" >> $LOG
 
 # Now we need to make sure that this is background process to prevent slowing down bootup
@@ -259,7 +261,7 @@ else
 	exit 2
 fi
 
-
+rm -f $AD/RunOnce.log.0
 
 
 

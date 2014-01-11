@@ -12,11 +12,11 @@ ADALIAS() {
 	local CMD="$1"
 	shift 1
 	if [ -e /system/xbin/$CMD ]; then
-		/system/xbin/$CMD "$@"
+		/system/xbin/$CMD $@
 	elif [ -e /system/bin/$CMD ]; then
-		/system/bin/$CMD "$@"
+		/system/bin/$CMD $@
 	else
-		$CMD "$@"
+		$CMD $@
 	fi
 }
 
@@ -91,8 +91,9 @@ else
 fi
 
 echo "`date`" >> $LOG
-echo "`uname -a`" >> $LOG
 echo "MrturDroid `getprop ro.mrturdroid.version`" >> $LOG
+echo "`uname -a`" >> $LOG
+
 echo "INFO: ArchiDroid_Init executed!" >> $LOG
 
 if [ -e /system/etc/init.d/98ArchiDroid_RunOnce ] && [ $FORCE -ne 1 ]; then
@@ -307,8 +308,8 @@ sleep 10
 
 if [ -e /system/etc/init.d/98ArchiDroid_RunOnce ]; then
 	echo "WARNING: RunOnce found in init.d, trying to remove it!" >> $LOG
-	echo "REMOTE: Hello, Init here. Don't worry about above FATAL ERROR, I'll try to fix it!" >> $RUNONCELOG
-	echo "REMOTE: Dear user, you should look for RunOnce.log.0, it may contain real RunOnce stuff!" >> $RUNONCELOG
+	echo "REMOTE: Hello, Init here. Don't worry about FATAL ERROR above, I'll try to fix it!" >> $RUNONCELOG
+	echo "REMOTE: Dear user, you should look for RunOnce.log.0, it may contain more interesting RunOnce stuff!" >> $RUNONCELOG
 	sysrw || mount -o remount,rw /system
 	rm -f /system/etc/init.d/98ArchiDroid_RunOnce
 	if [ ! -e /system/etc/init.d/98ArchiDroid_RunOnce ]; then
