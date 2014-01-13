@@ -3,6 +3,7 @@
 1. Aktualizacja:
 - Updated LMT to 2.0 RC7
 - TouchPal 5.5.0.1
+- Greenify 2.00
 
 2. Poprawki:
 - wdrozone poprawki skryptow by Justarchi (ADALIS, frandom)
