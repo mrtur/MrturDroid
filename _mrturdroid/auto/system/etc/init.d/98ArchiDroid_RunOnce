@@ -12,11 +12,11 @@ ADALIAS() {
 	local CMD="$1"
 	shift 1
 	if [ -e /system/xbin/$CMD ]; then
-		/system/xbin/$CMD $@
+		/system/xbin/$CMD "$@"
 	elif [ -e /system/bin/$CMD ]; then
-		/system/bin/$CMD $@
+		/system/bin/$CMD "$@"
 	else
-		$CMD $@
+		$CMD "$@"
 	fi
 }
 
@@ -41,6 +41,12 @@ ADSTATUS="/dev/ARCHIDROID_RUNONCE_STATUS"
 if [ ! -e $ADSTATUS ]; then
 	# First boot, good
 	echo $$ > $ADSTATUS
+
+	# Manage fallback log
+	if [ -e $LOG ]; then
+		rm -f $LOG2
+		mv $LOG $LOG2
+	fi
 else
 	ADSIGNAL=`cat $ADSTATUS`
 	if [ $ADSIGNAL == "FINISHED" ]; then
@@ -50,12 +56,6 @@ else
 	elif [ $ADSIGNAL == "RESTART" ]; then
 		# Backend restarts itself, good to know, allow that
 		echo $$ > $ADSTATUS
-
-		# Manage fallback log
-		if [ -e $LOG ]; then
-			rm -f $LOG2
-			mv $LOG $LOG2
-		fi
 	else
 		kill -s 0 $ADSIGNAL >/dev/null 2>&1
 		ADSIGNAL=$?
@@ -579,6 +579,7 @@ else
 fi
 
 echo "FINISHED" > $ADSTATUS
+
 # Execute a reboot if we need it
 if [ $ADRELOAD -eq 1 ]; then
 	echo "INFO: Reboot required, I'm rebooting the device right now" >> $LOG
