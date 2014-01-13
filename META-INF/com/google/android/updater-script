@@ -16,7 +16,7 @@ assert(unmount("/system") || ui_print("(system is unmounted already)"));
 
 set_progress(0.02);
 
-if file_getprop("/tmp/aroma-data/mrturdroidwipe.prop","wipe") == "no" then
+if file_getprop("/tmp/aroma-data/archidroidwipe.prop","wipe") == "no" && file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") != "barebones" then
 	mount("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/system", "/system");
 	package_extract_file("system/bin/backuptool.sh", "/tmp/backuptool.sh");
 	package_extract_file("system/bin/backuptool.functions", "/tmp/backuptool.functions");
