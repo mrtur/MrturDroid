@@ -4,6 +4,7 @@
 - Updated LMT to 2.0 RC7
 - TouchPal 5.5.0.1
 - Greenify 2.00
+- Kernel Semaphore 2.0.0.
 
 2. Poprawki:
 - wdrozone poprawki skryptow by Justarchi (ADALIS, frandom)
