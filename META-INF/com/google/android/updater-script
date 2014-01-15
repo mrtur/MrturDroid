@@ -16,7 +16,7 @@ assert(unmount("/system") || ui_print("(system is unmounted already)"));
 
 set_progress(0.02);
 
-if file_getprop("/tmp/aroma-data/archidroidwipe.prop","wipe") == "no" && file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") != "barebones" then
+if file_getprop("/tmp/aroma-data/mrturdroidwipe.prop","wipe") == "no" && file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") != "barebones" then
 	package_extract_file("system/bin/backuptool.sh", "/tmp/backuptool.sh");
 	package_extract_file("system/bin/backuptool.functions", "/tmp/backuptool.functions");
 	set_perm(0, 0, 0777, "/tmp/backuptool.sh");
@@ -730,7 +730,7 @@ else
 		delete_recursive("/data/media/0/MrturDroid/tmp");
 		delete_recursive("/data/media/0/MrturDroid/GitHub");
 		delete_recursive("/data/media/0/MrturDroid/System");	
-		delete("/system/bin/adflash","/system/bin/adgithub","/system/bin/adlinux","/system/bin/adflasharchi","/system/bin/debian","/system/bin/openssl","/system/bin/curl");
+		delete("/system/bin/adflash","/system/bin/adgithub","/system/bin/adlinux","/system/bin/debian","/system/bin/openssl","/system/bin/curl");
 	endif;
 
 	set_progress(0.92);
@@ -740,7 +740,7 @@ else
 	### CROSSBREADER ###
 	####################
 
-	if file_getprop("/tmp/aroma-data/archidroid.prop","crossbreeder") == "1" then
+	if file_getprop("/tmp/aroma-data/mrturdroid.prop","crossbreeder") == "1" then
 	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing CrossBreeder");
 
 		package_extract_dir("_mrturdroid/crossbreeder/system", "/system");
