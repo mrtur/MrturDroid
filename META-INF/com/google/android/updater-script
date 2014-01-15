@@ -769,5 +769,5 @@ ui_print("# |  _| | | | | | \__ \ | | | #");
 ui_print("# |_|   |_|_| |_|_|___/_| |_| #");
 ui_print("#                             #");
 ui_print("###############################");
-run_program("cp", "/tmp/recovery.log", "/sdcard/MrturDroid.log");
+#run_program("cp", "/tmp/recovery.log", "/sdcard/MrturDroid.log");
 set_progress(1.0);
