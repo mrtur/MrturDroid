@@ -11,8 +11,8 @@ assert(getprop("ro.product.device") == "mako" || getprop("ro.build.product") == 
 ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Ready!");
 set_progress(0.01);
 sleep (2);
-ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Unmounting Partitions");
-assert(unmount("/system") || ui_print("(system is unmounted already)"));
+#ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Unmounting Partitions");
+#assert(unmount("/system") || ui_print("(system is unmounted already)"));
 
 set_progress(0.02);
 
@@ -94,7 +94,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 endif;
 
 set_progress(0.51);
-
 run_program("/sbin/sync");
 
 ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Creating symlinks");
