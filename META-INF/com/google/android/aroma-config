@@ -46,6 +46,9 @@ theme("Black&White");
 fontresload( "0", "ttf/lucon.ttf;", "13" );
 fontresload( "1", "ttf/lucon.ttf;", "16" );
 
+# Mount required filesystems
+resexec("exec/admount.sh", "/system");
+resexec("exec/admount.sh", "/data");
 resexec("exec/mrturdroid_init.sh");
 
 #
@@ -499,8 +502,6 @@ if getvar("aroma_fast")=="OFF" then
 	#-- Installation Finish Message
 	"<~mrturdroid.install.finish>"
 	);
-
-resexec("exec/mrturdroid_finish.sh");
 
 	if	confirm(
 		#-- Title

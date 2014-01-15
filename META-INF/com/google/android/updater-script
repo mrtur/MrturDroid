@@ -17,24 +17,28 @@ assert(unmount("/system") || ui_print("(system is unmounted already)"));
 set_progress(0.02);
 
 if file_getprop("/tmp/aroma-data/archidroidwipe.prop","wipe") == "no" && file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") != "barebones" then
-	mount("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/system", "/system");
+	#mount("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/system", "/system");
 	package_extract_file("system/bin/backuptool.sh", "/tmp/backuptool.sh");
 	package_extract_file("system/bin/backuptool.functions", "/tmp/backuptool.functions");
 	set_perm(0, 0, 0777, "/tmp/backuptool.sh");
 	set_perm(0, 0, 0644, "/tmp/backuptool.functions");
 	run_program("/tmp/backuptool.sh", "backup");
-	unmount("/system");
+	#unmount("/system");
 endif;
 
 set_progress(0.03);
 
 ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Formatting Partitions");
-format("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/system", "0", "/system");
+#format("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/system", "0", "/system");
+package_extract_file("_mrturdroid/scripts/wipesystem.sh", "/tmp/wipesystem.sh");
+set_perm(0, 0, 0777, "/tmp/wipesystem.sh");
+run_program("/tmp/wipesystem.sh");
+delete("/tmp/wipesystem.sh");
 
-set_progress(0.06);
+#set_progress(0.06);
 
-ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Mounting Partitions");
-assert(mount("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/system", "/system") || ui_print("(system is mounted already)"));
+#ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Mounting Partitions");
+#assert(mount("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/system", "/system") || ui_print("(system is mounted already)"));
 
 set_progress(0.07);
 #package_extract_file("_mrturdroid/scripts/bash", "/tmp/bash");
@@ -45,6 +49,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidwipe.prop","wipe") == "yes" then
 	package_extract_file("_mrturdroid/scripts/wipe.sh", "/tmp/wipe.sh");
 	set_perm(0, 0, 0777, "/tmp/wipe.sh");
 	run_program("/tmp/wipe.sh");
+	delete("/tmp/wipe.sh");
 endif;
 
 set_progress(0.08);
@@ -60,12 +65,14 @@ ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~
 package_extract_file("_mrturdroid/scripts/mrturdroid.sh", "/tmp/mrturdroid.sh");
 set_perm(0, 0, 0777, "/tmp/mrturdroid.sh");
 run_program("/tmp/mrturdroid.sh");
+delete("/tmp/mrturdroid.sh");
 
 if file_getprop("/tmp/aroma-data/mrturdroidwipe.prop","wipe") == "yes" then
 	ui_print("<b><#e0e0e0>RunOnce</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>$</#></b> Install Mode Detected");
 	package_extract_file("_mrturdroid/scripts/mrturdroid_install.sh", "/tmp/mrturdroid_install.sh");
 	set_perm(0, 0, 0777, "/tmp/mrturdroid_install.sh");
 	run_program("/tmp/mrturdroid_install.sh");
+	delete("/tmp/mrturdroid_install.sh");
 else
 	if file_getprop("/tmp/aroma-data/mrturdroidwipe.prop","force") == "no" then
 		ui_print("<b><#e0e0e0>RunOnce</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>$</#></b> Update Mode Detected");
@@ -78,9 +85,10 @@ else
 		set_perm(0, 0, 0777, "/tmp/mrturdroid_update.sh");
 		run_program("/tmp/mrturdroid_update.sh", "force");
 	endif;
+	delete("/tmp/mrturdroid_update.sh");
 endif;
 
-set_progress(0.09);
+#set_progress(0.09);
 
 set_progress(0.1);
 
@@ -96,10 +104,10 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 	delete_recursive("/system/media/audio/notifications");
  	package_extract_dir("_mrtur/system", "/system");
 endif;
-run_program("/sbin/sync");
+#run_program("/sbin/sync");
 
 set_progress(0.51);
-
+run_program("/sbin/sync");
 ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Creating symlinks");
 
 symlink("../xbin/su", "/system/bin/su");
@@ -185,11 +193,11 @@ symlink("busybox", "/system/xbin/[", "/system/xbin/[[",
         "/system/xbin/yes",
         "/system/xbin/zcat");
 symlink("libGLESv2.so", "/system/lib/libGLESv3.so");
-symlink("logcat", "/system/bin/lolcat");
+symlink("logcat", "/system/bin/logcat");
 symlink("mksh", "/system/bin/sh");
 symlink("mount.exfat", "/system/bin/fsck.exfat",
         "/system/bin/mkfs.exfat");
-symlink("pigz", "/system/xbin/unpigz");
+#symlink("pigz", "/system/xbin/unpigz");
 symlink("toolbox", "/system/bin/cat", "/system/bin/chcon",
         "/system/bin/chmod", "/system/bin/chown", "/system/bin/clear",
         "/system/bin/cmp", "/system/bin/cp", "/system/bin/date",
@@ -298,6 +306,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "bareb
 	package_extract_file("_mrturdroid/dpi/320dpi.sh", "/tmp/320dpi.sh");
 	set_perm(0, 0, 0777, "/tmp/320dpi.sh");
 	run_program("/tmp/320dpi.sh");
+	delete("tmp/320dpi.sh");
 	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing Stock Keyboard");
 else
 	##############
@@ -375,6 +384,7 @@ else
 		package_extract_file("_mrturdroid/dpi/240dpi.sh", "/tmp/240dpi.sh");
 		set_perm(0, 0, 0777, "/tmp/240dpi.sh");
 		run_program("/tmp/240dpi.sh");
+		delete("tmp/240dpi.sh");
 	endif;
 
 	### 268 ###
@@ -383,6 +393,7 @@ else
 		package_extract_file("_mrturdroid/dpi/268dpi.sh", "/tmp/268dpi.sh");
 		set_perm(0, 0, 0777, "/tmp/268dpi.sh");
 		run_program("/tmp/268dpi.sh");
+		delete("tmp/268dpi.sh");
 	endif;
 		
 	### 280 ###
@@ -391,6 +402,7 @@ else
 		package_extract_file("_mrturdroid/dpi/280dpi.sh", "/tmp/280dpi.sh");
 		set_perm(0, 0, 0777, "/tmp/280dpi.sh");
 		run_program("/tmp/280dpi.sh");
+		delete("tmp/280dpi.sh");
 	endif;
 
 	### 320 ###
@@ -399,6 +411,7 @@ else
 		package_extract_file("_mrturdroid/dpi/320dpi.sh", "/tmp/320dpi.sh");
 		set_perm(0, 0, 0777, "/tmp/320dpi.sh");
 		run_program("/tmp/320dpi.sh");
+		delete("tmp/320dpi.sh");
 	endif;
 
 	set_progress(0.64);
@@ -467,7 +480,7 @@ else
 	if file_getprop("/tmp/aroma-data/mrturdroid.prop","keyboard") == "none" then
 		# Just delete LatinIME then
 		ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Skipping Keyboard");
-		delete("/system/app/LatinIME.apk","/system/app/LatinImeDictionaryPack.apk");
+		delete("/system/app/LatinIME.apk");
 	endif;
 
 	set_progress(0.74);
@@ -529,7 +542,7 @@ else
 		package_extract_file("_mrturdroid/bootanimations/none/disablebootanim.sh", "/tmp/disablebootanim.sh");
 		set_perm(0, 0, 0777, "/tmp/disablebootanim.sh");
 		run_program("/tmp/disablebootanim.sh");
-		delete ("/tmp/disablebootanim.sh");
+		delete("/tmp/disablebootanim.sh");
 		delete("/system/media/bootanimation.zip");
 	endif;
 
@@ -741,112 +754,15 @@ else
 	### CROSSBREADER ###
 	####################
 
-	if file_getprop("/tmp/aroma-data/mrturdroid.prop","crossbreeder") == "1" then
-			ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing CrossBreeder");
-			
-			# Freeze Fix
-			unmount("/system");
-			#unmount("/data");
+	if file_getprop("/tmp/aroma-data/archidroid.prop","crossbreeder") == "1" then
+	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing CrossBreeder");
 
-			package_extract_dir("_mrturdroid/crossbreeder/setup", "/tmp"); 
-
-			set_perm_recursive(0, 0, 0755, 0755, "/tmp");
-			run_program("/sbin/busybox","chmod","-R","0755","/tmp");
-			run_program("/sbin/busybox","chown","-R","0.0","/tmp");
-			set_perm(0, 0, 0755, "/tmp/busybox");
-			run_program("/tmp/busybox","chmod","-R","0755","/tmp");
-			run_program("/tmp/busybox","chown","-R","0.0","/tmp");
-			run_program("/tmp/busybox","mount","/system");
-			run_program("/sbin/busybox","mount","/system");
-			run_program("/tmp/busybox","mount","-o","rw,remount","/system");
-			run_program("/sbin/busybox","mount","-o","rw,remount","/system");
-			run_program("/tmp/busybox","mount","/data");
-			run_program("/sbin/busybox","mount","/data");
-			run_program("/tmp/busybox","mount","-o","rw,remount","/data");
-			run_program("/sbin/busybox","mount","-o","rw,remount","/data");
-
-			run_program("/tmp/busybox","rm","-fr","/system/etc/CrossBreeder");
-
-			run_program("/tmp/busybox","mkdir","-p","/system/etc/CrossBreeder");
-			run_program("/tmp/busybox","cp","-f","/tmp/tune2fs","/system/etc/CrossBreeder");
-			#run_program("/tmp/busybox","cp","-f","/tmp/libiconv.so.2","/system/etc/CrossBreeder");
-			run_program("/tmp/busybox","cp","-f","/tmp/busybox","/system/etc/CrossBreeder");
-			set_perm_recursive(0, 0, 0755, 0755, "/system/etc/CrossBreeder");
-			run_program("/tmp/busybox","chown","-R","0.0","/system/etc/CrossBreeder");
-			run_program("/tmp/busybox","chmod","-R","0755","/system/etc/CrossBreeder");
-
-			run_program("/tmp/busybox", "echo", "Restore", "started.");
-			run_program("/tmp/restore_dnsmasq.sh");
-			run_program("/tmp/busybox","echo","After","Restore");
-			#run_program("/tmp/busybox","mv","-f","/system/etc/hosts","/system/etc/hosts.CBBAK");
-			package_extract_dir("_mrturdroid/crossbreeder/system", "/system");
-			run_program("/tmp/busybox","cp","-f","/tmp/recovery.log","/data/recovery_cb.log");
-			#run_program("/tmp/busybox","cp","-f","/system/etc/CrossBreeder/dnsmasq","/system/bin/dnsmasq.bin");
-			delete("/system/bin/dnsmasq.bin");
-			run_program("/tmp/busybox", "ls", "-l", "/system/bin/dnsmasq");; 
-			set_perm_recursive(0, 0, 0755, 0755, "/system/etc/CrossBreeder");
-
-			run_program("/tmp/busybox","chown","-R","0.0","/system/etc/CrossBreeder");
-			run_program("/tmp/busybox","chmod","-R","0755","/system/etc/CrossBreeder");
-
-			#set_perm_recursive(0, 0, 0711, 0444, "/system/etc/CrossBreeder/root");
-
-			#run_program("/tmp/busybox","chown","-R","0.0","/system/etc/CrossBreeder/root");
-			#run_program("/tmp/busybox","chmod","-R","0444","/system/etc/CrossBreeder/root");
-			#run_program("/tmp/busybox","chmod","0711","/system/etc/CrossBreeder/root");
-			#run_program("/tmp/busybox","chmod","0711","/system/etc/CrossBreeder/root/errors");
-
-			run_program("/tmp/busybox","chown","-R","0.0","/system/etc/CrossBreeder/dnrd_root");
-			run_program("/tmp/busybox","chmod","-R","0644","/system/etc/CrossBreeder/dnrd_root");
-			run_program("/tmp/busybox","chmod","0755","/system/etc/CrossBreeder/dnrd_root");
-
-			#set_perm(0, 0, 0755, "/system/etc/init.d/zzCrossBreeder_initd");
-			set_perm(0, 2000, 0755, "/system/xbin/haveged");
-			delete("/system/xbin/CB_FileLock");
-			set_perm(0, 0, 0755, "/system/etc/CrossBreeder/busybox");
-			set_perm(0, 0, 0755, "/system/etc/CrossBreeder/dnrd.10053");
-			set_perm(0, 0, 0755, "/system/etc/CrossBreeder/zzCrossBreeder");
-			set_perm(0, 0, 0755, "/system/etc/CrossBreeder/zzCHECK_NET_DNS");
-			set_perm(0, 0, 0755, "/system/bin/dnsmasq");
-			set_perm(0, 0, 0755, "/system/bin/dnsmasq_dhcp");
-			#set_perm(0, 0, 0644, "/system/etc/CrossBreeder/dnsmasq-host");
-			#set_perm(0, 0, 0644, "/system/etc/resolv.conf");
-			set_perm(0, 0, 0644, "/system/etc/hosts");
-			set_perm(0, 0, 0644, "/system/etc/CrossBreeder/hosts");
-			delete("/system/etc/init.d/00CrossBreeder");
-			delete("/system/etc/init.d/zzCrossBreeder");
-			delete("/system/etc/init.d/zzCrossBreeder_initd");
-			#delete("/system/etc/CrossBreeder/dnsmasq");
-
-			#set_perm(0, 0, 0755, "/system/etc/install-recovery.sh");
-			run_program("/tmp/busybox","mv","-f","/system/etc/install-recovery.sh.CBBAK","/system/etc/install-recovery.sh");
-			run_program("/tmp/install_init_entries.sh");
-			#run_program("/tmp/install_hw_entries.sh");
-			#run_program("/sbin/busybox","mv","-f","/system/etc/hw_config.sh.CBBAK","/system/etc/hw_config.sh");
-
-			run_program("/tmp/busybox","mv","/system/xbin/rngd","/system/xbin/rngd.bak");
-			run_program("/tmp/busybox","rm","-fr","/data/rngd.pid");
-			run_program("/tmp/busybox","mkdir","/data/rngd.pid/");
-			run_program("/tmp/busybox","chown","0:0","/data/rngd.pid");
-			run_program("/tmp/busybox","chmod","-R","500","/data/rngd.pid");
-			set_perm_recursive(0, 0, 0500, 0500, " /data/rngd.pid/ ");
-			run_program("/tmp/busybox","mv","/system/xbin/qrngd","/system/xbin/qrngd.bak");
-			run_program("/tmp/busybox","mv","/system/bin/qrngd","/system/bin/qrngd.bak");
-			run_program("/tmp/REMOVE_TETHER_BOOST");
-			run_program("/tmp/busybox","mv","-f","/system/etc/dnsmasq.conf.CBBAK","/system/etc/dnsmasq.conf");
-			run_program("/tmp/busybox","sync");
-			#run_program("/tmp/busybox","umount","/system");
-			run_program("/tmp/busybox","cp","-f","/tmp/recovery.log","/data/recovery_cb.log");
-			run_program("/tmp/busybox","sync");
-
-			run_program("/tmp/busybox","umount","/data");
-			#run_program("/tmp/busybox","umount","/cache");
-			run_program("/tmp/busybox","umount","/sd-ext");
-
-		# Freeze fix
-		sleep (1);
-		assert(mount("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/system", "/system") || ui_print("(system is mounted already)"));
-		#assert(mount("ext4", "EMMC", "/dev/block/mmcblk0p12", "/data") || ui_print("(data is mounted already)"));
+		package_extract_dir("_mrturdroid/crossbreeder/system", "/system");
+		set_perm_recursive(0, 0, 0755, 0755, "/system/etc/CrossBreeder");
+		set_perm(0, 0, 0644, "/system/etc/CrossBreeder/hosts");
+		set_perm(0, 2000, 0755, "/system/xbin/haveged");
+		set_perm(0, 2000, 0755, "/system/bin/dnsmasq_dhcp");
+		set_perm(0, 0, 0644, "/system/etc/CrossBreeder/hosts");
 	endif;
 endif;
 set_progress(0.98);
@@ -857,8 +773,8 @@ run_program("/sbin/sync");
 set_progress(0.99);
 
 ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Unmounting partitions");
-assert(unmount("/data") || ui_print("(data is unmounted already)"));
-assert(unmount("/system") || ui_print("(system is unmounted already)"));
+run_program("/tmp/adumount.sh", "/system");
+run_program("/tmp/adumount.sh", "/data");
 
 ui_print("###############################");
 ui_print("#  _____ _       _     _      #");
@@ -868,5 +784,5 @@ ui_print("# |  _| | | | | | \__ \ | | | #");
 ui_print("# |_|   |_|_| |_|_|___/_| |_| #");
 ui_print("#                             #");
 ui_print("###############################");
-#run_program("/sbin/busybox", "cp", "/tmp/recovery.log", "/sdcard/recovery.log");
+run_program("cp", "/tmp/recovery.log", "/sdcard/MrturDroid.log");
 set_progress(1.0);
