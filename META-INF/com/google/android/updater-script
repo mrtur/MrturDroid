@@ -17,32 +17,22 @@ assert(unmount("/system") || ui_print("(system is unmounted already)"));
 set_progress(0.02);
 
 if file_getprop("/tmp/aroma-data/archidroidwipe.prop","wipe") == "no" && file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") != "barebones" then
-	#mount("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/system", "/system");
 	package_extract_file("system/bin/backuptool.sh", "/tmp/backuptool.sh");
 	package_extract_file("system/bin/backuptool.functions", "/tmp/backuptool.functions");
 	set_perm(0, 0, 0777, "/tmp/backuptool.sh");
 	set_perm(0, 0, 0644, "/tmp/backuptool.functions");
 	run_program("/tmp/backuptool.sh", "backup");
-	#unmount("/system");
 endif;
 
 set_progress(0.03);
 
 ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Formatting Partitions");
-#format("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/system", "0", "/system");
 package_extract_file("_mrturdroid/scripts/wipesystem.sh", "/tmp/wipesystem.sh");
 set_perm(0, 0, 0777, "/tmp/wipesystem.sh");
 run_program("/tmp/wipesystem.sh");
 delete("/tmp/wipesystem.sh");
 
-#set_progress(0.06);
-
-#ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Mounting Partitions");
-#assert(mount("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/system", "/system") || ui_print("(system is mounted already)"));
-
 set_progress(0.07);
-#package_extract_file("_mrturdroid/scripts/bash", "/tmp/bash");
-#set_perm(0, 0, 0777, "/tmp/bash");
 
 if file_getprop("/tmp/aroma-data/mrturdroidwipe.prop","wipe") == "yes" then
 	ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Formatting /data excluding /data/media");
@@ -88,8 +78,6 @@ else
 	delete("/tmp/mrturdroid_update.sh");
 endif;
 
-#set_progress(0.09);
-
 set_progress(0.1);
 
 ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Flashing MrturDroid Core");
@@ -104,10 +92,11 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 	delete_recursive("/system/media/audio/notifications");
  	package_extract_dir("_mrtur/system", "/system");
 endif;
-#run_program("/sbin/sync");
 
 set_progress(0.51);
+
 run_program("/sbin/sync");
+
 ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Creating symlinks");
 
 symlink("../xbin/su", "/system/bin/su");
@@ -197,7 +186,6 @@ symlink("logcat", "/system/bin/logcat");
 symlink("mksh", "/system/bin/sh");
 symlink("mount.exfat", "/system/bin/fsck.exfat",
         "/system/bin/mkfs.exfat");
-#symlink("pigz", "/system/xbin/unpigz");
 symlink("toolbox", "/system/bin/cat", "/system/bin/chcon",
         "/system/bin/chmod", "/system/bin/chown", "/system/bin/clear",
         "/system/bin/cmp", "/system/bin/cp", "/system/bin/date",
@@ -320,7 +308,6 @@ else
 	### STOCK ###
 	if file_getprop("/tmp/aroma-data/mrturdroid.prop","kernel") == "stock" then
 		ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Flashing Stock Kernel");
-		#package_extract_file("boot.img", "/dev/block/platform/msm_sdcc.1/by-name/boot");	
 		ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing Trickster");
 		package_extract_dir("_mrturdroid/apps/trickster", "/"); 
 		
@@ -352,7 +339,6 @@ else
 		run_program("/tmp/install_kernel");
 		ui_print("<b><#e0e0e0>root</#><#ffffff>@</#><#1082ac> MrturDroid </#><#ffffff>:~</#><#b0b0b0>#</#></b> Installing Trickster");
 		package_extract_dir("_mrturdroid/apps/trickster", "/"); 
-
 	endif;
 
 	set_progress(0.6);
