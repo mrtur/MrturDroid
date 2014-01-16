@@ -32,7 +32,6 @@
 #  Global Tweaks
 #
 # <#selectbg_g>Xposed Framework</#>
-# <#selectbg_g>Crossbreeder</#>
 
 ##################
 #  Xposed Modules

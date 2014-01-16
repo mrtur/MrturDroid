@@ -724,25 +724,8 @@ else
 		delete_recursive("/data/media/0/MrturDroid/System");	
 		delete("/system/bin/adflash","/system/bin/adgithub","/system/bin/adlinux","/system/bin/debian","/system/bin/openssl","/system/bin/curl");
 	endif;
-
-	set_progress(0.92);
-
-	####################
-	### CROSSBREADER ###
-	####################
-
-	if file_getprop("/tmp/aroma-data/mrturdroid.prop","crossbreeder") == "1" then
-	ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing CrossBreeder");
-
-		package_extract_dir("_mrturdroid/crossbreeder/system", "/system");
-		set_perm_recursive(0, 0, 0755, 0755, "/system/etc/CrossBreeder");
-		set_perm(0, 0, 0644, "/system/etc/CrossBreeder/hosts");
-		set_perm(0, 2000, 0755, "/system/xbin/haveged");
-		set_perm(0, 2000, 0755, "/system/bin/dnsmasq_dhcp");
-		set_perm(0, 0, 0644, "/system/etc/CrossBreeder/hosts");
-	endif;
+set_progress(0.97);	
 endif;
-set_progress(0.98);
 
 run_program("/sbin/sync");
 
