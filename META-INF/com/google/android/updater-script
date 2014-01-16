@@ -6,15 +6,19 @@ ui_print("# | |  | | |  | |_| |_| | |  | |_| | | | (_) | | (_| |  #");
 ui_print("# |_|  |_|_|   \__|\__,_|_|  |____/|_|  \___/|_|\__,_|  #");
 ui_print("#                                                       #");
 ui_print("#########################################################");
-sleep (1);
+#sleep (1);
 assert(getprop("ro.product.device") == "mako" || getprop("ro.build.product") == "mako");
 ui_print("<b><#1082ac> MrturDroid ~</#></b> Ready!");
 set_progress(0.01);
-sleep (2);
+#sleep (2);
+### MRTURDROID TOOLS ###
+package_extract_file("_mrturdroid/scripts/adlock.sh", "/tmp/adlock.sh");
+set_perm(0, 0, 0777, "/tmp/adlock.sh");
 
 set_progress(0.02);
 
 if file_getprop("/tmp/aroma-data/mrturdroidwipe.prop","wipe") == "no" && file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") != "barebones" then
+	ui_print("<b><#1082ac> MrturDroid ~</#></b>  Backing up all addons");
 	package_extract_file("system/bin/backuptool.sh", "/tmp/backuptool.sh");
 	package_extract_file("system/bin/backuptool.functions", "/tmp/backuptool.functions");
 	set_perm(0, 0, 0777, "/tmp/backuptool.sh");
@@ -23,6 +27,9 @@ if file_getprop("/tmp/aroma-data/mrturdroidwipe.prop","wipe") == "no" && file_ge
 endif;
 
 set_progress(0.03);
+
+### UNLOCK ###
+run_program("/tmp/adlock.sh", "unlock", "/system/etc/hosts");
 
 ui_print("<b><#1082ac> MrturDroid ~</#></b> Formatting Partitions");
 package_extract_file("_mrturdroid/scripts/wipesystem.sh", "/tmp/wipesystem.sh");
@@ -281,6 +288,8 @@ set_metadata("/system/xbin/su", "uid", 0, "gid", 0, "mode", 06755, "capabilities
 
 set_progress(0.54);
 
+### LOCK ###
+run_program("/tmp/adlock.sh", "lock", "/system/etc/hosts");
 #################
 ### BAREBONES ###
 #################
