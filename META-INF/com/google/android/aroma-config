@@ -26,7 +26,7 @@
 ##
 # Initializing Rom Information
 #
-setvar("preset_version","2");
+setvar("preset_version","3");
 
 ini_set("dp","3");
 ini_set("rom_name",             "MrturDroid");
