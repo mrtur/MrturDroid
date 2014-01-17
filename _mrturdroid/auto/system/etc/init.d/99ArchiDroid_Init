@@ -104,7 +104,6 @@ fi
 echo "`date`" >> $LOG
 echo "MrturDroid `getprop ro.mrturdroid.version`" >> $LOG
 echo "`uname -a`" >> $LOG
-
 echo "INFO: ArchiDroid_Init executed!" >> $LOG
 
 if [ -e /system/etc/init.d/98ArchiDroid_RunOnce ] && [ $FORCE -ne 1 ]; then

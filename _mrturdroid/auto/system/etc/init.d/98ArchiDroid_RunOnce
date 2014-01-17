@@ -89,20 +89,20 @@ DBUPDATE() {
 	local VAL1=""
 	local VAL2=""
 	local ID=""
-	
+
 	while [ $DONE -ne 1 ] ; do
 		TRY=`expr $TRY + 1`
 		if [ "$4" == "APPEND" ]; then
 			# Append mode, value should exist already then
 			VAL1=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null`
 			VAL1=$VAL1$5$3
-			
+
 			# Let's update it now
 			sqlite3 /data/data/com.android.providers.settings/databases/settings.db "update $1 set value='$VAL1' where name='$2';" 2>/dev/null
-			
+
 			# See if it worked
 			VAL2=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null`
-			
+
 			if [ "$VAL1" == "$VAL2" ]; then
 				# Looks good
 				if [ $TRY -gt 1 ]; then
@@ -125,10 +125,10 @@ DBUPDATE() {
 			busybox sync
 			sqlite3 /data/data/com.android.providers.settings/databases/settings.db "update $1 set value='$3' where name='$2';" 2>/dev/null
 			busybox sync
-			
+
 			# See if it worked
 			VAL1=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null`
-			
+
 			# If not create it
 			if [ "$VAL1" != "" ]; then
 				# Looks good
@@ -144,7 +144,7 @@ DBUPDATE() {
 				sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into $1 values($ID, '$2', '$3');" 2>/dev/null
 				busybox sync
 			fi
-			
+
 			# Check if in fact we modified that
 			VAL1=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null`
 			if [ "$VAL1" != "" ]; then
@@ -184,7 +184,6 @@ fi
 echo "`date`" >> $LOG
 echo "MrturDroid `getprop ro.mrturdroid.version`" >> $LOG
 echo "`uname -a`" >> $LOG
-
 echo "INFO: ArchiDroid_RunOnce executed!" >> $LOG
 
 # Now we need to make sure that this is background process to prevent slowing down bootup
@@ -275,7 +274,7 @@ while (! pgrep com.android && [ $LOOP -lt 300 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 	if [ $DBUPDATE -eq 1 ]; then
 		if [ -e /data/data/com.android.providers.settings/databases/settings.db ]; then
 			echo "INFO: Android created settings.db for me, how cute! Performing DBUPDATE" >> $LOG
-			
+
 			# Let's update selected keyboard according to our choice
 			# TODO: We should handle this internally, according to FIRSTBOOT instead of hardcoding keyboards
 			ONESHOT=1
@@ -489,13 +488,13 @@ while (! pgrep com.android && [ $LOOP -lt 300 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 				DBUPDATE system ringtone 'content://media/internal/audio/media/21'
 			
 			fi
-			
+
 			# And don't execute twice
 			echo "INFO: Finished DBUPDATE" >> $LOG
 			DBUPDATE=0
 		fi
 	fi
-	
+
 	# Now let's MAKE SURE that our settings are in fact applied, only if we don't have shared_prefs already (prevent non-clean override)
 	if [ $ADMANY -gt 0 ]; then
 		cd $AD/FIRSTBOOT/DATA
