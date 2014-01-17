@@ -259,7 +259,7 @@ else
 	exit 2
 fi
 
-rm -f $AD/RunOnce.log.0
+
 
 
 
@@ -268,7 +268,7 @@ rm -f $AD/RunOnce.log.0
 # Also respect number of loops, maybe something went wrong
 echo "INFO: RunOnce Semaphore started" >> $LOG
 LOOP=0
-while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ; do
+while (! pgrep com.android && [ $LOOP -lt 300 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ; do
 
 
 	
