@@ -1,11 +1,2 @@
 <?xml version='1.0' encoding='utf-8' standalone='yes' ?>
-<map>
-    <boolean name="option_commit_animation" value="false" />
-    <string name="option_candidate_size_list">2</string>
-    <boolean name="option_forbid_simple_candidate_style" value="false" />
-    <boolean name="option_accessibility" value="false" />
-    <string name="option_keyboard_size_list">0</string>
-    <string name="option_cloke_list">0</string>
-    <string name="option_popup_preview_list">0</string>
-    <string name="option_update_freq">-1</string>
-</map>
+<map />

@@ -1,1 +1,1 @@
-[]
+[{"type":"SHOW","feature_id":"IME_ONLINE_00000F"},{"type":"DISMISS","feature_id":"IME_ONLINE_000007"},{"type":"SHOW","feature_id":"IME_ONLINE_00000G"},{"type":"DISMISS","sub_type":"TOASTCLOSED","feature_id":"IME_ONLINE_00000F"},{"type":"DISMISS","sub_type":"TOASTCLOSED","feature_id":"IME_ONLINE_00000G"},{"type":"SHOW","feature_id":"IME_ONLINE_000005"},{"type":"DISMISS","sub_type":"TOASTCLOSED","feature_id":"IME_ONLINE_000005"}]

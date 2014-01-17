@@ -1,10 +1,6 @@
 <?xml version='1.0' encoding='utf-8' standalone='yes' ?>
 <map>
-    <string name="13883855575941">/SETTING/FUNCTIONBAR/edit,TRUE</string>
-    <string name="13883855575942">/SETTING/FUNCTIONBAR/hw_mask,TRUE</string>
-    <string name="13883855575943">/SETTING/FUNCTIONBAR/twitter,FALSE</string>
-    <string name="1388385552782">/SETTING/COMMIT_ANIMATION_ENABLED,FALSE</string>
-    <string name="13883855575944">/SETTING/FUNCTIONBAR/more,TRUE</string>
-    <string name="1388385530055">/SETTING/VIBRATE_TIME,0</string>
-    <string name="1388385557594">/SETTING/FUNCTIONBAR/voice,TRUE</string>
+    <string name="1389908429375">/UI/ALTER_KEYBOARD,english__PORTRAIT__QWERTY</string>
+    <string name="1389908601170">/PRODUCTS/com.google.android.gms/INSTALL_MODE,INSTALLED_BY_ONESELF</string>
+    <string name="1389908633519">/UI/ALTER_KEYBOARD,polish__PORTRAIT__QWERTY</string>
 </map>

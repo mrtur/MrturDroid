@@ -1,69 +1,85 @@
 <?xml version='1.0' encoding='utf-8' standalone='yes' ?>
 <map>
-    <boolean name="API_INPUT_CONNECTION_DISABLED" value="false" />
     <int name="GUIDE_PLAY_STATE" value="1" />
+    <boolean name="API_INPUT_CONNECTION_DISABLED" value="false" />
     <boolean name="V4_USRDICT_IMPORTED" value="true" />
     <int name="KEYBOARD_LAYOUT_LAYOUT_english" value="1" />
     <string name="QUICK_SETTINGS_NEW_SETTINGS">WAVE_ENABLE:true/store:false/sub_dictionary:false/typing_speed:false/feedback:false</string>
     <boolean name="FIRST_START_KEYBOARD" value="false" />
-    <int name="LANGUAGE_USED_TIMES_LANGUAGE_english" value="5" />
-    <string name="CELL_DICTIONARY_CELLDICT_english"></string>
-    <int name="HANDWRITE_RECOG_RANGE_RECOGRANGE_chinese_pinyin" value="261903" />
+    <string name="USER_DIC_MD5_USER_DICT_western">93435e788742f55a7888ff6cf4c40a24</string>
+    <int name="GOODS_CHECK_NEXT_TIME" value="23175280" />
+    <int name="LANGUAGE_USED_TIMES_LANGUAGE_english" value="10" />
+    <string name="CURRENT_HOTWORD_DICTIONARY_ID">com.cootek.smartinputv5.language.english</string>
+    <string name="CELL_DICTIONARY_CELLDICT_english">en_hotword.tpc</string>
     <int name="KEYBOARD_POSITION" value="0" />
+    <int name="HANDWRITE_RECOG_RANGE_RECOGRANGE_chinese_pinyin" value="261903" />
+    <string name="SAVED_LANGUAGE_HISTORY"></string>
     <boolean name="SHOW_LANG_FIRST_SETUP_DLG_LANGUAGE_english" value="false" />
     <boolean name="APPLY_SYSTEM_VOLUME" value="false" />
     <string name="LBS_NOTIFIED_LOCATION"></string>
+    <string name="MIX_LANGUAGE_MIXINPUT_chinese_pinyin">english</string>
     <boolean name="PREDICT_NEXT_WORD_NEXTWORD_western" value="true" />
+    <int name="LANGUAGE_USED_TIMES_LANGUAGE_polish" value="3" />
     <int name="NEXT_CONTACT_IMPORT_TIME" value="23183018" />
-    <string name="FUNCTIONBAR_SETTINGS">voice:true/edit:true/twitter:false/</string>
     <int name="KEYBOARD_SUBTYPE_P_SUBTYPE_western" value="2" />
+    <string name="FUNCTIONBAR_SETTINGS">voice:true/edit:true/twitter:false/</string>
     <int name="PRODUCT_TYPE" value="1" />
+    <int name="IME_CUR_VERSION" value="5501" />
     <boolean name="TOUCH_CORRECT" value="true" />
-    <int name="IME_CUR_VERSION" value="5465" />
-    <string name="CELL_DICTIONARY_CELLDICT_chinese"></string>
+    <int name="ACCOUNT_CHECK_NEXT_TIME" value="23169520" />
     <boolean name="FIRST_START_INPUTMETHOD" value="false" />
-    <boolean name="SHOW_EMOJI_IN_APP_TIP" value="false" />
+    <string name="CELL_DICTIONARY_CELLDICT_chinese"></string>
     <boolean name="SHOW_PROMOTE_PINYIN_ADDONS" value="true" />
+    <boolean name="SHOW_EMOJI_IN_APP_TIP" value="false" />
+    <string name="ALREADY_OWN_PKGS_DOWNLOADLIMITATION_DOWNLOAD_LANGUAGE">cootek.smartinput.android.language.polish/cootek.smartinput.android.language.english/</string>
     <boolean name="ADAPTIVE_LEARNING_ADTLEARNING_western" value="true" />
-    <string name="ALREADY_OWN_PKGS_DOWNLOADLIMITATION_DOWNLOAD_LANGUAGE">cootek.smartinput.android.language.english/</string>
     <boolean name="english" value="true" />
     <int name="LAST_NOTIFY_UPDATE" value="0" />
+    <boolean name="polish" value="true" />
+    <int name="AUTO_BACKUP_DICTIONARY_TIME" value="23166640" />
     <boolean name="INVITE_SUCCEED" value="true" />
-    <int name="AUTO_BACKUP_DICTIONARY_TIME" value="23141258" />
-    <string name="STATISTIC_DATA"></string>
+    <string name="STATISTIC_DATA">english_qwerty_total 24 </string>
     <int name="SOUND" value="0" />
     <boolean name="SYS_USER_DIC_IMPORTED" value="true" />
-    <boolean name="SHOW_INSTALL_INCOMPATIBLE_LANGUAGE" value="true" />
-    <string name="PREUSED_LANGUAGE"></string>
-    <int name="PAOPAO_NEXT_QUERY_UPDATE_TIME" value="0" />
-    <boolean name="ENV_WORD" value="true" />
+    <boolean name="SHOW_INSTALL_INCOMPATIBLE_LANGUAGE" value="false" />
+    <string name="PREUSED_LANGUAGE">english</string>
     <int name="VIBRATE_TIME" value="0" />
+    <boolean name="ENV_WORD" value="true" />
+    <int name="PAOPAO_NEXT_QUERY_UPDATE_TIME" value="0" />
     <boolean name="DOWNSLIDE_SYMBOLS" value="true" />
     <boolean name="SMART_AUTOSPACE" value="true" />
-    <int name="LAST_ACTIVATION_SUCCESS_TIME" value="1388385574" />
+    <string name="SERVER_USER_TOKEN">774d07c6-a9bd-4852-9ec5-5afc0bee5c88</string>
     <boolean name="FORWARD_PREDICTION" value="true" />
-    <string name="SERVER_USER_TOKEN">e317690f-920f-4535-afc2-08afc60bc041</string>
+    <int name="LAST_ACTIVATION_SUCCESS_TIME" value="1389908427" />
     <int name="KEYBOARD_HEIGHT_NORMAL_P" value="367" />
+    <boolean name="SHOW_LANG_FIRST_SETUP_DLG_LANGUAGE_polish" value="false" />
     <boolean name="ONE_HANDED_LAYOUT" value="false" />
     <int name="KEYBOARD_BOTTOM_MARGIN" value="0" />
-    <boolean name="AUTOSPACE_ENABLE" value="true" />
     <int name="SYMBOL_KEYBOARD_LAYOUT" value="2" />
-    <string name="CURRENT_LANGUAGE">english</string>
+    <boolean name="AUTOSPACE_ENABLE" value="true" />
+    <string name="CURRENT_LANGUAGE">polish</string>
     <boolean name="COMMIT_ANIMATION_ENABLED" value="false" />
     <boolean name="OPEN_PAOPAO_PANEL_FIRST" value="false" />
+    <int name="NEXT_LOCALIZE_WEB_TIME" value="23166640" />
     <long name="FIRST_INSTALL_TIME" value="1388385510534" />
+    <string name="ACCOUNT_INFO"></string>
     <boolean name="SHOW_TUTORIAL" value="true" />
     <int name="FIRST_START_TIME" value="1388385572" />
     <boolean name="NEED_REFRESH_MORE_TAB_NEW_TAG" value="false" />
-    <int name="PAOPAO_NEXT_QUERY_NEWS_TIME" value="0" />
+    <int name="PAOPAO_NEXT_QUERY_NEWS_TIME" value="23165920" />
     <boolean name="ADVANCED_VIBRATION" value="false" />
-    <int name="CURRENT_DICTIONARY_TIMESTAMP" value="20130709" />
-    <int name="PAOPAO_LAST_NEWS_ID" value="0" />
+    <long name="USER_DIC_CURRENT_VERSION_USER_DICT_western" value="1389908495" />
+    <int name="CURRENT_DICTIONARY_TIMESTAMP" value="20140107" />
+    <boolean name="FIRST_VERSION_UPDATE" value="false" />
+    <int name="PAOPAO_LAST_NEWS_ID" value="20" />
     <boolean name="FUNCTIONBAR" value="true" />
+    <int name="SMS_NEXT_IMPORT_TIME" value="23175280" />
     <boolean name="SHOW_LANGPACKS_ADDON" value="true" />
-    <int name="SMS_NEXT_IMPORT_TIME" value="23149898" />
+    <int name="CLOUD_SERVICE_SYNC_NEXT_TIME" value="23165500" />
     <boolean name="IS_CHINESE_LANGUAGE_ENABLED" value="false" />
-    <boolean name="CONTACT_IMPORTED" value="true" />
+    <long name="HOTWORD_LAST_UPDATE_TIME" value="1389908426810" />
     <string name="ACTIVATE_IDENTIFIER">c4:43:8f:a9:53:29##243625de550b91fa</string>
+    <boolean name="CONTACT_IMPORTED" value="true" />
     <int name="DEVICE_TYPE" value="1" />
+    <int name="USER_INPUT_DATA_UPLOAD_TIME" value="23166640" />
 </map>
