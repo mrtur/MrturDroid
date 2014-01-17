@@ -15,3 +15,4 @@
 - usunieto Adobe Flash Player
 - Nowa baza Slim-mako-4.4.2.beta.2.3-WEEKLY-2371
 - crossbreeder na stale w systemie
+- dodano "update me OTA" -> sprawdzanie i pobieranie aktualnej stabilnej wersji MrturDroid'a

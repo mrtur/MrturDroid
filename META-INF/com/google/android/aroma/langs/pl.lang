@@ -125,6 +125,7 @@ mrturdroid.bootanimation.google.desc=Animacja by Google
 mrturdroid.bootanimation.none.desc=Brak animacji ładowania, dla nieco szybszego startu
 
 mrturdroid.other=Inne
+mrturdroid.ota.desc=Wysoce zalecane. Zainstaluję aplikację UpdateMe oraz włączę aktualizacje OTA via build.prop
 mrturdroid.xposed.desc=Pozwala na używanie wielu modułów. Musi zostać włączony manualnie
 mrturdroid.crossbreeder.desc=Wysoce zalecany dla lepszej wydajności, blokowania reklam i wielu innych tweaków
 
