@@ -288,8 +288,6 @@ set_metadata("/system/xbin/su", "uid", 0, "gid", 0, "mode", 06755, "capabilities
 
 set_progress(0.54);
 
-### LOCK ###
-run_program("/tmp/adlock.sh", "lock", "/system/etc/hosts");
 #################
 ### BAREBONES ###
 #################
@@ -747,9 +745,12 @@ else
 		delete_recursive("/data/media/0/MrturDroid/System");	
 		delete("/system/bin/adflash","/system/bin/adgithub","/system/bin/adlinux","/system/bin/debian","/system/bin/openssl","/system/bin/curl");
 	endif;
-set_progress(0.97);	
+	set_progress(0.97);
 endif;
+set_progress(0.98);
 
+### LOCK ###
+run_program("/tmp/adlock.sh", "lock", "/system/etc/hosts");
 run_program("/sbin/sync");
 
 set_progress(0.99);
