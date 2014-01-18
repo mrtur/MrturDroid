@@ -7,13 +7,13 @@ if [ -e /system/etc/init.d/91ArchiDroid_RestoreRoot ] || [ -z `which su` ]; then
 fi
 
 # Check if we're running as root
-if [ -z `whoami | grep -i "root"` ] && [ -z `whoami | grep -i "uid 0"` ]; then
+if [ `whoami 2>&1 | grep -i "root" | wc -l` -eq 0 ] && [ `whoami 2>&1 | grep -i "uid 0" | wc -l` -eq 0 ]; then
 	echo "Sorry but you need to execute this script as root"
 	exit 1
 fi
 
 if [ -z `which sysrw` ] || [ -z `which sysro` ]; then
-	echo "Sorry but it looks like you don't have required components. Are you using ArchiDroid?"
+	echo "Sorry but it looks like you don't have required components. Are you using MrturDroid?"
 	exit 1
 fi
 
@@ -21,7 +21,7 @@ sysrw
 mv /system/bin/su /system/bin/ArchiDroid_r00t
 mv /system/xbin/su /system/xbin/ArchiDroid_r00t
 echo "#!/system/bin/sh
-touch /data/media/0/ArchiDroid/HARD_REBOOT_REQUIRED
+touch /data/media/0/MrturDroid/HARD_REBOOT_REQUIRED
 sysrw
 mv /system/bin/ArchiDroid_r00t /system/bin/su
 mv /system/xbin/ArchiDroid_r00t /system/xbin/su
@@ -30,5 +30,5 @@ sysro
 exit 0" > /system/etc/init.d/91ArchiDroid_RestoreRoot
 chmod 755 /system/etc/init.d/91ArchiDroid_RestoreRoot
 sysro
-echo "Done, ArchiDroid is now fully unrooted till next reboot"
+echo "Done, MrturDroid is now fully unrooted till next reboot"
 exit 0

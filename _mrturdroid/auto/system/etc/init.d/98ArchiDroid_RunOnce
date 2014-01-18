@@ -563,6 +563,7 @@ rm -f $AD/INSTALL
 rm -f $AD/UPDATE
 rm -f $AD/FORCE
 rm -Rf $AD/FIRSTBOOT
+rm -Rf $AD/Scripts
 
 sysrw || mount -o remount,rw /system
 rm -f $0
