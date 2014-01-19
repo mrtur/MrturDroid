@@ -98,8 +98,8 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
  	package_extract_dir("_mrtur/system", "/system");
 endif;
 
-set_progress(0.51);
 run_program("/sbin/sync");
+set_progress(0.51);
 
 ui_print("<b><#1082ac> MrturDroid ~</#></b> Creating symlinks");
 
