@@ -10,9 +10,11 @@
 2. Poprawki:
 - wdrozone poprawki skryptow by Justarchi (ADALIS, frandom)
 - dodano opcje protokolu HTTPS do githuba by Justarchi (pomysl @ wongsyrone)
+- mocne zmiany w skryptach by Justarchi https://raw.github.com/JustArchi/ArchiDroid/2.X-STABLE/META-INF/com/google/android/aroma/_changelog.txt
+Ja tego nie przetlumacze :)
  
 3. ISTOTNE ZMIANY:
 - usunieto Adobe Flash Player
 - Nowa baza Slim-mako-4.4.2.beta.2.4-WEEKLY-2430
-- crossbreeder na stale w systemie
+- crossbreeder na stale w systemie (JustArchi)
 - dodano "update me OTA" -> sprawdzanie i pobieranie aktualnej stabilnej wersji MrturDroid'a
