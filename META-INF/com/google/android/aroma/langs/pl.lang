@@ -97,7 +97,7 @@ mrturdroid.custom=Dostosowywanie MrturDroid
 mrturdroid.custom.extra=Dostosywywanie Ekstra MrturDroid
 mrturdroid.custom.desc=Zmodyfikuj proszę poniższe ustawienia do Twoich predyspozycji:
 
-mrturdroid.kernel.stock.desc=Pochodzący prosto od Slim
+mrturdroid.kernel.stock.desc=Pochodzący z samego ROMu
 mrturdroid.kernel.franco.desc=Zalecany jako alternatywa dla stocka
 mrturdroid.kernel.semaphore.desc=Alternatywa dla stocka
 
