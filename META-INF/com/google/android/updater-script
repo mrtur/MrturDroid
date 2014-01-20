@@ -90,11 +90,11 @@ show_progress(0.4, 1212);
 package_extract_dir("system", "/system");
 if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur" then
 	ui_print("<#1082ac> mrtur ~</#> Flashing mrtur's Core");
-	delete_recursive("/system/media/video");
-	delete_recursive("/system/media/audio/alarms");
+	#delete_recursive("/system/media/video");
+	#delete_recursive("/system/media/audio/alarms");
 	#delete_recursive("/system/media/audio/ui");
-	delete_recursive("/system/media/audio/ringtones");
-	delete_recursive("/system/media/audio/notifications");
+	#delete_recursive("/system/media/audio/ringtones");
+	#delete_recursive("/system/media/audio/notifications");
  	package_extract_dir("_mrtur/system", "/system");
 endif;
 
