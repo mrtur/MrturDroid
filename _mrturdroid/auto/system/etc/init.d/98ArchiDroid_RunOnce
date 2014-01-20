@@ -206,9 +206,9 @@ else
 fi
 
 # mrtur presset?
-SAMMY=1
+MRTUR=1
 if [ -e /system/etc/mrtur.txt ]; then
-SAMMY=0
+MRTUR=0
 # Which mode are we using?
 #
 # 1 - Nexus4
@@ -263,10 +263,6 @@ else
 	exit 2
 fi
 
-
-
-
-
 # ArchiDroid Semaphore
 # Wait until we see some android processes to consider boot is more or less complete (credits to AndiP71)
 # Also respect number of loops, maybe something went wrong
@@ -295,202 +291,76 @@ while (! pgrep com.android && [ $LOOP -lt 300 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 					#DBUPDATE secure enabled_input_methods "$KEYBOARDFULL" APPEND ":"
 				fi
 			done
-
-			if [ $SAMMY -eq 1 ]; then
+			
 				echo "INFO: Applying standard preset DBUPDATE" >> $LOG
-				
-				DBUPDATE secure ui_theme_mode 2 
-				#DBUPDATE secure advanced_reboot 1
-				DBUPDATE global transition_animation_scale 0.5
-				DBUPDATE global animator_duration_scale 0.5
-				DBUPDATE global window_animation_scale 0.5
+
+				DBUPDATE secure ui_theme_mode 2
+				DBUPDATE global transition_animation_scale 0.0
+				DBUPDATE global animator_duration_scale 0.0
+				DBUPDATE global window_animation_scale 0.0
 				DBUPDATE global wifi_scan_always_enabled 0
 				DBUPDATE global install_non_market_apps 1
 				DBUPDATE global package_verifier_enable 0			
 				DBUPDATE system haptic_feedback_enabled 0
-				#DBUPDATE system power_menu_screenshot_enabled 1
 				DBUPDATE system status_bar_battery 1
 				DBUPDATE system screen_off_timeout 30000			
-				#DBUPDATE system statusbar_clock_date_display 1
-				#DBUPDATE system statusbar_clock_date_format 'EEE dd MMM'
-				#DBUPDATE system statusbar_clock_date_style 2
-				#DBUPDATE system statusbar_clock_style 1
-				#DBUPDATE global adb_enabled 1
-				#DBUPDATE global development_settings_enabled 1
-				#DBUPDATE secure lockscreen_frame_color -2
-				#DBUPDATE secure lockscreen_lock_color -2
-				#DBUPDATE secure lockscreen_dots_color -2
-				DBUPDATE secure lockscreen_lock_icon '/data/data/com.android.settings/files/lock_icon1388332024286.png'
+				DBUPDATE system statusbar_clock_date_display 1
+				DBUPDATE system statusbar_clock_date_format 'EEE dd MMM'
+				DBUPDATE system statusbar_clock_date_style 2
+				DBUPDATE system statusbar_clock_style 1			
 				DBUPDATE system notification_alpha 0.0
-				DBUPDATE system power_menu_config '**poweroff**|empty|**reboot**|empty|**screenshot**|empty|**sound**|empty'
+				DBUPDATE system power_menu_config '**poweroff**|empty|**reboot**|empty|**screenshot**|empty|**sound**|empty'			
 				DBUPDATE system navigation_bar_config '**recents**|**null**|empty|**home**|**null**|empty|**back**|**null**|empty'
 				DBUPDATE system navigation_bar_height 60
-				DBUPDATE system navigation_bar_width 60
+				DBUPDATE system navigation_bar_width 60			
+				
+			if [ $MRTUR -eq 1 ]; then
+				echo "INFO: Applying supplementary preset DBUPDATE" >> $LOG
+
+				#DBUPDATE global adb_enabled 1
+				DBUPDATE secure lockscreen_lock_icon '/data/data/com.android.settings/files/lock_icon1388332024286.png'
 			
 			else
 				echo "INFO: Applying mrtur preset DBUPDATE" >> $LOG
-				
-				# ==== mrtur =====
+
 				DBUPDATE global adb_enabled 1
 				DBUPDATE global airplane_mode_on 0
-				DBUPDATE global animator_duration_scale 0.0
 				DBUPDATE global assisted_gps_enabled 1
-				#DBUPDATE global audio_safe_volume_state 3
-				#DBUPDATE global auto_time 1
-				#DBUPDATE global auto_time_zone 1
 				DBUPDATE global bluetooth_on 1
 				DBUPDATE global call_auto_retry 0
-				#DBUPDATE global cdma_cell_broadcast_sms 1
 				DBUPDATE global data_roaming 0
-				#DBUPDATE global default_install_location 0
-				#DBUPDATE global development_settings_enabled 1
-				#DBUPDATE global device_provisioned 1
 				DBUPDATE global dock_audio_media_enabled 1
 				DBUPDATE global dock_sounds_enabled 0
 				DBUPDATE global emergency_tone 0
-				DBUPDATE global install_non_market_apps 1
 				DBUPDATE global mobile_data 1
 				DBUPDATE global mode_ringer 2
-				#DBUPDATE global netstats_enabled 1
-				DBUPDATE global package_verifier_enable 0
 				DBUPDATE global power_notifications_enabled 0
 				DBUPDATE global power_notifications_vibrate 0
 				DBUPDATE global power_sounds_enabled 1
-				#DBUPDATE global preferred_network_mode 0
-				#DBUPDATE global set_install_location 0
 				DBUPDATE global stay_on_while_plugged_in 0
-				DBUPDATE global transition_animation_scale 0.0
 				DBUPDATE global usb_mass_storage_enabled 1
-				#DBUPDATE global wifi_display_on 0
-				#DBUPDATE global wifi_max_dhcp_retry_count 9
-				#DBUPDATE global wifi_networks_available_notification_on 1
-				#DBUPDATE global wifi_on 0
-				DBUPDATE global wifi_scan_always_enabled 0
-				#DBUPDATE global wifi_sleep_policy 2
-				#DBUPDATE global wifi_watchdog_on 1
-				DBUPDATE global window_animation_scale 0.0
-				#DBUPDATE secure accessibility_display_magnification_auto_update 1
-				#DBUPDATE secure accessibility_display_magnification_enabled 0
-				#DBUPDATE secure accessibility_display_magnification_scale 2.0
-				#DBUPDATE secure accessibility_script_injection 0
-				#DBUPDATE secure adb_port '-1'
 				DBUPDATE secure advanced_reboot 1
-				#DBUPDATE secure backup_enabled 0
-				#DBUPDATE secure bluetooth_addr_valid 1
-				#DBUPDATE secure dialpad_autocomplete 1
 				DBUPDATE secure incall_power_button_behavior 2
-				#DBUPDATE secure input_methods_subtype_history
-				#DBUPDATE secure location_providers_allowed 'gps,network'
-				#DBUPDATE secure lock_screen_appwidget_ids 2
-				#DBUPDATE secure lock_screen_owner_info_enabled 0
-				#DBUPDATE secure lockscreen.disabled 0
 				DBUPDATE secure long_press_timeout 500
-				#DBUPDATE secure mock_location 0
-				#DBUPDATE secure mount_play_not_snd 1
-				#DBUPDATE secure mount_ums_autostart 0
-				#DBUPDATE secure mount_ums_notify_enabled 1
-				#DBUPDATE secure mount_ums_prompt 1
-				#DBUPDATE secure screensaver_activate_on_dock 1
-				#DBUPDATE secure screensaver_activate_on_sleep 0
-				#DBUPDATE secure screensaver_enabled 1
-				#DBUPDATE secure selected_input_method_subtype '-1'
-				#DBUPDATE secure selected_spell_checker_subtype 0
-				#DBUPDATE secure speak_password 0
-				#DBUPDATE secure touch_exploration_enabled 0
-				DBUPDATE secure ui_theme_mode 2
-				#DBUPDATE secure user_setup_complete 1
 				DBUPDATE system accelerometer_rotation 0
 				DBUPDATE system auto_brightness_backlight 14,28,37,51,71,80,96,108,255,255,255,255
 				DBUPDATE system auto_brightness_lux 10,50,100,200,400,500,800,1000,1600,3000,10000
 				DBUPDATE system auto_brightness_responsiveness 1.0
 				DBUPDATE system dim_screen 1
-				#DBUPDATE system dtmf_tone 0
-				#DBUPDATE system dtmf_tone_type 0
-				#DBUPDATE system expanded_desktop_mode 1
-				#DBUPDATE system expanded_desktop_state 0
-				DBUPDATE system haptic_feedback_enabled 0
-				#DBUPDATE system hearing_aid 0
-				#DBUPDATE system hide_rotation_lock_toggle_for_accessibility 1
-				#DBUPDATE system hide_statusbar 0
 				DBUPDATE system lock_volume_keys 1
 				DBUPDATE system lockscreen_sounds_enabled 0
 				DBUPDATE system menu_location 2
 				DBUPDATE system menu_visibility 0
-				#DBUPDATE system mode_ringer_streams_affected 166
-				#DBUPDATE system mute_streams_affected 46
-				#DBUPDATE system navigation_bar_alpha 0.0
-				#DBUPDATE system navigation_bar_button_alpha 0.5
-				#DBUPDATE system navigation_bar_glow_duration_off 10
-				#DBUPDATE system navigation_bar_glow_duration_on 100
-				DBUPDATE system navigation_bar_height 60
-				DBUPDATE system navigation_bar_width 60
-				#DBUPDATE system next_alarm_formatted
-				#DBUPDATE system noise_suppression 0
-				#DBUPDATE system notif_alpha 0.0
-				#DBUPDATE system notif_wallpaper_alpha 0.1
-				#DBUPDATE system notification_light_pulse 1
-				#DBUPDATE system pie_background_alpha 1.0
-				#DBUPDATE system pie_button_alpha 0.45
-				#DBUPDATE system pie_button_color '-16777216'
-				#DBUPDATE system pie_button_pressed_alpha 1.0
-				#DBUPDATE system pie_button_pressed_color '-16777216'
-				#DBUPDATE system pie_buttons_config '**expanded_desktop**|**null**|empty|**home**|**null**|empty|**recents**|**null**|empty|**back**|**null**|empty'
-				#DBUPDATE system pie_controls 1
-				#DBUPDATE system pie_disable_statusbar_info 0
-				#DBUPDATE system pie_gravity 6
-				#DBUPDATE system pie_icon_color '-13388315'
-				#DBUPDATE system pie_show_snap 0
-				#DBUPDATE system pie_show_text 0
-				#DBUPDATE system pie_size 1.5
-				#DBUPDATE system pie_snap_color '-16777216'
-				#DBUPDATE system pie_softkeyboard_is_showing 0
-				#DBUPDATE system pie_text_color '-13388315'
-				#DBUPDATE system pie_trigger_gravity_left_right 80
-				#DBUPDATE system pie_trigger_height 0.68
-				#DBUPDATE system pie_trigger_show 0
-				#DBUPDATE system pie_trigger_thickness 13.5
-				#DBUPDATE system pointer_speed 0
-				#DBUPDATE system power_menu_airplane_enabled 0
-				#DBUPDATE system power_menu_expanded_desktop_enabled 1
-				#DBUPDATE system power_menu_screenshot_enabled 1
-				DBUPDATE system power_menu_config '**poweroff**|empty|**reboot**|empty|**screenshot**|empty|**sound**|empty'			
 				DBUPDATE system power_ui_low_battery_warning_policy 1
-				#DBUPDATE system quick_settings_tile_content
-				#DBUPDATE system radio.data.stall.recovery.action 0
 				DBUPDATE system recents_clear_all_on_right 1
-				#DBUPDATE system screen_brightness 87
-				#DBUPDATE system screen_brightness_mode 1
-				DBUPDATE system screen_off_timeout 30000
 				DBUPDATE system sound_effects_enabled 0
-				#DBUPDATE system status_bar_alpha 0.85
-				DBUPDATE system status_bar_battery 1
-				DBUPDATE system statusbar_clock_date_display 1
-				DBUPDATE system statusbar_clock_date_format 'EEE dd MMM'
-				DBUPDATE system statusbar_clock_date_style 2
-				DBUPDATE system statusbar_clock_style 1
 				DBUPDATE system system_power_enable_crt_off 0
 				DBUPDATE system system_profiles_enabled 0
-				DBUPDATE system navigation_bar_config '**recents**|**null**|empty|**home**|**null**|empty|**back**|**null**|empty'			
-				#DBUPDATE system tablet_ui 0
-				#DBUPDATE system toggle_notification_and_qs_shade 0
-				DBUPDATE system transition_animation_scale 1.0
-				#DBUPDATE system tty_mode 0
-				#DBUPDATE system ui_force_overflow_button 0
 				DBUPDATE system user_rotation 0
 				DBUPDATE system vibrate_when_ringing 1
-				#DBUPDATE system volume_alarm 6
-				#DBUPDATE system volume_bluetooth_sco 7
-				#DBUPDATE system volume_music 11
-				#DBUPDATE system volume_music_headphone 7
-				#DBUPDATE system volume_music_headset 7
-				#DBUPDATE system volume_notification 5
-				#DBUPDATE system volume_ring 5
-				#DBUPDATE system volume_system 7
-				#DBUPDATE system volume_voice 4
 				DBUPDATE system wakeup_when_plugged_unplugged 0
-				DBUPDATE system window_animation_scale 1.0
 				#DBUPDATE system notification_sound 'content://media/internal/audio/media/32'
-				DBUPDATE system ringtone 'content://media/internal/audio/media/21'
+				#DBUPDATE system ringtone 'content://media/internal/audio/media/21'
 			
 			fi
 
