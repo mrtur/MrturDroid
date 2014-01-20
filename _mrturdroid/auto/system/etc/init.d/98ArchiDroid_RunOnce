@@ -304,10 +304,6 @@ while (! pgrep com.android && [ $LOOP -lt 300 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 				DBUPDATE system haptic_feedback_enabled 0
 				DBUPDATE system status_bar_battery 1
 				DBUPDATE system screen_off_timeout 30000			
-				DBUPDATE system statusbar_clock_date_display 1
-				DBUPDATE system statusbar_clock_date_format 'EEE dd MMM'
-				DBUPDATE system statusbar_clock_date_style 2
-				DBUPDATE system statusbar_clock_style 1			
 				DBUPDATE system notification_alpha 0.0
 				DBUPDATE system power_menu_config '**poweroff**|empty|**reboot**|empty|**screenshot**|empty|**sound**|empty'			
 				DBUPDATE system navigation_bar_config '**recents**|**null**|empty|**home**|**null**|empty|**back**|**null**|empty'
@@ -322,7 +318,11 @@ while (! pgrep com.android && [ $LOOP -lt 300 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 			
 			else
 				echo "INFO: Applying mrtur preset DBUPDATE" >> $LOG
-
+				
+				DBUPDATE system statusbar_clock_date_display 1
+				DBUPDATE system statusbar_clock_date_format 'EEE dd MMM'
+				DBUPDATE system statusbar_clock_date_style 2
+				DBUPDATE system statusbar_clock_style 1
 				DBUPDATE global adb_enabled 1
 				DBUPDATE global airplane_mode_on 0
 				DBUPDATE global assisted_gps_enabled 1
