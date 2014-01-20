@@ -64,8 +64,8 @@
 # LMT
 # <#selectbg_g>MXPlayer</#>
 # BetterBatteryStats
-# <#selectbg_g>CoolTool</#>
-# Root Browser
+# CoolTool
+# <#selectbg_g>Root Browser</#>
 # <#selectbg_g>Total Commander</#>
 # <#selectbg_g>YouTube</#>
 # Facebook

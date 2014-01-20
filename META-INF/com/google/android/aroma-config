@@ -253,13 +253,13 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 	"lmt=0\n"+
 	"mxplayer=1\n"+
 	"bbs=0\n"+
-	"cooltool=1\n"+
-	"rootbrowser=0\n"+
+	"cooltool=0\n"+
+	"rootbrowser=1\n"+
 	"totalcommander=1\n"+
 	"youtube=1\n"+
 	"facebook=0\n"+
 	"hdvoice=1\n"+
-	"buildtweaks=0\n"+
+	"buildtweaks=1\n"+
 	"debianoff=0\n"
 	);
 
