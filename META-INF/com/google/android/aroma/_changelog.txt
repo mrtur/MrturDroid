@@ -1,6 +1,7 @@
 ﻿MrturDroid 2.4.8
 
 1. Aktualizacja:
+- BootManager 1.4.2
 
 2. Poprawki:
  
