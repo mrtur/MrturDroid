@@ -7,7 +7,7 @@ ui_print("# |_|  |_|_|   \__|\__,_|_|  |____/|_|  \___/|_|\__,_|  #");
 ui_print("#                                                       #");
 ui_print("#########################################################");
 #sleep (1);
-assert(getprop("ro.product.device") == "mako" || getprop("ro.build.product") == "mako") || abort("This package is for \"mako\" devices; this is a \"" + getprop("ro.product.device") + "\"."););
+(getprop("ro.product.device") == "mako" || getprop("ro.build.product") == "mako") || abort("This package is for \"mako\" devices; this is a \"" + getprop("ro.product.device") + "\".");
 ui_print("<b><#1082ac> MrturDroid ~</#></b> Ready!");
 set_progress(0.01);
 #sleep (2);
