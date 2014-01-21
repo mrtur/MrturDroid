@@ -308,7 +308,8 @@ while (! pgrep com.android && [ $LOOP -lt 300 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 				DBUPDATE system power_menu_config '**poweroff**|empty|**reboot**|empty|**screenshot**|empty|**sound**|empty'			
 				DBUPDATE system navigation_bar_config '**recents**|**null**|empty|**home**|**null**|empty|**back**|**null**|empty'
 				DBUPDATE system navigation_bar_height 60
-				DBUPDATE system navigation_bar_width 60			
+				DBUPDATE system navigation_bar_width 60
+				DBUPDATE secure advanced_reboot 1				
 				
 			if [ $MRTUR -eq 1 ]; then
 				echo "INFO: Applying supplementary preset DBUPDATE" >> $LOG
@@ -339,7 +340,6 @@ while (! pgrep com.android && [ $LOOP -lt 300 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 				DBUPDATE global power_sounds_enabled 1
 				DBUPDATE global stay_on_while_plugged_in 0
 				DBUPDATE global usb_mass_storage_enabled 1
-				DBUPDATE secure advanced_reboot 1
 				DBUPDATE secure incall_power_button_behavior 2
 				DBUPDATE secure long_press_timeout 500
 				DBUPDATE system accelerometer_rotation 0
