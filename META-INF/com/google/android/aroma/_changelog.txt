@@ -8,6 +8,7 @@
 - BlackYouTube 5.3.32
 - BlackPlay Music 5.3.1317M
 - BlackGoogle+ 4.2.4.58179886
+- BlackGoogle Calendar 201308023
 
 2. Poprawki:
  
