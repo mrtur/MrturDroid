@@ -5,6 +5,7 @@
 - Black Gmail 4.7.2
 - BlackHangouts 2.0.217
 - BlackKeep 2.1.01
+- BlackYouTube 5.3.32
 
 2. Poprawki:
  
