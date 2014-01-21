@@ -4,6 +4,7 @@
 - BootManager 1.4.2
 - Black Gmail 4.7.2
 - BlackHangouts 2.0.217
+- BlackKeep 2.1.01
 
 2. Poprawki:
  
