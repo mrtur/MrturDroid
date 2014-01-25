@@ -503,6 +503,8 @@ if getvar("aroma_fast")=="OFF" then
 	"<~mrturdroid.install.finish>"
 	);
 
+resexec("exec/adumount.sh", "/system");
+
 	if	confirm(
 		#-- Title
 		"MrturDroid Wizard",
@@ -534,5 +536,8 @@ else
 	#-- Installation Finish Message
 	"<~mrturdroid.install.finish>"
 	);
+
+resexec("exec/adumount.sh", "/system");
+
 	reboot("onfinish");
 endif;

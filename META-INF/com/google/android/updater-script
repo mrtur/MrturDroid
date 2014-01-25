@@ -759,8 +759,6 @@ run_program("/sbin/sync");
 set_progress(0.99);
 
 ui_print("<b><#1082ac> MrturDroid ~</#></b> Unmounting partitions");
-run_program("/tmp/adumount.sh", "/system");
-run_program("/tmp/adumount.sh", "/data");
 
 ui_print("###############################");
 ui_print("#  _____ _       _     _      #");
