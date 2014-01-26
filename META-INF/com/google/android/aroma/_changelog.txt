@@ -10,6 +10,7 @@
 - BlackGoogle+ 4.2.4.58179886
 - BlackGoogle Calendar 201308023
 - XPrivacy 1.99.9
+- kernel Semaphore_N4_2.0.2
 
 2. Poprawki:
  
