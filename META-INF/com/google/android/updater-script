@@ -642,7 +642,8 @@ else
 		delete("/system/app/VoiceSearchStub.apk");
 		delete("/system/app/GoogleSearchWidget.apk");
 		delete("/system/app/QuickSearchBox.apk");
-		delete("/system/priv-app/QuickSearchBox.apk");		
+		#delete("/system/priv-app/QuickSearchBox.apk");
+		delete("/system/priv-app/Velvet.apk");		
 	endif;
 
 	if file_getprop("/tmp/aroma-data/mrturdroid.prop","ghangouts") == "1" then
