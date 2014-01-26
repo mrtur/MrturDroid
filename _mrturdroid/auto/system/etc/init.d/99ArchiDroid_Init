@@ -239,7 +239,8 @@ alias mount='ADALIAS mount'
 
 # Initial variables, you should NOT change them unless you know what you're doing
 AD="/data/media/0/MrturDroid"
-ADDEV="/system/mrturdroid/dev"
+ADSYS="/system/mrturdroid"
+ADDEV="$ADSYS/dev"
 LOG="$AD/Init.log" # "/dev/null" is no verbose
 RUNONCELOG="$AD/RunOnce.log"
 ADSTATUS="/dev/ARCHIDROID_INIT_STATUS"

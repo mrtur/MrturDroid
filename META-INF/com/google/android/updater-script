@@ -746,7 +746,7 @@ else
 		delete_recursive("/data/media/0/MrturDroid/tmp");
 		delete_recursive("/data/media/0/MrturDroid/GitHub");
 		delete_recursive("/data/media/0/MrturDroid/System");	
-		delete("/system/bin/adflash","/system/bin/adgithub","/system/bin/adlinux","/system/bin/debian","/system/bin/openssl","/system/bin/curl");
+		delete("/system/bin/adflash","/system/bin/adgithub","/system/bin/adlinux","/system/bin/debian","/system/bin/openssl","/system/bin/curl","/system/mrturdroid/system/debian.tar.gz");
 	endif;
 	set_progress(0.97);
 endif;
