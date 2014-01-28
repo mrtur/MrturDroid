@@ -2,6 +2,7 @@
 
 1. Aktualizacja:
 - Total Commander 2.04
+- Boot Manager 1.4.3
 
 2. Poprawki:
  
