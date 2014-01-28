@@ -1,6 +1,7 @@
 ﻿MrturDroid 2.4.9
 
 1. Aktualizacja:
+- Total Commander 2.04
 
 2. Poprawki:
  
