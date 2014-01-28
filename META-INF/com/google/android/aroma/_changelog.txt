@@ -1,20 +1,8 @@
-﻿MrturDroid 2.4.8
+﻿MrturDroid 2.4.9
 
 1. Aktualizacja:
-- BootManager 1.4.2
-- Black Gmail 4.7.2
-- BlackHangouts 2.0.217
-- BlackKeep 2.1.01
-- BlackYouTube 5.3.32
-- BlackPlay Music 5.3.1317M
-- BlackGoogle+ 4.2.4.58179886
-- BlackGoogle Calendar 201308023
-- XPrivacy 1.99.9
-- kernel Semaphore_N4_2.0.2
-- BlackGoogle Now
-- BlackPlayStore-kitkat
 
 2. Poprawki:
  
 3. ISTOTNE ZMIANY:
-- nowa baza Slim-mako-4.4.2.build.2.5.RC1-WEEKLY-2473
+
