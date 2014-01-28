@@ -30,10 +30,10 @@ setvar("preset_version","3");
 
 ini_set("dp","3");
 ini_set("rom_name",             "MrturDroid");
-ini_set("rom_version",          "2.4.7");
+ini_set("rom_version",          "2.4.8");
 ini_set("rom_author",           "mrtur");
 ini_set("rom_device",           "Nexus 4");
-ini_set("rom_date",             "20-01-2014");
+ini_set("rom_date",             "28-01-2014");
 
 #
 # THEME
@@ -330,7 +330,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 	"gkeep","Google Keep [<~common.inverted>]","","check",
 	"gmail","Google Mail (Gmail) [<~common.inverted>]","","check.checked",
 	"gmaps","Google Maps [<~common.inverted>]","","check.checked",
-	"gvoice","Google Voice","","check.checked",
+	"gvoice","Google Voice [<~common.inverted>]","","check.checked",
 	"ghangouts","Google Hangouts [<~common.inverted>]","","check",
 	"gplus","Google Plus [<~common.inverted>]","","check",
 	"gplaymusic","Google Play Music [<~common.inverted>]","<~mrturdroid.apps.gplaymusic.desc>","check",	
@@ -503,6 +503,8 @@ if getvar("aroma_fast")=="OFF" then
 	"<~mrturdroid.install.finish>"
 	);
 
+resexec("exec/adumount.sh", "/system");
+
 	if	confirm(
 		#-- Title
 		"MrturDroid Wizard",
@@ -534,5 +536,8 @@ else
 	#-- Installation Finish Message
 	"<~mrturdroid.install.finish>"
 	);
+
+resexec("exec/adumount.sh", "/system");
+
 	reboot("onfinish");
 endif;

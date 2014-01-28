@@ -1,8 +1,12 @@
 #!/sbin/sh
 
-# MrturDroid Backend Fallback
-mv /system/bin/debuggerd /system/xbin/debuggerd
+# ArchiDroid Backend Fallback
+mv /system/bin/debuggerd /system/bin/debuggerd.real
 mv /system/bin/addebuggerd /system/bin/debuggerd
+
+# ArchiDroid Dnsmasq Fallback
+mv /system/bin/dnsmasq /system/bin/dnsmasq.real
+mv /system/bin/addnsmasq /system/bin/dnsmasq
 
 # SuperSU
 #mkdir /system/bin/.ext
