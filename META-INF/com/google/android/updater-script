@@ -559,11 +559,6 @@ else
 	### MrturDroid Tweaks ###
 	ui_print("<b><#1082ac> MrturDroid ~</#></b> Applying MrturDroid Tweaks");
 
-	if file_getprop("/tmp/aroma-data/mrturdroid.prop","hdvoice") == "1" then
-		ui_print("<b><#1082ac> MrturDroid ~</#></b> Applying HD Voice Tweak");
-		package_extract_dir("_mrturdroid/tweaks/hdvoice", "/");
-	endif;
-
 	if file_getprop("/tmp/aroma-data/mrturdroid.prop","buildtweaks") == "1" then
 		ui_print("<b><#1082ac> MrturDroid ~</#></b> Applying build.prop Tweaks");
 		package_extract_file("_mrturdroid/tweaks/build.prop/tweaks.sh", "/tmp/tweaks.sh");

@@ -146,7 +146,6 @@ mrturdroid.apps.facebook.desc=Ciemna wersja Facebooka i Messengera
 mrturdroid.apps.8sms.desc=Doba alternatywa dla systemowej Mms.apk
 mrturdroid.apps.gplaymusic.desc=Zamienia Apollo
 
-mrturdroid.tweaks.hdvoice.desc=Włącza HD Voice o ile dostępne
 mrturdroid.tweaks.buildtweaks.desc=Wiele tweaków build.prop, w tym m.in. głębszy sen oraz większa wydajność
 mrturdroid.tweaks.openpdroid.desc=Spatchuj ROM ze wsparciem dla OpenPDroid o ile dostępny
 mrturdroid.tweaks.debianoff.desc=Zaznacz jeżeli nie masz zamiaru używać środowiska Debian
