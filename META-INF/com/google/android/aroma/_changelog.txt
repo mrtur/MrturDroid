@@ -3,6 +3,7 @@
 1. Aktualizacja:
 - Total Commander 2.04
 - Boot Manager 1.4.3
+- MX Player 1.7.23
 
 2. Poprawki:
  
