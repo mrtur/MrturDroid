@@ -59,6 +59,7 @@
 ##################
 #  MrturDroid Apps
 #
+# VNC Viewer
 # <#selectbg_g>Titanium Backup</#>
 # Greenify
 # LMT
