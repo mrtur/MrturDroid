@@ -307,8 +307,8 @@ while (! pgrep com.android && [ $LOOP -lt 300 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 				DBUPDATE system notification_alpha 0.0
 				DBUPDATE system power_menu_config '**poweroff**|empty|**reboot**|empty|**screenshot**|empty|**sound**|empty'			
 				DBUPDATE system navigation_bar_config '**recents**|**null**|empty|**home**|**null**|empty|**back**|**null**|empty'
-				DBUPDATE system navigation_bar_height 60
-				DBUPDATE system navigation_bar_width 60
+				DBUPDATE system navigation_bar_height 36
+				DBUPDATE system navigation_bar_width 36
 				DBUPDATE secure advanced_reboot 1				
 				
 			if [ $MRTUR -eq 1 ]; then
