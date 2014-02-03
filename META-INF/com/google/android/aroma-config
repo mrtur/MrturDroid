@@ -329,7 +329,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 	"gchrome","Google Chrome [<~common.inverted>]","","check.checked",
 	"gkeep","Google Keep [<~common.inverted>]","","check",
 	"gmail","Google Mail (Gmail) [<~common.inverted>]","","check.checked",
-	"gmaps","Google Maps [<~common.inverted>]","","check.checked",
+	"gmaps","Google Maps ","","check.checked",
 	"gvoice","Google Voice [<~common.inverted>]","","check.checked",
 	"ghangouts","Google Hangouts [<~common.inverted>]","","check",
 	"gplus","Google Plus [<~common.inverted>]","","check",

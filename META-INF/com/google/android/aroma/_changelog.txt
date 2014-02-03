@@ -6,6 +6,7 @@
 - MX Player 1.7.23
 
 2. Poprawki:
+- Google Maps (wersja z marketu, byly problemy z logowaniem)
  
 3. ISTOTNE ZMIANY:
 - Dodano VNC Viewer, ktory pozwala na podlaczenie do pocket debian uzywajac oryginalnego interfejsu GUI.
