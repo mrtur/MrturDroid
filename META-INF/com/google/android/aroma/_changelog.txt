@@ -11,4 +11,5 @@
 - Dodano VNC Viewer, ktory pozwala na podlaczenie do pocket debian uzywajac oryginalnego interfejsu GUI.
   VNC nalezy odpalic najpierw. Można to zrobic poprzez "adlinux vnc" lub wchodzac tightvncserver w Debianie.
   Haslo -> archidroid
+- Nowa Baza Slim-mako-4.4.2.build.2.6.RC2-WEEKLY-2639
 
