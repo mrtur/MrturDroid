@@ -398,8 +398,7 @@ if getvar("aroma_fast")=="OFF" then
 	#########################
 	### MRTURDROID DETECT ###
 	#########################
-	
-	resexec("exec/admount.sh", "/system");
+
 	pleasewait("Executing Shell...");
 
 	#-- Resource Exec
@@ -531,8 +530,6 @@ if getvar("aroma_fast")=="OFF" then
 	endif;
 else
 	ini_set("text_next", "<~common.finish>");
-	resexec("exec/admount.sh", "/system");
-	resexec("exec/admount.sh", "/data");
 
 	install(
 	#-- Title
