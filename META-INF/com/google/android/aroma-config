@@ -248,7 +248,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 	"gplus=0\n"+
 	"gplaymusic=0\n"+	
 	"gtranslate=0\n"+
-	"vnc=0\n"+
+	"vnc=1\n"+
 	"titaniumbackup=1\n"+
 	"greenify=0\n"+
 	"lmt=0\n"+
