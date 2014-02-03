@@ -7,6 +7,7 @@
 
 2. Poprawki:
 - Google Maps (wersja z marketu, byly problemy z logowaniem)
+- naprawiono niedzialanie ADBLOCK'a na niektorych kernelach
  
 3. ISTOTNE ZMIANY:
 - Dodano VNC Viewer, ktory pozwala na podlaczenie do pocket debian uzywajac oryginalnego interfejsu GUI.
