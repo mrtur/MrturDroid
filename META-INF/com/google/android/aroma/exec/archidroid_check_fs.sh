@@ -51,7 +51,6 @@ ADMOUNT() {
 			fi
 		fi
 		# Stage 2, mounted device isn't available in fstab and/or recovery can't mount it without such information. This is typical for f2fs, as fstab has ext4 declared. In addition to Stage 1, we'll provide block path, this should be enough.
-		if !(ADMOUNTED "$1"); then
 			if $GOTBUSYBOX; then
 				MNTPATH=`echo $1 | sed 's/\///g'`
 				eval "MNTPATH=\$$MNTPATH"
@@ -70,9 +69,7 @@ ADMOUNT() {
 					return 0
 				fi
 			fi
-		fi
 		# Stage 3, we failed using automatic filesystem, so we'll now use full mount command. This is our last chance.
-		if !(ADMOUNTED "$1"); then
 			if $GOTBUSYBOX; then
 				MNTPATH=`echo $1 | sed 's/\///g'`
 				eval "MNTPATH=\$$MNTPATH"
@@ -91,12 +88,9 @@ ADMOUNT() {
 					return 0
 				fi
 			fi
-		fi
 		# Stage 4, we're out of ideas
-		if !(ADMOUNTED "$1"); then
 			echo "Stage 4: ERROR! Could not mount $1" >> $LOG
 			return 1
-		fi
 	else
 		echo "$1 is already mounted" >> $LOG
 	fi
@@ -124,15 +118,25 @@ ADUMOUNT() {
 			fi
 		fi
 		# Ok, I give up
-		if (ADMOUNTED "$1"); then
 			echo "ERROR: Could not unmount $1" >> $LOG
 			return 1
-		fi
 	else
 		echo "$1 is already unmounted" >> $LOG
 	fi
 	return 0
 }
+
+if [ ! -z `which busybox` ]; then
+	GOTBUSYBOX=true
+fi
+if [ ! -z `which mount` ]; then
+	GOTMOUNT=true
+fi
+if (! $GOTBUSYBOX && ! $GOTMOUNT); then
+	# This should never happen, but safety check is always good
+	echo "FATAL ERROR, NO BUSYBOX NEITHER MOUNT" >> $LOG
+	exit 1
+fi
 
 ADMOUNT "$1"
 FS=$(mount | grep "$1" | awk '{print $5}')
