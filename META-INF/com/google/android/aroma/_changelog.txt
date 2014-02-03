@@ -8,4 +8,7 @@
 2. Poprawki:
  
 3. ISTOTNE ZMIANY:
+- Dodano VNC Viewer, ktory pozwala na podlaczenie do pocket debian uzywajac oryginalnego interfejsu GUI.
+  VNC nalezy odpalic najpierw. Można to zrobic poprzez "adlinux vnc" lub wchodzac tightvncserver w Debianie.
+  Haslo -> archidroid
 
