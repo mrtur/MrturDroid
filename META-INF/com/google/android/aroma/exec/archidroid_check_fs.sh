@@ -10,7 +10,7 @@ fi
 
 # These are absolute paths without slashes, for example /storage/sdcard1 is storagesdcard1, because you can't use / in variables
 fs="ext4" # Filesystem
-efs="/dev/block/mmcblk0p3" # EFS, if available
+#efs="/dev/block/mmcblk0p3" # EFS, if available
 boot="/dev/block/mmcblk0p5" # ROM's kernel image
 recovery="/dev/block/mmcblk0p6" # Recovery image
 radio="/dev/block/mmcblk0p7" # Modem image
