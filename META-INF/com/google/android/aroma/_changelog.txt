@@ -14,4 +14,7 @@
   VNC nalezy odpalic najpierw. Można to zrobic poprzez "adlinux vnc" lub wchodzac tightvncserver w Debianie.
   Haslo -> archidroid
 - Nowa Baza Slim-mako-4.4.2.build.2.6.RC2-WEEKLY-2639
+- W przypadku wyboru XPosed w aroma jest on aktywny na starcie
+- Usunieto wybor kernela w Aromie. Na sztywno flashowany jest oryginalny z SlimKat.
+  Inny jaki prefeuje uzytkownik nalezy sobie ewentualnie doinstalowac "recznie".
 
