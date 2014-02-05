@@ -26,7 +26,7 @@
 ##
 # Initializing Rom Information
 #
-setvar("preset_version","4");
+setvar("preset_version","5");
 
 ini_set("dp","3");
 ini_set("rom_name",             "MrturDroid");
@@ -230,7 +230,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 
 	writetmpfile(
 	"mrturdroid.prop",
-	"kernel=stock\n"+
 	"dpi=268\n"+
 	"launcher=nova\n"+
 	"keyboard=both\n"+
@@ -288,11 +287,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 	"<~mrturdroid.custom.desc>",
 	"@welcome",
 	"mrturdroid.prop",
-
-	"kernel","<#selectbg_g>Kernel</#>","","group",
-	"stock","Stock(Slim)","<~mrturdroid.kernel.stock.desc>","select.selected",
-	"semaphore","Semaphore","<~mrturdroid.kernel.semaphore.desc>","select",
-	#"franco","Franco","<~mrturdroid.kernel.franco.desc>","select",	
 
 	"dpi","<#selectbg_g>DPI</#>","","group",
 	"240","240 DPI","<~mrturdroid.dpi.240.desc>","select",
