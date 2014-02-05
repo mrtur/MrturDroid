@@ -410,30 +410,26 @@ if getvar("aroma_fast")=="OFF" then
 	resexec("exec/mrturdroid_detect.sh")
 	);
 
-	if getvar("resexec_retstatus")=="0" || getvar("resexec_retstatus")=="1" then
-		if confirm(
-			#-- Title
-			"MrturDroid Detect",
-			#-- Text
-			"<~mrturdroid.detect.fail>",
-			#-- Icon (Optional)
-			"@welcome",
-			#-- Yes Text
-			"<~mrturdroid.detect.fail.yes>",
-			#-- No Text
-			"<~mrturdroid.detect.fail.no>"
-			)=="yes"
-		then
-			alert("MrturDroid Detect","<~mrturdroid.detect.fail.alert.yes>","@welcome");
-			writetmpfile(
-			"mrturdroidwipe.prop",
-			"wipe=yes\n"
-			);
-		else
-			alert("MrturDroid Detect","<~mrturdroid.detect.fail.alert.no>","@welcome");
-			setvar("resexec_retstatus","2");
-		endif;
+
+	if confirm(
+		#-- Title
+		"MrturDroid Detect",
+		#-- Text
+		"<~mrturdroid.detect.fail>",
+		#-- Icon (Optional)
+		"@welcome",
+		)=="yes"
+	then
+		alert("MrturDroid Detect","<~mrturdroid.detect.fail.alert.yes>","@welcome");
+		writetmpfile(
+		"archidroidwipe.prop",
+		"wipe=yes\n"
+		);
+	else
+		alert("ArchiDroid Detect","<~archidroid.detect.fail.alert.no>","@alert");
+		setvar("resexec_retstatus","2");
 	endif;
+
 	
 	if getvar("resexec_retstatus")=="2" then
 		if	confirm(
@@ -454,7 +450,7 @@ if getvar("aroma_fast")=="OFF" then
 			"wipe=no\n"+
 			"force=no\n"
 			);
-				if	confirm(
+				if confirm(
 					#-- Title
 					"MrturDroid Detect",
 					#-- Text
@@ -514,17 +510,13 @@ if getvar("aroma_fast")=="OFF" then
 	resexec("exec/adumount.sh", "/system");
 	resexec("exec/adumount.sh", "/data");
 
-	if	confirm(
+	if confirm(
 		#-- Title
 		"MrturDroid Wizard",
 		#-- Text
 		"<~mrturdroid.wizard.reboot>",
 		#-- Icon (Optional)
 		"@welcome",
-		#-- Yes Text
-		"<~text_yes>",
-		#-- No Text
-		"<~text_no>"
 		)=="yes"
 	then
 		reboot("onfinish");
