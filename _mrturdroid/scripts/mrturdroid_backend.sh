@@ -14,11 +14,11 @@ mv /system/bin/addnsmasq /system/bin/dnsmasq
 
 # ArchiDroid Adblock Hosts
 if [ ! -e /system/mrturdroid/etc/hosts ]; then
-	cp /system/mrturdroid/etc/hosts_adaway /system/mrturdroid/etc/hosts
+	ln -s /system/mrturdroid/etc/hosts_adaway /system/mrturdroid/etc/hosts
 fi
 
 # SuperSU
-#mkdir /system/bin/.ext
+#mkdir -p /system/bin/.ext
 #cp /system/xbin/su /system/xbin/daemonsu
 #cp /system/xbin/su /system/bin/.ext/.su
 
