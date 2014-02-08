@@ -127,10 +127,8 @@ mrturdroid.bootanimation.none.desc=Brak animacji ładowania, dla nieco szybszego
 mrturdroid.other=Inne
 mrturdroid.ota.desc=Wysoce zalecane. Zainstaluję aplikację UpdateMe oraz włączę aktualizacje OTA via build.prop
 mrturdroid.xposed.desc=Pozwala na używanie wielu modułów. Musi zostać włączony manualnie
-mrturdroid.crossbreeder.desc=Wysoce zalecany dla lepszej wydajności, blokowania reklam i wielu innych tweaków
 
 mrturdroid.gapps.desc=Główne aplikacje i funkcje Google. NIE ODZNACZAJ TEGO
-mrturdroid.gapps.gquick.desc=Może popsuć Google Voice!
 mrturdroid.apps.viper4.desc=Podnosi jakość dźwięku i próg głośności twojego telefonu. Usuwa DSP Manager
 mrturdroid.apps.vnc.desc=Klient VNC pozwalający na używanie GUI w MrturDroidowym Pocket Debianie
 mrturdroid.apps.titaniumbackup.desc=Świetne narzędzie do zarządzania kopiami zapasowymi pomiędzy flashami romów
@@ -141,14 +139,11 @@ mrturdroid.apps.bbs.desc=Dostarcza o wiele bardziej szczegółowych statystyk do
 mrturdroid.apps.cooltool.desc=Wyświetla wiele użytecznych informacji na górnym pasku powiadomień
 mrturdroid.apps.rootbrowser.desc=Jeden z najlepszych menadżerów plików, wspomagany opcjonalnie dostępem root
 mrturdroid.apps.totalcommander.desc=Jeden z najlepszych menadżerów plików, wspomagany opcjonalnie dostępem root
-mrturdroid.apps.adobeflash.desc=Zapewnia wsparcie dla technologii flash. Nie działa z Google Chrome
 mrturdroid.apps.youtube.desc=Ciemny odtwarzacz YouTube
 mrturdroid.apps.facebook.desc=Ciemna wersja Facebooka i Messengera
-mrturdroid.apps.8sms.desc=Doba alternatywa dla systemowej Mms.apk
 mrturdroid.apps.gplaymusic.desc=Zamienia Apollo
 
 mrturdroid.tweaks.buildtweaks.desc=Wiele tweaków build.prop, w tym m.in. głębszy sen oraz większa wydajność
-mrturdroid.tweaks.openpdroid.desc=Spatchuj ROM ze wsparciem dla OpenPDroid o ile dostępny
 mrturdroid.tweaks.debianoff.desc=Zaznacz jeżeli nie masz zamiaru używać środowiska Debian
 
 mrturdroid.xposed.appsettings.desc=Pozwala na zarządzanie ustawieniami specyficznymi dla danych aplikacji. Bardzo użyteczny moduł
