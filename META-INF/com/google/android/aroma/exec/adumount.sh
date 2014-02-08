@@ -6,16 +6,13 @@
 # Usage: adumount.sh *path*, f.e. adumount.sh /storage/sdcard1
 
 # These are absolute paths without slashes, for example /storage/sdcard1 is storagesdcard1, because you can't use / in variables
-#efs="/dev/block/mmcblk0p3" # EFS, if available
-boot="/dev/block/mmcblk0p5" # ROM's kernel image
-recovery="/dev/block/mmcblk0p6" # Recovery image
-radio="/dev/block/mmcblk0p7" # Modem image
-cache="/dev/block/mmcblk0p8" # Cache partition
-system="/dev/block/platform/msm_sdcc.1/by-name" # System partition
-preload="/dev/block/mmcblk0p10" # Preload partition (also SELinux)
-data="/dev/block/mmcblk0p12" # Data and internal memory
-storagesdcard1="/dev/block/mmcblk1p1" # External memory, if available
-AUTO="/system /cache /preload /data /storage/sdcard1" # Filesystems which should be unmounted automatically when no argument is given, typically every partition excluding images
+boot="/dev/block/mmcblk0p6" # ROM's kernel image
+recovery="/dev/block/mmcblk0p7" # Recovery image
+radio="/dev/block/mmcblk0p1" # Modem image
+cache="/dev/block/mmcblk0p22" # Cache partition
+system="/dev/block/mmcblk0p21" # System partition
+data="/dev/block/mmcblk0p23" # Data and internal memory
+AUTO="/system /cache /data" # Filesystems which should be unmounted automatically when no argument is given, typically every partition excluding images
 
 GOTBUSYBOX=false
 GOTMOUNT=false
