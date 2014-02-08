@@ -331,6 +331,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 	"gtranslate","Google Translate [<~common.inverted>]","","check",
 
 	"mrturapps","<#selectbg_g>MrturDroid Apps</#>","","group",
+	"viper4","ViPER4Android Audio Effects","<~mrturdroid.apps.viper4.desc>","check.checked",	
 	"vnc","VNC Viewer","<~mrturdroid.apps.vnc.desc>","check.checked",
 	"titaniumbackup","Titanium Backup","<~mrturdroid.apps.titaniumbackup.desc>","check.checked",
 	"greenify","Greenify","<~mrturdroid.apps.greenify.desc>","check.checked",

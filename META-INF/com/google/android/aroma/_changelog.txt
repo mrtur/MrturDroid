@@ -17,4 +17,5 @@
 - W przypadku wyboru XPosed w aroma jest on aktywny na starcie
 - Usunieto wybor kernela w Aromie. Na sztywno flashowany jest oryginalny z SlimKat.
   Inny jaki prefeuje uzytkownik nalezy sobie ewentualnie doinstalowac "recznie".
+- dodano ViPER4Android Audio Effects
 

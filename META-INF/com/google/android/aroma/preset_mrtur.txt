@@ -49,6 +49,7 @@
 # Google Plus
 # Google Play Music
 # Google Translate
+# ViPER4Android Audio Effects
 
 ##################
 #  MrturDroid Apps
