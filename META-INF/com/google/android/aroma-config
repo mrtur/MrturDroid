@@ -386,10 +386,8 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		);
 	endif;
 		write("/data/media/0/MrturDroid/AromaPreset/Slim_work/version.txt",getvar("preset_version"));
-endif;
 
 
-if getvar("aroma_fast")=="OFF" then
 
 	#########################
 	### MRTURDROID DETECT ###
@@ -406,26 +404,29 @@ if getvar("aroma_fast")=="OFF" then
 	resexec("exec/mrturdroid_detect.sh")
 	);
 
-
-	if confirm(
-		#-- Title
-		"MrturDroid Detect",
-		#-- Text
-		"<~mrturdroid.detect.fail>",
-		#-- Icon (Optional)
-		"@welcome",
-		)=="yes"
-	then
-		alert("MrturDroid Detect","<~mrturdroid.detect.fail.alert.yes>","@welcome");
-		writetmpfile(
-		"mrturdroidwipe.prop",
-		"wipe=yes\n"
-		);
-	else
-		alert("MrturDroid Detect","<~mrturdroid.detect.fail.alert.no>","@welcome");
-		setvar("resexec_retstatus","2");
+	if getvar("resexec_retstatus")=="0" || getvar("resexec_retstatus")=="1" then
+		if confirm(
+			#-- Title
+			"MrturDroid Detect",
+			#-- Text
+			"<~mrturdroid.detect.fail>",
+			#-- Icon (Optional)
+			"@welcome",
+			#-- Yes Text
+			"<~mrturdroid.detect.fail.yes>",
+			#-- No Text
+			"<~mrturdroid.detect.fail.no>"
+			)=="yes" then
+			alert("MrturDroid Detect","<~mrturdroid.detect.fail.alert.yes>","@welcome");
+			writetmpfile(
+			"mrturdroidwipe.prop",
+			"wipe=yes\n"
+			);
+		else
+			alert("MrturDroid Detect","<~mrturdroid.detect.fail.alert.no>","@welcome");
+			setvar("resexec_retstatus","2");
+		endif;
 	endif;
-
 	
 	if getvar("resexec_retstatus")=="2" then
 		if	confirm(
@@ -439,8 +440,7 @@ if getvar("aroma_fast")=="OFF" then
 			"<~mrturdroid.detect.pass.yes>",
 			#-- No Text
 			"<~mrturdroid.detect.pass.no>"
-			)=="yes"
-		then
+		)=="yes" then
 			writetmpfile(
 			"mrturdroidwipe.prop",
 			"wipe=no\n"+
@@ -453,8 +453,7 @@ if getvar("aroma_fast")=="OFF" then
 					"<~mrturdroid.detect.force>",
 					#-- Icon (Optional)
 					"@welcome"
-					)=="yes"
-				then
+				)=="yes" then
 					writetmpfile(
 					"mrturdroidwipe.prop",
 					"wipe=no\n"+
@@ -475,7 +474,7 @@ if getvar("aroma_fast")=="OFF" then
 			);
 		endif;
 	endif;
-
+endif;
 
 	ini_set("text_next", "<~common.flash>");
 
@@ -512,32 +511,8 @@ if getvar("aroma_fast")=="OFF" then
 		#-- Text
 		"<~mrturdroid.wizard.reboot>",
 		#-- Icon (Optional)
-		"@welcome",
-		)=="yes"
-	then
+		"@welcome"
+	)=="yes" then
 		reboot("onfinish");
 	endif;
-else
-	ini_set("text_next", "<~common.finish>");
-	resexec("exec/admount.sh", "/system");
-	resexec("exec/admount.sh", "/data");
 
-	install(
-	#-- Title
-	"<~common.flashing>",
-
-	#-- Installation Process message
-	"<~mrturdroid.install.desc>",
-
-	#-- Installation Icon
-	"@welcome",
-
-	#-- Installation Finish Message
-	"<~mrturdroid.install.finish>"
-	);
-
-	resexec("exec/adumount.sh", "/system");
-	resexec("exec/adumount.sh", "/data");
-
-	reboot("onfinish");
-endif;
