@@ -418,11 +418,11 @@ if getvar("aroma_fast")=="OFF" then
 	then
 		alert("MrturDroid Detect","<~mrturdroid.detect.fail.alert.yes>","@welcome");
 		writetmpfile(
-		"archidroidwipe.prop",
+		"mrturdroidwipe.prop",
 		"wipe=yes\n"
 		);
 	else
-		alert("ArchiDroid Detect","<~archidroid.detect.fail.alert.no>","@alert");
+		alert("MrturDroid Detect","<~mrturdroid.detect.fail.alert.no>","@welcome");
 		setvar("resexec_retstatus","2");
 	endif;
 
