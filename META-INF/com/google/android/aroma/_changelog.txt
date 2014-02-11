@@ -4,6 +4,7 @@
 - Total Commander 2.04
 - Boot Manager 1.4.3
 - MX Player 1.7.23
+- Boot Manager 1.4.7
 
 2. Poprawki:
 - Google Maps (wersja z marketu, byly problemy z logowaniem)
