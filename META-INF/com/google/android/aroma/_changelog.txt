@@ -1,20 +1,24 @@
-﻿MrturDroid 2.4.8
+﻿MrturDroid 2.4.9
 
 1. Aktualizacja:
-- BootManager 1.4.2
-- Black Gmail 4.7.2
-- BlackHangouts 2.0.217
-- BlackKeep 2.1.01
-- BlackYouTube 5.3.32
-- BlackPlay Music 5.3.1317M
-- BlackGoogle+ 4.2.4.58179886
-- BlackGoogle Calendar 201308023
-- XPrivacy 1.99.9
-- kernel Semaphore_N4_2.0.2
-- BlackGoogle Now
-- BlackPlayStore-kitkat
+- Total Commander 2.04
+- Boot Manager 1.4.3
+- MX Player 1.7.23
+- Boot Manager 1.4.7
+- XPrivacy 1.99.39(beta branch)
+- Google Maps 7.6.0
+- Greenify 2.1 (build 7)
 
 2. Poprawki:
+- Google Maps (wersja z marketu, byly problemy z logowaniem)
+- naprawiono niedzialanie ADBLOCK'a na niektorych kernelach
  
 3. ISTOTNE ZMIANY:
-- nowa baza Slim-mako-4.4.2.build.2.5.RC1-WEEKLY-2473
+- Dodano VNC Viewer, ktory pozwala na podlaczenie do pocket debian uzywajac oryginalnego interfejsu GUI.
+  VNC nalezy odpalic najpierw. Można to zrobic poprzez "adlinux vnc" lub wchodzac tightvncserver w Debianie.
+  Haslo -> archidroid
+- Nowa Baza Slim-mako-4.4.2.build.2.8.RC3-WEEKLY-2912
+- W przypadku wyboru XPosed w aroma jest on aktywny na starcie
+- Usunieto wybor kernela w Aromie. Na sztywno flashowany jest oryginalny z SlimKat.
+  Inny jaki prefeuje uzytkownik nalezy sobie ewentualnie doinstalowac "recznie".
+- dodano ViPER4Android Audio Effects

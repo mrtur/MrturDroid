@@ -26,14 +26,15 @@
 ##
 # Initializing Rom Information
 #
-setvar("preset_version","3");
+setvar("preset_version","5");
 
 ini_set("dp","3");
 ini_set("rom_name",             "MrturDroid");
-ini_set("rom_version",          "2.4.8");
+ini_set("rom_version",          "2.4.9");
 ini_set("rom_author",           "mrtur");
 ini_set("rom_device",           "Nexus 4");
-ini_set("rom_date",             "28-01-2014");
+ini_set("rom_date",             "11-02-2014");
+
 
 #
 # THEME
@@ -230,7 +231,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 
 	writetmpfile(
 	"mrturdroid.prop",
-	"kernel=stock\n"+
 	"dpi=268\n"+
 	"launcher=nova\n"+
 	"keyboard=both\n"+
@@ -248,6 +248,8 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 	"gplus=0\n"+
 	"gplaymusic=0\n"+	
 	"gtranslate=0\n"+
+	"viper4=0\n"+
+	"vnc=1\n"+
 	"titaniumbackup=1\n"+
 	"greenify=0\n"+
 	"lmt=0\n"+
@@ -258,7 +260,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 	"totalcommander=1\n"+
 	"youtube=1\n"+
 	"facebook=0\n"+
-	"hdvoice=1\n"+
 	"buildtweaks=1\n"+
 	"debianoff=0\n"
 	);
@@ -288,11 +289,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 	"<~mrturdroid.custom.desc>",
 	"@welcome",
 	"mrturdroid.prop",
-
-	"kernel","<#selectbg_g>Kernel</#>","","group",
-	"stock","Stock(Slim)","<~mrturdroid.kernel.stock.desc>","select.selected",
-	"semaphore","Semaphore","<~mrturdroid.kernel.semaphore.desc>","select",
-	#"franco","Franco","<~mrturdroid.kernel.franco.desc>","select",	
 
 	"dpi","<#selectbg_g>DPI</#>","","group",
 	"240","240 DPI","<~mrturdroid.dpi.240.desc>","select",
@@ -329,7 +325,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 	"gchrome","Google Chrome [<~common.inverted>]","","check.checked",
 	"gkeep","Google Keep [<~common.inverted>]","","check",
 	"gmail","Google Mail (Gmail) [<~common.inverted>]","","check.checked",
-	"gmaps","Google Maps [<~common.inverted>]","","check.checked",
+	"gmaps","Google Maps ","","check.checked",
 	"gvoice","Google Voice [<~common.inverted>]","","check.checked",
 	"ghangouts","Google Hangouts [<~common.inverted>]","","check",
 	"gplus","Google Plus [<~common.inverted>]","","check",
@@ -337,6 +333,8 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 	"gtranslate","Google Translate [<~common.inverted>]","","check",
 
 	"mrturapps","<#selectbg_g>MrturDroid Apps</#>","","group",
+	"viper4","ViPER4Android Audio Effects","<~mrturdroid.apps.viper4.desc>","check.checked",	
+	"vnc","VNC Viewer","<~mrturdroid.apps.vnc.desc>","check.checked",
 	"titaniumbackup","Titanium Backup","<~mrturdroid.apps.titaniumbackup.desc>","check.checked",
 	"greenify","Greenify","<~mrturdroid.apps.greenify.desc>","check.checked",
 	"lmt","LMT","<~mrturdroid.apps.lmt.desc>","check",
@@ -349,7 +347,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 	"facebook","Facebook + Messenger [<~common.inverted>]","<~mrturdroid.apps.facebook.desc>","check",
 
 	"mrturtweaks","<#selectbg_g>MrturDroid Tweaks</#>","","group",
-	"hdvoice","HD Voice","<~mrturdroid.tweaks.hdvoice.desc>","check.checked",
 	"buildtweaks","Add build.prop Tweaks","<~mrturdroid.tweaks.buildtweaks.desc>","check.checked",
 	"debianoff","Debian Off","<~mrturdroid.tweaks.debianoff.desc>","check.checked"
 	);
@@ -390,10 +387,14 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		);
 	endif;
 		write("/data/media/0/MrturDroid/AromaPreset/Slim_work/version.txt",getvar("preset_version"));
-endif;
 
 
-if getvar("aroma_fast")=="OFF" then
+
+	#########################
+	### MRTURDROID DETECT ###
+	#########################
+	
+	resexec("exec/admount.sh", "/system");
 	pleasewait("Executing Shell...");
 
 	#-- Resource Exec
@@ -416,8 +417,7 @@ if getvar("aroma_fast")=="OFF" then
 			"<~mrturdroid.detect.fail.yes>",
 			#-- No Text
 			"<~mrturdroid.detect.fail.no>"
-			)=="yes"
-		then
+			)=="yes" then
 			alert("MrturDroid Detect","<~mrturdroid.detect.fail.alert.yes>","@welcome");
 			writetmpfile(
 			"mrturdroidwipe.prop",
@@ -441,22 +441,20 @@ if getvar("aroma_fast")=="OFF" then
 			"<~mrturdroid.detect.pass.yes>",
 			#-- No Text
 			"<~mrturdroid.detect.pass.no>"
-			)=="yes"
-		then
+		)=="yes" then
 			writetmpfile(
 			"mrturdroidwipe.prop",
 			"wipe=no\n"+
 			"force=no\n"
 			);
-				if	confirm(
+				if confirm(
 					#-- Title
 					"MrturDroid Detect",
 					#-- Text
 					"<~mrturdroid.detect.force>",
 					#-- Icon (Optional)
 					"@welcome"
-					)=="yes"
-				then
+				)=="yes" then
 					writetmpfile(
 					"mrturdroidwipe.prop",
 					"wipe=no\n"+
@@ -477,7 +475,7 @@ if getvar("aroma_fast")=="OFF" then
 			);
 		endif;
 	endif;
-
+endif;
 
 	ini_set("text_next", "<~common.flash>");
 
@@ -488,6 +486,8 @@ if getvar("aroma_fast")=="OFF" then
 	);
 
 	ini_set("text_next", "<~common.finish>");
+	resexec("exec/admount.sh", "/system");
+	resexec("exec/admount.sh", "/data");
 
 	install(
 	#-- Title
@@ -503,41 +503,17 @@ if getvar("aroma_fast")=="OFF" then
 	"<~mrturdroid.install.finish>"
 	);
 
-resexec("exec/adumount.sh", "/system");
+	resexec("exec/adumount.sh", "/system");
+	resexec("exec/adumount.sh", "/data");
 
-	if	confirm(
+	if confirm(
 		#-- Title
 		"MrturDroid Wizard",
 		#-- Text
 		"<~mrturdroid.wizard.reboot>",
 		#-- Icon (Optional)
-		"@welcome",
-		#-- Yes Text
-		"<~text_yes>",
-		#-- No Text
-		"<~text_no>"
-		)=="yes"
-	then
+		"@welcome"
+	)=="yes" then
 		reboot("onfinish");
 	endif;
-else
-	ini_set("text_next", "<~common.finish>");
 
-	install(
-	#-- Title
-	"<~common.flashing>",
-
-	#-- Installation Process message
-	"<~mrturdroid.install.desc>",
-
-	#-- Installation Icon
-	"@welcome",
-
-	#-- Installation Finish Message
-	"<~mrturdroid.install.finish>"
-	);
-
-resexec("exec/adumount.sh", "/system");
-
-	reboot("onfinish");
-endif;

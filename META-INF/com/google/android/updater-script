@@ -309,7 +309,10 @@ else
 
 	# We need to make sure that current kernel is based to prevent random zygote kernel panics
 	ui_print("<b><#1082ac> MrturDroid ~</#></b> Cleaning Old Kernel");
+	ui_print("<b><#1082ac> MrturDroid ~</#></b> Flashing Stock Kernel");
 	package_extract_file("boot.img", "/dev/block/platform/msm_sdcc.1/by-name/boot");
+	ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Trickster");
+	package_extract_dir("_mrturdroid/apps/trickster", "/");
 
 	### STOCK ###
 	if file_getprop("/tmp/aroma-data/mrturdroid.prop","kernel") == "stock" then
@@ -415,7 +418,10 @@ else
 	if file_getprop("/tmp/aroma-data/mrturdroid.prop","xposed") == "1" then
 
 		ui_print("<b><#1082ac> MrturDroid ~</#></b> Including Xposed Framework");
+		run_program("/sbin/busybox","cp","-f","/system/bin/app_process","/system/bin/app_process.orig");
+		set_perm(0, 2000, 0755, "/system/bin/app_process.orig");
 		package_extract_dir("_mrturdroid/apps/xposed/xposed", "/");
+		set_perm(0, 2000, 0755, "/system/bin/app_process");
 		
 		if file_getprop("/tmp/aroma-data/mrturdroidxposed.prop","appsettings") == "1" then
 			ui_print("<b><#1082ac> MrturDroid ~</#></b> Including App Settings Xposed Module");
@@ -559,11 +565,6 @@ else
 	### MrturDroid Tweaks ###
 	ui_print("<b><#1082ac> MrturDroid ~</#></b> Applying MrturDroid Tweaks");
 
-	if file_getprop("/tmp/aroma-data/mrturdroid.prop","hdvoice") == "1" then
-		ui_print("<b><#1082ac> MrturDroid ~</#></b> Applying HD Voice Tweak");
-		package_extract_dir("_mrturdroid/tweaks/hdvoice", "/");
-	endif;
-
 	if file_getprop("/tmp/aroma-data/mrturdroid.prop","buildtweaks") == "1" then
 		ui_print("<b><#1082ac> MrturDroid ~</#></b> Applying build.prop Tweaks");
 		package_extract_file("_mrturdroid/tweaks/build.prop/tweaks.sh", "/tmp/tweaks.sh");
@@ -672,6 +673,17 @@ else
 	############
 	### APPS ###
 	############
+	
+	if file_getprop("/tmp/aroma-data/mrturdroid.prop","viper4") == "1" then
+		ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing ViPER4Android Audio Effects");
+		delete("/system/app/DSPManager.apk");		
+		package_extract_dir("_mrturdroid/apps/viper4", "/");
+	endif;	
+
+	if file_getprop("/tmp/aroma-data/mrturdroid.prop","vnc") == "1" then
+		ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing VNC Viewer");
+		package_extract_dir("_mrturdroid/apps/vnc", "/");
+	endif;
 
 	if file_getprop("/tmp/aroma-data/mrturdroid.prop","titaniumbackup") == "1" then
 		ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Titanium Backup");
