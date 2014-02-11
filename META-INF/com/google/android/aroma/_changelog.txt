@@ -7,6 +7,7 @@
 - Boot Manager 1.4.7
 - XPrivacy 1.99.39(beta branch)
 - Google Maps 7.6.0
+- Greenify 2.1 (build 7)
 
 2. Poprawki:
 - Google Maps (wersja z marketu, byly problemy z logowaniem)
