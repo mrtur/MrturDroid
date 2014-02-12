@@ -1,6 +1,12 @@
 <b><#selectbg_g>Preferowane ustawienia mrtur'a</#></b>
 
 ##################
+#  Kernel
+#
+# <#selectbg_g>Stock(Slim)</#>
+# Semaphore
+
+##################
 #  DPI
 #
 # 240 DPI
