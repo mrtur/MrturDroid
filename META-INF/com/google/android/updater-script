@@ -337,13 +337,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			#delete("/tmp/stock.img");
 		endif;
 
-		### FRANCO ###
-		if file_getprop("/tmp/aroma-data/mrturdroid.prop","kernel") == "franco" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Flashing Franco Kernel");
-			package_extract_file("_mrturdroid/kernels/franco/boot.img", "/dev/block/platform/msm_sdcc.1/by-name/boot");
-			#package_extract_dir("_mrturdroid/kernels/franco/files", "/");
-		endif;
-
 		### SEMAPHORE ###
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","kernel") == "semaphore" then
 			ui_print("<b><#1082ac> MrturDroid ~</#></b> Flashing Semaphore Kernel");
@@ -355,6 +348,35 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			set_perm(0, 0, 0777, "/tmp/busybox");
 			set_perm(0, 0, 0777, "/tmp/install_kernel");
 			run_program("/tmp/install_kernel");
+		endif;
+		
+		### HELLS-CORE ###
+		if file_getprop("/tmp/aroma-data/mrturdroid.prop","kernel") == "hells" then
+			ui_print("<b><#1082ac> MrturDroid ~</#></b> Flashing Hells-Core Kernel");
+			package_extract_dir("_mrturdroid/kernels/hells/system", "/system");			
+			set_perm_recursive(0, 2000, 0755, 0755, "/system/etc/init.d");
+			set_perm(0, 0, 0755, "/system/etc/init.d");
+			package_extract_dir("_mrturdroid/kernels/hells/kernel", "/tmp");
+			set_perm(0, 0, 0777, "/tmp/mkbootimg.sh");
+			set_perm(0, 0, 0777, "/tmp/edit_ramdisk.sh");
+			set_perm(0, 0, 0777, "/tmp/compatibility.sh");
+			set_perm(0, 0, 0777, "/tmp/mkbootimg");
+			set_perm(0, 0, 0777, "/tmp/unpackbootimg");
+			set_perm(0, 0, 0777, "/tmp/busybox");
+			run_program("/tmp/compatibility.sh");
+			run_program("/tmp/busybox", "dd", "if=/dev/block/mmcblk0p6", "of=/tmp/boot.img");
+			run_program("/tmp/unpackbootimg", "-i", "/tmp/boot.img", "-o", "/tmp/");
+			run_program("/tmp/edit_ramdisk.sh");
+			run_program("/tmp/mkbootimg.sh");
+			run_program("/tmp/busybox", "dd", "if=/tmp/newboot.img", "of=/dev/block/mmcblk0p6");
+			delete("/system/lib/hw/power.msm8960.so");
+		endif;		
+		
+		### FRANCO ###
+		if file_getprop("/tmp/aroma-data/mrturdroid.prop","kernel") == "franco" then
+			ui_print("<b><#1082ac> MrturDroid ~</#></b> Flashing Franco Kernel");
+			package_extract_file("_mrturdroid/kernels/franco/boot.img", "/dev/block/platform/msm_sdcc.1/by-name/boot");
+			#package_extract_dir("_mrturdroid/kernels/franco/files", "/");
 		endif;
 
 		set_progress(0.6);
