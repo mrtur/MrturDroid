@@ -386,133 +386,133 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		);
 	endif;
 		write("/data/media/0/MrturDroid/AromaPreset/Slim_work/version.txt",getvar("preset_version"));
+endif;
 
 
+#########################
+### MRTURDROID DETECT ###
+#########################
 
-	#########################
-	### MRTURDROID DETECT ###
-	#########################
-	
-	resexec("exec/admount.sh", "/system");
-	pleasewait("Executing Shell...");
+#resexec("exec/admount.sh", "/system");
+pleasewait("Executing Shell...");
 
-	#-- Resource Exec
-	setvar(
-	#-- Save Return Status
-	"resexec_retstatus",
-	#-- Run Shell
-	resexec("exec/mrturdroid_detect.sh")
-	);
+#-- Resource Exec
+setvar(
+#-- Save Return Status
+"resexec_retstatus",
+#-- Run Shell
+resexec("exec/mrturdroid_detect.sh")
+);
 
-	if getvar("resexec_retstatus")=="0" || getvar("resexec_retstatus")=="1" then
-		if confirm(
-			#-- Title
-			"MrturDroid Detect",
-			#-- Text
-			"<~mrturdroid.detect.fail>",
-			#-- Icon (Optional)
-			"@welcome",
-			#-- Yes Text
-			"<~mrturdroid.detect.fail.yes>",
-			#-- No Text
-			"<~mrturdroid.detect.fail.no>"
-			)=="yes" then
-			alert("MrturDroid Detect","<~mrturdroid.detect.fail.alert.yes>","@welcome");
-			writetmpfile(
-			"mrturdroidwipe.prop",
-			"wipe=yes\n"
-			);
-		else
-			alert("MrturDroid Detect","<~mrturdroid.detect.fail.alert.no>","@welcome");
-			setvar("resexec_retstatus","2");
-		endif;
-	endif;
-	
-	if getvar("resexec_retstatus")=="2" then
-		if	confirm(
-			#-- Title
-			"MrturDroid Detect",
-			#-- Text
-			"<~mrturdroid.detect.pass>",
-			#-- Icon (Optional)
-			"@welcome",
-			#-- Yes Text
-			"<~mrturdroid.detect.pass.yes>",
-			#-- No Text
-			"<~mrturdroid.detect.pass.no>"
-		)=="yes" then
-			writetmpfile(
-			"mrturdroidwipe.prop",
-			"wipe=no\n"+
-			"force=no\n"
-			);
-				if confirm(
-					#-- Title
-					"MrturDroid Detect",
-					#-- Text
-					"<~mrturdroid.detect.force>",
-					#-- Icon (Optional)
-					"@welcome"
-				)=="yes" then
-					writetmpfile(
-					"mrturdroidwipe.prop",
-					"wipe=no\n"+
-					"force=yes\n"
-					);
-				else
-					writetmpfile(
-					"mrturdroidwipe.prop",
-					"wipe=no\n"+
-					"force=no\n"
-					);
-				endif;
-		else
-			alert("MrturDroid Detect","<~mrturdroid.detect.pass.alert.no>","@welcome");
-			writetmpfile(
-			"mrturdroidwipe.prop",
-			"wipe=yes\n"
-			);
-		endif;
+if getvar("resexec_retstatus")=="0" || getvar("resexec_retstatus")=="1" then
+	if confirm(
+		#-- Title
+		"MrturDroid Detect",
+		#-- Text
+		"<~mrturdroid.detect.fail>",
+		#-- Icon (Optional)
+		"@welcome",
+		#-- Yes Text
+		"<~mrturdroid.detect.fail.yes>",
+		#-- No Text
+		"<~mrturdroid.detect.fail.no>"
+	)=="yes" then
+		alert("MrturDroid Detect","<~mrturdroid.detect.fail.alert.yes>","@welcome");
+		writetmpfile(
+		"mrturdroidwipe.prop",
+		"wipe=yes\n"
+		);
+	else
+		alert("MrturDroid Detect","<~mrturdroid.detect.fail.alert.no>","@welcome");
+		setvar("resexec_retstatus","2");
 	endif;
 endif;
 
-	ini_set("text_next", "<~common.flash>");
-
-	viewbox(
-	"<~mrturdroid.prepinstall>",
-	"<~mrturdroid.prepinstall.desc>",
-	"@welcome"
-	);
-
-	ini_set("text_next", "<~common.finish>");
-	resexec("exec/admount.sh", "/system");
-	resexec("exec/admount.sh", "/data");
-
-	install(
-	#-- Title
-	"<~common.flashing>",
-
-	#-- Installation Process message
-	"<~mrturdroid.install.desc>",
-
-	#-- Installation Icon
-	"@welcome",
-
-	#-- Installation Finish Message
-	"<~mrturdroid.install.finish>"
-	);
-
-	resexec("exec/adumount.sh", "/system");
-	resexec("exec/adumount.sh", "/data");
-
-	if confirm(
+if getvar("resexec_retstatus")=="2" then
+	if	confirm(
 		#-- Title
-		"MrturDroid Wizard",
+		"MrturDroid Detect",
 		#-- Text
-		"<~mrturdroid.wizard.reboot>",
+		"<~mrturdroid.detect.pass>",
 		#-- Icon (Optional)
-		"@welcome"
+		"@welcome",
+		#-- Yes Text
+		"<~mrturdroid.detect.pass.yes>",
+		#-- No Text
+		"<~mrturdroid.detect.pass.no>"
 	)=="yes" then
-		reboot("onfinish");
+		writetmpfile(
+		"mrturdroidwipe.prop",
+		"wipe=no\n"+
+		"force=no\n"
+		);
+			if confirm(
+				#-- Title
+				"MrturDroid Detect",
+				#-- Text
+				"<~mrturdroid.detect.force>",
+				#-- Icon (Optional)
+				"@welcome"
+			)=="yes" then
+				writetmpfile(
+				"mrturdroidwipe.prop",
+				"wipe=no\n"+
+				"force=yes\n"
+				);
+			else
+				writetmpfile(
+				"mrturdroidwipe.prop",
+				"wipe=no\n"+
+				"force=no\n"
+				);
+			endif;
+	else
+		alert("MrturDroid Detect","<~mrturdroid.detect.pass.alert.no>","@welcome");
+		writetmpfile(
+		"mrturdroidwipe.prop",
+		"wipe=yes\n"
+		);
 	endif;
+endif;
+
+
+ini_set("text_next", "<~common.flash>");
+
+viewbox(
+"<~mrturdroid.prepinstall>",
+"<~mrturdroid.prepinstall.desc>",
+"@welcome"
+);
+
+ini_set("text_next", "<~common.finish>");
+#resexec("exec/admount.sh", "/system");
+#resexec("exec/admount.sh", "/data");
+
+install(
+#-- Title
+"<~common.flashing>",
+
+#-- Installation Process message
+"<~mrturdroid.install.desc>",
+
+#-- Installation Icon
+"@welcome",
+
+#-- Installation Finish Message
+"<~mrturdroid.install.finish>"
+);
+
+resexec("exec/adumount.sh", "/system");
+resexec("exec/adumount.sh", "/data");
+
+if confirm(
+	#-- Title
+	"MrturDroid Wizard",
+	#-- Text
+	"<~mrturdroid.wizard.reboot>",
+	#-- Icon (Optional)
+	"@welcome"
+)=="yes" then
+	reboot("onfinish");
+endif;
 
