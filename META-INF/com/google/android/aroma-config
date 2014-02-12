@@ -247,6 +247,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 	"gplus=0\n"+
 	"gplaymusic=0\n"+	
 	"gtranslate=0\n"+
+	"trickster=0\n"+	
 	"viper4=0\n"+
 	"vnc=1\n"+
 	"titaniumbackup=1\n"+
@@ -332,6 +333,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 	"gtranslate","Google Translate [<~common.inverted>]","","check",
 
 	"mrturapps","<#selectbg_g>MrturDroid Apps</#>","","group",
+	"trickster","Trickster MOD","<~mrturdroid.apps.trickster.desc>","check.checked",	
 	"viper4","ViPER4Android Audio Effects","<~mrturdroid.apps.viper4.desc>","check.checked",	
 	"vnc","VNC Viewer","<~mrturdroid.apps.vnc.desc>","check.checked",
 	"titaniumbackup","Titanium Backup","<~mrturdroid.apps.titaniumbackup.desc>","check.checked",

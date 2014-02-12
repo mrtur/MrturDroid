@@ -129,6 +129,7 @@ mrturdroid.ota.desc=Wysoce zalecane. Zainstaluję aplikację UpdateMe oraz włą
 mrturdroid.xposed.desc=Pozwala na używanie wielu modułów. Musi zostać włączony manualnie
 
 mrturdroid.gapps.desc=Główne aplikacje i funkcje Google. NIE ODZNACZAJ TEGO
+mrturdroid.apps.trickster.desc=Program do obsługi zaawansowanych opcji w modyfikowanych kernelach.
 mrturdroid.apps.viper4.desc=Podnosi jakość dźwięku i próg głośności twojego telefonu. Usuwa DSP Manager
 mrturdroid.apps.vnc.desc=Klient VNC pozwalający na używanie GUI w MrturDroidowym Pocket Debianie
 mrturdroid.apps.titaniumbackup.desc=Świetne narzędzie do zarządzania kopiami zapasowymi pomiędzy flashami romów

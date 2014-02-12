@@ -54,6 +54,7 @@
 ##################
 #  MrturDroid Apps
 #
+# Trickster MOD
 # <#selectbg_g>VNC Viewer</#>
 # <#selectbg_g>Titanium Backup</#>
 # Greenify
