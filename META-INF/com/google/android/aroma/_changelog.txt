@@ -6,3 +6,4 @@
  
 3. ISTOTNE ZMIANY:
 - dodano do wyboru w Aroma instalacje Trickster MOD
+- dodano mozliwosc wgrania recovery TWRP lub ClockWorkMod

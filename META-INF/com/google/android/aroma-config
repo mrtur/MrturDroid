@@ -26,7 +26,7 @@
 ##
 # Initializing Rom Information
 #
-setvar("preset_version","4");
+setvar("preset_version","6");
 
 ini_set("dp","3");
 ini_set("rom_name",             "MrturDroid");
@@ -160,9 +160,10 @@ if getvar("aroma_fast")=="OFF" then
 	"mrturdroidinstallmode.prop",
 
 	"preset","<#selectbg_g><~mrturdroid.preset.group></#>","","group",
-	"custom","<~mrturdroid.preset.custom>", "<~mrturdroid.preset.custom.desc>","select",
-	"previous","<~mrturdroid.preset.previous>","<~mrturdroid.preset.previous.desc>","select.selected",
+	"custom","<~mrturdroid.preset.custom>", "<~mrturdroid.preset.custom.desc>","select.selected",
+	"previous","<~mrturdroid.preset.previous>","<~mrturdroid.preset.previous.desc>","select",
 	"barebones","<~mrturdroid.preset.barebones>","<~mrturdroid.preset.barebones.desc>","select",
+	"recovery","Recovery","<~mrturdroid.preset.recovery.desc>","select",
 	"mrtur","<~mrturdroid.preset.mrtur>","<~mrturdroid.preset.mrtur.desc>","select"
 	);
 else
@@ -185,13 +186,35 @@ else
 	"mrturdroidinstallmode.prop",
 
 	"preset","<#selectbg_g><~mrturdroid.preset.group></#>","","group",
-	"custom","<~mrturdroid.preset.custom>", "<~mrturdroid.preset.custom.desc>","select",
+	"custom","<~mrturdroid.preset.custom>", "<~mrturdroid.preset.custom.desc>","select.selected",
 	"previous","<~mrturdroid.preset.previous>","<~mrturdroid.preset.previous.desc>","select",
 	"barebones","<~mrturdroid.preset.barebones>","<~mrturdroid.preset.barebones.desc>","select",
-	"mrtur","<~mrturdroid.preset.mrtur>","<~mrturdroid.preset.mrtur.desc>","select.selected"
+	"recovery","Recovery","","select",
+	"mrtur","<~mrturdroid.preset.mrtur>","<~mrturdroid.preset.mrtur.desc>","select"
 	);
 endif;
 
+################
+### RECOVERY ###
+################
+
+if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "recovery" then
+form(
+	"<~mrturdroid.custom>",
+	"<~mrturdroid.custom.desc>",
+	"@welcome",
+	"mrturdroidrecovery.prop",
+
+	"recovery","<#selectbg_g>Recovery</#>","","group",
+	"twrp","TWRP","<~mrturdroid.recovery.twrp.desc>","select.selected",
+	"cwm","ClockWorkMod","<~mrturdroid.recovery.cwm.desc>","select"
+);
+else
+	writetmpfile(
+		"mrturdroidrecovery.prop",
+		"recovery=none\n"
+	);
+endif;
 #######################
 ### PREVIOUS PRESET ###
 #######################
@@ -374,8 +397,8 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		"xprivacy","XPrivacy","<~mrturdroid.xposed.xprivacy.desc>","check.checked"
 		);
 		write("/data/media/0/MrturDroid/AromaPreset/Slim_work/mrturdroidxposed.prop",
-		readtmpfile("mrturdroidxposed.prop");
-		);
+		readtmpfile("mrturdroidxposed.prop"));
+		
 	endif;
 		
 	if file_getprop("/tmp/aroma-data/mrturdroid.prop","buildtweaks") == "1" then
@@ -390,96 +413,97 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		"zerowakeup","ZeroWakeUp","<~mrturdroid.buildtweaks.zerowakeup.desc>","check"
 		);
 		write("/data/media/0/MrturDroid/AromaPreset/Slim_work/mrturdroidbuild.prop",
-		readtmpfile("mrturdroidbuild.prop");
-		);
+		readtmpfile("mrturdroidbuild.prop"));
+		
 	endif;
 		write("/data/media/0/MrturDroid/AromaPreset/Slim_work/version.txt",getvar("preset_version"));
 endif;
 
+if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") != "recovery" then
+	#########################
+	### MRTURDROID DETECT ###
+	#########################
 
-#########################
-### MRTURDROID DETECT ###
-#########################
+	#resexec("exec/admount.sh", "/system");
+	pleasewait("Executing Shell...");
 
-#resexec("exec/admount.sh", "/system");
-pleasewait("Executing Shell...");
+	#-- Resource Exec
+	setvar(
+	#-- Save Return Status
+	"resexec_retstatus",
+	#-- Run Shell
+	resexec("exec/mrturdroid_detect.sh")
+	);
 
-#-- Resource Exec
-setvar(
-#-- Save Return Status
-"resexec_retstatus",
-#-- Run Shell
-resexec("exec/mrturdroid_detect.sh")
-);
-
-if getvar("resexec_retstatus")=="0" || getvar("resexec_retstatus")=="1" then
-	if confirm(
-		#-- Title
-		"MrturDroid Detect",
-		#-- Text
-		"<~mrturdroid.detect.fail>",
-		#-- Icon (Optional)
-		"@welcome",
-		#-- Yes Text
-		"<~mrturdroid.detect.fail.yes>",
-		#-- No Text
-		"<~mrturdroid.detect.fail.no>"
-	)=="yes" then
-		alert("MrturDroid Detect","<~mrturdroid.detect.fail.alert.yes>","@welcome");
-		writetmpfile(
-		"mrturdroidwipe.prop",
-		"wipe=yes\n"
-		);
-	else
-		alert("MrturDroid Detect","<~mrturdroid.detect.fail.alert.no>","@welcome");
-		setvar("resexec_retstatus","2");
+	if getvar("resexec_retstatus")=="0" || getvar("resexec_retstatus")=="1" then
+		if confirm(
+			#-- Title
+			"MrturDroid Detect",
+			#-- Text
+			"<~mrturdroid.detect.fail>",
+			#-- Icon (Optional)
+			"@welcome",
+			#-- Yes Text
+			"<~mrturdroid.detect.fail.yes>",
+			#-- No Text
+			"<~mrturdroid.detect.fail.no>"
+		)=="yes" then
+			alert("MrturDroid Detect","<~mrturdroid.detect.fail.alert.yes>","@welcome");
+			writetmpfile(
+			"mrturdroidwipe.prop",
+			"wipe=yes\n"
+			);
+		else
+			alert("MrturDroid Detect","<~mrturdroid.detect.fail.alert.no>","@welcome");
+			setvar("resexec_retstatus","2");
+		endif;
 	endif;
-endif;
 
-if getvar("resexec_retstatus")=="2" then
-	if	confirm(
-		#-- Title
-		"MrturDroid Detect",
-		#-- Text
-		"<~mrturdroid.detect.pass>",
-		#-- Icon (Optional)
-		"@welcome",
-		#-- Yes Text
-		"<~mrturdroid.detect.pass.yes>",
-		#-- No Text
-		"<~mrturdroid.detect.pass.no>"
-	)=="yes" then
-		writetmpfile(
-		"mrturdroidwipe.prop",
-		"wipe=no\n"+
-		"force=no\n"
-		);
-			if confirm(
-				#-- Title
-				"MrturDroid Detect",
-				#-- Text
-				"<~mrturdroid.detect.force>",
-				#-- Icon (Optional)
-				"@welcome"
-			)=="yes" then
-				writetmpfile(
-				"mrturdroidwipe.prop",
-				"wipe=no\n"+
-				"force=yes\n"
-				);
-			else
-				writetmpfile(
-				"mrturdroidwipe.prop",
-				"wipe=no\n"+
-				"force=no\n"
-				);
-			endif;
-	else
-		alert("MrturDroid Detect","<~mrturdroid.detect.pass.alert.no>","@welcome");
-		writetmpfile(
-		"mrturdroidwipe.prop",
-		"wipe=yes\n"
-		);
+	if getvar("resexec_retstatus")=="2" then
+		if	confirm(
+			#-- Title
+			"MrturDroid Detect",
+			#-- Text
+			"<~mrturdroid.detect.pass>",
+			#-- Icon (Optional)
+			"@welcome",
+			#-- Yes Text
+			"<~mrturdroid.detect.pass.yes>",
+			#-- No Text
+			"<~mrturdroid.detect.pass.no>"
+		)=="yes" then
+			writetmpfile(
+			"mrturdroidwipe.prop",
+			"wipe=no\n"+
+			"force=no\n"
+			);
+				if confirm(
+					#-- Title
+					"MrturDroid Detect",
+					#-- Text
+					"<~mrturdroid.detect.force>",
+					#-- Icon (Optional)
+					"@welcome"
+				)=="yes" then
+					writetmpfile(
+					"mrturdroidwipe.prop",
+					"wipe=no\n"+
+					"force=yes\n"
+					);
+				else
+					writetmpfile(
+					"mrturdroidwipe.prop",
+					"wipe=no\n"+
+					"force=no\n"
+					);
+				endif;
+		else
+			alert("MrturDroid Detect","<~mrturdroid.detect.pass.alert.no>","@welcome");
+			writetmpfile(
+			"mrturdroidwipe.prop",
+			"wipe=yes\n"
+			);
+		endif;
 	endif;
 endif;
 
@@ -492,8 +516,11 @@ viewbox(
 "@welcome"
 );
 
-ini_set("text_next", "<~common.finish>");
-#resexec("exec/admount.sh", "/system");
+if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "recovery" then
+	ini_set("text_next", "<~common.reboot>");
+else
+	ini_set("text_next", "<~common.finish>");
+endif;
 #resexec("exec/admount.sh", "/data");
 
 install(
@@ -513,14 +540,17 @@ install(
 resexec("exec/adumount.sh", "/system");
 resexec("exec/adumount.sh", "/data");
 
-if confirm(
-	#-- Title
-	"MrturDroid Wizard",
-	#-- Text
-	"<~mrturdroid.wizard.reboot>",
-	#-- Icon (Optional)
-	"@welcome"
-)=="yes" then
-	reboot("onfinish");
+if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "recovery" then
+	resexec("exec/cmd.sh", "reboot", "recovery");
+else
+	if confirm(
+		#-- Title
+		"MrturDroid Wizard",
+		#-- Text
+		"<~mrturdroid.wizard.reboot>",
+		#-- Icon (Optional)
+		"@welcome"
+	)=="yes" then
+		reboot("onfinish");
+	endif;
 endif;
-

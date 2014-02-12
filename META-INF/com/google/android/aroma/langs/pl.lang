@@ -56,6 +56,7 @@ text_quit_msg=Czy jesteś pewny, że chcesz zakończyć instalację?
 #
 common.for=dla
 common.none=Brak
+common.reboot=Restart
 common.replaces=Zastępuje
 common.inverted=Ciemny
 common.experimental=EKSPERYMENTALNE
@@ -78,6 +79,14 @@ mrturdroid.detect.pass.yes=Tak, aktualizuj
 mrturdroid.detect.pass.no=Nie, full wipe
 mrturdroid.detect.pass.alert.no=OK, wybrałem tryb instalacji, czyli dokonania full wipe.
 mrturdroid.detect.force=Czy chciałbyś użyć trybu wymuszonej aktualizacji? Ta opcja powoduje wykonanie przez MrturDroid RunOnce wielu zaawansowanych modyfikacji, które normalnie byłyby wykonane wyłącznie podczas trybu instalacji. Wybierz Nie jeśli nie jesteś pewny
+
+mrturdroid.preset.recovery.desc=Ta funkcja sflashuje wyłącznie recovery zamiast ROMu. Może być użyteczne w przypadku, gdy update recovery będzie wymagany przed flashowaniem samego ROMu
+mrturdroid.recovery.twrp.desc=Najlepsze moim zdaniem i wygodne w obsłudze recovery na Nexus 4. Tworzone przez TeamWin
+mrturdroid.recovery.cwm.desc=Alternatywne recovery.\
+<b><#0300FD>UWAGA!</#></b>\
+Przechodząc z TWRP na CWM musisz po flashowaniu wybrać <b><#1082ac>Restart</#></b> a potem wykonać\
+<b><#0300FD>HOME -> Reboot -> Recovery</#></b>
+
 
 mrturdroid.preset=Preset Instalacji MrturDroid
 mrturdroid.preset.desc=Wybierz proszę swój preset:
