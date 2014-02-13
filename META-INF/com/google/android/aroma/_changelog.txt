@@ -1,6 +1,7 @@
 ﻿MrturDroid 2.5.0
 
 1. Aktualizacja:
+- Google Maps 7.6.0 (?)
 
 2. Poprawki:
  
