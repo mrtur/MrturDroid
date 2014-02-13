@@ -2,6 +2,7 @@
 
 1. Aktualizacja:
 - Google Maps 7.6.0 (?)
+- MX Player 1.7.24
 
 2. Poprawki:
  
