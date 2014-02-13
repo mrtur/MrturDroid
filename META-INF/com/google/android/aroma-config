@@ -385,6 +385,23 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 	readtmpfile("mrturdroid.prop");
 	);
 
+	
+	if file_getprop("/tmp/aroma-data/mrturdroid.prop","viper4") == "1" then	
+	textbox(
+	#-- Title
+	"ViPER4Android Audio Effects",
+
+	#-- Subtitle
+	"",
+
+	#-- Icon
+	"@welcome",
+
+	#-- Arg 4
+	resread("read_viper.txt")
+	);
+	endif;
+	
 	if file_getprop("/tmp/aroma-data/mrturdroid.prop","xposed") == "1" then
 		form(
 		"<~mrturdroid.custom.extra>",
