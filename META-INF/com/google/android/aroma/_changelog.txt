@@ -4,6 +4,7 @@
 - Google Maps 7.6.0 (?)
 - MX Player 1.7.24
 - ClockWorkMod 6.0.4.7
+- Kernel SlimKat
 
 2. Poprawki:
  
