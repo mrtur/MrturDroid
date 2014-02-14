@@ -14,7 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-#
 # ############################################################
 # #    __  __      _              ____            _     _    #
 # #   |  \/  |_ __| |_ _   _ _ __|  _ \ _ __ ___ (_) __| |   #
@@ -23,7 +22,8 @@
 # #   |_|  |_|_|   \__|\__,_|_|  |____/|_|  \___/|_|\__,_|   #
 # #                                                          #
 # ############################################################
-##
+
+#
 # Initializing Rom Information
 #
 setvar("preset_version","6");
@@ -63,10 +63,7 @@ setvar("aroma_fast","OFF");
 
 if getvar("aroma_fast")=="OFF" then
 	anisplash(
-	#-- Number of Loop
 	1,
-	
-	#-- Frame 1 [ Image, duration in millisecond ]. <AROMA Resource Dir>/splash/a[1..6].png
 	"mrturdroidsplash13", 100,
 	"mrturdroidsplash12", 100,
 	"mrturdroidsplash11", 100,
@@ -83,73 +80,38 @@ if getvar("aroma_fast")=="OFF" then
 	);
 
 	viewbox(
-	#-- Title
 	"Witaj!",
-
-	#-- Text
 	"Witaj w AROMA. Instalujesz <b>"+
-	#-- Get Config Value
 	ini_get("rom_name")+
 	"</b> dla <b>"+ini_get("rom_device")+"</b>\n\n"+
 	"Wersja:\t\t <b><#selectbg_g>"+ini_get("rom_version")+"</#></b>\n"+
 	"Data powstania:\t <b><#selectbg_g>"+ini_get("rom_date")+"</#></b>\n\n\n"+
 	"Wybierz <b>Dalej</b> jeżeli chcesz kontynuować.",
-
-	#-- Icon
 	"@welcome"
 	);
 
 	textbox(
-	#-- Title
 	"Changelog",
-
-	#-- Subtitle
 	"",
-
-	#-- Icon
 	"@welcome",
-
-	#-- Arg 4
 	resread("_changelog.txt")
 	);
 
 	agreebox(
-	#-- Title
 	"<~mrturdroid.tos>",
-
-	#-- Subtitle / Description
 	"",
-
-	#-- Icon
 	"@welcome",
-
-	#-- Text Content ( Read from <AROMA Resource Dir>/read_me.txt )
 	resread("read_me.txt"),
-
-	#-- Checkbox Text
 	"<~terms.check>",
-
-	#-- Unchecked Alert Message
 	"<~terms.confirm>"
 	);
 
 	agreebox(
-	#-- Title
 	"<~mrturdroid.tos>",
-
-	#-- Subtitle / Description
 	"",
-
-	#-- Icon
 	"@welcome",
-
-	#-- Text Content ( Read from <AROMA Resource Dir>/read_me2.txt )
 	resread("read_me2.txt"),
-
-	#-- Checkbox Text
 	"<~terms.check2>",
-
-	#-- Unchecked Alert Message
 	"<~terms.confirm2>"
 	);
 
@@ -167,7 +129,6 @@ if getvar("aroma_fast")=="OFF" then
 	"mrtur","<~mrturdroid.preset.mrtur>","<~mrturdroid.preset.mrtur.desc>","select"
 	);
 else
-
 	form(
 	"<~mrturdroid.preset>",
 	"<~mrturdroid.preset.desc>",
@@ -215,6 +176,7 @@ else
 		"recovery=none\n"
 	);
 endif;
+
 #######################
 ### PREVIOUS PRESET ###
 #######################
@@ -238,16 +200,9 @@ endif;
 
 if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur" then
 	textbox(
-	#-- Title
 	"Preset",
-
-	#-- Subtitle
 	"Preset",
-
-	#-- Icon
 	"@welcome",
-
-	#-- Arg 4
 	resread("preset_mrtur.txt")
 	);
 
@@ -287,7 +242,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 	"buildtweaks=1\n"+
 	"debianoff=0\n"
 	);
-
 	writetmpfile(
 	"mrturdroidxposed.prop",
 
@@ -318,7 +272,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 	"stock","Stock(Slim)","<~mrturdroid.kernel.stock.desc>","select.selected",
 	"semaphore","Semaphore","<~mrturdroid.kernel.semaphore.desc>","select",
 	"hells","hells-Core","<~mrturdroid.kernel.hells.desc>","select",	
-	#"franco","Franco","<~mrturdroid.kernel.franco.desc>","select",	
 
 	"dpi","<#selectbg_g>DPI</#>","","group",
 	"240","240 DPI","<~mrturdroid.dpi.240.desc>","select",
@@ -384,20 +337,12 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 	write("/data/media/0/MrturDroid/AromaPreset/Slim_work/mrturdroid.prop",
 	readtmpfile("mrturdroid.prop");
 	);
-
 	
 	if file_getprop("/tmp/aroma-data/mrturdroid.prop","viper4") == "1" then	
 	textbox(
-	#-- Title
 	"ViPER4Android Audio Effects",
-
-	#-- Subtitle
 	"",
-
-	#-- Icon
 	"@welcome",
-
-	#-- Arg 4
 	resread("read_viper.txt")
 	);
 	endif;
@@ -416,7 +361,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		);
 		write("/data/media/0/MrturDroid/AromaPreset/Slim_work/mrturdroidxposed.prop",
 		readtmpfile("mrturdroidxposed.prop"));
-		
 	endif;
 		
 	if file_getprop("/tmp/aroma-data/mrturdroid.prop","buildtweaks") == "1" then
@@ -432,7 +376,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		);
 		write("/data/media/0/MrturDroid/AromaPreset/Slim_work/mrturdroidbuild.prop",
 		readtmpfile("mrturdroidbuild.prop"));
-		
 	endif;
 		write("/data/media/0/MrturDroid/AromaPreset/Slim_work/version.txt",getvar("preset_version"));
 endif;
@@ -442,28 +385,19 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") != "recov
 	### MRTURDROID DETECT ###
 	#########################
 
-	#resexec("exec/admount.sh", "/system");
 	pleasewait("Executing Shell...");
 
-	#-- Resource Exec
 	setvar(
-	#-- Save Return Status
 	"resexec_retstatus",
-	#-- Run Shell
 	resexec("exec/mrturdroid_detect.sh")
 	);
 
 	if getvar("resexec_retstatus")=="0" || getvar("resexec_retstatus")=="1" then
 		if confirm(
-			#-- Title
 			"MrturDroid Detect",
-			#-- Text
 			"<~mrturdroid.detect.fail>",
-			#-- Icon (Optional)
 			"@welcome",
-			#-- Yes Text
 			"<~mrturdroid.detect.fail.yes>",
-			#-- No Text
 			"<~mrturdroid.detect.fail.no>"
 		)=="yes" then
 			alert("MrturDroid Detect","<~mrturdroid.detect.fail.alert.yes>","@welcome");
@@ -479,15 +413,10 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") != "recov
 
 	if getvar("resexec_retstatus")=="2" then
 		if	confirm(
-			#-- Title
 			"MrturDroid Detect",
-			#-- Text
 			"<~mrturdroid.detect.pass>",
-			#-- Icon (Optional)
 			"@welcome",
-			#-- Yes Text
 			"<~mrturdroid.detect.pass.yes>",
-			#-- No Text
 			"<~mrturdroid.detect.pass.no>"
 		)=="yes" then
 			writetmpfile(
@@ -496,11 +425,8 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") != "recov
 			"force=no\n"
 			);
 				if confirm(
-					#-- Title
 					"MrturDroid Detect",
-					#-- Text
 					"<~mrturdroid.detect.force>",
-					#-- Icon (Optional)
 					"@welcome"
 				)=="yes" then
 					writetmpfile(
@@ -525,7 +451,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") != "recov
 	endif;
 endif;
 
-
 ini_set("text_next", "<~common.flash>");
 
 viewbox(
@@ -539,19 +464,11 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "recov
 else
 	ini_set("text_next", "<~common.finish>");
 endif;
-#resexec("exec/admount.sh", "/data");
 
 install(
-#-- Title
 "<~common.flashing>",
-
-#-- Installation Process message
 "<~mrturdroid.install.desc>",
-
-#-- Installation Icon
 "@welcome",
-
-#-- Installation Finish Message
 "<~mrturdroid.install.finish>"
 );
 
@@ -562,11 +479,8 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "recov
 	resexec("exec/cmd.sh", "reboot", "recovery");
 else
 	if confirm(
-		#-- Title
 		"MrturDroid Wizard",
-		#-- Text
 		"<~mrturdroid.wizard.reboot>",
-		#-- Icon (Optional)
 		"@welcome"
 	)=="yes" then
 		reboot("onfinish");
