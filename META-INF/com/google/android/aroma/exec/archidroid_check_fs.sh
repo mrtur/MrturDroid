@@ -48,77 +48,48 @@ ADMOUNT() {
 			fi
 		fi
 		# Stage 2, mounted device isn't available in fstab and/or recovery can't mount it without such information. This is typical for f2fs, as fstab has ext4 declared. In addition to Stage 1, we'll provide block path, this should be enough.
-			if $GOTBUSYBOX; then
-				MNTPATH=`echo $1 | sed 's/\///g'`
-				eval "MNTPATH=\$$MNTPATH"
-				busybox mount -t auto "$MNTPATH" "$1" >/dev/null 2>&1
-				if (ADMOUNTED "$1"); then
-					echo "Stage 2: Successfully mounted $1 through busybox mount and $MNTPATH" >> $LOG
-					return 0
-				fi
-			fi
-			if $GOTMOUNT; then
-				MNTPATH=`echo $1 | sed 's/\///g'`
-				eval "MNTPATH=\$$MNTPATH"
-				mount -t $auto "$MNTPATH" "$1" >/dev/null 2>&1
-				if (ADMOUNTED "$1"); then
-					echo "Stage 2: Successfully mounted $1 through mount and $MNTPATH" >> $LOG
-					return 0
-				fi
-			fi
-		# Stage 3, we failed using automatic filesystem, so we'll now use full mount command. This is our last chance.
-			if $GOTBUSYBOX; then
-				MNTPATH=`echo $1 | sed 's/\///g'`
-				eval "MNTPATH=\$$MNTPATH"
-				busybox mount -t "$fs" "$MNTPATH" "$1" >/dev/null 2>&1
-				if (ADMOUNTED "$1"); then
-					echo "Stage 3: Successfully mounted $1 through busybox mount, using $fs filesystem and $MNTPATH" >> $LOG
-					return 0
-				fi
-			fi
-			if $GOTMOUNT; then
-				MNTPATH=`echo $1 | sed 's/\///g'`
-				eval "MNTPATH=\$$MNTPATH"
-				mount -t "$fs" "$MNTPATH" "$1" >/dev/null 2>&1
-				if (ADMOUNTED "$1"); then
-					echo "Stage 3: Successfully mounted $1 through mount, using $fs filesystem and $MNTPATH" >> $LOG
-					return 0
-				fi
-			fi
-		# Stage 4, we're out of ideas
-			echo "Stage 4: ERROR! Could not mount $1" >> $LOG
-			return 1
-	else
-		echo "$1 is already mounted" >> $LOG
-	fi
-	return 0
-}
-
-ADUMOUNT() {
-	if (ADMOUNTED "$1"); then
-		MNTPATH=`echo $1 | sed 's/\///g'`
-		eval "MNTPATH=\$$MNTPATH"
 		if $GOTBUSYBOX; then
-			busybox umount -f "$1" >/dev/null 2>&1
-			busybox umount -f "$MNTPATH" >/dev/null 2>&1 # This is required for freeing up block path completely, used for example in reformatting
-			if !(ADMOUNTED "$1"); then
-				echo "Successfully unmounted $1 through busybox umount" >> $LOG
+			MNTPATH=`echo $1 | sed 's/\///g'`
+			eval "MNTPATH=\$$MNTPATH"
+			busybox mount -t auto "$MNTPATH" "$1" >/dev/null 2>&1
+			if (ADMOUNTED "$1"); then
+				echo "Stage 2: Successfully mounted $1 through busybox mount and $MNTPATH" >> $LOG
 				return 0
 			fi
 		fi
 		if $GOTMOUNT; then
-			umount -f "$1" >/dev/null 2>&1
-			umount -f "$MNTPATH" >/dev/null 2>&1 # This is required for freeing up block path completely, used for example in reformatting
-			if !(ADMOUNTED "$1"); then
-				echo "Successfully unmounted $1 through umount" >> $LOG
+			MNTPATH=`echo $1 | sed 's/\///g'`
+			eval "MNTPATH=\$$MNTPATH"
+			mount -t $auto "$MNTPATH" "$1" >/dev/null 2>&1
+			if (ADMOUNTED "$1"); then
+				echo "Stage 2: Successfully mounted $1 through mount and $MNTPATH" >> $LOG
 				return 0
 			fi
 		fi
-		# Ok, I give up
-			echo "ERROR: Could not unmount $1" >> $LOG
-			return 1
+		# Stage 3, we failed using automatic filesystem, so we'll now use full mount command. This is our last chance.
+		if $GOTBUSYBOX; then
+			MNTPATH=`echo $1 | sed 's/\///g'`
+			eval "MNTPATH=\$$MNTPATH"
+			busybox mount -t "$fs" "$MNTPATH" "$1" >/dev/null 2>&1
+			if (ADMOUNTED "$1"); then
+				echo "Stage 3: Successfully mounted $1 through busybox mount, using $fs filesystem and $MNTPATH" >> $LOG
+				return 0
+			fi
+		fi
+		if $GOTMOUNT; then
+			MNTPATH=`echo $1 | sed 's/\///g'`
+			eval "MNTPATH=\$$MNTPATH"
+			mount -t "$fs" "$MNTPATH" "$1" >/dev/null 2>&1
+			if (ADMOUNTED "$1"); then
+				echo "Stage 3: Successfully mounted $1 through mount, using $fs filesystem and $MNTPATH" >> $LOG
+				return 0
+			fi
+		fi
+		# Stage 4, we're out of ideas
+		echo "Stage 4: ERROR! Could not mount $1" >> $LOG
+		return 1
 	else
-		echo "$1 is already unmounted" >> $LOG
+		echo "$1 is already mounted" >> $LOG
 	fi
 	return 0
 }
@@ -137,6 +108,5 @@ fi
 
 ADMOUNT "$1"
 FS=$(mount | grep "$1" | head -n 1 | awk '{print $5}')
-ADUMOUNT "$1"
 echo "$FS"
 exit 0
