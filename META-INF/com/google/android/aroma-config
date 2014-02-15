@@ -208,7 +208,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 
 	writetmpfile(
 		"mrturdroid.prop",
-		"kernel=stock\n"+
+		"kernel=hells\n"+
 		"dpi=268\n"+
 		"launcher=nova\n"+
 		"keyboard=both\n"+
@@ -228,7 +228,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"gtranslate=0\n"+
 		"trickster=0\n"+	
 		"viper4=0\n"+
-		"vnc=1\n"+
+		"vnc=0\n"+
 		"titaniumbackup=1\n"+
 		"greenify=0\n"+
 		"lmt=0\n"+

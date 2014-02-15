@@ -3,8 +3,9 @@
 ##################
 #  Kernel
 #
-# <#selectbg_g>Stock(Slim)</#>
+# Stock(Slim)
 # Semaphore
+# <#selectbg_g>Hells-Core</#>
 
 ##################
 #  DPI
@@ -61,7 +62,7 @@
 #  MrturDroid Apps
 #
 # Trickster MOD
-# <#selectbg_g>VNC Viewer</#>
+# VNC Viewer
 # <#selectbg_g>Titanium Backup</#>
 # Greenify
 # LMT
