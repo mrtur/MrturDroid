@@ -456,6 +456,7 @@ else
 fi
 
 echo "FINISHED" > $ADSTATUS
+sh /system/etc/init.d/99ArchiDroid_Init "background" "force" &
 
 # Execute a reboot if we need it
 if [ $ADRELOAD -eq 1 ]; then
@@ -466,14 +467,6 @@ if [ $ADRELOAD -eq 1 ]; then
 	#reboot
 	setprop ctl.restart surfaceflinger
 	setprop ctl.restart zygote	
-	sleep 10
-else
-	# We should call Init if reboot isn't required
-	sh /system/etc/init.d/99ArchiDroid_Init "background" "force" &
-
-	sleep 20
-	sysro || mount -o remount,ro /system
-
 	# Finish
 	echo "INFO: ArchiDroid RunOnce finished" >> $LOG
 	echo "`date`" >> $LOG
