@@ -6,7 +6,7 @@
 - ClockWorkMod 6.0.4.7
 - Kernel SlimKat
 - Touchpal X 5.5.0.3
-- XPrivacy 1.99.43
+- XPrivacy 1.99.44
 - Semaphore 2.0.5
 - Black Google Now 3.2.17.1009776
 
