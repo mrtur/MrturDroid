@@ -3,6 +3,7 @@
 1. Aktualizacja:
 
 2. Poprawki:
+- poprawiono reset po wgraniu recovery CWM
  
 3. ISTOTNE ZMIANY:
 
