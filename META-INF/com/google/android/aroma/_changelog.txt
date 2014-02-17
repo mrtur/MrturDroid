@@ -1,7 +1,7 @@
 ﻿MrturDroid 2.5.0
 
 1. Aktualizacja:
-- Google Maps 7.6.0 (?)
+- Google Maps 7.6.1
 - MX Player 1.7.24
 - ClockWorkMod 6.0.4.7
 - Kernel SlimKat
