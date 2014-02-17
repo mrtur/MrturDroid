@@ -136,7 +136,7 @@ mrturdroid.bootanimation.none.desc=Brak animacji ładowania, dla nieco szybszego
 
 mrturdroid.other=Inne
 mrturdroid.ota.desc=Wysoce zalecane. Zainstaluję aplikację UpdateMe oraz włączę aktualizacje OTA via build.prop
-mrturdroid.xposed.desc=Pozwala na używanie wielu modułów. Musi zostać włączony manualnie
+mrturdroid.xposed.desc=Pozwala na używanie wielu modułów.
 
 mrturdroid.gapps.desc=Główne aplikacje i funkcje Google. NIE ODZNACZAJ TEGO
 mrturdroid.apps.trickster.desc=Program do obsługi zaawansowanych opcji w modyfikowanych kernelach.
