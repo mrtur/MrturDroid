@@ -9,6 +9,7 @@
 - XPrivacy 1.99.44
 - Semaphore 2.0.5
 - Black Google Now 3.2.17.1009776
+- Titanium Backup 6.1.5.3
 
 2. Poprawki:
  
