@@ -16,3 +16,6 @@
 - dodano do wyboru w Aroma instalacje Trickster MOD
 - dodano mozliwosc wgrania recovery TWRP lub ClockWorkMod
 - dodano wybor kernela (stock, semaphore, hells-core)
+- Slim-mako-4.4.2.build.3-OFFICIAL-3095
+
+ZALECAM WYBRAĆ W AROMA FULL-WIPE PRZY INSTALACJI
