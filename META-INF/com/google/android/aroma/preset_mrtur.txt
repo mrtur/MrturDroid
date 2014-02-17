@@ -1,6 +1,13 @@
 <b><#selectbg_g>Preferowane ustawienia mrtur'a</#></b>
 
 ##################
+#  Kernel
+#
+# Stock(Slim)
+# Semaphore
+# <#selectbg_g>Hells-Core</#>
+
+##################
 #  DPI
 #
 # 240 DPI
@@ -54,7 +61,8 @@
 ##################
 #  MrturDroid Apps
 #
-# <#selectbg_g>VNC Viewer</#>
+# Trickster MOD
+# VNC Viewer
 # <#selectbg_g>Titanium Backup</#>
 # Greenify
 # LMT
