@@ -45,18 +45,31 @@ ADLOAD() {
 		"ADBLOCK")
 			if [ $ADBLOCK -eq 1 ]; then
 				echo "INFO: Activating ArchiDroid's AdBlock!" >> $LOG
+				sysrw
 				if [ ! -e /system/mrturdroid/etc/hosts ]; then
-					sysrw
 					if [ -e $ADDEV/ADBLOCK_USE_ADAWAY_HOSTS ]; then
 						ln -s /system/mrturdroid/etc/hosts_adaway /system/mrturdroid/etc/hosts
 					elif [ -e $ADDEV/ADBLOCK_USE_MOAB_HOSTS ]; then
 						ln -s /system/mrturdroid/etc/hosts_moab /system/mrturdroid/etc/hosts
 					else
 						echo "ERROR: No adblock hosts mode specified!" >> $LOG
-						break
 					fi
-					sysro
+				else
+					if [ -e $ADDEV/ADBLOCK_USE_ADAWAY_HOSTS ]; then
+						if [ $(readlink /system/mrturdroid/etc/hosts) != "/system/mrturdroid/etc/hosts_adaway" ]; then
+							rm -f /system/mrturdroid/etc/hosts
+							ln -s /system/mrturdroid/etc/hosts_adaway /system/mrturdroid/etc/hosts
+						fi
+					elif [ -e $ADDEV/ADBLOCK_USE_MOAB_HOSTS ]; then
+						if [ $(readlink /system/mrturdroid/etc/hosts) != "/system/mrturdroid/etc/hosts_moab" ]; then
+							rm -f /system/mrturdroid/etc/hosts
+							ln -s /system/mrturdroid/etc/hosts_moab /system/mrturdroid/etc/hosts
+						fi
+					else
+						echo "ERROR: No adblock hosts mode specified!" >> $LOG
+					fi
 				fi
+				sysro
 				if [ $APPENDDNSES -eq 1 ]; then
 					local DNS=""
 					DNS1=`getprop net.dns1`
@@ -103,7 +116,6 @@ ADLOAD() {
 					fi
 				else
 					echo "ERROR: No adblock mode specified!" >> $LOG
-					break
 				fi
 				archidroid_dnsproxy2 -w 127.0.0.1 &
 				echo "ADBLOCK: Activated archidroid_dnsproxy2 - local proxy server, forwarding all DNS traffic to 127.0.0.1:53" >> $LOG
@@ -155,26 +167,26 @@ ADLOAD() {
 		"HAVEGED")
 			if [ $HAVEGED -eq 1 ]; then
 				echo "INFO: Activating haveged!" >> $LOG
-				ENTROPY=3072 # Default: 128, Linux: 896, Max: 4096 - We want to make it high enough, but with considering battery life as well
-				ADTWEAK "/proc/sys/kernel/random/write_wakeup_threshold" "$ENTROPY"
+				local ENTROPY=1024 # Default: 128, Linux: 896, Max: 4096 - We want to make it high enough, but with considering battery life as well
 				ADTWEAK "/proc/sys/vm/dirty_expire_centisecs" "1000"
 				ADTWEAK "/proc/sys/vm/dirty_writeback_centisecs" "500"
 
 				if [ -e /dev/random.ORIG ]; then
 					mv /dev/random /dev/random.TEMP
 					mv /dev/random.ORIG /dev/random
-					archidroid_haveged -p /dev/ARCHIDROID_HAVEGED.PID >/dev/null 2>&1
+					archidroid_haveged -p /dev/ARCHIDROID_HAVEGED.PID -w $ENTROPY >/dev/null 2>&1
 					sleep 3 # Let's give haveged some time to initialize
 					mv /dev/random /dev/random.ORIG
 					mv /dev/random.TEMP /dev/random
 				else
-					archidroid_haveged -p /dev/ARCHIDROID_HAVEGED.PID >/dev/null 2>&1
+					archidroid_haveged -p /dev/ARCHIDROID_HAVEGED.PID -w $ENTROPY >/dev/null 2>&1
 					sleep 3 # Let's give haveged some time to initialize
 				fi
 
 				echo "INFO: Activated archidroid_haveged - HArdware Volatile Entropy Gathering and Expansion Daemon, regenerating kernel's entropy pool" >> $LOG
-				echo "HAVEGED: Available entropy won't get below $ENTROPY" >> $LOG
-				echo "HAVEGED: Current entropy: $(cat /proc/sys/kernel/random/entropy_avail)" >> $LOG
+				echo "HAVEGED: Entropy levels: Android default: 128, Linux: 896, Max: 4096" >> $LOG
+				echo "HAVEGED: ArchiDroid entropy set to: $ENTROPY. Available entropy can't get below this level" >> $LOG
+				echo "HAVEGED: Current available entropy: $(cat /proc/sys/kernel/random/entropy_avail)" >> $LOG
 			else
 				echo "INFO: Haveged has been disabled" >> $LOG
 			fi
@@ -186,6 +198,11 @@ ADRELOAD() {
 	# $1 - what we're reloading
 	# $2 - optional
 	case "$1" in
+		"ALL")
+			ADRELOAD "HAVEGED"
+			ADRELOAD "FRANDOM"
+			ADRELOAD "ADBLOCK"
+			;;
 		"ADBLOCK")
 			killall archidroid_dnsmasq >/dev/null 2>&1
 			killall archidroid_dnrd >/dev/null 2>&1
