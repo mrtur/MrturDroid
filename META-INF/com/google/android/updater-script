@@ -302,7 +302,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 	set_metadata("/system/xbin/procrank", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 	set_metadata("/system/xbin/su", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:su_exec:s0");
 	# MrturDroid
-	set_perm_recursive(0, 0, 0755, 0755, "/system/mrturdroid/scripts");
+	set_perm_recursive(0, 0, 0755, 0755, "/system/archidroid/scripts");
 
 	set_progress(0.54);
 
@@ -793,7 +793,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			delete_recursive("/data/media/0/MrturDroid/tmp");
 			delete_recursive("/data/media/0/MrturDroid/GitHub");
 			delete_recursive("/data/media/0/MrturDroid/System");	
-			delete("/system/bin/adflash","/system/bin/adgithub","/system/bin/adlinux","/system/bin/debian","/system/bin/openssl","/system/bin/curl","/system/mrturdroid/system/debian.tar.gz");
+			delete("/system/bin/adflash","/system/bin/adgithub","/system/bin/adlinux","/system/bin/debian","/system/bin/openssl","/system/bin/curl","/system/archidroid/system/debian.tar.gz");
 		endif;
 		set_progress(0.97);
 	endif;

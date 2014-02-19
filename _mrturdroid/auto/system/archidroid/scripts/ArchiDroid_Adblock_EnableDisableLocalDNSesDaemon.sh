@@ -6,7 +6,7 @@ if [ `whoami 2>&1 | grep -i "root" | wc -l` -eq 0 ] && [ `whoami 2>&1 | grep -i 
 	exit 1
 fi
 
-ADDEV="/system/mrturdroid/dev"
+ADDEV="/system/archidroid/dev"
 sysrw
 
 if [ ! -e $ADDEV/ADBLOCK_LOCAL_DNSES_ENABLED ]; then

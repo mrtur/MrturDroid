@@ -46,24 +46,24 @@ ADLOAD() {
 			if [ $ADBLOCK -eq 1 ]; then
 				echo "INFO: Activating ArchiDroid's AdBlock!" >> $LOG
 				sysrw
-				if [ ! -e /system/mrturdroid/etc/hosts ]; then
+				if [ ! -e /system/archidroid/etc/hosts ]; then
 					if [ -e $ADDEV/ADBLOCK_USE_ADAWAY_HOSTS ]; then
-						ln -s /system/mrturdroid/etc/hosts_adaway /system/mrturdroid/etc/hosts
+						ln -s /system/archidroid/etc/hosts_adaway /system/archidroid/etc/hosts
 					elif [ -e $ADDEV/ADBLOCK_USE_MOAB_HOSTS ]; then
-						ln -s /system/mrturdroid/etc/hosts_moab /system/mrturdroid/etc/hosts
+						ln -s /system/archidroid/etc/hosts_moab /system/archidroid/etc/hosts
 					else
 						echo "ERROR: No adblock hosts mode specified!" >> $LOG
 					fi
 				else
 					if [ -e $ADDEV/ADBLOCK_USE_ADAWAY_HOSTS ]; then
-						if [ $(readlink /system/mrturdroid/etc/hosts) != "/system/mrturdroid/etc/hosts_adaway" ]; then
-							rm -f /system/mrturdroid/etc/hosts
-							ln -s /system/mrturdroid/etc/hosts_adaway /system/mrturdroid/etc/hosts
+						if [ $(readlink /system/archidroid/etc/hosts) != "/system/archidroid/etc/hosts_adaway" ]; then
+							rm -f /system/archidroid/etc/hosts
+							ln -s /system/archidroid/etc/hosts_adaway /system/archidroid/etc/hosts
 						fi
 					elif [ -e $ADDEV/ADBLOCK_USE_MOAB_HOSTS ]; then
-						if [ $(readlink /system/mrturdroid/etc/hosts) != "/system/mrturdroid/etc/hosts_moab" ]; then
-							rm -f /system/mrturdroid/etc/hosts
-							ln -s /system/mrturdroid/etc/hosts_moab /system/mrturdroid/etc/hosts
+						if [ $(readlink /system/archidroid/etc/hosts) != "/system/archidroid/etc/hosts_moab" ]; then
+							rm -f /system/archidroid/etc/hosts
+							ln -s /system/archidroid/etc/hosts_moab /system/archidroid/etc/hosts
 						fi
 					else
 						echo "ERROR: No adblock hosts mode specified!" >> $LOG
@@ -96,14 +96,14 @@ ADLOAD() {
 							echo "ADBLOCK: Strict order enabled!" >> $LOG
 							EXTRA+="--strict-order "
 						fi
-						archidroid_dnsmasq $EXTRA $DNS -C /system/mrturdroid/etc/dnsmasq.conf
+						archidroid_dnsmasq $EXTRA $DNS -C /system/archidroid/etc/dnsmasq.conf
 						echo "ADBLOCK: Also added local DNS servers $DNS1 $DNS2" >> $LOG
 					else
-						archidroid_dnsmasq $EXTRA -C /system/mrturdroid/etc/dnsmasq.conf
+						archidroid_dnsmasq $EXTRA -C /system/archidroid/etc/dnsmasq.conf
 					fi
 				elif [ "$ADBLOCKMODE" == "dnrd" ]; then
 					echo "ADBLOCK: Activated archidroid_dnrd - local dns server on 127.0.0.1:53, forwarding clean non-blocked traffic to specified DNS servers" >> $LOG
-					local EXTRA="-a 127.0.0.1 -i -u 0 -r 0 -M 65535 -m hosts -R /system/mrturdroid/etc "
+					local EXTRA="-a 127.0.0.1 -i -u 0 -r 0 -M 65535 -m hosts -R /system/archidroid/etc "
 					if [ ! -z "$DNS1" ]; then
 						local DNS="-s $DNS1"
 						if [ ! -z "$DNS2" ]; then
@@ -250,7 +250,7 @@ alias mount='ADALIAS mount'
 
 # Initial variables, you should NOT change them unless you know what you're doing
 AD="/data/media/0/MrturDroid"
-ADSYS="/system/mrturdroid"
+ADSYS="/system/archidroid"
 ADDEV="$ADSYS/dev"
 LOG="$AD/Init.log" # "/dev/null" is no verbose
 RUNONCELOG="$AD/RunOnce.log"

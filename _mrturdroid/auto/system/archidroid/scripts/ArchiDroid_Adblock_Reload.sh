@@ -6,7 +6,7 @@ if [ `whoami 2>&1 | grep -i "root" | wc -l` -eq 0 ] && [ `whoami 2>&1 | grep -i 
 	exit 1
 fi
 
-ADDEV="/system/mrturdroid/dev"
+ADDEV="/system/archidroid/dev"
 
 if [ -e $ADDEV/ADBLOCK_ENABLED ]; then
 	echo "Adblock has been reloaded"
