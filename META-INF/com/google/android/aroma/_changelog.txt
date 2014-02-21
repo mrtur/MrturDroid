@@ -7,4 +7,5 @@
  
 3. ISTOTNE ZMIANY:
 - usunieto SlimCenter z menu->ustawienia
+- dodano ArchiDroid-ArchiDroid.apk
 
