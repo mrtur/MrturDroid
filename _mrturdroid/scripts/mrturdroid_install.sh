@@ -3,5 +3,6 @@
 AD="/data/media/0/MrturDroid"
 
 touch $AD/INSTALL
-busybox sync
+
+sync
 exit 0
