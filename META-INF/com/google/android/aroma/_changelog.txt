@@ -6,4 +6,5 @@
 - poprawiono reset po wgraniu recovery CWM
  
 3. ISTOTNE ZMIANY:
+- usunieto SlimCenter z menu->ustawienia
 
