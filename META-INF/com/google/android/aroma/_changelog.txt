@@ -1,6 +1,7 @@
 ﻿MrturDroid 2.5.1
 
 1. Aktualizacja:
+- Android Terminal Emulator 1.0.56
 
 2. Poprawki:
 - poprawiono reset po wgraniu recovery CWM
