@@ -3,6 +3,7 @@
 1. Aktualizacja:
 - Android Terminal Emulator 1.0.56
 - BlackPlay Music 5.4.1409N
+- BlackFacebook 6.0.0.28.28
 
 2. Poprawki:
 - poprawiono reset po wgraniu recovery CWM
