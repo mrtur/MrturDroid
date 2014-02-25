@@ -11,4 +11,5 @@
 3. ISTOTNE ZMIANY:
 - usunieto SlimCenter z menu->ustawienia
 - dodano ArchiDroid-ArchiDroid.apk
+- Slim-mako-4.4.2.build.3.2-WEEKLY-3126
 
