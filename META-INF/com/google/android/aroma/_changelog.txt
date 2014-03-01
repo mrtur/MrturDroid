@@ -5,6 +5,7 @@
 - BlackPlay Music 5.4.1409N
 - BlackFacebook 6.0.0.28.28
 - Cool Tool to 5.3.4
+- XPrivacy 1.99.61
 
 2. Poprawki:
 - poprawiono reset po wgraniu recovery CWM
