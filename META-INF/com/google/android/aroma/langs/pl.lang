@@ -162,6 +162,7 @@ mrturdroid.xposed.bootmanager.desc=Pozwala na zarządzanie jakie aplikacje będ�
 mrturdroid.xposed.xprivacy.desc=Perfekcyjne narzędzie oferujące kontrolę aplikacji i ich uprawnień oraz wiele innych funkcji związanych z bezpieczeństwem
 
 mrturdroid.buildtweaks.fastdormancy.desc=Odznacz, aby wyłączyć fast dormancy. Może poprawić żywotność baterii jeśli Twój provider nie wspiera tej opcji
+mrturdroid.buildtweaks.adreno.desc=Nowe sterowniki GPU. Poprawiają reakcję na dotyk i zwiększają płynność w grach.
 mrturdroid.buildtweaks.zerowakeup.desc=Zaznacz, aby aktywować ZeroWakeUp. Ta opcja wymusi na CPU użycie sleepa (zamiast deep/deeper sleepa), zmniejszając czas wybudzania do minimum
 
 mrturdroid.wizard.reboot=MrturDroid został pomyślnie sflashowany na Twoje urządzenie. Czy chciałbyś teraz automatycznie zrestartować telefon?

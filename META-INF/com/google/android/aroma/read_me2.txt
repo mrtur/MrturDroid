@@ -9,6 +9,7 @@ Ten ROM oparty jest na pracy wielu innych ludzi, ich modyfikacji, ich poprawek, 
 - Klawiatura: TouchPal X | Hacker's Keyboard
 - Narzędzia: CrossBreeder | Xposed Framework + moduły
 - Xposed Modules: App Settings | XPrivacy | BootManager
+- Qualcomm Adreno GPU
 - wiele darmowych aplikacji
 
 Specjalne podziękowania dla :

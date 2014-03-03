@@ -769,16 +769,20 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			package_extract_dir("_mrturdroid/apps/facebook", "/");
 		endif;
 
-		set_progress(0.90);
 
-		# One more fix to logcat
-		ui_print("<b><#1082ac> MrturDroid ~</#></b> Syncing System");
-		#set_perm(1000, 1000, 0771, "/data");
-		#set_perm_recursive(1000, 1000, 0771, 0644, "/data/app");
-		#set_perm_recursive(0, 0, 0771, 0660, "/data/data");
-		run_program("/sbin/sync");
-
+		
 		set_progress(0.91);
+
+		###########################
+		### QUALCOMM ADRENO GPU ###
+		###########################
+
+		if file_getprop("/tmp/aroma-data/mrturdroidbuild.prop","adreno") == "1" then
+			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Qualcomm Adreno GPU");
+			package_extract_dir("_mrturdroid/tweaks/adreno", "/");
+		endif;
+		
+		set_progress(0.92);
 
 		##################
 		### DEBIAN OFF ###
@@ -792,6 +796,16 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			delete_recursive("/data/media/0/MrturDroid/System");	
 			delete("/system/bin/adflash","/system/bin/adgithub","/system/bin/adlinux","/system/bin/debian","/system/bin/openssl","/system/bin/curl","/system/archidroid/system/debian.tar.gz");
 		endif;
+		
+		set_progress(0.93);
+
+		# One more fix to logcat
+		ui_print("<b><#1082ac> MrturDroid ~</#></b> Syncing System");
+		#set_perm(1000, 1000, 0771, "/data");
+		#set_perm_recursive(1000, 1000, 0771, 0644, "/data/app");
+		#set_perm_recursive(0, 0, 0771, 0660, "/data/data");
+		run_program("/sbin/sync");
+		
 		set_progress(0.97);
 	endif;
 	set_progress(0.98);
@@ -799,7 +813,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 	### LOCK ###
 	run_program("/tmp/adlock.sh", "lock", "/system/etc/hosts");
 endif;
-run_program("/sbin/sync");
 
 set_progress(0.99);
 

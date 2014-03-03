@@ -79,6 +79,7 @@
 #
 # <#selectbg_g>Mrtur Bootanimation</#>
 # <#selectbg_g>Build.prop Tweaks</#>
+# <#selectbg_g>Qualcomm Adreno GPU</#>
 # Debian On
 # <#selectbg_g>Fastdormancy</#>
 # Zerowakeup

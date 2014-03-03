@@ -16,4 +16,5 @@
 - usunieto SlimCenter z menu->ustawienia
 - dodano ArchiDroid-ArchiDroid.apk
 - Slim-mako-4.4.2.build.3.2-WEEKLY-3126
+- Qualcomm Adreno GPU (wybor w Aroma) -> nowe sterowniki (dzieki maxver)
 

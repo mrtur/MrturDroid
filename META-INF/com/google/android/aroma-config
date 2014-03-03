@@ -26,7 +26,7 @@
 #
 # Initializing Rom Information
 #
-setvar("preset_version","6");
+setvar("preset_version","7");
 
 ini_set("dp","3");
 ini_set("rom_name",             "MrturDroid");
@@ -253,6 +253,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"mrturdroidbuild.prop",
 
 		"fastdormancy=1\n"+
+		"adreno=1\n"+		
 		"zerowakeup=0\n"
 	);
 endif;
@@ -372,6 +373,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 
 			"build","<#selectbg_g>Build.prop Tweaks</#>","","group",
 			"fastdormancy","Fast Dormancy","<~mrturdroid.buildtweaks.fastdormancy.desc>","check.checked",
+			"adreno","Qualcomm Adreno GPU","<~mrturdroid.buildtweaks.adreno.desc>","check.checked",				
 			"zerowakeup","ZeroWakeUp","<~mrturdroid.buildtweaks.zerowakeup.desc>","check"
 		);
 		write("/data/media/0/MrturDroid/AromaPreset/Slim_work/mrturdroidbuild.prop",
