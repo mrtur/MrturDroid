@@ -532,10 +532,12 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			package_extract_dir("_mrturdroid/apps/nova", "/");
 		endif;
 
-		### STOCK ###
-		if file_getprop("/tmp/aroma-data/mrturdroid.prop","launcher") == "stock" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Stock Launcher");
-			# Not needed, haha!
+		### GOOGLE ###
+		if file_getprop("/tmp/aroma-data/mrturdroid.prop","launcher") == "google" then
+			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Google Launcher");
+			delete("/system/priv-app/Launcher3.apk");
+			delete("/system/app/Launcher3.apk");		
+			package_extract_dir("_mrturdroid/apps/googlelauncher", "/");
 		endif;
 
 		### NONE ###

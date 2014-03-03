@@ -19,7 +19,7 @@
 #  Launcher
 #  
 # <#selectbg_g>Nova Launcher</#>
-# Stock
+# Google Home
 
 ##################
 #  Klawiatura

@@ -282,7 +282,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 
 		"launcher","<#selectbg_g>Launcher</#>","","group",
 		"nova","Nova Launcher","<~mrturdroid.launcher.nova.desc>","select.selected",
-		"stock","Stock Launcher","<~mrturdroid.launcher.stock.desc>","select",
+		"google","Google Launcher","<~mrturdroid.launcher.google.desc>","select",		
 		"none","<~common.none>","<~mrturdroid.launcher.none.desc>","select",
 
 		"keyboard","<#selectbg_g><~mrturdroid.keyboard></#>","","group",

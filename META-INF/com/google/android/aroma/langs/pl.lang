@@ -94,7 +94,7 @@ mrturdroid.preset.group=Preset
 mrturdroid.preset.custom=Własny
 mrturdroid.preset.custom.desc=Będziesz mógł dostosować każdy aspekt instalacji
 mrturdroid.preset.barebones=Sam Szkielet
-mrturdroid.preset.barebones.desc=Czysty Slim. Tylko dla testów ewentualnych błędów, niezalecane
+mrturdroid.preset.barebones.desc=Czysty SlimKat. Tylko dla testów ewentualnych błędów, niezalecane
 mrturdroid.preset.previous=Poprzedni Preset
 mrturdroid.preset.previous.desc=Ładuje Twój poprzednio wybrany preset (o ile dostępny)
 mrturdroid.preset.mrtur=Preset by mrtur
@@ -112,24 +112,24 @@ mrturdroid.kernel.semaphore.desc=Alternatywa dla stocka
 mrturdroid.kernel.hells.desc=Podobno stabilny i bardzo "przyjazny" dla baterii ;)
 
 mrturdroid.dpi.240.desc=UWAGA! Możliwe niewielkie bugi graficzne
-mrturdroid.dpi.268.desc=Zalecane przez autorów Slim
+mrturdroid.dpi.268.desc=Zalecane przez autorów SlimKat
 mrturdroid.dpi.280.desc=Dobry kompromis pomiędzy 320, a 240 DPI
 mrturdroid.dpi.320.desc=Wartość domyślna
 
-mrturdroid.launcher.nova.desc=Zalecany dla o wiele większej wydajności i elastyczności
-mrturdroid.launcher.stock.desc=Pochodzący prosto od Slim
+mrturdroid.launcher.nova.desc=Zalecany dla o wiele większej wydajności i elastyczności. Domyślny w SlimKat
+mrturdroid.launcher.google.desc==Zalecany dla google experience w czystej postaci, znany również pod nazwą Google Home
 mrturdroid.launcher.none.desc=Brak Launchera. UWAGA! Nie zaznaczaj tej opcji jeśli wykonałeś full wipe. Potrzebujesz przynajmniej 1 własnego launchera przed pierwszym bootem!
 
 mrturdroid.keyboard=Klawiatura
 mrturdroid.keyboard.touchpal.desc=Zalecana jako świetna i bardzo elastyczna klawiatura Swype/Curve
 mrturdroid.keyboard.hackers.desc=Świetna alternatywa dla TouchPal'a jeśli nie potrzebujemy Swype/Curve
 mrturdroid.keyboard.both.desc=Jeśli z jakiegoś powodu chciałbyś zainstalować obydwie te klawiatury
-mrturdroid.keyboard.stock.desc=Jeśli chciałbyś pozostać przy klawiaturze prosto od Slim
+mrturdroid.keyboard.stock.desc=Jeśli chciałbyś pozostać przy klawiaturze prosto od SlimKat
 mrturdroid.keyboard.none.desc=Brak Klawiatury. UWAGA! Nie zaznaczaj tej opcji jeśli wykonałeś full wipe. Potrzebujesz przynajmniej 1 własnej klawiatury przed pierwszym bootem!
 
 mrturdroid.bootanimation=Animacja Ładowania
 mrturdroid.bootanimation.mrtur.desc=Animacja MrturDroid dla Nexus 4
-mrturdroid.bootanimation.stock.desc=Stockowa animacja dostarczona wraz z Slim
+mrturdroid.bootanimation.stock.desc=Stockowa animacja dostarczona wraz z SlimKat
 mrturdroid.bootanimation.nexus.desc=Animacja dostarczona wraz z Andoidem 4.3.1 dla Nexus
 mrturdroid.bootanimation.google.desc=Animacja by Google
 mrturdroid.bootanimation.none.desc=Brak animacji ładowania, dla nieco szybszego startu
