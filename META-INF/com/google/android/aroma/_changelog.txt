@@ -9,6 +9,7 @@
 - Android Terminal Emulator 1.0.57
 - MX Player to 1.7.25
 - BootManager 2.0.0
+- Titanium Backup 6.1.5.4
 
 2. Poprawki:
 - poprawiono reset po wgraniu recovery CWM
