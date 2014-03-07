@@ -1,4 +1,4 @@
-﻿MrturDroid 2.5.1
+﻿MrturDroid 2.5.1 EXPERIMENTAL
 
 1. Aktualizacja:
 - Android Terminal Emulator 1.0.56
