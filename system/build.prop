@@ -3,12 +3,12 @@
 ro.build.id=KVT49L
 ro.build.display.id=MrturDroid 2.5.1
 ro.mrturdroid.version=MrturDroid 2.5.1
-ro.build.version.incremental=3126
+ro.build.version.incremental=3166
 ro.build.version.sdk=19
 ro.build.version.codename=REL
 ro.build.version.release=4.4.2
-ro.build.date=Mon Feb 24 10:54:54 CET 2014
-ro.build.date.utc=1393235694
+ro.build.date=Tue Mar  4 00:23:41 CET 2014
+ro.build.date.utc=1393889021
 ro.build.type=userdebug
 ro.build.user=autobuild
 ro.build.host=slimgerrit
@@ -79,9 +79,9 @@ ro.setupwizard.enterprise_mode=1
 ro.build.selinux=1
 dalvik.vm.debug.alloc=0
 BUILD_DISPLAY_ID=KVT49L
-#slim.ota.version=4.4.2.build3.2
-ro.slim.version=base android 4.4.2.build.3.2-WEEKLY-3126
-ro.modversion=Slim-mako-4.4.2.build.3.2-WEEKLY-3126
+
+ro.slim.version=Slim-4.4.2.build.3.4-WEEKLY-3166
+ro.modversion=Slim-mako-4.4.2.build.3.4-WEEKLY-3166
 persist.sys.dalvik.vm.lib=libdvm.so
 dalvik.vm.lockprof.threshold=500
 dalvik.vm.dexopt-flags=m=y
