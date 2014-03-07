@@ -8,6 +8,7 @@
 - XPrivacy 1.99.61
 - Android Terminal Emulator 1.0.57
 - MX Player to 1.7.25
+- BootManager 2.0.0
 
 2. Poprawki:
 - poprawiono reset po wgraniu recovery CWM
