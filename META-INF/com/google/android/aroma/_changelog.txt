@@ -4,12 +4,12 @@
 - Android Terminal Emulator 1.0.56
 - BlackPlay Music 5.4.1409N
 - BlackFacebook 6.0.0.28.28
-- Cool Tool to 5.3.4
 - XPrivacy 1.99.61
 - Android Terminal Emulator 1.0.57
 - MX Player to 1.7.25
 - BootManager 2.0.0
 - Titanium Backup 6.1.5.4
+- Cool Tool to 5.4
 
 2. Poprawki:
 - poprawiono reset po wgraniu recovery CWM
