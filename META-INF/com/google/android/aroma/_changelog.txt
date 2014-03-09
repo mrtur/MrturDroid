@@ -10,6 +10,7 @@
 - BootManager 2.0.0
 - Titanium Backup 6.1.5.4
 - Cool Tool to 5.4
+- Recovery TWRP 2.7.0.0
 
 2. Poprawki:
 - poprawiono reset po wgraniu recovery CWM
