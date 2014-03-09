@@ -1,7 +1,6 @@
 ﻿MrturDroid 2.5.1 EXPERIMENTAL
 
 1. Aktualizacja:
-- Android Terminal Emulator 1.0.56
 - BlackPlay Music 5.4.1409N
 - BlackFacebook 6.0.0.28.28
 - XPrivacy 1.99.61
@@ -12,6 +11,7 @@
 - Cool Tool to 5.4
 - Recovery TWRP 2.7.0.0
 - Black Chrome 33.0.1750.136
+- Android Terminal Emulator 1.0.58
 
 2. Poprawki:
 - poprawiono reset po wgraniu recovery CWM
