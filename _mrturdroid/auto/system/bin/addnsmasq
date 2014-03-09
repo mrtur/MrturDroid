@@ -22,6 +22,6 @@
 # limitations under the License.
 
 touch /dev/archidroid/cron/listeners/TETHERING # Set up a listener for ARCHIDROID_CRON
-echo "$$" > /dev/archidroid/cron/events/TETHERING # Notify ARCHIDROID_CRON about tethering
+touch /dev/archidroid/cron/events/external/TETHERING # Notify ARCHIDROID_CRON about tethering
 inotifywait -qqe delete /dev/archidroid/cron/listeners/TETHERING # Wait for ARCHIDROID_CRON
 exec dnsmasq.real "$@" # Exec original binary and share the environment
