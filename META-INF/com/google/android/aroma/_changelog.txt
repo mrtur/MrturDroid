@@ -12,6 +12,7 @@
 - Recovery TWRP 2.7.0.0
 - Black Chrome 33.0.1750.136
 - Android Terminal Emulator 1.0.58
+- ViPER4Android 2.3.2.6
 
 2. Poprawki:
 - poprawiono reset po wgraniu recovery CWM
