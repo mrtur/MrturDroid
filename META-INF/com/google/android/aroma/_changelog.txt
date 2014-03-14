@@ -17,6 +17,7 @@
 
 2. Poprawki:
 - poprawiono reset po wgraniu recovery CWM
+- usunieto kernel franco
  
 3. ISTOTNE ZMIANY:
 - usunieto SlimCenter z menu->ustawienia
