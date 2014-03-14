@@ -15,6 +15,7 @@
 - BlackPlay Music 5.4.1413N
 - kernel Semaphore 2.0.9
 - Trickster MOD 2.10.878
+- Google Maps 7.7.0
 
 2. Poprawki:
 - poprawiono reset po wgraniu recovery CWM
