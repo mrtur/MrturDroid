@@ -450,6 +450,8 @@ fi
 if [ $ADRELOAD -eq 1 ]; then
 	echo "INFO: Reboot required, I'm rebooting the device right now" >> $LOG
 	busybox sync
+	setsid ARCHIDROID_INIT "background" &
+	sleep 1
 
 	setprop ctl.restart surfaceflinger
 	setprop ctl.restart zygote
