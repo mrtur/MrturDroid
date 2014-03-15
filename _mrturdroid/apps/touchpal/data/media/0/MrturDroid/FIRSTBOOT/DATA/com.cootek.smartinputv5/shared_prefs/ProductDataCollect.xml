@@ -1,4 +1,5 @@
 <?xml version='1.0' encoding='utf-8' standalone='yes' ?>
 <map>
+    <boolean name="com.cootek.smartinputv5.language.polish_PRODUCT_INSTALL" value="true" />
     <boolean name="com.google.android.gms_PRODUCT_INSTALL" value="true" />
 </map>

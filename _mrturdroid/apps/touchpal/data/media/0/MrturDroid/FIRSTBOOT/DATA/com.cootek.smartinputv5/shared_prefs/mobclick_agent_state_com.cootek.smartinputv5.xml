@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <long name="duration" value="9813" />
+    <string name="session_id">59B3A9D4452E8E20E93A51840BF3CB9A</string>
+    <long name="end_millis" value="1394907789278" />
+    <long name="uptr" value="63004" />
+    <long name="start_millis" value="-1" />
+    <long name="dntr" value="3757155" />
+    <string name="activities">[&quot;com.cootek.smartinputv5.SettingsActivity&quot;,2];[&quot;com.cootek.smartinputv5.SettingsActivity&quot;,7]</string>
+    <long name="terminate_time" value="1394907789278" />
+</map>
