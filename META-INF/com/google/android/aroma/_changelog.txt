@@ -16,6 +16,8 @@
 - Trickster MOD 2.10.878
 - Google Maps 7.7.0
 - XPrivacy 2.0.4
+- Google Play 4.6.16
+- Youtube 5.5.27(jasny -> konflikt ciemnego z nowym Google Play)
 
 2. Poprawki:
 - poprawiono reset po wgraniu recovery CWM
