@@ -15,7 +15,6 @@
 - kernel Semaphore 2.0.9
 - Trickster MOD 2.10.878
 - Google Maps 7.7.0
-- Google Play 4.6.16
 - XPrivacy 2.0.4
 
 2. Poprawki:
