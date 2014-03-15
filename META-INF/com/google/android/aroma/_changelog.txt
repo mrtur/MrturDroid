@@ -30,4 +30,4 @@
 - Qualcomm Adreno GPU (wybor w Aroma) -> nowe sterowniki (dzieki maxver)
 - Google Launcher (wybor w Aroma)
 - Slim-mako-4.4.2.build.3.6-WEEKLY-3227
-
+- dodano w zabezpieczenia "rozpoznawanie twarzy"
