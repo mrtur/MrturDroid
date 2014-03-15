@@ -2,7 +2,6 @@
 
 1. Aktualizacja:
 - BlackFacebook 6.0.0.28.28
-- XPrivacy 1.99.61
 - Android Terminal Emulator 1.0.57
 - MX Player to 1.7.25
 - BootManager 2.0.0
@@ -17,6 +16,7 @@
 - Trickster MOD 2.10.878
 - Google Maps 7.7.0
 - Google Play 4.6.16
+- XPrivacy 2.0.4
 
 2. Poprawki:
 - poprawiono reset po wgraniu recovery CWM
