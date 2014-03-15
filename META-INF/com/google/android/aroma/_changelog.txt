@@ -17,7 +17,6 @@
 - Google Maps 7.7.0
 - Google Play 4.6.16
 - XPrivacy 2.0.4
-- GAPPS 20140314
 
 2. Poprawki:
 - poprawiono reset po wgraniu recovery CWM
