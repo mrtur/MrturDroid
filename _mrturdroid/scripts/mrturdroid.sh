@@ -11,4 +11,6 @@ rm -f $AD/INSTALL
 rm -f $AD/UPDATE
 rm -f $AD/FORCE
 
+sync
+
 exit 0

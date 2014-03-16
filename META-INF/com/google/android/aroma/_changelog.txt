@@ -1,22 +1,35 @@
-﻿MrturDroid 2.5.0
+﻿MrturDroid 2.5.1
 
 1. Aktualizacja:
-- Google Maps 7.6.1
-- MX Player 1.7.24
-- ClockWorkMod 6.0.4.7
-- Kernel SlimKat
-- Touchpal X 5.5.0.3
-- XPrivacy 1.99.44
-- Semaphore 2.0.5
-- Black Google Now 3.2.17.1009776
-- Titanium Backup 6.1.5.3
+- BlackFacebook 6.0.0.28.28
+- Android Terminal Emulator 1.0.57
+- MX Player to 1.7.25
+- BootManager 2.0.0
+- Titanium Backup 6.1.5.4
+- Cool Tool to 5.4
+- Recovery TWRP 2.7.0.0
+- Black Chrome 33.0.1750.136
+- Android Terminal Emulator 1.0.58
+- ViPER4Android 2.3.2.6
+- BlackPlay Music 5.4.1413N
+- kernel Semaphore 2.0.9
+- Trickster MOD 2.10.878
+- Google Maps 7.7.0
+- XPrivacy 2.0.4
+- Google Play 4.6.16
+- Youtube 5.5.27(jasny -> konflikt ciemnego z nowym Google Play)
 
 2. Poprawki:
+- poprawiono reset po wgraniu recovery CWM
+- usunieto kernel franco
+- naprawiono opcje drukowanie
  
 3. ISTOTNE ZMIANY:
-- dodano do wyboru w Aroma instalacje Trickster MOD
-- dodano mozliwosc wgrania recovery TWRP lub ClockWorkMod
-- dodano wybor kernela (stock, semaphore, hells-core)
-- Slim-mako-4.4.2.build.3-OFFICIAL-3095
+- usunieto SlimCenter z menu->ustawienia
+- dodano ArchiDroid-ArchiDroid.apk
+- Qualcomm Adreno GPU (wybor w Aroma) -> nowe sterowniki (dzieki maxver)
+- Google Launcher (wybor w Aroma)
+- Slim-mako-4.4.2.build.3.6-WEEKLY-3227
+- dodano w zabezpieczenia "rozpoznawanie twarzy"
 
-ZALECAM WYBRAĆ W AROMA FULL-WIPE PRZY INSTALACJI
+ZALECAM OPCJE FULL-WIPE PODCZAS INSTALACJI

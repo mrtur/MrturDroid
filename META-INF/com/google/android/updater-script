@@ -48,10 +48,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 	run_program("/tmp/adlock.sh", "unlock", "/system/etc/hosts");
 
 	ui_print("<b><#1082ac> MrturDroid ~</#></b> Formatting Partitions");
-	package_extract_file("_mrturdroid/scripts/wipesystem.sh", "/tmp/wipesystem.sh");
-	set_perm(0, 0, 0777, "/tmp/wipesystem.sh");
-	run_program("/tmp/wipesystem.sh");
-	delete("/tmp/wipesystem.sh");
+	delete_recursive("/system");
 
 	set_progress(0.07);
 
@@ -302,7 +299,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 	set_metadata("/system/xbin/procrank", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 	set_metadata("/system/xbin/su", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:su_exec:s0");
 	# MrturDroid
-	set_perm_recursive(0, 0, 0755, 0755, "/system/mrturdroid/scripts");
+	set_perm_recursive(0, 0, 0755, 0755, "/system/archidroid/scripts");
 
 	set_progress(0.54);
 
@@ -371,13 +368,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			run_program("/tmp/busybox", "dd", "if=/tmp/newboot.img", "of=/dev/block/mmcblk0p6");
 			delete("/system/lib/hw/power.msm8960.so");
 		endif;		
-		
-		### FRANCO ###
-		if file_getprop("/tmp/aroma-data/mrturdroid.prop","kernel") == "franco" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Flashing Franco Kernel");
-			package_extract_file("_mrturdroid/kernels/franco/boot.img", "/dev/block/platform/msm_sdcc.1/by-name/boot");
-			#package_extract_dir("_mrturdroid/kernels/franco/files", "/");
-		endif;
 
 		set_progress(0.6);
 
@@ -535,10 +525,12 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			package_extract_dir("_mrturdroid/apps/nova", "/");
 		endif;
 
-		### STOCK ###
-		if file_getprop("/tmp/aroma-data/mrturdroid.prop","launcher") == "stock" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Stock Launcher");
-			# Not needed, haha!
+		### GOOGLE ###
+		if file_getprop("/tmp/aroma-data/mrturdroid.prop","launcher") == "google" then
+			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Google Launcher");
+			delete("/system/priv-app/Launcher3.apk");
+			delete("/system/app/Launcher3.apk");		
+			package_extract_dir("_mrturdroid/apps/googlelauncher", "/");
 		endif;
 
 		### NONE ###
@@ -772,16 +764,20 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			package_extract_dir("_mrturdroid/apps/facebook", "/");
 		endif;
 
-		set_progress(0.90);
 
-		# One more fix to logcat
-		ui_print("<b><#1082ac> MrturDroid ~</#></b> Syncing System");
-		#set_perm(1000, 1000, 0771, "/data");
-		#set_perm_recursive(1000, 1000, 0771, 0644, "/data/app");
-		#set_perm_recursive(0, 0, 0771, 0660, "/data/data");
-		run_program("/sbin/sync");
-
+		
 		set_progress(0.91);
+
+		###########################
+		### QUALCOMM ADRENO GPU ###
+		###########################
+
+		if file_getprop("/tmp/aroma-data/mrturdroidbuild.prop","adreno") == "1" then
+			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Qualcomm Adreno GPU");
+			package_extract_dir("_mrturdroid/tweaks/adreno", "/");
+		endif;
+		
+		set_progress(0.92);
 
 		##################
 		### DEBIAN OFF ###
@@ -793,8 +789,18 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			delete_recursive("/data/media/0/MrturDroid/tmp");
 			delete_recursive("/data/media/0/MrturDroid/GitHub");
 			delete_recursive("/data/media/0/MrturDroid/System");	
-			delete("/system/bin/adflash","/system/bin/adgithub","/system/bin/adlinux","/system/bin/debian","/system/bin/openssl","/system/bin/curl","/system/mrturdroid/system/debian.tar.gz");
+			delete("/system/bin/adflash","/system/bin/adgithub","/system/bin/adlinux","/system/bin/debian","/system/bin/openssl","/system/bin/curl","/system/archidroid/system/debian.tar.gz");
 		endif;
+		
+		set_progress(0.93);
+
+		# One more fix to logcat
+		ui_print("<b><#1082ac> MrturDroid ~</#></b> Syncing System");
+		#set_perm(1000, 1000, 0771, "/data");
+		#set_perm_recursive(1000, 1000, 0771, 0644, "/data/app");
+		#set_perm_recursive(0, 0, 0771, 0660, "/data/data");
+		run_program("/sbin/sync");
+		
 		set_progress(0.97);
 	endif;
 	set_progress(0.98);
@@ -802,7 +808,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 	### LOCK ###
 	run_program("/tmp/adlock.sh", "lock", "/system/etc/hosts");
 endif;
-run_program("/sbin/sync");
 
 set_progress(0.99);
 

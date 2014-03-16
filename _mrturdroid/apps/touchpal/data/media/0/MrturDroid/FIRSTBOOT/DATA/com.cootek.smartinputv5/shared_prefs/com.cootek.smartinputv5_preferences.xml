@@ -1,2 +1,11 @@
 <?xml version='1.0' encoding='utf-8' standalone='yes' ?>
-<map />
+<map>
+    <string name="option_candidate_size_list">2</string>
+    <boolean name="option_cloud_prediction" value="false" />
+    <string name="option_keyboard_size_list">0</string>
+    <string name="option_cloke_list">0</string>
+    <boolean name="option_live_words" value="true" />
+    <boolean name="option_service_wifi_only" value="false" />
+    <string name="option_popup_preview_list">0</string>
+    <string name="option_update_freq">-1</string>
+</map>

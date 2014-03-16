@@ -26,14 +26,15 @@
 #
 # Initializing Rom Information
 #
-setvar("preset_version","0");
+
+setvar("preset_version","1");
 
 ini_set("dp","3");
 ini_set("rom_name",             "MrturDroid");
-ini_set("rom_version",          "2.5.0");
+ini_set("rom_version",          "2.5.1");
 ini_set("rom_author",           "mrtur");
 ini_set("rom_device",           "Nexus 4");
-ini_set("rom_date",             "17-02-2014");
+ini_set("rom_date",             "16-03-2014");
 
 
 #
@@ -254,6 +255,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"mrturdroidbuild.prop",
 
 		"fastdormancy=1\n"+
+		"adreno=1\n"+		
 		"zerowakeup=0\n"
 	);
 endif;
@@ -282,7 +284,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 
 		"launcher","<#selectbg_g>Launcher</#>","","group",
 		"nova","Nova Launcher","<~mrturdroid.launcher.nova.desc>","select.selected",
-		"stock","Stock Launcher","<~mrturdroid.launcher.stock.desc>","select",
+		"google","Google Launcher","<~mrturdroid.launcher.google.desc>","select",		
 		"none","<~common.none>","<~mrturdroid.launcher.none.desc>","select",
 
 		"keyboard","<#selectbg_g><~mrturdroid.keyboard></#>","","group",
@@ -328,8 +330,8 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		"cooltool","CoolTool","<~mrturdroid.apps.cooltool.desc>","check.checked",
 		"rootbrowser","Root Browser","<~mrturdroid.apps.rootbrowser.desc>","check",
 		"totalcommander","Total Commander","<~mrturdroid.apps.totalcommander.desc>","check.checked",
-		"youtube","YouTube [<~common.inverted>]","<~mrturdroid.apps.youtube.desc>","check.checked",
-		"facebook","Facebook + Messenger [<~common.inverted>]","<~mrturdroid.apps.facebook.desc>","check",
+		"youtube","YouTube","","check.checked",
+		"facebook","Facebook + Messenger [<~common.inverted>]","","check",
 
 		"mrturtweaks","<#selectbg_g>MrturDroid Tweaks</#>","","group",
 		"buildtweaks","Add build.prop Tweaks","<~mrturdroid.tweaks.buildtweaks.desc>","check.checked",
@@ -373,6 +375,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 
 			"build","<#selectbg_g>Build.prop Tweaks</#>","","group",
 			"fastdormancy","Fast Dormancy","<~mrturdroid.buildtweaks.fastdormancy.desc>","check.checked",
+			"adreno","Qualcomm Adreno GPU","<~mrturdroid.buildtweaks.adreno.desc>","check.checked",				
 			"zerowakeup","ZeroWakeUp","<~mrturdroid.buildtweaks.zerowakeup.desc>","check"
 		);
 		write("/data/media/0/MrturDroid/AromaPreset/Slim/mrturdroidbuild.prop",

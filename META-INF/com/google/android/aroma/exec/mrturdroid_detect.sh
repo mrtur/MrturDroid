@@ -7,7 +7,7 @@
 
 if [ -e /system/build.prop ]; then
 	# Good
-	if [ `cat /system/build.prop | grep -i "MrturDroid" | wc -l` -gt 0 ]; then
+	if [ $(cat /system/build.prop | grep -i "MrturDroid" | wc -l) -gt 0 ]; then
 		# Yay we're running MrturDroid"
 		exit 2
 	else
@@ -18,4 +18,6 @@ else
 	# Report internal error
 	exit 0
 fi
+
+sync
 exit 0

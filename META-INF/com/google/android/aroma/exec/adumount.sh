@@ -19,7 +19,7 @@ GOTMOUNT=false
 LOG="/tmp/mrturdroid_mount.log" # We can use /dev/null if not required
 
 ADMOUNTED() {
-	if [ `mount | grep -i "$1" | wc -l` -gt 0 ]; then
+	if [ $(mount | grep -i "$1" | wc -l) -gt 0 ]; then
 		return 0
 	else
 		return 1
@@ -28,7 +28,7 @@ ADMOUNTED() {
 
 ADUMOUNT() {
 	if (ADMOUNTED "$1"); then
-		MNTPATH=`echo $1 | sed 's/\///g'`
+		MNTPATH=$(echo $1 | sed 's/\///g')
 		eval "MNTPATH=\$$MNTPATH"
 		if $GOTBUSYBOX; then
 			busybox umount -f "$1" >/dev/null 2>&1
@@ -47,18 +47,18 @@ ADUMOUNT() {
 			fi
 		fi
 		# Ok, I give up
-			echo "ERROR: Could not unmount $1" >> $LOG
-			return 1
+		echo "ERROR: Could not unmount $1" >> $LOG
+		return 1
 	else
 		echo "$1 is already unmounted" >> $LOG
 	fi
 	return 0
 }
 
-if [ ! -z `which busybox` ]; then
+if [ ! -z $(which busybox) ]; then
 	GOTBUSYBOX=true
 fi
-if [ ! -z `which mount` ]; then
+if [ ! -z $(which mount) ]; then
 	GOTMOUNT=true
 fi
 if (! $GOTBUSYBOX && ! $GOTMOUNT); then
@@ -76,4 +76,5 @@ else
 	ADUMOUNT "$1"
 fi
 
+sync
 exit 0

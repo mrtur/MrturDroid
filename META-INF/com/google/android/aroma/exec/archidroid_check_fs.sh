@@ -1,7 +1,7 @@
 #!/sbin/sh
 
 if [ $# -eq 0 ]; then
-	if [ -z `which mkfs.f2fs` ]; then
+	if [ -z $(which mkfs.f2fs) ]; then
 		exit 1
 	else
 		exit 0
@@ -22,7 +22,7 @@ GOTMOUNT=false
 LOG="/dev/null" # We can use /dev/null if not required
 
 ADMOUNTED() {
-	if [ `mount | grep -i "$1" | wc -l` -gt 0 ]; then
+	if [ $(mount | grep -i "$1" | wc -l) -gt 0 ]; then
 		return 0
 	else
 		return 1
@@ -49,7 +49,7 @@ ADMOUNT() {
 		fi
 		# Stage 2, mounted device isn't available in fstab and/or recovery can't mount it without such information. This is typical for f2fs, as fstab has ext4 declared. In addition to Stage 1, we'll provide block path, this should be enough.
 		if $GOTBUSYBOX; then
-			MNTPATH=`echo $1 | sed 's/\///g'`
+			MNTPATH=$(echo $1 | sed 's/\///g')
 			eval "MNTPATH=\$$MNTPATH"
 			busybox mount -t auto "$MNTPATH" "$1" >/dev/null 2>&1
 			if (ADMOUNTED "$1"); then
@@ -58,7 +58,7 @@ ADMOUNT() {
 			fi
 		fi
 		if $GOTMOUNT; then
-			MNTPATH=`echo $1 | sed 's/\///g'`
+			MNTPATH=$(echo $1 | sed 's/\///g')
 			eval "MNTPATH=\$$MNTPATH"
 			mount -t $auto "$MNTPATH" "$1" >/dev/null 2>&1
 			if (ADMOUNTED "$1"); then
@@ -68,7 +68,7 @@ ADMOUNT() {
 		fi
 		# Stage 3, we failed using automatic filesystem, so we'll now use full mount command. This is our last chance.
 		if $GOTBUSYBOX; then
-			MNTPATH=`echo $1 | sed 's/\///g'`
+			MNTPATH=$(echo $1 | sed 's/\///g')
 			eval "MNTPATH=\$$MNTPATH"
 			busybox mount -t "$fs" "$MNTPATH" "$1" >/dev/null 2>&1
 			if (ADMOUNTED "$1"); then
@@ -77,7 +77,7 @@ ADMOUNT() {
 			fi
 		fi
 		if $GOTMOUNT; then
-			MNTPATH=`echo $1 | sed 's/\///g'`
+			MNTPATH=$(echo $1 | sed 's/\///g')
 			eval "MNTPATH=\$$MNTPATH"
 			mount -t "$fs" "$MNTPATH" "$1" >/dev/null 2>&1
 			if (ADMOUNTED "$1"); then
@@ -94,10 +94,10 @@ ADMOUNT() {
 	return 0
 }
 
-if [ ! -z `which busybox` ]; then
+if [ ! -z $(which busybox) ]; then
 	GOTBUSYBOX=true
 fi
-if [ ! -z `which mount` ]; then
+if [ ! -z $(which mount) ]; then
 	GOTMOUNT=true
 fi
 if (! $GOTBUSYBOX && ! $GOTMOUNT); then
@@ -109,4 +109,6 @@ fi
 ADMOUNT "$1"
 FS=$(mount | grep "$1" | head -n 1 | awk '{print $5}')
 echo "$FS"
+
+sync
 exit 0
