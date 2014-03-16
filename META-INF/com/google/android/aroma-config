@@ -328,8 +328,8 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		"cooltool","CoolTool","<~mrturdroid.apps.cooltool.desc>","check.checked",
 		"rootbrowser","Root Browser","<~mrturdroid.apps.rootbrowser.desc>","check",
 		"totalcommander","Total Commander","<~mrturdroid.apps.totalcommander.desc>","check.checked",
-		"youtube","YouTube","<~mrturdroid.apps.youtube.desc>","check.checked",
-		"facebook","Facebook + Messenger [<~common.inverted>]","<~mrturdroid.apps.facebook.desc>","check",
+		"youtube","YouTube","","check.checked",
+		"facebook","Facebook + Messenger [<~common.inverted>]","","check",
 
 		"mrturtweaks","<#selectbg_g>MrturDroid Tweaks</#>","","group",
 		"buildtweaks","Add build.prop Tweaks","<~mrturdroid.tweaks.buildtweaks.desc>","check.checked",
