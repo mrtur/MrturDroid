@@ -1,33 +1,10 @@
-﻿MrturDroid 2.5.1 EXPERIMENTAL
+﻿MrturDroid 2.5.2 EXPERIMENTAL
 
 1. Aktualizacja:
-- BlackFacebook 6.0.0.28.28
-- Android Terminal Emulator 1.0.57
-- MX Player to 1.7.25
-- BootManager 2.0.0
-- Titanium Backup 6.1.5.4
-- Cool Tool to 5.4
-- Recovery TWRP 2.7.0.0
-- Black Chrome 33.0.1750.136
-- Android Terminal Emulator 1.0.58
-- ViPER4Android 2.3.2.6
-- BlackPlay Music 5.4.1413N
-- kernel Semaphore 2.0.9
-- Trickster MOD 2.10.878
-- Google Maps 7.7.0
-- XPrivacy 2.0.4
-- Google Play 4.6.16
-- Youtube 5.5.27(jasny -> konflikt ciemnego z nowym Google Play)
+
 
 2. Poprawki:
-- poprawiono reset po wgraniu recovery CWM
-- usunieto kernel franco
-- naprawiono opcje drukowanie
+
  
 3. ISTOTNE ZMIANY:
-- usunieto SlimCenter z menu->ustawienia
-- dodano ArchiDroid-ArchiDroid.apk
-- Qualcomm Adreno GPU (wybor w Aroma) -> nowe sterowniki (dzieki maxver)
-- Google Launcher (wybor w Aroma)
-- Slim-mako-4.4.2.build.3.6-WEEKLY-3227
-- dodano w zabezpieczenia "rozpoznawanie twarzy"
+

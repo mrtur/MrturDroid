@@ -26,14 +26,14 @@
 #
 # Initializing Rom Information
 #
-setvar("preset_version","7");
+setvar("preset_version","0");
 
 ini_set("dp","3");
 ini_set("rom_name",             "MrturDroid");
-ini_set("rom_version",          "2.5.1");
+ini_set("rom_version",          "2.5.2 EXPERIMENTAL");
 ini_set("rom_author",           "mrtur");
 ini_set("rom_device",           "Nexus 4");
-ini_set("rom_date",             "XX-02-2014");
+ini_set("rom_date",             "XX-03-2014");
 
 #
 # THEME
