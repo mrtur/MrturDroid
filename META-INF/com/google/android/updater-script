@@ -530,7 +530,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Google Launcher");
 			delete("/system/priv-app/Launcher3.apk");
 			delete("/system/app/Launcher3.apk");		
-			package_extract_dir("_mrturdroid/apps/googlelauncher", "/");
+			package_extract_dir("_mrturdroid/apps/google/launcher", "/");
 		endif;
 
 		### NONE ###
@@ -634,32 +634,32 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","gcalendar") == "1" then
 			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Google Calendar");
-			package_extract_dir("_mrturdroid/apps/gcalendar", "/");
+			package_extract_dir("_mrturdroid/apps/google/calendar", "/");
 		endif;
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","gchrome") == "1" then
 			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Google Chrome");
-			package_extract_dir("_mrturdroid/apps/gchrome", "/");
+			package_extract_dir("_mrturdroid/apps/google/chrome", "/");
 		endif;
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","gkeep") == "1" then
 			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Google Keep");
-			package_extract_dir("_mrturdroid/apps/gkeep", "/");
+			package_extract_dir("_mrturdroid/apps/google/keep", "/");
 		endif;
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","gmail") == "1" then
 			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Google Mail");
-			package_extract_dir("_mrturdroid/apps/gmail", "/");
+			package_extract_dir("_mrturdroid/apps/google/mail", "/");
 		endif;
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","gmaps") == "1" then
 			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Google Maps");
-			package_extract_dir("_mrturdroid/apps/gmaps", "/");
+			package_extract_dir("_mrturdroid/apps/google/maps", "/");
 		endif;
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","gvoice") == "1" then
 			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Google Voice");
-			package_extract_dir("_mrturdroid/apps/gvoice", "/");
+			package_extract_dir("_mrturdroid/apps/google/voice", "/");
 			delete("/system/app/VoiceSearchStub.apk");
 			delete("/system/app/GoogleSearchWidget.apk");
 			delete("/system/app/QuickSearchBox.apk");
@@ -669,23 +669,23 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","ghangouts") == "1" then
 			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Google Hangouts");
-			package_extract_dir("_mrturdroid/apps/ghangouts", "/");
+			package_extract_dir("_mrturdroid/apps/google/hangouts", "/");
 		endif;
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","gplus") == "1" then
 			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Google Plus");
-			package_extract_dir("_mrturdroid/apps/gplus", "/");
+			package_extract_dir("_mrturdroid/apps/google/plus", "/");
 		endif;
 		
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","gplaymusic") == "1" then
 			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Google Play Music");
 			delete("/system/app/Apollo.apk");		
-			package_extract_dir("_mrturdroid/apps/gplaymusic", "/");
+			package_extract_dir("_mrturdroid/apps/google/playmusic", "/");
 		endif;	
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","gtranslate") == "1" then
 			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Google Translate");
-			package_extract_dir("_mrturdroid/apps/gtranslate", "/");
+			package_extract_dir("_mrturdroid/apps/google/translate", "/");
 		endif;
 
 		set_progress(0.86);
