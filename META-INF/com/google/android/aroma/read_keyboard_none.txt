@@ -1,0 +1,12 @@
+
+<@center><b><#selectbg_g>U W A G A !!</#></b>
+<@left>
+Wykryłem,że nie wybrałeś żadnej klawiatury.
+Jeżeli nie robisz w tej chwli aktualizacji
+czyli wybierzesz opcję full wipe to nie
+uruchomisz poprawnie telefonu. Potrzebujesz
+przynajmniej 1 własnej klawiatury przed
+pierwszym bootem!
+
+
+

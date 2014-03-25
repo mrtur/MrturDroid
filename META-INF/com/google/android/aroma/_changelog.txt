@@ -8,3 +8,4 @@
  
 3. ISTOTNE ZMIANY:
 - Slim-mako-4.4.2.build.3.9-WEEKLY-3379
+- dodano klawiature Google do Aroma

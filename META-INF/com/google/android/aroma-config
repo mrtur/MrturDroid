@@ -26,7 +26,7 @@
 #
 # Initializing Rom Information
 #
-setvar("preset_version","0");
+setvar("preset_version","1");
 
 ini_set("dp","3");
 ini_set("rom_name",             "MrturDroid");
@@ -211,7 +211,10 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"kernel=hells\n"+
 		"dpi=268\n"+
 		"launcher=nova\n"+
-		"keyboard=both\n"+
+		"googlekb=0\n"+
+		"touchpal=1\n"+		
+		"hackers=1\n"+
+		"stock=0\n"+		
 		"bootanimation=mrtur\n"+
 		"mrturdroidota=0\n"+
 		"xposed=1\n"+
@@ -286,11 +289,10 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		"none","<~common.none>","<~mrturdroid.launcher.none.desc>","select",
 
 		"keyboard","<#selectbg_g><~mrturdroid.keyboard></#>","","group",
-		"touchpal","TouchPal Keyboard","<~mrturdroid.keyboard.touchpal.desc>","select.selected",
-		"hackers","Hacker's Keyboard","<~mrturdroid.keyboard.hackers.desc>","select",
-		"both","TouchPal + Hacker's Keyboard","<~mrturdroid.keyboard.both.desc>","select",
-		"stock","Stock","<~mrturdroid.keyboard.stock.desc>","select",
-		"none","<~common.none>","<~mrturdroid.keyboard.none.desc>","select",
+		"googlekb","Google Keyboard","<~mrturdroid.keyboard.google.desc>","check",	
+		"touchpal","TouchPal Keyboard","<~mrturdroid.keyboard.touchpal.desc>","check.checked",
+		"hackers","Hacker's Keyboard","<~mrturdroid.keyboard.hackers.desc>","check.checked",
+		"stock","Stock","<~mrturdroid.keyboard.stock.desc>","check",
 
 		"bootanimation","<#selectbg_g><~mrturdroid.bootanimation></#>","","group",
 		"mrtur","MrturDroid","<~mrturdroid.bootanimation.mrtur.desc>","select.selected",
@@ -338,6 +340,15 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 	write("/data/media/0/MrturDroid/AromaPreset/Slim_work/mrturdroid.prop",
 	readtmpfile("mrturdroid.prop");
 	);
+	
+	if file_getprop("/tmp/aroma-data/mrturdroid.prop","googlekb") !="1" && file_getprop("/tmp/aroma-data/mrturdroid.prop","touchpal") !="1" && file_getprop("/tmp/aroma-data/mrturdroid.prop","hackers") !="1" && file_getprop("/tmp/aroma-data/mrturdroid.prop","stock") !="1" then
+	textbox(
+		"Wykryłem Brak Klawiatury",
+		"",
+		"@welcome",
+		resread("read_keyboard_none.txt")
+	);
+	endif;	
 	
 	if file_getprop("/tmp/aroma-data/mrturdroid.prop","viper4") == "1" then	
 	textbox(

@@ -315,6 +315,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		run_program("/tmp/320dpi.sh");
 		delete("tmp/320dpi.sh");
 		ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Stock Keyboard");
+		package_extract_dir("_mrturdroid/apps/LatinIME", "/");		
 	else
 		##############
 		### KERNEL ###
@@ -475,41 +476,54 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		################
 		### KEYBOARD ###
 		################
+		
+		### GOOGLE ###
+		if file_getprop("/tmp/aroma-data/mrturdroid.prop","googlekb") == "1" then
+#			delete("/system/app/LatinIME.apk");
+			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Google Keyboard");
+			package_extract_dir("_mrturdroid/apps/google/keyboard", "/");
+		endif;
 
 		### TOUCHPAL ###
-		if file_getprop("/tmp/aroma-data/mrturdroid.prop","keyboard") == "touchpal" then
-			delete("/system/app/LatinIME.apk");
+		if file_getprop("/tmp/aroma-data/mrturdroid.prop","touchpal") == "1" then
+#			delete("/system/app/LatinIME.apk");
 			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing TouchPal Keyboard");
 			package_extract_dir("_mrturdroid/apps/touchpal", "/");
 		endif;
 
 		### HACKERS ###
-		if file_getprop("/tmp/aroma-data/mrturdroid.prop","keyboard") == "hackers" then
+		if file_getprop("/tmp/aroma-data/mrturdroid.prop","hackers") == "1" then
 			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Hacker's Keyboard");
-			delete("/system/app/LatinIME.apk");
+#			delete("/system/app/LatinIME.apk");
 			package_extract_dir("_mrturdroid/apps/hackers", "/");
 		endif;
 
-		### BOTH ###
-		if file_getprop("/tmp/aroma-data/mrturdroid.prop","keyboard") == "both" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing TouchPal + Hacker's Keyboard");
-			delete("/system/app/LatinIME.apk");
-			package_extract_dir("_mrturdroid/apps/touchpal", "/");
-			package_extract_dir("_mrturdroid/apps/hackers", "/");
-		endif;
-
-		### STOCK ###
-		if file_getprop("/tmp/aroma-data/mrturdroid.prop","keyboard") == "stock" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Stock Keyboard");
-			# Not needed, haha!
-		endif;
+#		### BOTH ###
+#		if file_getprop("/tmp/aroma-data/mrturdroid.prop","keyboard") == "both" then
+#			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing TouchPal + Hacker's Keyboard");
+#			delete("/system/app/LatinIME.apk");
+#			package_extract_dir("_mrturdroid/apps/touchpal", "/");
+#			package_extract_dir("_mrturdroid/apps/hackers", "/");
+#		endif;
 
 		### NONE ###
-		if file_getprop("/tmp/aroma-data/mrturdroid.prop","keyboard") == "none" then
-			# Just delete LatinIME then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Skipping Keyboard");
-			delete("/system/app/LatinIME.apk");
-		endif;
+#		if file_getprop("/tmp/aroma-data/mrturdroid.prop","keyboard") == "none" then
+#			# Just delete LatinIME then
+#			ui_print("<b><#1082ac> MrturDroid ~</#></b> Skipping Keyboard");
+#			delete("/system/app/LatinIME.apk");
+#		endif;
+		
+		### DEL STOCK ###
+#		if file_getprop("/tmp/aroma-data/mrturdroid.prop","keyboard") != "stock" then
+#			delete("/system/app/LatinIME.apk");			
+#		endif;		
+		
+		### STOCK ###
+		if file_getprop("/tmp/aroma-data/mrturdroid.prop","stock") == "1" then
+			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Stock Keyboard");
+			package_extract_dir("_mrturdroid/apps/latinime", "/");			
+			# Not needed, haha!
+		endif;		
 
 		set_progress(0.74);
 

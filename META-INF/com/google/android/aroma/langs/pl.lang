@@ -121,6 +121,7 @@ mrturdroid.launcher.google.desc=Zalecany dla google experience w czystej postaci
 mrturdroid.launcher.none.desc=Brak Launchera. UWAGA! Nie zaznaczaj tej opcji jeśli wykonałeś full wipe. Potrzebujesz przynajmniej 1 własnego launchera przed pierwszym bootem!
 
 mrturdroid.keyboard=Klawiatura
+mrturdroid.keyboard.google.desc=Klawiatura od Google, obsługuje Swype/Curve. Dobry zamiennik Touchpal'a
 mrturdroid.keyboard.touchpal.desc=Zalecana jako świetna i bardzo elastyczna klawiatura Swype/Curve
 mrturdroid.keyboard.hackers.desc=Świetna alternatywa dla TouchPal'a jeśli nie potrzebujemy Swype/Curve
 mrturdroid.keyboard.both.desc=Jeśli z jakiegoś powodu chciałbyś zainstalować obydwie te klawiatury
