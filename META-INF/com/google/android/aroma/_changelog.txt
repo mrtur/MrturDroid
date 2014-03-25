@@ -1,8 +1,8 @@
 ﻿MrturDroid 2.5.2 EXPERIMENTAL
 
 1. Aktualizacja:
-- Xposed 2.5-beta2
 - XPrivacy 2.0.11
+- Xposed 2.5
 
 2. Poprawki:
 
