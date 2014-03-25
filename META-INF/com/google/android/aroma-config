@@ -64,19 +64,19 @@ setvar("aroma_fast","OFF");
 if getvar("aroma_fast")=="OFF" then
 	anisplash(
 	1,
-	"mrturdroidsplash13", 100,
-	"mrturdroidsplash12", 100,
-	"mrturdroidsplash11", 100,
-	"mrturdroidsplash10", 100,
-	"mrturdroidsplash09", 100,
-	"mrturdroidsplash08", 100,
-	"mrturdroidsplash07", 100,
-	"mrturdroidsplash06", 100,
-	"mrturdroidsplash05", 100,
-	"mrturdroidsplash04", 100,
-	"mrturdroidsplash03", 100,
-	"mrturdroidsplash02", 100,
-	"mrturdroidsplash01", 500
+	"preview/splash/mrturdroidsplash13", 100,
+	"preview/splash/mrturdroidsplash12", 100,
+	"preview/splash/mrturdroidsplash11", 100,
+	"preview/splash/mrturdroidsplash10", 100,
+	"preview/splash/mrturdroidsplash09", 100,
+	"preview/splash/mrturdroidsplash08", 100,
+	"preview/splash/mrturdroidsplash07", 100,
+	"preview/splash/mrturdroidsplash06", 100,
+	"preview/splash/mrturdroidsplash05", 100,
+	"preview/splash/mrturdroidsplash04", 100,
+	"preview/splash/mrturdroidsplash03", 100,
+	"preview/splash/mrturdroidsplash02", 100,
+	"preview/splash/mrturdroidsplash01", 500
 	);
 
 	viewbox(
@@ -300,6 +300,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		"nexus","Nexus","<~mrturdroid.bootanimation.nexus.desc>","select",
 		"google","Google","<~mrturdroid.bootanimation.google.desc>","select",
 		"none","<~common.none>","<~mrturdroid.bootanimation.none.desc>","select",
+		"bootanimationpreview","Preview","<~mrturdroid.previewbootanimation.desc>","check",
 
 		"other","<#selectbg_g><~mrturdroid.other></#>","","group",
 		"mrturdroidota","MrturDroid OTA","<~mrturdroid.ota.desc>","check.checked",
@@ -337,6 +338,12 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		"buildtweaks","Add build.prop Tweaks","<~mrturdroid.tweaks.buildtweaks.desc>","check.checked",
 		"debianoff","Debian Off","<~mrturdroid.tweaks.debianoff.desc>","check.checked"
 	);
+	
+	if file_getprop("/tmp/aroma-data/mrturdroid.prop","bootanimationpreview") == "1" then
+		splash(2000,"preview/bootanimation/" + file_getprop("/tmp/aroma-data/mrturdroid.prop","bootanimation"));
+		back("1");
+	endif;
+	
 	write("/data/media/0/MrturDroid/AromaPreset/Slim_work/mrturdroid.prop",
 	readtmpfile("mrturdroid.prop");
 	);
@@ -414,10 +421,49 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") != "recov
 			);
 		else
 			alert("MrturDroid Detect","<~mrturdroid.detect.fail.alert.no>","@welcome");
-			setvar("resexec_retstatus","2");
+			setvar("resexec_retstatus","3");
 		endif;
 	endif;
-
+#
+	if getvar("resexec_retstatus")=="3" then
+		if confirm(
+			"MrturDroid Detect",
+			"<~mrturdroid.detect.pass1>",
+			"@welcome",
+			"<~mrturdroid.detect.pass1.yes>",
+			"<~mrturdroid.detect.pass1.no>"
+		)=="yes" then
+			writetmpfile(
+				"mrturdroidwipe.prop",
+				"wipe=no\n"+
+				"force=no\n"
+			);
+				if confirm(
+					"MrturDroid Detect",
+					"<~mrturdroid.detect.force>",
+					"@welcome"
+				)=="yes" then
+					writetmpfile(
+						"mrturdroidwipe.prop",
+						"wipe=no\n"+
+						"force=yes\n"
+					);
+				else
+					writetmpfile(
+						"mrturdroidwipe.prop",
+						"wipe=no\n"+
+						"force=no\n"
+					);
+				endif;
+		else
+			alert("MrturDroid Detect","<~mrturdroid.detect.pass.alert.no>","@welcome");
+			writetmpfile(
+				"mrturdroidwipe.prop",
+				"wipe=yes\n"
+			);
+		endif;
+	endif;	
+#	
 	if getvar("resexec_retstatus")=="2" then
 		if confirm(
 			"MrturDroid Detect",
