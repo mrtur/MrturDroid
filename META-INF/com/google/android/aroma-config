@@ -1,6 +1,11 @@
-﻿### LICENSE:
+﻿#     _             _     _ ____            _     _
+#    / \   _ __ ___| |__ (_)  _ \ _ __ ___ (_) __| |
+#   / _ \ | '__/ __| '_ \| | | | | '__/ _ \| |/ _` |
+#  / ___ \| | | (__| | | | | |_| | | | (_) | | (_| |
+# /_/   \_\_|  \___|_| |_|_|____/|_|  \___/|_|\__,_|
 #
-# Copyright (C) 2013 Ahmad Amarullah ( http://amarullz.com/ )
+# Copyright 2014 Łukasz "JustArchi" Domeradzki
+# Contact: JustArchi@JustArchi.net
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -49,7 +54,7 @@ fontresload( "1", "ttf/lucon.ttf;", "16" );
 # Mount required filesystems
 resexec("exec/admount.sh", "/system");
 resexec("exec/admount.sh", "/data");
-resexec("exec/mrturdroid_init.sh");
+resexec("exec/archidroid_init.sh", "OmniDroid");
 
 #
 # LANGUAGE
@@ -404,7 +409,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") != "recov
 	#########################
 	### MRTURDROID DETECT ###
 	#########################
-	setvar("resexec_retstatus",resexec("exec/mrturdroid_detect.sh"));
+	setvar("resexec_retstatus",resexec("exec/archidroid_detect.sh"));
 
 	if getvar("resexec_retstatus")=="0" || getvar("resexec_retstatus")=="1" then
 		if confirm(
@@ -517,8 +522,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "recov
 else
 	ini_set("text_next", "<~common.finish>");
 endif;
-resexec("exec/admount.sh", "/system");
-resexec("exec/admount.sh", "/data");
 
 install(
 	"<~common.flashing>",

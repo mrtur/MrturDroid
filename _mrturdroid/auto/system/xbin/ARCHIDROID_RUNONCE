@@ -433,8 +433,7 @@ rm -f $AD/INSTALL
 rm -f $AD/UPDATE
 rm -f $AD/FORCE
 rm -Rf $AD/FIRSTBOOT
-rm -Rf $AD/Scripts
-rm -f $AD/System/debian.tar.gz
+
 
 sysrw || mount -o remount,rw /system
 rm -f $0
