@@ -7,6 +7,7 @@
 - Trickster MOD 2.10.880
 - Greenify 2.2.(build11)
 - Google Chrome 33.0.1750.166 (wersja jasna był konflikt)
+- kernel hells-Core 4.4 stable
 
 2. Poprawki:
 - poprawne komunikaty w MrtuRDroid Detect
