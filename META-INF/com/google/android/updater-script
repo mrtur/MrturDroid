@@ -304,9 +304,8 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 	if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "barebones" then
 		ui_print("<b><#1082ac> MrturDroid ~</#></b> Flashing Stock Kernel");
 		package_extract_file("boot.img", "/dev/block/platform/msm_sdcc.1/by-name/boot");
-
 		ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Stock Keyboard");
-		package_extract_dir("_mrturdroid/apps/LatinIME", "/");		
+		package_extract_dir("_mrturdroid/apps/latinime", "/");		
 	else
 		##############
 		### KERNEL ###
