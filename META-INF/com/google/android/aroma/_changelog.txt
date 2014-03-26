@@ -7,6 +7,7 @@
 - BlackFacebook 7.0.0.22.28 
 - Trickster MOD 2.10.880
 - Greenify 2.2.(build11)
+- Google Chrome 33.0.1750.166 (wersja jasna był konflikt)
 
 2. Poprawki:
 - poprawne komunikaty w MrtuRDroid Detect

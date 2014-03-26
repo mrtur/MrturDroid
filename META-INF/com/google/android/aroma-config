@@ -314,7 +314,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		"googleapps","<#selectbg_g>Google Apps</#>","","group",
 		"gapps","Google Apps","<~mrturdroid.gapps.desc>","check.checked",
 		"gcalendar","Google Calendar [<~common.inverted>]","<~common.replaces> Slim Calendar","check.checked",
-		"gchrome","Google Chrome [<~common.inverted>]","","check.checked",
+		"gchrome","Google Chrome","","check.checked",
 		"gkeep","Google Keep [<~common.inverted>]","","check",
 		"gmail","Google Mail (Gmail)","","check.checked",
 		"gmaps","Google Maps","","check.checked",
