@@ -9,6 +9,7 @@
 - poprawiono link w Browser.apk
 - EXPERYMENTALNIE:oryginalny Gmail
 - Wybor DPI w Aroma bardziej uniwerslany
+- naprawiono brak klawiatury w "Sam Szkielet"
  
 3. ISTOTNE ZMIANY:
 - dodano klawiature Google do Aroma
