@@ -194,7 +194,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			"/system/xbin/yes",
 			"/system/xbin/zcat");
 	symlink("libGLESv2.so", "/system/lib/libGLESv3.so");
-	symlink("logcat", "/system/bin/logcat");
 	symlink("mksh", "/system/bin/sh");
 	symlink("mount.exfat", "/system/bin/fsck.exfat",
 			"/system/bin/mkfs.exfat");
