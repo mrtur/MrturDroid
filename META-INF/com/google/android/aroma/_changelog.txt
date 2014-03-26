@@ -5,6 +5,7 @@
 - Xposed 2.5
 - powrót ciemnego Youtube 5.5.2.7
 - BlackFacebook 7.0.0.22.28 
+- Trickster MOD 2.10.880
 
 2. Poprawki:
 - poprawne komunikaty w MrtuRDroid Detect
