@@ -31,7 +31,7 @@
 #
 # Initializing Rom Information
 #
-setvar("preset_version","1");
+setvar("preset_version","2");
 
 ini_set("dp","3");
 ini_set("rom_name",             "MrturDroid");
@@ -224,7 +224,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"mrturdroidota=0\n"+
 		"xposed=1\n"+
 		"gapps=1\n"+
-		"gcalendar=1\n"+
 		"gchrome=0\n"+
 		"gkeep=0\n"+
 		"gmail=0\n"+
@@ -313,7 +312,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 
 		"googleapps","<#selectbg_g>Google Apps</#>","","group",
 		"gapps","Google Apps","<~mrturdroid.gapps.desc>","check.checked",
-		"gcalendar","Google Calendar [<~common.inverted>]","<~common.replaces> Slim Calendar","check.checked",
 		"gchrome","Google Chrome","","check.checked",
 		"gkeep","Google Keep [<~common.inverted>]","","check",
 		"gmail","Google Mail (Gmail)","","check.checked",

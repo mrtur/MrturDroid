@@ -47,7 +47,6 @@
 #  Google Apps
 #
 # <#selectbg_g>Google Apps</#>
-# <#selectbg_g>Google Calendar</#>
 # Google Chrome
 # Google Keep
 # Google Mail
