@@ -278,10 +278,10 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		"hells","hells-Core","<~mrturdroid.kernel.hells.desc>","select",	
 
 		"dpi","<#selectbg_g>DPI</#>","","group",
-		"240","240 DPI","<~mrturdroid.dpi.240.desc>","select",
-		"268","268 DPI","<~mrturdroid.dpi.268.desc>","select.selected",
-		"280","280 DPI","<~mrturdroid.dpi.280.desc>","select",
-		"320","320 DPI","<~mrturdroid.dpi.320.desc>","select",
+		"240","240","<~mrturdroid.dpi.240.desc>","select",
+		"268","268","<~mrturdroid.dpi.268.desc>","select.selected",
+		"280","280","<~mrturdroid.dpi.280.desc>","select",
+		"320","320","<~mrturdroid.dpi.320.desc>","select",
 
 		"launcher","<#selectbg_g>Launcher</#>","","group",
 		"nova","Nova Launcher","<~mrturdroid.launcher.nova.desc>","select.selected",
