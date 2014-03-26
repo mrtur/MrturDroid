@@ -4,7 +4,6 @@
 - XPrivacy 2.0.11
 - Xposed 2.5
 - powrót ciemnego Youtube 5.5.2.7
-- BlackFacebook 7.0.0.22.28 
 - Trickster MOD 2.10.880
 - Greenify 2.2.(build11)
 - Google Chrome 33.0.1750.166 (wersja jasna był konflikt)
