@@ -3,6 +3,7 @@
 1. Aktualizacja:
 - XPrivacy 2.0.11
 - Xposed 2.5
+- powrót ciemnego Youtube 5.5.2.7 
 
 2. Poprawki:
 - poprawne komunikaty w MrtuRDroid Detect
