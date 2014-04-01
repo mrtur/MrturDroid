@@ -23,3 +23,5 @@
 - podglad w Aroma zrzutow ekranow bootanimacji startowych
 - Slim-mako-4.4.2.build.3.10-WEEKLY-3455
 - Update OTA zastapiono wlasna aplikacja MrturDroid Update v.1.0(2.5.2)
+
+ ZALECAM WYBRAĆ W AROMA FULL-WIPE PRZY INSTALACJI
