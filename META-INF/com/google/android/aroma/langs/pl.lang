@@ -145,7 +145,7 @@ mrturdroid.previewbootanimation.desc=Po zaznaczeniu, będziesz mógł podejrzeć
 Aroma w N4 fałszuje kolory. Weź proszę na to poprawkę\
 
 mrturdroid.other=Inne
-mrturdroid.ota.desc=Wysoce zalecane. Zainstaluję aplikację UpdateMe oraz włączę aktualizacje OTA via build.prop
+mrturdroid.ota.desc=Zainstaluję aplikację MrturDroid Update (monitoruje zmiany i informuje o aktualizacjach)
 mrturdroid.xposed.desc=Pozwala na używanie wielu modułów.
 
 mrturdroid.gapps.desc=Główne aplikacje i funkcje Google. NIE ODZNACZAJ TEGO
