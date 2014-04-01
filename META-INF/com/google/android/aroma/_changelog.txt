@@ -9,6 +9,7 @@
 - kernel hells-Core 4.4 stable
 - Android Terminal Emulator 1.0.59
 - Google Chrome 33.0.1750.170 (wersja jasna był konflikt)
+- MrturDroid Update v.1.1(2.5.2)
 
 2. Poprawki:
 - poprawne komunikaty w MrtuRDroid Detect
