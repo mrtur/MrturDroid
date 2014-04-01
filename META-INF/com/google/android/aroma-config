@@ -1,6 +1,11 @@
-﻿### LICENSE:
+﻿#     _             _     _ ____            _     _
+#    / \   _ __ ___| |__ (_)  _ \ _ __ ___ (_) __| |
+#   / _ \ | '__/ __| '_ \| | | | | '__/ _ \| |/ _` |
+#  / ___ \| | | (__| | | | | |_| | | | (_) | | (_| |
+# /_/   \_\_|  \___|_| |_|_|____/|_|  \___/|_|\__,_|
 #
-# Copyright (C) 2013 Ahmad Amarullah ( http://amarullz.com/ )
+# Copyright 2014 Łukasz "JustArchi" Domeradzki
+# Contact: JustArchi@JustArchi.net
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -27,15 +32,14 @@
 # Initializing Rom Information
 #
 
-setvar("preset_version","1");
+setvar("preset_version","2");
 
 ini_set("dp","3");
 ini_set("rom_name",             "MrturDroid");
-ini_set("rom_version",          "2.5.1");
+ini_set("rom_version",          "2.5.2");
 ini_set("rom_author",           "mrtur");
 ini_set("rom_device",           "Nexus 4");
-ini_set("rom_date",             "16-03-2014");
-
+ini_set("rom_date",             "01-04-2014");
 
 #
 # THEME
@@ -51,7 +55,7 @@ fontresload( "1", "ttf/lucon.ttf;", "16" );
 # Mount required filesystems
 resexec("exec/admount.sh", "/system");
 resexec("exec/admount.sh", "/data");
-resexec("exec/mrturdroid_init.sh");
+resexec("exec/archidroid_init.sh", "OmniDroid");
 
 #
 # LANGUAGE
@@ -66,19 +70,19 @@ setvar("aroma_fast","OFF");
 if getvar("aroma_fast")=="OFF" then
 	anisplash(
 	1,
-	"mrturdroidsplash13", 100,
-	"mrturdroidsplash12", 100,
-	"mrturdroidsplash11", 100,
-	"mrturdroidsplash10", 100,
-	"mrturdroidsplash09", 100,
-	"mrturdroidsplash08", 100,
-	"mrturdroidsplash07", 100,
-	"mrturdroidsplash06", 100,
-	"mrturdroidsplash05", 100,
-	"mrturdroidsplash04", 100,
-	"mrturdroidsplash03", 100,
-	"mrturdroidsplash02", 100,
-	"mrturdroidsplash01", 500
+	"preview/splash/mrturdroidsplash13", 100,
+	"preview/splash/mrturdroidsplash12", 100,
+	"preview/splash/mrturdroidsplash11", 100,
+	"preview/splash/mrturdroidsplash10", 100,
+	"preview/splash/mrturdroidsplash09", 100,
+	"preview/splash/mrturdroidsplash08", 100,
+	"preview/splash/mrturdroidsplash07", 100,
+	"preview/splash/mrturdroidsplash06", 100,
+	"preview/splash/mrturdroidsplash05", 100,
+	"preview/splash/mrturdroidsplash04", 100,
+	"preview/splash/mrturdroidsplash03", 100,
+	"preview/splash/mrturdroidsplash02", 100,
+	"preview/splash/mrturdroidsplash01", 500
 	);
 
 	viewbox(
@@ -213,12 +217,14 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"kernel=hells\n"+
 		"dpi=268\n"+
 		"launcher=nova\n"+
-		"keyboard=both\n"+
+		"googlekb=0\n"+
+		"touchpal=1\n"+		
+		"hackers=1\n"+
+		"stock=0\n"+		
 		"bootanimation=mrtur\n"+
 		"mrturdroidota=0\n"+
 		"xposed=1\n"+
 		"gapps=1\n"+
-		"gcalendar=1\n"+
 		"gchrome=0\n"+
 		"gkeep=0\n"+
 		"gmail=0\n"+
@@ -277,10 +283,10 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		"hells","hells-Core","<~mrturdroid.kernel.hells.desc>","select",	
 
 		"dpi","<#selectbg_g>DPI</#>","","group",
-		"240","240 DPI","<~mrturdroid.dpi.240.desc>","select",
-		"268","268 DPI","<~mrturdroid.dpi.268.desc>","select.selected",
-		"280","280 DPI","<~mrturdroid.dpi.280.desc>","select",
-		"320","320 DPI","<~mrturdroid.dpi.320.desc>","select",
+		"240","240","<~mrturdroid.dpi.240.desc>","select",
+		"268","268","<~mrturdroid.dpi.268.desc>","select.selected",
+		"280","280","<~mrturdroid.dpi.280.desc>","select",
+		"320","320","<~mrturdroid.dpi.320.desc>","select",
 
 		"launcher","<#selectbg_g>Launcher</#>","","group",
 		"nova","Nova Launcher","<~mrturdroid.launcher.nova.desc>","select.selected",
@@ -288,11 +294,10 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		"none","<~common.none>","<~mrturdroid.launcher.none.desc>","select",
 
 		"keyboard","<#selectbg_g><~mrturdroid.keyboard></#>","","group",
-		"touchpal","TouchPal Keyboard","<~mrturdroid.keyboard.touchpal.desc>","select.selected",
-		"hackers","Hacker's Keyboard","<~mrturdroid.keyboard.hackers.desc>","select",
-		"both","TouchPal + Hacker's Keyboard","<~mrturdroid.keyboard.both.desc>","select",
-		"stock","Stock","<~mrturdroid.keyboard.stock.desc>","select",
-		"none","<~common.none>","<~mrturdroid.keyboard.none.desc>","select",
+		"googlekb","Google Keyboard","<~mrturdroid.keyboard.google.desc>","check",	
+		"touchpal","TouchPal Keyboard","<~mrturdroid.keyboard.touchpal.desc>","check.checked",
+		"hackers","Hacker's Keyboard","<~mrturdroid.keyboard.hackers.desc>","check.checked",
+		"stock","Stock","<~mrturdroid.keyboard.stock.desc>","check",
 
 		"bootanimation","<#selectbg_g><~mrturdroid.bootanimation></#>","","group",
 		"mrtur","MrturDroid","<~mrturdroid.bootanimation.mrtur.desc>","select.selected",
@@ -300,18 +305,18 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		"nexus","Nexus","<~mrturdroid.bootanimation.nexus.desc>","select",
 		"google","Google","<~mrturdroid.bootanimation.google.desc>","select",
 		"none","<~common.none>","<~mrturdroid.bootanimation.none.desc>","select",
+		"bootanimationpreview","Preview","<~mrturdroid.previewbootanimation.desc>","check",
 
 		"other","<#selectbg_g><~mrturdroid.other></#>","","group",
-		"mrturdroidota","MrturDroid OTA","<~mrturdroid.ota.desc>","check.checked",
+		"mrturdroidota","MrturDroid Update","<~mrturdroid.ota.desc>","check.checked",
 		"xposed","Xposed Framework","<~mrturdroid.xposed.desc>","check.checked",
 
 		"googleapps","<#selectbg_g>Google Apps</#>","","group",
 		"gapps","Google Apps","<~mrturdroid.gapps.desc>","check.checked",
-		"gcalendar","Google Calendar [<~common.inverted>]","<~common.replaces> Slim Calendar","check.checked",
-		"gchrome","Google Chrome [<~common.inverted>]","","check.checked",
+		"gchrome","Google Chrome","","check.checked",
 		"gkeep","Google Keep [<~common.inverted>]","","check",
-		"gmail","Google Mail (Gmail) [<~common.inverted>]","","check.checked",
-		"gmaps","Google Maps ","","check.checked",
+		"gmail","Google Mail (Gmail)","","check.checked",
+		"gmaps","Google Maps","","check.checked",
 		"gvoice","Google Voice [<~common.inverted>]","","check.checked",
 		"ghangouts","Google Hangouts [<~common.inverted>]","","check",
 		"gplus","Google Plus [<~common.inverted>]","","check",
@@ -330,16 +335,31 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		"cooltool","CoolTool","<~mrturdroid.apps.cooltool.desc>","check.checked",
 		"rootbrowser","Root Browser","<~mrturdroid.apps.rootbrowser.desc>","check",
 		"totalcommander","Total Commander","<~mrturdroid.apps.totalcommander.desc>","check.checked",
-		"youtube","YouTube","","check.checked",
+		"youtube","YouTube [<~common.inverted>]","","check.checked",
 		"facebook","Facebook + Messenger [<~common.inverted>]","","check",
 
 		"mrturtweaks","<#selectbg_g>MrturDroid Tweaks</#>","","group",
 		"buildtweaks","Add build.prop Tweaks","<~mrturdroid.tweaks.buildtweaks.desc>","check.checked",
 		"debianoff","Debian Off","<~mrturdroid.tweaks.debianoff.desc>","check.checked"
 	);
+	
+	if file_getprop("/tmp/aroma-data/mrturdroid.prop","bootanimationpreview") == "1" then
+		splash(2000,"preview/bootanimation/" + file_getprop("/tmp/aroma-data/mrturdroid.prop","bootanimation"));
+		back("1");
+	endif;
+	
 	write("/data/media/0/MrturDroid/AromaPreset/Slim/mrturdroid.prop",
 	readtmpfile("mrturdroid.prop");
 	);
+	
+	if file_getprop("/tmp/aroma-data/mrturdroid.prop","googlekb") !="1" && file_getprop("/tmp/aroma-data/mrturdroid.prop","touchpal") !="1" && file_getprop("/tmp/aroma-data/mrturdroid.prop","hackers") !="1" && file_getprop("/tmp/aroma-data/mrturdroid.prop","stock") !="1" then
+	textbox(
+		"Wykryłem Brak Klawiatury",
+		"",
+		"@welcome",
+		resread("read_keyboard_none.txt")
+	);
+	endif;	
 	
 	if file_getprop("/tmp/aroma-data/mrturdroid.prop","viper4") == "1" then	
 	textbox(
@@ -388,7 +408,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") != "recov
 	#########################
 	### MRTURDROID DETECT ###
 	#########################
-	setvar("resexec_retstatus",resexec("exec/mrturdroid_detect.sh"));
+	setvar("resexec_retstatus",resexec("exec/archidroid_detect.sh"));
 
 	if getvar("resexec_retstatus")=="0" || getvar("resexec_retstatus")=="1" then
 		if confirm(
@@ -405,10 +425,49 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") != "recov
 			);
 		else
 			alert("MrturDroid Detect","<~mrturdroid.detect.fail.alert.no>","@welcome");
-			setvar("resexec_retstatus","2");
+			setvar("resexec_retstatus","3");
 		endif;
 	endif;
-
+#
+	if getvar("resexec_retstatus")=="3" then
+		if confirm(
+			"MrturDroid Detect",
+			"<~mrturdroid.detect.pass1>",
+			"@welcome",
+			"<~mrturdroid.detect.pass1.yes>",
+			"<~mrturdroid.detect.pass1.no>"
+		)=="yes" then
+			writetmpfile(
+				"mrturdroidwipe.prop",
+				"wipe=no\n"+
+				"force=no\n"
+			);
+				if confirm(
+					"MrturDroid Detect",
+					"<~mrturdroid.detect.force>",
+					"@welcome"
+				)=="yes" then
+					writetmpfile(
+						"mrturdroidwipe.prop",
+						"wipe=no\n"+
+						"force=yes\n"
+					);
+				else
+					writetmpfile(
+						"mrturdroidwipe.prop",
+						"wipe=no\n"+
+						"force=no\n"
+					);
+				endif;
+		else
+			alert("MrturDroid Detect","<~mrturdroid.detect.pass.alert.no>","@welcome");
+			writetmpfile(
+				"mrturdroidwipe.prop",
+				"wipe=yes\n"
+			);
+		endif;
+	endif;	
+#	
 	if getvar("resexec_retstatus")=="2" then
 		if confirm(
 			"MrturDroid Detect",
@@ -462,8 +521,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "recov
 else
 	ini_set("text_next", "<~common.finish>");
 endif;
-resexec("exec/admount.sh", "/system");
-resexec("exec/admount.sh", "/data");
 
 install(
 	"<~common.flashing>",

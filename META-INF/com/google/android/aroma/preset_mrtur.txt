@@ -23,10 +23,11 @@
 
 ##################
 #  Klawiatura
-#  
-# TouchPal Keyboard
+# 
+# Google Kevboard
+# <#selectbg_g>TouchPal Keyboard</#>
 # Hacker's Keyboard
-# <#selectbg_g>TouchPal + Hacker's Keyboard</#>
+# <#selectbg_g>Hacker's Keyboard</#>
 # Stock 
 
 ##################
@@ -46,7 +47,6 @@
 #  Google Apps
 #
 # <#selectbg_g>Google Apps</#>
-# <#selectbg_g>Google Calendar</#>
 # Google Chrome
 # Google Keep
 # Google Mail
