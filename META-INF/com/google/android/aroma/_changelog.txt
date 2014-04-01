@@ -1,4 +1,4 @@
-MrturDroid 2.5.2
+ MrturDroid 2.5.2
 
 1. Aktualizacja:
 - XPrivacy 2.0.11
