@@ -1,4 +1,4 @@
-﻿MrturDroid 2.5.1
+﻿MrturDroid 2.5.3
 
 1. Aktualizacja:
 - BlackFacebook 6.0.0.28.28
