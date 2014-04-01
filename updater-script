@@ -77,10 +77,13 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 	if file_getprop("/tmp/aroma-data/mrturdroidwipe.prop","wipe") == "yes" then
 		ui_print("<b><#1082ac> MrturDroid ~</#></b> Install Mode Detected");
 		run_program("/tmp/archidroid.sh", "INSTALL");
+
 	else
 		if file_getprop("/tmp/aroma-data/mrturdroidwipe.prop","force") == "no" then
 			ui_print("<b><#1082ac> MrturDroid ~</#></b> Update Mode Detected");
-			run_program("/tmp/archidroid.sh", "UPDATE");
+		run_program("/tmp/archidroid.sh", "UPDATE");
+			set_perm(0, 0, 0777, "/tmp/archidroid_update.sh");
+			run_program("/tmp/archidroid_update.sh");
 		else
 			ui_print("<b><#1082ac> MrturDroid ~</#></b> Forced Update Mode Detected");
 			run_program("/tmp/archidroid.sh", "UPDATE", "FORCE");
