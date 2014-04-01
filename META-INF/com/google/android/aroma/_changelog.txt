@@ -6,9 +6,9 @@
 - powrót ciemnego Youtube 5.5.2.7
 - Trickster MOD 2.10.880
 - Greenify 2.2.(build11)
-- Google Chrome 33.0.1750.166 (wersja jasna był konflikt)
 - kernel hells-Core 4.4 stable
 - Android Terminal Emulator 1.0.59
+- Google Chrome 33.0.1750.170 (wersja jasna był konflikt)
 
 2. Poprawki:
 - poprawne komunikaty w MrtuRDroid Detect
