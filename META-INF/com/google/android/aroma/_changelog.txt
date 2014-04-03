@@ -1,6 +1,7 @@
 ﻿MrturDroid 2.5.3 EXPERIMENTAL
 
 1. Aktualizacja:
+- hells-Core-b45-kk-upstream-f_anykernel
 
 2. Poprawki:
  
