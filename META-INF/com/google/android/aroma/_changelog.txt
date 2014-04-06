@@ -2,6 +2,7 @@
 
 1. Aktualizacja:
 - hells-Core-b45-kk-upstream-f_anykernel
+- Semaphore 2.1.0 kernel
 
 2. Poprawki:
  
