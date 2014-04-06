@@ -3,6 +3,7 @@
 1. Aktualizacja:
 - hells-Core-b45-kk-upstream-f_anykernel
 - Semaphore 2.1.0 kernel
+- BlackPlayStore 4.6.17
 
 2. Poprawki:
  
