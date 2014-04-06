@@ -46,7 +46,6 @@
 ##################
 #  Google Apps
 #
-# <#selectbg_g>Google Apps</#>
 # Google Chrome
 # Google Keep
 # Google Mail

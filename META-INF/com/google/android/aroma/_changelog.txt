@@ -8,3 +8,4 @@
 2. Poprawki:
  
 3. ISTOTNE ZMIANY:
+- Baza gapps instalowana jest bez Aromy. W "Sam szkielet" dalej jest omijana. 
