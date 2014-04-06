@@ -4,6 +4,7 @@
 - hells-Core-b45-kk-upstream-f_anykernel
 - Semaphore 2.1.0 kernel
 - BlackPlayStore 4.6.17
+- MrturDroid Update 1.3(2.5.2) (kosmetyka)
 
 2. Poprawki:
  
