@@ -33,7 +33,7 @@
 ##################
 #  Global Tweaks
 #
-# MrturDroid OTA
+# MrturDroid Update
 # <#selectbg_g>Xposed Framework</#>
 
 ##################

@@ -221,7 +221,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"hackers=1\n"+
 		"stock=0\n"+		
 		"bootanimation=mrtur\n"+
-		"mrturdroidota=0\n"+
+		"mdu=0\n"+
 		"xposed=1\n"+
 		"gchrome=0\n"+
 		"gkeep=0\n"+
@@ -306,7 +306,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		"bootanimationpreview","Preview","<~mrturdroid.previewbootanimation.desc>","check",
 
 		"other","<#selectbg_g><~mrturdroid.other></#>","","group",
-		"mrturdroidota","MrturDroid Update","<~mrturdroid.ota.desc>","check.checked",
+		"mdu","MrturDroid Update","<~mrturdroid.mdu.desc>","check.checked",
 		"xposed","Xposed Framework","<~mrturdroid.xposed.desc>","check.checked",
 
 		"googleapps","<#selectbg_g>Google Apps</#>","","group",
