@@ -1,12 +1,12 @@
 ﻿MrturDroid 2.5.3 EXPERIMENTAL
 
 1. Aktualizacja:
-- hells-Core-b45-kk-upstream-f_anykernel
 - Semaphore 2.1.0 kernel
 - BlackPlayStore 4.6.17
 - MrturDroid Update 1.3(2.5.2) (kosmetyka)
 - XPrivacy 2.0.14
 - Google Chrome 34.0.1847.114
+- hells-Core-b46-kk-t4_anykernel
 
 2. Poprawki:
 - przeniesiono BetterBatteryStats to priv-app
