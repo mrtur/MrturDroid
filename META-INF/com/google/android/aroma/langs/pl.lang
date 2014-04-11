@@ -144,10 +144,12 @@ mrturdroid.previewbootanimation.desc=Po zaznaczeniu, będziesz mógł podejrzeć
 <b><#0300FD>U W A G A!</#></b>\
 Aroma w N4 fałszuje kolory. Weź proszę na to poprawkę\
 
-mrturdroid.other=Inne
-mrturdroid.mdu.desc=Zainstaluję aplikację MrturDroid Update (monitoruje zmiany i informuje o aktualizacjach)
-mrturdroid.xposed.desc=Pozwala na używanie wielu modułów.
+mrturdroid.runtime.art.desc=nowy system plików ART
+mrturdroid.runtime.dalvik.desc=system plików Dalvik
 
+mrturdroid.other=Inne
+
+mrturdroid.apps.mdu.desc=Zainstaluję aplikację MrturDroid Update (monitoruje zmiany i informuje o aktualizacjach)
 mrturdroid.apps.trickster.desc=Program do obsługi zaawansowanych opcji w modyfikowanych kernelach.
 mrturdroid.apps.viper4.desc=Podnosi jakość dźwięku i próg głośności twojego telefonu. Usuwa DSP Manager
 mrturdroid.apps.vnc.desc=Klient VNC pozwalający na używanie GUI w MrturDroidowym Pocket Debianie
@@ -166,6 +168,7 @@ mrturdroid.apps.gplaymusic.desc=Zamienia Apollo
 mrturdroid.tweaks.buildtweaks.desc=Wiele tweaków build.prop, w tym m.in. głębszy sen oraz większa wydajność
 mrturdroid.tweaks.debianoff.desc=Zaznacz jeżeli nie masz zamiaru używać środowiska Debian
 
+mrturdroid.xposed.desc=Wymagane do używania poniższych modułów i wielu innych
 mrturdroid.xposed.appsettings.desc=Pozwala na zarządzanie ustawieniami specyficznymi dla danych aplikacji. Bardzo użyteczny moduł
 mrturdroid.xposed.bootmanager.desc=Pozwala na zarządzanie jakie aplikacje będą ładowane wraz ze startem systemu.
 mrturdroid.xposed.xprivacy.desc=Perfekcyjne narzędzie oferujące kontrolę aplikacji i ich uprawnień oraz wiele innych funkcji związanych z bezpieczeństwem

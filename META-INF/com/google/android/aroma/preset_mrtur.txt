@@ -31,14 +31,9 @@
 # Stock 
 
 ##################
-#  Global Tweaks
+#  Xposed Area
 #
-# MrturDroid Update
 # <#selectbg_g>Xposed Framework</#>
-
-##################
-#  Xposed Modules
-#
 # <#selectbg_g>AppSettings</#>
 # <#selectbg_g>Bootmanager</#>
 # XPrivacy
@@ -60,6 +55,7 @@
 ##################
 #  MrturDroid Apps
 #
+# MrturDroid Update
 # Trickster MOD
 # VNC Viewer
 # <#selectbg_g>Titanium Backup</#>
