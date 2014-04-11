@@ -36,6 +36,7 @@
 # <#selectbg_g>Xposed Framework</#>
 # <#selectbg_g>AppSettings</#>
 # <#selectbg_g>Bootmanager</#>
+# <#selectbg_g>Complete Action Plus</#>
 # XPrivacy
 
 ##################

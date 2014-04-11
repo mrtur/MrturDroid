@@ -421,6 +421,10 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 				ui_print("<b><#1082ac> MrturDroid ~</#></b> Including BootManager Xposed Module");
 				package_extract_dir("_mrturdroid/apps/xposed/bootmanager", "/");
 			endif;	
+			if file_getprop("/tmp/aroma-data/mrturdroidxposed.prop","actionplus") == "1" then
+				ui_print("<b><#1082ac> MrturDroid ~</#></b> Including Complete Action Plus Xposed Module");
+				package_extract_dir("_mrturdroid/apps/xposed/actionplus", "/");
+			endif;			
 			if file_getprop("/tmp/aroma-data/mrturdroidxposed.prop","xprivacy") == "1" then
 				ui_print("<b><#1082ac> MrturDroid ~</#></b> Including XPrivacy Xposed Module");
 				package_extract_dir("_mrturdroid/apps/xposed/xprivacy", "/");

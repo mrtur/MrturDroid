@@ -171,6 +171,7 @@ mrturdroid.tweaks.debianoff.desc=Zaznacz jeżeli nie masz zamiaru używać środ
 mrturdroid.xposed.desc=Wymagane do używania poniższych modułów i wielu innych
 mrturdroid.xposed.appsettings.desc=Pozwala na zarządzanie ustawieniami specyficznymi dla danych aplikacji. Bardzo użyteczny moduł
 mrturdroid.xposed.bootmanager.desc=Pozwala na zarządzanie jakie aplikacje będą ładowane wraz ze startem systemu.
+mrturdroid.xposed.actionplus.desc=Pozwala on na ukrywanie aplikacji, umieszczenie na górze listy te najczęściej używane czy ukrycie przycisków “Zawsze” i “Tylko raz”.
 mrturdroid.xposed.xprivacy.desc=Perfekcyjne narzędzie oferujące kontrolę aplikacji i ich uprawnień oraz wiele innych funkcji związanych z bezpieczeństwem
 
 mrturdroid.buildtweaks.fastdormancy.desc=Odznacz, aby wyłączyć fast dormancy. Może poprawić żywotność baterii jeśli Twój provider nie wspiera tej opcji

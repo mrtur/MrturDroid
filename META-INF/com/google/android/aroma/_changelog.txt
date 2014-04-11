@@ -17,3 +17,4 @@
 - Slim-mako-4.4.2.build.4.2-WEEKLY-3743
 - ikone lockscreen'a MrturDroid dodano na stale w ustawieniach
 - EXPERYMENTALNIE:dodano wybor (art/dalvik) do AROMA (CHWILOWO WYLACZONE)
+- dodano moduł Xposed -> Complete Action Plus
