@@ -8,6 +8,7 @@
 - Google Chrome 34.0.1847.114
 - hells-Core-b46-kk-t4_anykernel
 - UPDATE-adreno-drivers-occam
+- AdAway and MOAB adblocking
 
 2. Poprawki:
 - przeniesiono BetterBatteryStats to priv-app
