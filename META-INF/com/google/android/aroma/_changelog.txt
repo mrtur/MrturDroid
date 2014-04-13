@@ -9,6 +9,7 @@
 - UPDATE-adreno-drivers-occam
 - AdAway and MOAB adblocking
 - XPrivacy 2.0.15
+- Xposed 2.5.1
 
 2. Poprawki:
 - przeniesiono BetterBatteryStats to priv-app
