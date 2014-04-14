@@ -216,8 +216,8 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"kernel=hells\n"+
 		"dpi=268\n"+
 		"launcher=nova\n"+
-		"googlekb=0\n"+
-		"touchpal=1\n"+		
+		"googlekb=1\n"+
+		"touchpal=0\n"+		
 		"hackers=1\n"+
 		"stock=0\n"+		
 		"bootanimation=mrtur\n"+
@@ -241,7 +241,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"mxplayer=1\n"+
 		"bbs=0\n"+
 		"cooltool=0\n"+
-		"rootbrowser=1\n"+
+		"rootbrowser=0\n"+
 		"totalcommander=1\n"+
 		"youtube=1\n"+
 		"facebook=0\n"+

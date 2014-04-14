@@ -24,8 +24,8 @@
 ##################
 #  Klawiatura
 # 
-# Google Kevboard
-# <#selectbg_g>TouchPal Keyboard</#>
+# <#selectbg_g>Google Kevboard</#>
+# TouchPal Keyboard
 # Hacker's Keyboard
 # <#selectbg_g>Hacker's Keyboard</#>
 # Stock 
@@ -65,7 +65,7 @@
 # <#selectbg_g>MXPlayer</#>
 # BetterBatteryStats
 # CoolTool
-# <#selectbg_g>Root Browser</#>
+# Root Browser
 # <#selectbg_g>Total Commander</#>
 # <#selectbg_g>YouTube</#>
 # Facebook
