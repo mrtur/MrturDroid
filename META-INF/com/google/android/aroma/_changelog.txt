@@ -11,6 +11,7 @@
 - XPrivacy 2.0.15
 - Xposed 2.5.1
 - Google Keyboard 3.0.19423
+- TouchPal 5.5.5.1
 
 2. Poprawki:
 - przeniesiono BetterBatteryStats to priv-app
