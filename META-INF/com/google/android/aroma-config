@@ -31,15 +31,14 @@
 #
 # Initializing Rom Information
 #
-
-setvar("preset_version","2");
+setvar("preset_version","3");
 
 ini_set("dp","3");
 ini_set("rom_name",             "MrturDroid");
-ini_set("rom_version",          "2.5.2");
+ini_set("rom_version",          "2.5.3");
 ini_set("rom_author",           "mrtur");
 ini_set("rom_device",           "Nexus 4");
-ini_set("rom_date",             "01-04-2014");
+ini_set("rom_date",             "14-04-2014");
 
 #
 # THEME
@@ -55,7 +54,7 @@ fontresload( "1", "ttf/lucon.ttf;", "16" );
 # Mount required filesystems
 resexec("exec/admount.sh", "/system");
 resexec("exec/admount.sh", "/data");
-resexec("exec/archidroid_init.sh", "OmniDroid");
+resexec("exec/archidroid_init.sh", "Slim");
 
 #
 # LANGUAGE
@@ -217,14 +216,13 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"kernel=hells\n"+
 		"dpi=268\n"+
 		"launcher=nova\n"+
-		"googlekb=0\n"+
-		"touchpal=1\n"+		
+		"googlekb=1\n"+
+		"touchpal=0\n"+		
 		"hackers=1\n"+
 		"stock=0\n"+		
 		"bootanimation=mrtur\n"+
-		"mrturdroidota=0\n"+
-		"xposed=1\n"+
-		"gapps=1\n"+
+#		"runtime=libdvm.so\n"+
+		"mdu=0\n"+
 		"gchrome=0\n"+
 		"gkeep=0\n"+
 		"gmail=0\n"+
@@ -243,7 +241,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"mxplayer=1\n"+
 		"bbs=0\n"+
 		"cooltool=0\n"+
-		"rootbrowser=1\n"+
+		"rootbrowser=0\n"+
 		"totalcommander=1\n"+
 		"youtube=1\n"+
 		"facebook=0\n"+
@@ -252,9 +250,11 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 	);
 	writetmpfile(
 		"mrturdroidxposed.prop",
-
+		
+		"xposed=1\n"+
 		"appsettings=1\n"+
 		"bootmanager=1\n"+
+		"actionplus=1\n"+		
 		"xprivacy=0\n"
 	);
 	writetmpfile(
@@ -306,13 +306,12 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		"google","Google","<~mrturdroid.bootanimation.google.desc>","select",
 		"none","<~common.none>","<~mrturdroid.bootanimation.none.desc>","select",
 		"bootanimationpreview","Preview","<~mrturdroid.previewbootanimation.desc>","check",
-
-		"other","<#selectbg_g><~mrturdroid.other></#>","","group",
-		"mrturdroidota","MrturDroid Update","<~mrturdroid.ota.desc>","check.checked",
-		"xposed","Xposed Framework","<~mrturdroid.xposed.desc>","check.checked",
+		
+#		"runtime","<#selectbg_g>Runtime</#>","","group",
+#		"libart.so","ART","<~mrturdroid.runtime.art.desc>","select",
+#		"libdvm.so","Dalvik Legacy","<~mrturdroid.runtime.dalvik.desc>","select.selected",		
 
 		"googleapps","<#selectbg_g>Google Apps</#>","","group",
-		"gapps","Google Apps","<~mrturdroid.gapps.desc>","check.checked",
 		"gchrome","Google Chrome","","check.checked",
 		"gkeep","Google Keep [<~common.inverted>]","","check",
 		"gmail","Google Mail (Gmail)","","check.checked",
@@ -324,6 +323,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		"gtranslate","Google Translate [<~common.inverted>]","","check",
 
 		"mrturapps","<#selectbg_g>MrturDroid Apps</#>","","group",
+		"mdu","MrturDroid Update","<~mrturdroid.apps.mdu.desc>","check.checked",		
 		"trickster","Trickster MOD","<~mrturdroid.apps.trickster.desc>","check.checked",	
 		"viper4","ViPER4Android Audio Effects","<~mrturdroid.apps.viper4.desc>","check.checked",	
 		"vnc","VNC Viewer","<~mrturdroid.apps.vnc.desc>","check.checked",
@@ -370,21 +370,23 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 	);
 	endif;
 	
-	if file_getprop("/tmp/aroma-data/mrturdroid.prop","xposed") == "1" then
+#	if file_getprop("/tmp/aroma-data/mrturdroid.prop","runtime") == "libdvm.so" then
 		form(
 			"<~mrturdroid.custom.extra>",
 			"<~mrturdroid.custom.desc>",
 			"@welcome",
 			"mrturdroidxposed.prop",
 
-			"modules","<#selectbg_g>Xposed Modules</#>","","group",
+			"modules","<#selectbg_g>Xposed Area</#>","","group",
+			"xposed","Xposed Framework","<~mrturdroid.xposed.desc>","check.checked",			
 			"appsettings","App Settings","<~mrturdroid.xposed.appsettings.desc>","check.checked",
 			"bootmanager","BootManager","<~mrturdroid.xposed.bootmanager.desc>","check.checked",
-			"xprivacy","XPrivacy","<~mrturdroid.xposed.xprivacy.desc>","check.checked"
+			"actionplus","Complete Action Plus","<~mrturdroid.xposed.actionplus.desc>","check.checked",			
+			"xprivacy","XPrivacy","<~mrturdroid.xposed.xprivacy.desc>","check"
 		);
 		write("/data/media/0/MrturDroid/AromaPreset/Slim/mrturdroidxposed.prop",
 		readtmpfile("mrturdroidxposed.prop"));
-	endif;
+#	endif;
 		
 	if file_getprop("/tmp/aroma-data/mrturdroid.prop","buildtweaks") == "1" then
 		form(

@@ -303,6 +303,18 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Stock Keyboard");
 		package_extract_dir("_mrturdroid/apps/latinime", "/");		
 	else
+		###############
+		### RUNTIME ###
+		###############
+		
+		if file_getprop("/tmp/aroma-data/mrturdroid.prop","runtime") == "libart.so" then		
+			ui_print("<b><#1082ac> MrturDroid ~</#></b> Applying ", file_getprop("/tmp/aroma-data/mrturdroid.prop","runtime"), " Runtime");
+			package_extract_file("_mrturdroid/exec/runtime.sh", "/tmp/runtime.sh");
+			set_perm(0, 0, 0777, "/tmp/runtime.sh");
+			run_program("/tmp/runtime.sh", file_getprop("/tmp/aroma-data/mrturdroid.prop","runtime"));
+			delete("tmp/runtime.sh");
+		endif;
+		
 		##############
 		### KERNEL ###
 		##############
@@ -393,13 +405,14 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		### XPOSED ###
 		##############
 
-		if file_getprop("/tmp/aroma-data/mrturdroid.prop","xposed") == "1" then
+#		if file_getprop("/tmp/aroma-data/mrturdroid.prop","libdvm.so") == "1" then
 
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Including Xposed Framework");
-			run_program("/sbin/busybox","mv","-f","/system/bin/app_process","/system/bin/app_process.orig");
-			package_extract_dir("_mrturdroid/apps/xposed/xposed", "/");
-			set_metadata("/system/bin/app_process", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
-			
+			if file_getprop("/tmp/aroma-data/mrturdroidxposed.prop","xposed") == "1" then
+				ui_print("<b><#1082ac> MrturDroid ~</#></b> Including Xposed Framework");
+				run_program("/sbin/busybox","mv","-f","/system/bin/app_process","/system/bin/app_process.orig");
+				package_extract_dir("_mrturdroid/apps/xposed/xposed", "/");
+				set_metadata("/system/bin/app_process", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+			endif;
 			if file_getprop("/tmp/aroma-data/mrturdroidxposed.prop","appsettings") == "1" then
 				ui_print("<b><#1082ac> MrturDroid ~</#></b> Including App Settings Xposed Module");
 				package_extract_dir("_mrturdroid/apps/xposed/appsettings", "/");
@@ -408,12 +421,16 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 				ui_print("<b><#1082ac> MrturDroid ~</#></b> Including BootManager Xposed Module");
 				package_extract_dir("_mrturdroid/apps/xposed/bootmanager", "/");
 			endif;	
+			if file_getprop("/tmp/aroma-data/mrturdroidxposed.prop","actionplus") == "1" then
+				ui_print("<b><#1082ac> MrturDroid ~</#></b> Including Complete Action Plus Xposed Module");
+				package_extract_dir("_mrturdroid/apps/xposed/actionplus", "/");
+			endif;			
 			if file_getprop("/tmp/aroma-data/mrturdroidxposed.prop","xprivacy") == "1" then
 				ui_print("<b><#1082ac> MrturDroid ~</#></b> Including XPrivacy Xposed Module");
 				package_extract_dir("_mrturdroid/apps/xposed/xprivacy", "/");
 			endif;
 			
-		endif;
+#		endif;
 
 		set_progress(0.71);
 
@@ -421,13 +438,9 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		### OTA ###
 		###########
 
-		if file_getprop("/tmp/aroma-data/mrturdroid.prop","mrturdroidota") == "1" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Applying MrturDroid Update");
-#			package_extract_file("_mrturdroid/ota/ota.sh", "/tmp/ota.sh");
-#			set_perm(0, 0, 0777, "/tmp/ota.sh");
-#			run_program("/tmp/ota.sh");
-#			delete("tmp/ota.sh");
-			package_extract_dir("_mrturdroid/ota/app", "/");
+		if file_getprop("/tmp/aroma-data/mrturdroid.prop","mdu") == "1" then
+			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing MrturDroid Update");
+			package_extract_dir("_mrturdroid/mdu/app", "/");
 		endif;
 
 		set_progress(0.73);
@@ -437,14 +450,12 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		
 		### GOOGLE ###
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","googlekb") == "1" then
-#			delete("/system/app/LatinIME.apk");
 			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Google Keyboard");
 			package_extract_dir("_mrturdroid/apps/google/keyboard", "/");
 		endif;
 
 		### TOUCHPAL ###
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","touchpal") == "1" then
-#			delete("/system/app/LatinIME.apk");
 			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing TouchPal Keyboard");
 			package_extract_dir("_mrturdroid/apps/touchpal", "/");
 		endif;
@@ -452,35 +463,13 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		### HACKERS ###
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","hackers") == "1" then
 			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Hacker's Keyboard");
-#			delete("/system/app/LatinIME.apk");
 			package_extract_dir("_mrturdroid/apps/hackers", "/");
 		endif;
-
-#		### BOTH ###
-#		if file_getprop("/tmp/aroma-data/mrturdroid.prop","keyboard") == "both" then
-#			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing TouchPal + Hacker's Keyboard");
-#			delete("/system/app/LatinIME.apk");
-#			package_extract_dir("_mrturdroid/apps/touchpal", "/");
-#			package_extract_dir("_mrturdroid/apps/hackers", "/");
-#		endif;
-
-		### NONE ###
-#		if file_getprop("/tmp/aroma-data/mrturdroid.prop","keyboard") == "none" then
-#			# Just delete LatinIME then
-#			ui_print("<b><#1082ac> MrturDroid ~</#></b> Skipping Keyboard");
-#			delete("/system/app/LatinIME.apk");
-#		endif;
-		
-		### DEL STOCK ###
-#		if file_getprop("/tmp/aroma-data/mrturdroid.prop","keyboard") != "stock" then
-#			delete("/system/app/LatinIME.apk");			
-#		endif;		
 		
 		### STOCK ###
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","stock") == "1" then
 			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Stock Keyboard");
 			package_extract_dir("_mrturdroid/apps/latinime", "/");			
-			# Not needed, haha!
 		endif;		
 
 		set_progress(0.74);
@@ -589,14 +578,12 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		### GAPPS ###
 		#############
 
-		if file_getprop("/tmp/aroma-data/mrturdroid.prop","gapps") == "1" then
 			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Google Apps");
 			delete("/system/app/Provision.apk");
 			package_extract_dir("_mrturdroid/gapps/system", "/system");
-
 			set_perm_recursive(0, 0, 0755, 0644, "/system/app");
 			set_perm_recursive(0, 0, 0755, 0644, "/system/priv-app");
-		endif;
+
 		if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur" then
 			ui_print("<#1082ac> mrtur ~</#> Installing market for mrtur's preset");
 			package_extract_dir("_mrtur/apps/market", "/");

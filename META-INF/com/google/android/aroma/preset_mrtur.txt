@@ -24,29 +24,24 @@
 ##################
 #  Klawiatura
 # 
-# Google Kevboard
-# <#selectbg_g>TouchPal Keyboard</#>
+# <#selectbg_g>Google Kevboard</#>
+# TouchPal Keyboard
 # Hacker's Keyboard
 # <#selectbg_g>Hacker's Keyboard</#>
 # Stock 
 
 ##################
-#  Global Tweaks
+#  Xposed Area
 #
-# MrturDroid OTA
 # <#selectbg_g>Xposed Framework</#>
-
-##################
-#  Xposed Modules
-#
 # <#selectbg_g>AppSettings</#>
 # <#selectbg_g>Bootmanager</#>
+# <#selectbg_g>Complete Action Plus</#>
 # XPrivacy
 
 ##################
 #  Google Apps
 #
-# <#selectbg_g>Google Apps</#>
 # Google Chrome
 # Google Keep
 # Google Mail
@@ -61,6 +56,7 @@
 ##################
 #  MrturDroid Apps
 #
+# MrturDroid Update
 # Trickster MOD
 # VNC Viewer
 # <#selectbg_g>Titanium Backup</#>
@@ -69,7 +65,7 @@
 # <#selectbg_g>MXPlayer</#>
 # BetterBatteryStats
 # CoolTool
-# <#selectbg_g>Root Browser</#>
+# Root Browser
 # <#selectbg_g>Total Commander</#>
 # <#selectbg_g>YouTube</#>
 # Facebook

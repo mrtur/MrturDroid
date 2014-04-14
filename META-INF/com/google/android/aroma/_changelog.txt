@@ -1,28 +1,24 @@
- MrturDroid 2.5.2
+ MrturDroid 2.5.3
 
 1. Aktualizacja:
-- XPrivacy 2.0.11
-- Xposed 2.5
-- powrót ciemnego Youtube 5.5.2.7
-- Trickster MOD 2.10.880
-- Greenify 2.2.(build11)
-- kernel hells-Core 4.4 stable
-- Android Terminal Emulator 1.0.59
-- Google Chrome 33.0.1750.170 (wersja jasna był konflikt)
-- MrturDroid Update v.1.2(2.5.2)
+- Semaphore 2.1.0 kernel
+- BlackPlayStore 4.6.17
+- MrturDroid Update 1.3(2.5.3) (kosmetyka)
+- Google Chrome 34.0.1847.114
+- hells-Core-b46-kk-t4_anykernel
+- UPDATE-adreno-drivers-occam
+- AdAway and MOAB adblocking
+- Xposed 2.5.1
+- Google Keyboard 3.0.19423
+- TouchPal 5.5.5.1
+- App Settings 1.8
+- XPrivacy to 2.0.16
 
 2. Poprawki:
-- poprawne komunikaty w MrtuRDroid Detect
-- poprawiono link w Browser.apk
-- EXPERYMENTALNIE:oryginalny Gmail
-- Wybor DPI w Aroma bardziej uniwerslany
-- naprawiono brak klawiatury w "Sam Szkielet"
-- komenda logcat
+- przeniesiono BetterBatteryStats to priv-app
  
 3. ISTOTNE ZMIANY:
-- dodano klawiature Google do Aroma
-- podglad w Aroma zrzutow ekranow bootanimacji startowych
-- Update OTA zastapiono wlasna aplikacja MrturDroid Update v.1.0(2.5.2)
-- Slim-mako-4.4.2.build.4-OFFICIAL-3661
-
- ZALECAM WYBRAĆ W AROMA FULL-WIPE PRZY INSTALACJI
+- Baza gapps instalowana jest bez Aromy. W "Sam szkielet" dalej jest omijana. 
+- ikone lockscreen'a MrturDroid dodano na stale w ustawieniach
+- dodano moduł Xposed -> Complete Action Plus
+- Slim-mako-4.4.2.build.4.4-WEEKLY-3791

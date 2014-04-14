@@ -313,7 +313,7 @@ while (! pgrep com.android && [ $LOOP -lt 300 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 				echo "INFO: Applying supplementary preset DBUPDATE" >> $LOG
 
 				#DBUPDATE global adb_enabled 1
-				DBUPDATE secure lockscreen_lock_icon '/data/data/com.android.settings/files/lock_icon1388332024286.png'
+				DBUPDATE secure lockscreen_lock_icon '/data/data/com.android.settings/files/slim_lock1397128684009.png'
 			
 			else
 				echo "INFO: Applying mrtur preset DBUPDATE" >> $LOG
