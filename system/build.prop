@@ -3,15 +3,15 @@
 ro.build.id=KVT49L
 ro.build.display.id=MrturDroid 2.5.3 EXPERIMENTAL
 ro.mrturdroid.version=MrturDroid 2.5.3 EXPERIMENTAL
-ro.build.version.incremental=3743
+ro.build.version.incremental=3791
 ro.build.version.sdk=19
 ro.build.version.codename=REL
 ro.build.version.release=4.4.2
-ro.build.date=Mon Apr  7 09:02:24 CEST 2014
-ro.build.date.utc=1396854144
+ro.build.date=Mon Apr 14 05:31:07 CEST 2014
+ro.build.date.utc=1397446267
 ro.build.type=userdebug
 ro.build.user=autobuild
-ro.build.host=slimbuild
+ro.build.host=slimgerrit
 ro.build.tags=test-keys
 ro.product.model=Nexus 4
 ro.product.brand=Google
@@ -80,8 +80,8 @@ ro.build.selinux=1
 dalvik.vm.debug.alloc=0
 BUILD_DISPLAY_ID=KVT49L
 
-ro.slim.version=Slim-4.4.2.build.4.2-WEEKLY-3743
-ro.modversion=Slim-mako-4.4.2.build.4.2-WEEKLY-3743
+ro.slim.version=Slim-4.4.2.build.4.4-WEEKLY-3791
+ro.modversion=Slim-mako-4.4.2.build.4.4-WEEKLY-3791
 persist.sys.dalvik.vm.lib=libdvm.so
 dalvik.vm.lockprof.threshold=500
 dalvik.vm.dexopt-flags=m=y
