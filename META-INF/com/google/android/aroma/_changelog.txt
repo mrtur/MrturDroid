@@ -4,5 +4,6 @@
 - MrturDroid Update 1.4(2.5.3) -> fix link
 
 2. Poprawki:
+- dodalem w RUNONCE kill app w przypadku przytrzymania BACK
  
 3. ISTOTNE ZMIANY:
