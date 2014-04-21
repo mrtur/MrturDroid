@@ -3,20 +3,18 @@
 ro.build.id=KVT49L
 ro.build.display.id=MrturDroid 2.5.4 EXPERIMENTAL
 ro.mrturdroid.version=MrturDroid 2.5.4 EXPERIMENTAL
-ro.build.version.incremental=3791
+ro.build.version.incremental=3842
 ro.build.version.sdk=19
 ro.build.version.codename=REL
 ro.build.version.release=4.4.2
-ro.build.date=Mon Apr 14 05:31:07 CEST 2014
-ro.build.date.utc=1397446267
+ro.build.date=Mon Apr 21 11:19:58 CEST 2014
+ro.build.date.utc=1398071998
 ro.build.type=userdebug
 ro.build.user=autobuild
-ro.build.host=slimgerrit
+ro.build.host=slimautobuild
 ro.build.tags=test-keys
-ro.product.model=Nexus 4
 ro.product.brand=Google
 ro.product.name=occam
-ro.product.device=mako
 ro.product.board=MAKO
 ro.product.cpu.abi=armeabi-v7a
 ro.product.cpu.abi2=armeabi
@@ -27,6 +25,8 @@ ro.wifi.channels=
 ro.board.platform=msm8960
 # ro.build.product is obsolete; use ro.product.device
 ro.build.product=mako
+ro.product.model=Nexus 4
+ro.product.device=mako
 # Do not try to parse ro.build.description or .fingerprint
 ro.build.description=occam-user 4.4.2 KOT49H 937116 release-keys
 ro.build.fingerprint=google/occam/mako:4.4.2/KOT49H/937116:user/release-keys
@@ -80,8 +80,8 @@ ro.build.selinux=1
 dalvik.vm.debug.alloc=0
 BUILD_DISPLAY_ID=KVT49L
 
-ro.slim.version=Slim-4.4.2.build.4.4-WEEKLY-3791
-ro.modversion=Slim-mako-4.4.2.build.4.4-WEEKLY-3791
+ro.slim.version=Slim-4.4.2.build.4.6-WEEKLY-3842
+ro.modversion=Slim-mako-4.4.2.build.4.6-WEEKLY-3842
 persist.sys.dalvik.vm.lib=libdvm.so
 dalvik.vm.lockprof.threshold=500
 dalvik.vm.dexopt-flags=m=y
