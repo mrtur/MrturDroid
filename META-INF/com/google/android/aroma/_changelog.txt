@@ -4,6 +4,7 @@
 - MrturDroid Update 1.4(2.5.3) -> fix link
 - Semaphore 2.1.1
 - Update ArchiDroid Backend
+- XPrivacy 2.0.19
 
 2. Poprawki:
 - dodalem w RUNONCE kill app w przypadku przytrzymania BACK
