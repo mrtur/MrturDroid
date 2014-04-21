@@ -9,6 +9,7 @@
 - usunieto VNC Viewer
 - Complete Action Plus 2.0.0
 - BootManager 2.0.2
+- ViPER4Android 2.3.3
 
 2. Poprawki:
 - dodalem w RUNONCE kill app w przypadku przytrzymania BACK
