@@ -8,6 +8,7 @@
 - PA GAPPS 0417
 - usunieto VNC Viewer
 - Complete Action Plus 2.0.0
+- BootManager 2.0.2
 
 2. Poprawki:
 - dodalem w RUNONCE kill app w przypadku przytrzymania BACK
