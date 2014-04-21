@@ -7,6 +7,7 @@
 - XPrivacy 2.0.19
 - PA GAPPS 0417
 - usunieto VNC Viewer
+- Complete Action Plus 2.0.0
 
 2. Poprawki:
 - dodalem w RUNONCE kill app w przypadku przytrzymania BACK
