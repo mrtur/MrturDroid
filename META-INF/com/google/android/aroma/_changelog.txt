@@ -5,6 +5,7 @@
 - Semaphore 2.1.1
 - Update ArchiDroid Backend
 - XPrivacy 2.0.19
+- PA GAPPS 0417
 
 2. Poprawki:
 - dodalem w RUNONCE kill app w przypadku przytrzymania BACK
