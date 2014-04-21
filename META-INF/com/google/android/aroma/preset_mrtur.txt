@@ -58,7 +58,6 @@
 #
 # MrturDroid Update
 # Trickster MOD
-# VNC Viewer
 # <#selectbg_g>Titanium Backup</#>
 # Greenify
 # LMT

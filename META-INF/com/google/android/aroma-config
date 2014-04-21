@@ -31,7 +31,7 @@
 #
 # Initializing Rom Information
 #
-setvar("preset_version","6");
+setvar("preset_version","7");
 
 ini_set("dp","3");
 ini_set("rom_name",             "MrturDroid");
@@ -234,7 +234,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"gtranslate=0\n"+
 		"trickster=0\n"+	
 		"viper4=0\n"+
-		"vnc=0\n"+
 		"titaniumbackup=1\n"+
 		"greenify=0\n"+
 		"lmt=0\n"+
@@ -326,7 +325,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		"mdu","MrturDroid Update","<~mrturdroid.apps.mdu.desc>","check.checked",		
 		"trickster","Trickster MOD","<~mrturdroid.apps.trickster.desc>","check.checked",	
 		"viper4","ViPER4Android Audio Effects","<~mrturdroid.apps.viper4.desc>","check.checked",	
-		"vnc","VNC Viewer","<~mrturdroid.apps.vnc.desc>","check.checked",
 		"titaniumbackup","Titanium Backup","<~mrturdroid.apps.titaniumbackup.desc>","check.checked",
 		"greenify","Greenify","<~mrturdroid.apps.greenify.desc>","check.checked",
 		"lmt","LMT","<~mrturdroid.apps.lmt.desc>","check",

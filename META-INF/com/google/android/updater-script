@@ -666,11 +666,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			package_extract_dir("_mrturdroid/apps/viper4", "/");
 		endif;	
 
-		if file_getprop("/tmp/aroma-data/mrturdroid.prop","vnc") == "1" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing VNC Viewer");
-			package_extract_dir("_mrturdroid/apps/vnc", "/");
-		endif;
-
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","titaniumbackup") == "1" then
 			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Titanium Backup");
 			package_extract_dir("_mrturdroid/apps/titaniumbackup", "/");
