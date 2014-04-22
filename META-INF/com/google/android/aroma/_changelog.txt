@@ -9,7 +9,7 @@
 - Complete Action Plus 2.0.0
 - BootManager 2.0.2
 - ViPER4Android 2.3.3
-- MrturDroid Update 1.5(2.5.3) -> del ZAMKNIJ
+- MrturDroid Update 1.6(2.5.3) -> del ZAMKNIJ+kosmetyka
 
 2. Poprawki:
 - dodalem w RUNONCE kill app w przypadku przytrzymania BACK
