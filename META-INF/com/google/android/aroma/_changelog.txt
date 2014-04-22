@@ -1,7 +1,6 @@
 ﻿MrturDroid 2.5.4 EXPERIMENTAL
 
 1. Aktualizacja:
-- MrturDroid Update 1.4(2.5.3) -> fix link
 - Semaphore 2.1.1
 - Update ArchiDroid Backend
 - XPrivacy 2.0.19
@@ -10,6 +9,7 @@
 - Complete Action Plus 2.0.0
 - BootManager 2.0.2
 - ViPER4Android 2.3.3
+- MrturDroid Update 1.5(2.5.3) -> del ZAMKNIJ
 
 2. Poprawki:
 - dodalem w RUNONCE kill app w przypadku przytrzymania BACK
