@@ -31,7 +31,7 @@
 #
 # Initializing Rom Information
 #
-setvar("preset_version","7");
+setvar("preset_version","8");
 
 ini_set("dp","3");
 ini_set("rom_name",             "MrturDroid");
@@ -223,6 +223,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"bootanimation=mrtur\n"+
 #		"runtime=libdvm.so\n"+
 		"mdu=0\n"+
+		"gcamera=0\n"+		
 		"gchrome=0\n"+
 		"gkeep=0\n"+
 		"gmail=0\n"+
@@ -311,6 +312,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 #		"libdvm.so","Dalvik Legacy","<~mrturdroid.runtime.dalvik.desc>","select.selected",		
 
 		"googleapps","<#selectbg_g>Google Apps</#>","","group",
+		"gcamera","Google Camera","<~mrturdroid.apps.gcamera.desc>","check",		
 		"gchrome","Google Chrome","","check.checked",
 		"gkeep","Google Keep [<~common.inverted>]","","check",
 		"gmail","Google Mail (Gmail)","","check.checked",
