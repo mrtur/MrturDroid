@@ -9,6 +9,12 @@
 # <#selectbg_g>Apps and ADB</#>
 
 ##################
+#  Runtime
+#
+# <#selectbg_g>Dalvik</#>
+# ART
+
+##################
 #  Kernel
 #
 # Stock(Slim)

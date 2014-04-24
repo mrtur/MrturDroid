@@ -329,13 +329,11 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		### RUNTIME ###
 		###############
 				
-		if file_getprop("/tmp/aroma-data/mrturdroid.prop","runtime") == "libart.so" then		
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Applying ", file_getprop("/tmp/aroma-data/mrturdroid.prop","runtime"), " Runtime");
-			package_extract_file("_mrturdroid/exec/runtime.sh", "/tmp/runtime.sh");
-			set_perm(0, 0, 0777, "/tmp/runtime.sh");
-			run_program("/tmp/runtime.sh", file_getprop("/tmp/aroma-data/mrturdroid.prop","runtime"));
-			delete("tmp/runtime.sh");
-		endif;
+		ui_print("<b><#1082ac> MrturDroid ~</#></b> Applying ", file_getprop("/tmp/aroma-data/mrturdroid.prop","runtime"), " Runtime");
+		package_extract_file("_mrturdroid/exec/runtime.sh", "/tmp/runtime.sh");
+		set_perm(0, 0, 0777, "/tmp/runtime.sh");
+		run_program("/tmp/runtime.sh", file_getprop("/tmp/aroma-data/mrturdroid.prop","runtime"));
+		delete("tmp/runtime.sh");
 		
 		##############
 		### KERNEL ###
@@ -510,7 +508,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		### XPOSED ###
 		##############
 
-#		if file_getprop("/tmp/aroma-data/mrturdroid.prop","libdvm.so") == "1" then
+		if file_getprop("/tmp/aroma-data/mrturdroid.prop","libdvm.so") == "1" then
 
 			if file_getprop("/tmp/aroma-data/mrturdroidxposed.prop","xposed") == "1" then
 				ui_print("<b><#1082ac> MrturDroid ~</#></b> Including Xposed Framework");
@@ -535,7 +533,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 				package_extract_dir("_mrturdroid/apps/xposed/xprivacy", "/");
 			endif;
 			
-#		endif;
+		endif;
 
 		set_progress(0.71);
 

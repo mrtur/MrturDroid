@@ -222,7 +222,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"stock=0\n"+		
 		"bootanimation=mrtur\n"+
 		"root=3\n"+
-#		"runtime=libdvm.so\n"+
+		"runtime=libdvm.so\n"+
 		"mdu=0\n"+
 		"gcamera=0\n"+		
 		"gchrome=0\n"+
@@ -314,9 +314,9 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		"2","ADB only","","select",
 		"3","Apps and ADB","","select.selected",		
 						
-#		"runtime","<#selectbg_g>Runtime</#>","","group",
-#		"libart.so","ART","<~mrturdroid.runtime.art.desc>","select",
-#		"libdvm.so","Dalvik Legacy","<~mrturdroid.runtime.dalvik.desc>","select.selected",		
+		"runtime","<#selectbg_g>Runtime</#>","","group",
+		"libart.so","ART","<~mrturdroid.runtime.art.desc>","select",
+		"libdvm.so","Dalvik Legacy","<~mrturdroid.runtime.dalvik.desc>","select.selected",		
 
 		"googleapps","<#selectbg_g>Google Apps</#>","","group",
 		"gcamera","Google Camera","<~mrturdroid.apps.gcamera.desc>","check",		
@@ -377,7 +377,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 	);
 	endif;
 	
-#	if file_getprop("/tmp/aroma-data/mrturdroid.prop","runtime") == "libdvm.so" then
+	if file_getprop("/tmp/aroma-data/mrturdroid.prop","runtime") == "libdvm.so" then
 		form(
 			"<~mrturdroid.custom.extra>",
 			"<~mrturdroid.custom.desc>",
@@ -393,7 +393,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		);
 		write("/data/media/0/MrturDroid/AromaPreset/Slim_work/mrturdroidxposed.prop",
 		readtmpfile("mrturdroidxposed.prop"));
-#	endif;
+	endif;
 		
 	if file_getprop("/tmp/aroma-data/mrturdroid.prop","buildtweaks") == "1" then
 		form(
