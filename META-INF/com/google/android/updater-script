@@ -233,6 +233,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		ui_print("<#1082ac> mrtur ~</#> Flashing mrtur's Preset");
 		package_extract_dir("_mrtur/auto", "/");
 	endif;
+		
 	### IMPORTANT ###
 
 	set_progress(0.53);
@@ -297,16 +298,37 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 	#################
 	### BAREBONES ###
 	#################
+	
 	if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "barebones" then
 		ui_print("<b><#1082ac> MrturDroid ~</#></b> Flashing Stock Kernel");
 		package_extract_file("boot.img", "/dev/block/platform/msm_sdcc.1/by-name/boot");
 		ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Stock Keyboard");
 		package_extract_dir("_mrturdroid/apps/latinime", "/");		
 	else
+	
+		#################
+		### SUPERUSER ###
+		#################
+		if file_getprop("/tmp/aroma-data/mrturdroid.prop","root") != "0" then		
+			ui_print("<b><#1082ac> MrturDroid ~</#></b> Root Activate");
+		else
+			ui_print("<b><#1082ac> MrturDroid ~</#></b> Root Disable");
+		endif;			
+		
+		package_extract_file("_mrturdroid/exec/superuser.sh", "/tmp/superuser.sh");
+		set_perm(0, 0, 0777, "/tmp/superuser.sh");
+		run_program("/tmp/superuser.sh", file_getprop("/tmp/aroma-data/mrturdroid.prop","root"));
+		delete("tmp/superuser.sh");
+			
+		if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur" then		
+			ui_print("<#1082ac> mrtur ~</#> Root acces -> Apps and ADB");
+			package_extract_dir("_mrtur/apps/superuser", "/");
+		endif;
+
 		###############
 		### RUNTIME ###
 		###############
-		
+				
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","runtime") == "libart.so" then		
 			ui_print("<b><#1082ac> MrturDroid ~</#></b> Applying ", file_getprop("/tmp/aroma-data/mrturdroid.prop","runtime"), " Runtime");
 			package_extract_file("_mrturdroid/exec/runtime.sh", "/tmp/runtime.sh");

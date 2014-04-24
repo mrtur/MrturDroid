@@ -17,3 +17,4 @@
 3. ISTOTNE ZMIANY:
 - Slim-mako-4.4.2.build.4.6-WEEKLY-3842
 - dodano Aparat od Google (Google Camera)
+- dodano wybor roota w Aroma (Disable, Apps only, ADB only, Apps and ADB)

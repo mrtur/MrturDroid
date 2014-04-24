@@ -1,6 +1,14 @@
 <b><#selectbg_g>Preferowane ustawienia mrtur'a</#></b>
 
 ##################
+#  Root
+#
+# Disable
+# Apps only
+# ADB only
+# <#selectbg_g>Apps and ADB</#>
+
+##################
 #  Kernel
 #
 # Stock(Slim)

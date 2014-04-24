@@ -21,7 +21,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 mkdir -p "/data/property"
-printf "$1" > "/data/property/persist.sys.dalvik.vm.lib"
-chmod 600 "/data/property/persist.sys.dalvik.vm.lib"
+printf "$1" > "/data/property/persist.sys.root_access"
+chmod 600 "/data/property/persist.sys.root_access"
 sync
 exit 0
