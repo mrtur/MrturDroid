@@ -19,3 +19,5 @@
 - dodano Aparat od Google (Google Camera)
 - dodano wybor roota w Aroma (Disable, Apps only, ADB only, Apps and ADB)
 - doadno wybor "Czas wykonywania" (ART lub Dalvik)
+
+ ZDECYDOWANIE ZALECAM FULL WIPE
