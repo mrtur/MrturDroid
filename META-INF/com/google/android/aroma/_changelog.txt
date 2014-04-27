@@ -10,7 +10,7 @@
 - ViPER4Android 2.3.3
 - MrturDroid Update 1.6(2.5.3) -> del ZAMKNIJ+kosmetyka
 - UPDATE-adreno-drivers-occam
-- Complete Action Plus 2.1.0
+- Complete Action Plus 2.1.1
 
 2. Poprawki:
 - dodalem w RUNONCE kill app w przypadku przytrzymania BACK
