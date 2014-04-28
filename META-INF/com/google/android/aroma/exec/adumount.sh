@@ -34,55 +34,52 @@ data="/dev/block/mmcblk0p23" # Data and internal memory
 AUTO="/system /cache /data" # Filesystems which should be unmounted automatically when no argument is given, typically every partition excluding images
 
 GOTBUSYBOX=false
-GOTMOUNT=false
-LOG="/tmp/mrturdroid_mount.log" # We can use /dev/null if not required
+GOTBUSYBOX="false"
+GOTMOUNT="false"
+LOG="/dev/null" # We can use /dev/null if not required
 
 ADMOUNTED() {
-	if [ $(mount | grep -i "$1" | wc -l) -gt 0 ]; then
-		return 0
-	else
-		return 1
-	fi
+	return "$(mount | grep -qi "$1"; echo $?)"
 }
 
 ADUMOUNT() {
-	if (ADMOUNTED "$1"); then
-		MNTPATH=$(echo $1 | sed 's/\///g')
+	if ADMOUNTED "$1"; then
+		MNTPATH="$(echo "$1" | sed 's/\///g')"
 		eval "MNTPATH=\$$MNTPATH"
-		if $GOTBUSYBOX; then
+		if "$GOTBUSYBOX"; then
 			busybox umount -f "$1" >/dev/null 2>&1
 			busybox umount -f "$MNTPATH" >/dev/null 2>&1 # This is required for freeing up block path completely, used for example in reformatting
-			if !(ADMOUNTED "$1"); then
-				echo "Successfully unmounted $1 through busybox umount" >> $LOG
+			if ! ADMOUNTED "$1"; then
+				echo "Successfully unmounted $1 through busybox umount" >> "$LOG"
 				return 0
 			fi
 		fi
-		if $GOTMOUNT; then
+		if "$GOTMOUNT"; then
 			umount -f "$1" >/dev/null 2>&1
 			umount -f "$MNTPATH" >/dev/null 2>&1 # This is required for freeing up block path completely, used for example in reformatting
-			if !(ADMOUNTED "$1"); then
-				echo "Successfully unmounted $1 through umount" >> $LOG
+			if ! ADMOUNTED "$1"; then
+				echo "Successfully unmounted $1 through umount" >> "$LOG"
 				return 0
 			fi
 		fi
 		# Ok, I give up
-		echo "ERROR: Could not unmount $1" >> $LOG
+		echo "ERROR: Could not unmount $1" >> "$LOG"
 		return 1
 	else
-		echo "$1 is already unmounted" >> $LOG
+		echo "$1 is already unmounted" >> "$LOG"
 	fi
 	return 0
 }
 
-if [ ! -z $(which busybox) ]; then
-	GOTBUSYBOX=true
+if [ ! -z "$(which busybox)" ]; then
+	GOTBUSYBOX="true"
 fi
-if [ ! -z $(which mount) ]; then
-	GOTMOUNT=true
+if [ ! -z "$(which mount)" ]; then
+	GOTMOUNT="true"
 fi
-if (! $GOTBUSYBOX && ! $GOTMOUNT); then
+if ! "$GOTBUSYBOX" && ! "$GOTMOUNT"; then
 	# This should never happen, but safety check is always good
-	echo "FATAL ERROR, NO BUSYBOX NEITHER MOUNT" >> $LOG
+	echo "FATAL ERROR, NO BUSYBOX NEITHER MOUNT" >> "$LOG"
 	exit 1
 fi
 
