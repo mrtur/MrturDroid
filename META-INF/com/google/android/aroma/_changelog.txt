@@ -21,5 +21,6 @@
 - dodano wybor roota w Aroma (Disable, Apps only, ADB only, Apps and ADB)
 - dodano wybor "Czas wykonywania" (ART lub Dalvik)
 - optymalizacja skryptów Archi'ego
+- dodano Faux kernel do wyboru w Aroma
 
  ZDECYDOWANIE ZALECAM FULL WIPE

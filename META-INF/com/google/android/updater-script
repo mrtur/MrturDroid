@@ -399,6 +399,23 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			run_program("/tmp/busybox", "dd", "if=/tmp/newboot.img", "of=/dev/block/mmcblk0p6");
 			delete("/system/lib/hw/power.msm8960.so");
 		endif;		
+		
+		### FAUX ###
+		if file_getprop("/tmp/aroma-data/mrturdroid.prop","kernel") == "faux" then
+			ui_print("<b><#1082ac> MrturDroid ~</#></b> Flashing Faux Kernel");
+			delete_recursive("/system/lib/modules");
+			package_extract_dir("_mrturdroid/kernels/faux/system", "/system");
+			set_perm_recursive(0, 0, 0755, 0755, "/system/etc/init.d");
+			package_extract_dir("_mrturdroid/kernels/faux/kernel", "/tmp");
+			set_perm(0, 0, 0777, "/tmp/mkbootimg.sh");
+			set_perm(0, 0, 0777, "/tmp/mkbootimg");
+			set_perm(0, 0, 0777, "/tmp/unpackbootimg");
+			set_perm(0, 0, 0777, "/tmp/busybox");
+			run_program("/tmp/busybox", "dd", "if=/dev/block/mmcblk0p6", "of=/tmp/boot.img");
+			run_program("/tmp/unpackbootimg", "-i", "/tmp/boot.img", "-o", "/tmp/");
+			run_program("/tmp/mkbootimg.sh");
+			run_program("/tmp/busybox", "dd", "if=/tmp/newboot.img", "of=/dev/block/mmcblk0p6");
+		endif;
 
 		set_progress(0.6);
 
