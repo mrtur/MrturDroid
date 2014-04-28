@@ -56,7 +56,7 @@
 ##################
 #  Google Apps
 #
-# Google Camera
+# <#selectbg_g>Google Camera</#>
 # Google Chrome
 # Google Keep
 # Google Mail

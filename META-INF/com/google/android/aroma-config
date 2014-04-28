@@ -224,7 +224,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"root=3\n"+
 		"runtime=libdvm.so\n"+
 		"mdu=0\n"+
-		"gcamera=0\n"+		
+		"gcamera=1\n"+		
 		"gchrome=0\n"+
 		"gkeep=0\n"+
 		"gmail=0\n"+
