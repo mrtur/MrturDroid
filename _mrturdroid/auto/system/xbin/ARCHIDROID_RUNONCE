@@ -352,7 +352,7 @@ while (! pgrep com.android && [ $LOOP -lt 300 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 				DBUPDATE global power_notifications_vibrate 0
 				DBUPDATE global power_sounds_enabled 1
 				DBUPDATE global stay_on_while_plugged_in 0
-				DBUPDATE global usb_mass_storage_enabled 1
+				DBUPDATE global usb_mass_storage_enabled 0
 				DBUPDATE secure incall_power_button_behavior 2
 				DBUPDATE secure long_press_timeout 500
 				DBUPDATE system accelerometer_rotation 0
