@@ -3,15 +3,15 @@
 ro.build.id=KVT49L
 ro.build.display.id=MrturDroid 2.5.4 EXPERIMENTAL
 ro.mrturdroid.version=MrturDroid 2.5.4 EXPERIMENTAL
-ro.build.version.incremental=3842
+ro.build.version.incremental=3891
 ro.build.version.sdk=19
 ro.build.version.codename=REL
 ro.build.version.release=4.4.2
-ro.build.date=Mon Apr 21 11:19:58 CEST 2014
-ro.build.date.utc=1398071998
+ro.build.date=Mon Apr 28 09:57:24 CEST 2014
+ro.build.date.utc=1398671844
 ro.build.type=userdebug
 ro.build.user=autobuild
-ro.build.host=slimautobuild
+ro.build.host=slimgerrit
 ro.build.tags=test-keys
 ro.product.brand=Google
 ro.product.name=occam
@@ -37,9 +37,19 @@ ro.build.characteristics=nosdcard
 # ADDITIONAL_BUILD_PROPERTIES
 #
 keyguard.no_require_sim=true
-ro.com.android.dataroaming=false
+ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html
+ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html
+ro.com.google.clientidbase=android-google
+ro.com.android.wifi-watchlist=GoogleGuest
+ro.setupwizard.enterprise_mode=1
 ro.com.android.dateformat=MM-dd-yyyy
+ro.com.android.dataroaming=false
+ro.build.selinux=1
+dalvik.vm.debug.alloc=0
+BUILD_DISPLAY_ID=KVT49L
 
+ro.slim.version=Slim-4.4.2.build.4.8-WEEKLY-3891
+ro.modversion=Slim-mako-4.4.2.build.4.8-WEEKLY-3891
 ro.config.ringtone=Magic_Tone.mp3
 ro.config.notification_sound=notification.mp3
 ro.carrier=unknown
@@ -71,17 +81,6 @@ dalvik.vm.heapsize=512m
 dalvik.vm.heaptargetutilization=0.75
 dalvik.vm.heapminfree=2m
 dalvik.vm.heapmaxfree=8m
-ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html
-ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html
-ro.com.google.clientidbase=android-google
-ro.com.android.wifi-watchlist=GoogleGuest
-ro.setupwizard.enterprise_mode=1
-ro.build.selinux=1
-dalvik.vm.debug.alloc=0
-BUILD_DISPLAY_ID=KVT49L
-
-ro.slim.version=Slim-4.4.2.build.4.6-WEEKLY-3842
-ro.modversion=Slim-mako-4.4.2.build.4.6-WEEKLY-3842
 persist.sys.dalvik.vm.lib=libdvm.so
 dalvik.vm.lockprof.threshold=500
 dalvik.vm.dexopt-flags=m=y

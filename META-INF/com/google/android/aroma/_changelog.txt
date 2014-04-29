@@ -16,11 +16,11 @@
 - dodalem w RUNONCE kill app w przypadku przytrzymania BACK
  
 3. ISTOTNE ZMIANY:
-- Slim-mako-4.4.2.build.4.6-WEEKLY-3842
 - dodano Aparat od Google (Google Camera)
 - dodano wybor roota w Aroma (Disable, Apps only, ADB only, Apps and ADB)
 - dodano wybor "Czas wykonywania" (ART lub Dalvik)
 - optymalizacja skryptów Archi'ego
 - dodano Faux kernel do wyboru w Aroma
+- Slim-mako-4.4.2.build.4.8-WEEKLY-3891.zip
 
  ZDECYDOWANIE ZALECAM FULL WIPE
