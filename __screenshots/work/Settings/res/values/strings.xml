@@ -729,6 +729,16 @@ With eight lockscreen targets enabled you cannot use your lockscreen shortcuts a
     <string name="lock_numpad_random_off">Disabled</string>
     <string name="lock_numpad_random_always">Always</string>
     <string name="lock_numpad_random_on_request">On request</string>
+    <string name="shake_to_secure_title">Shake the lockscreen to enable security</string>
+    <string name="shake_to_secure_summary">Security will be disabled after each successful unlock</string>
+    <string name="shake_to_secure_dlg_title">Warning:</string>
+    <string name="shake_to_secure_dlg_message">Your device will be insecure until you explicitly shake to enable a temporary secure lock. Once secure: if your device is successfully unlocked it will become insecure until you shake again.</string>
+    <string name="shake_secure_timeout_title">Automatically resecure</string>
+    <string name="shake_secure_timeout_disabled">Never automatically secure</string>
+    <string name="shake_secure_timeout_1min">1 minute after screen turned off</string>
+    <string name="shake_secure_timeout_5min">5 minutes after screen turned off</string>
+    <string name="shake_secure_timeout_10min">10 minutes after screen turned off</string>
+    <string name="shake_secure_timeout_30min">30 minutes after screen turned off</string>
     <string name="lock_before_unlock_title">Show slider before secure unlock</string>
     <string name="lock_before_unlock_summary">Show slider lockscreen before secure unlock mechanism</string>
     <string name="lock_pattern_size_3">3x3</string>
@@ -1030,6 +1040,11 @@ Do you really want to enable this function?"</string>
     <string name="recent_panel_100">100% (default)</string>
     <string name="recent_panel_85">85%</string>
     <string name="recent_panel_70">70%</string>
+    <string name="recent_panel_expanded_mode_title">Expanded mode</string>
+    <string name="recent_panel_expanded_mode_summary">Recent tasks expanded preview mode</string>
+    <string name="recent_panel_expanded_mode_auto">Auto (default)</string>
+    <string name="recent_panel_expanded_mode_always">Always</string>
+    <string name="recent_panel_expanded_mode_never">Never</string>
     <string name="recent_panel_lefty_mode_title">Show on the left edge</string>
     <string name="recent_panel_lefty_mode_summary">Show recent apps panel on the left edge.</string>
     <string name="adb_notify">USB debugging notify</string>
@@ -2370,8 +2385,8 @@ Some apps may not work until updated by their developers."</string>
     <string name="accessibility_screen_magnification_summary">"When this feature is turned on, you can zoom in and out by triple-tapping the screen.
 
 While zoomed in, you can:
-"<ul><li>"Pan: Drag two or more fingers across the screen.
-"<li>Adjust zoom level: Pinch two or more fingers together or spread them apart.</li></li></ul>"
+"<li><ul>"Pan: Drag two or more fingers across the screen.
+"<li>Adjust zoom level: Pinch two or more fingers together or spread them apart.</li></ul></li>"
 
 You can also temporarily magnify what's under your finger by triple-tapping and holding. In this magnified state, you can drag your finger to explore different parts of the screen. Lift your finger to return to your previous state.
 
