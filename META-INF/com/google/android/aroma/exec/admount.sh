@@ -25,14 +25,14 @@
 # Usage: admount.sh *path*, f.e. admount.sh /storage/sdcard1
 
 # These are absolute paths without slashes, for example /storage/sdcard1 is storagesdcard1, because you can't use / in variables
-fs="ext4" # Filesystem
-boot="/dev/block/mmcblk0p6" # ROM's kernel image
-recovery="/dev/block/mmcblk0p7" # Recovery image
-radio="/dev/block/mmcblk0p1" # Modem image
-cache="/dev/block/mmcblk0p22" # Cache partition
-system="/dev/block/mmcblk0p21" # System partition
-data="/dev/block/mmcblk0p23" # Data and internal memory
-AUTO="/system /cache /data" # Filesystems which should be mounted automatically when no argument is given, typically every partition excluding images
+fs="ext4" # Filesystem, used by eval in stages 2+, SC2034
+boot="/dev/block/mmcblk0p6" # ROM's kernel image, used by eval in stages 2+, SC2034
+recovery="/dev/block/mmcblk0p7" # Recovery image, used by eval in stages 2+, SC2034
+radio="/dev/block/mmcblk0p1" # Modem image, used by eval in stages 2+, SC2034
+cache="/dev/block/mmcblk0p22" # Cache partition, used by eval in stages 2+, SC2034
+system="/dev/block/mmcblk0p21" # System partition, used by eval in stages 2+, SC2034
+data="/dev/block/mmcblk0p23" # Data and internal memory, used by eval in stages 2+, SC2034
+AUTO="/system /cache /data" # Filesystems which should be unmounted automatically when no argument is given, typically every partition excluding images
 
 GOTBUSYBOX="false"
 GOTMOUNT="false"

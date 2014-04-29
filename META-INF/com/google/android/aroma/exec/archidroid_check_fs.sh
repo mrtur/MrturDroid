@@ -20,8 +20,9 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
 if [ $# -eq 0 ]; then
-	if [ -z $(which mkfs.f2fs) ]; then
+	if [ -z "$(which mkfs.f2fs)" ]; then
 		exit 1
 	else
 		exit 0
@@ -29,13 +30,13 @@ if [ $# -eq 0 ]; then
 fi
 
 # These are absolute paths without slashes, for example /storage/sdcard1 is storagesdcard1, because you can't use / in variables
-fs="ext4" # Filesystem
-boot="/dev/block/mmcblk0p6" # ROM's kernel image
-recovery="/dev/block/mmcblk0p7" # Recovery image
-radio="/dev/block/mmcblk0p1" # Modem image
-cache="/dev/block/mmcblk0p22" # Cache partition
-system="/dev/block/mmcblk0p21" # System partition
-data="/dev/block/mmcblk0p23" # Data and internal memory
+fs="ext4" # Filesystem, used by eval in stages 2+, SC2034
+boot="/dev/block/mmcblk0p6" # ROM's kernel image, used by eval in stages 2+, SC2034
+recovery="/dev/block/mmcblk0p7" # Recovery image, used by eval in stages 2+, SC2034
+radio="/dev/block/mmcblk0p1" # Modem image, used by eval in stages 2+, SC2034
+cache="/dev/block/mmcblk0p22" # Cache partition, used by eval in stages 2+, SC2034
+system="/dev/block/mmcblk0p21" # System partition, used by eval in stages 2+, SC2034
+data="/dev/block/mmcblk0p23" # Data and internal memory, used by eval in stages 2+, SC2034
 
 GOTBUSYBOX="false"
 GOTMOUNT="false"

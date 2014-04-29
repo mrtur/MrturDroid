@@ -85,8 +85,9 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			ui_print("<b><#1082ac> MrturDroid ~</#></b> Forced Update Mode Detected");
 			run_program("/tmp/archidroid.sh", "UPDATE", "FORCE");
 		endif;
-		delete("/tmp/archidroid.sh");
 	endif;
+
+	delete("/tmp/archidroid.sh");
 
 	set_progress(0.1);
 
@@ -95,11 +96,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 	package_extract_dir("system", "/system");
 	if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur" then
 		ui_print("<#1082ac> mrtur ~</#> Flashing mrtur's Core");
-		#delete_recursive("/system/media/video");
-		#delete_recursive("/system/media/audio/alarms");
-		#delete_recursive("/system/media/audio/ui");
-		#delete_recursive("/system/media/audio/ringtones");
-		#delete_recursive("/system/media/audio/notifications");
 		package_extract_dir("_mrtur/system", "/system");
 	endif;
 
@@ -233,7 +229,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 	package_extract_file("_mrturdroid/exec/archidroid_backend.sh", "/tmp/archidroid_backend.sh");
 	set_perm(0, 0, 0777, "/tmp/archidroid_backend.sh");
 	run_program("/tmp/archidroid_backend.sh");
-	delete("/tmp/archidroid_backend.sh");		
+	delete("/tmp/archidroid_backend.sh");
 	### IMPORTANT ###
 
 	set_progress(0.53);
@@ -290,8 +286,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 	set_metadata("/system/xbin/procmem", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 	set_metadata("/system/xbin/procrank", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 	set_metadata("/system/xbin/su", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:su_exec:s0");
-	# MrturDroid
-	set_perm_recursive(0, 0, 0755, 0755, "/system/archidroid/scripts");
 
 	set_progress(0.54);
 
@@ -567,7 +561,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		set_progress(0.71);
 
 		###########
-		### OTA ###
+		### MDU ###
 		###########
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","mdu") == "1" then
@@ -818,6 +812,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 	run_program("/tmp/adlock.sh", "lock", "/system/etc/hosts");
 endif;
 
+run_program("/sbin/sync");
 set_progress(0.99);
 
 ui_print("<b><#1082ac> MrturDroid ~</#></b> Unmounting partitions");
