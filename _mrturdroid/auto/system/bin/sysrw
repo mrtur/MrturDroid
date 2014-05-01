@@ -21,5 +21,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-mount -o remount,rw /system
+if [ -e /system/bin/mount ]; then
+	MOUNT="/system/bin/mount"
+else
+	MOUNT=`which mount`
+fi
+$MOUNT -o remount,rw /system
 exit $?
