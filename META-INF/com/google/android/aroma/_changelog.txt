@@ -23,5 +23,6 @@
 - optymalizacja skryptów Archi'ego
 - dodano Faux kernel do wyboru w Aroma
 - Slim-mako-4.4.2.build.4.8-WEEKLY-3891.zip
+- dodano Franco kernel do wyboru w Aroma
 
  ZDECYDOWANIE ZALECAM FULL WIPE

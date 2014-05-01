@@ -21,6 +21,7 @@
 # Semaphore
 # <#selectbg_g>Hells-Core</#>
 # Faux
+# Franco
 
 ##################
 #  DPI

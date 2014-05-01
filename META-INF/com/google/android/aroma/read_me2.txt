@@ -10,7 +10,7 @@ Ten ROM oparty jest na pracy wielu innych ludzi, ich modyfikacji, ich poprawek, 
 - Narzędzia: Xposed Framework + moduły
 - Xposed Modules: App Settings | XPrivacy | BootManager | Complete Action Plus
 - Qualcomm Adreno GPU
-- Wykorzystano kernele : HellsCore | Semaphore | Faux
+- Wykorzystano kernele : HellsCore | Semaphore | Faux | Franco
 - wiele darmowych aplikacji
 
 Specjalne podziękowania dla :
