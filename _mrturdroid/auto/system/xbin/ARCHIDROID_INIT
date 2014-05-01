@@ -286,7 +286,7 @@ alias mount='ADALIAS mount'
 AD="/data/media/0/MrturDroid"
 ADSYS="/system/archidroid"
 ADDEV="$ADSYS/dev"
-ADPROC="/dev/archidroid"
+ADPROC="$AD/tmpfs"
 ADCRON="$ADPROC/cron"
 LOG="$AD/Init.log" # "/dev/null" is no verbose
 RUNONCELOG="$AD/RunOnce.log"
@@ -403,6 +403,10 @@ fi
 #
 ROM=1 # Default to Nexus4
 
+# ArchiDroid tmpfs
+mkdir -p "$ADPROC"
+mount -t tmpfs tmpfs "$ADPROC"
+
 # ArchiDroid services
 ADSTART "ALL"
 
@@ -483,9 +487,12 @@ if [ ! -z $(which ARCHIDROID_RUNONCE) ]; then
 	if [ -z $(which ARCHIDROID_RUNONCE) ]; then
 		echo "INFO: Success!" >> "$LOG"
 		sysro || mount -o remount,ro /system
+		rm -f "$AD/ARCHIDROID_RUNONCE_STATUS"
 	else
 		echo "ERROR: Failed!" >> "$LOG"
 	fi
+else
+	rm -f "$AD/ARCHIDROID_RUNONCE_STATUS"
 fi
 
 # Mount external sd card if needed
