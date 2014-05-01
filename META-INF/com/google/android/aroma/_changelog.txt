@@ -14,7 +14,8 @@
 
 2. Poprawki:
 - dodalem w RUNONCE kill app w przypadku przytrzymania BACK
- 
+- usunieto preset TRICKSTER
+
 3. ISTOTNE ZMIANY:
 - dodano Aparat od Google (Google Camera)
 - dodano wybor roota w Aroma (Disable, Apps only, ADB only, Apps and ADB)
