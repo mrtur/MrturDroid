@@ -22,7 +22,8 @@
 # limitations under the License.
 
 AD="/data/media/0/MrturDroid"
-ADPROC="/data/archidroid/tmpfs"
+ADSYS="/system/archidroid"
+ADPROC="$ADSYS/tmpfs"
 ADCRON="$ADPROC/cron"
 LISTENERS_DIR="$ADCRON/listeners"
 
