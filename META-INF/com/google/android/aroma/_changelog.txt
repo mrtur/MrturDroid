@@ -1,4 +1,4 @@
-﻿MrturDroid 2.5.4 EXPERIMENTAL
+MrturDroid 2.5.4 EXPERIMENTAL
 
 1. Aktualizacja:
 - Semaphore 2.1.1
