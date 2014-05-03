@@ -17,6 +17,7 @@ MrturDroid 2.5.4 EXPERIMENTAL
 - dodalem w RUNONCE kill app w przypadku przytrzymania BACK
 - usunieto preset TRICKSTER
 - ADBLOCK: Fixed adblock sometimes not working on mobile data connection [by Archi]
+- Updated ArchiDroid Backend (dnsmasq, inotify-tools) to latest versions (by Archi]
 
 3. ISTOTNE ZMIANY:
 - dodano Aparat od Google (Google Camera)
