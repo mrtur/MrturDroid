@@ -6,11 +6,11 @@ MrturDroid 2.5.4 EXPERIMENTAL
 - XPrivacy 2.0.19
 - PA GAPPS 0417
 - usunieto VNC Viewer
-- BootManager 2.0.2
 - ViPER4Android 2.3.3
 - MrturDroid Update 1.6(2.5.3) -> del ZAMKNIJ+kosmetyka
 - UPDATE-adreno-drivers-occam
 - Complete Action Plus 2.1.1
+- BootManager 2.0.5
 
 2. Poprawki:
 - dodalem w RUNONCE kill app w przypadku przytrzymania BACK
