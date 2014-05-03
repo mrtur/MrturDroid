@@ -40,7 +40,7 @@ fi
 
 # ArchiDroid dynamic resolv.conf
 if [ ! -L "/system/archidroid/etc/resolv.conf" ]; then
-	ln -s "/data/media/0/ArchiDroid/tmpfs/resolv.conf" "/system/archidroid/etc/resolv.conf"
+	ln -s "/data/media/0/MrturDroid/tmpfs/resolv.conf" "/system/archidroid/etc/resolv.conf"
 fi
 
 # SuperSU
