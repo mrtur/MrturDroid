@@ -11,6 +11,7 @@ MrturDroid 2.5.4 EXPERIMENTAL
 - UPDATE-adreno-drivers-occam
 - Complete Action Plus 2.1.1
 - BootManager 2.0.5
+- Cool Tool 5.4.1
 
 2. Poprawki:
 - dodalem w RUNONCE kill app w przypadku przytrzymania BACK
