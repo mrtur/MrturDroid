@@ -11,7 +11,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#      http://www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -28,17 +28,18 @@
 # #                                                          #
 # ############################################################
 
-#
+##
 # Initializing Rom Information
-#
-setvar("preset_version","3");
+##
+
+setvar("preset_version","4");
 
 ini_set("dp","3");
 ini_set("rom_name",             "MrturDroid");
-ini_set("rom_version",          "2.5.3");
+ini_set("rom_version",          "2.5.4");
 ini_set("rom_author",           "mrtur");
 ini_set("rom_device",           "Nexus 4");
-ini_set("rom_date",             "14-04-2014");
+ini_set("rom_date",             "06-05-2014");
 
 #
 # THEME
@@ -55,6 +56,7 @@ fontresload( "1", "ttf/lucon.ttf;", "16" );
 resexec("exec/admount.sh", "/system");
 resexec("exec/admount.sh", "/data");
 resexec("exec/archidroid_init.sh", "Slim");
+setvar("extsdinstall", resexec("exec/archidroid_detect_zip.sh"));
 
 #
 # LANGUAGE
@@ -221,8 +223,10 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"hackers=1\n"+
 		"stock=0\n"+		
 		"bootanimation=mrtur\n"+
-#		"runtime=libdvm.so\n"+
+		"root=3\n"+
+		"runtime=libdvm.so\n"+
 		"mdu=0\n"+
+		"gcamera=1\n"+		
 		"gchrome=0\n"+
 		"gkeep=0\n"+
 		"gmail=0\n"+
@@ -234,7 +238,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"gtranslate=0\n"+
 		"trickster=0\n"+	
 		"viper4=0\n"+
-		"vnc=0\n"+
 		"titaniumbackup=1\n"+
 		"greenify=0\n"+
 		"lmt=0\n"+
@@ -281,6 +284,8 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		"stock","Stock(Slim)","<~mrturdroid.kernel.stock.desc>","select.selected",
 		"semaphore","Semaphore","<~mrturdroid.kernel.semaphore.desc>","select",
 		"hells","hells-Core","<~mrturdroid.kernel.hells.desc>","select",	
+		"faux","Faux","<~mrturdroid.kernel.faux.desc>","select",		
+		"franco","Franco","<~mrturdroid.kernel.franco.desc>","select",
 
 		"dpi","<#selectbg_g>DPI</#>","","group",
 		"240","240","<~mrturdroid.dpi.240.desc>","select",
@@ -307,11 +312,18 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		"none","<~common.none>","<~mrturdroid.bootanimation.none.desc>","select",
 		"bootanimationpreview","Preview","<~mrturdroid.previewbootanimation.desc>","check",
 		
-#		"runtime","<#selectbg_g>Runtime</#>","","group",
-#		"libart.so","ART","<~mrturdroid.runtime.art.desc>","select",
-#		"libdvm.so","Dalvik Legacy","<~mrturdroid.runtime.dalvik.desc>","select.selected",		
+		"root","<#selectbg_g>Root</#>","","group",
+		"0","Disable","","select",
+		"1","Apps only","","select",
+		"2","ADB only","","select",
+		"3","Apps and ADB","","select.selected",		
+						
+		"runtime","<#selectbg_g>Runtime</#>","","group",
+		"libart.so","ART","<~mrturdroid.runtime.art.desc>","select",
+		"libdvm.so","Dalvik Legacy","<~mrturdroid.runtime.dalvik.desc>","select.selected",		
 
 		"googleapps","<#selectbg_g>Google Apps</#>","","group",
+		"gcamera","Google Camera","<~mrturdroid.apps.gcamera.desc>","check",		
 		"gchrome","Google Chrome","","check.checked",
 		"gkeep","Google Keep [<~common.inverted>]","","check",
 		"gmail","Google Mail (Gmail)","","check.checked",
@@ -326,7 +338,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		"mdu","MrturDroid Update","<~mrturdroid.apps.mdu.desc>","check.checked",		
 		"trickster","Trickster MOD","<~mrturdroid.apps.trickster.desc>","check.checked",	
 		"viper4","ViPER4Android Audio Effects","<~mrturdroid.apps.viper4.desc>","check.checked",	
-		"vnc","VNC Viewer","<~mrturdroid.apps.vnc.desc>","check.checked",
 		"titaniumbackup","Titanium Backup","<~mrturdroid.apps.titaniumbackup.desc>","check.checked",
 		"greenify","Greenify","<~mrturdroid.apps.greenify.desc>","check.checked",
 		"lmt","LMT","<~mrturdroid.apps.lmt.desc>","check",
@@ -370,7 +381,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 	);
 	endif;
 	
-#	if file_getprop("/tmp/aroma-data/mrturdroid.prop","runtime") == "libdvm.so" then
+	if file_getprop("/tmp/aroma-data/mrturdroid.prop","runtime") == "libdvm.so" then
 		form(
 			"<~mrturdroid.custom.extra>",
 			"<~mrturdroid.custom.desc>",
@@ -386,7 +397,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		);
 		write("/data/media/0/MrturDroid/AromaPreset/Slim/mrturdroidxposed.prop",
 		readtmpfile("mrturdroidxposed.prop"));
-#	endif;
+	endif;
 		
 	if file_getprop("/tmp/aroma-data/mrturdroid.prop","buildtweaks") == "1" then
 		form(

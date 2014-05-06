@@ -22,7 +22,8 @@
 # limitations under the License.
 
 AD="/data/media/0/MrturDroid"
-ADPROC="/dev/archidroid"
+ADSYS="/system/archidroid"
+ADPROC="$ADSYS/tmpfs"
 ADCRON="$ADPROC/cron"
 LOG="$AD/Cron.log"
 MONITORS_DIR="$ADCRON/monitors"
@@ -53,6 +54,7 @@ MONITOR_DNS() {
 			DNS1="$CURDNS1"
 			DNS2="$CURDNS2"
 			REGENERATE_RESOLV
+			ARCHIDROID_INIT "RELOAD" "archidroid_dnsproxy2"
 		fi
 		sleep 2
 	done

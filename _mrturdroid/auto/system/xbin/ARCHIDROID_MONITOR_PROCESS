@@ -33,7 +33,8 @@ if [ -z "$PROCESS" ]; then
 fi
 
 AD="/data/media/0/MrturDroid"
-ADPROC="/dev/archidroid"
+ADSYS="/system/archidroid"
+ADPROC="$ADSYS/tmpfs"
 ADCRON="$ADPROC/cron"
 LOG="$AD/Cron.log"
 MONITORS_DIR="$ADCRON/monitors"
@@ -43,9 +44,8 @@ exec 1>>"$LOG"
 exec 2>&1
 
 PROCESS_WAIT_FOR_FINISH() {
-	# Unfortunately I couldn't find a better method for this, sorry
-	if [ ! -z "$1" ] && [ -e "/proc/$1" ]; then
-		while [ "$(kill -0 "$1" >/dev/null 2>&1; echo $?)" -eq 0 ]; do
+	if [ ! -z "$1" ] && [ -d "/proc/$1" ]; then
+		while [ -d "/proc/$1" ]; do
 			sleep 1
 		done
 	fi

@@ -1,11 +1,27 @@
 <b><#selectbg_g>Preferowane ustawienia mrtur'a</#></b>
 
 ##################
+#  Root
+#
+# Disable
+# Apps only
+# ADB only
+# <#selectbg_g>Apps and ADB</#>
+
+##################
+#  Runtime
+#
+# <#selectbg_g>Dalvik</#>
+# ART
+
+##################
 #  Kernel
 #
 # Stock(Slim)
 # Semaphore
 # <#selectbg_g>Hells-Core</#>
+# Faux
+# Franco
 
 ##################
 #  DPI
@@ -42,6 +58,7 @@
 ##################
 #  Google Apps
 #
+# <#selectbg_g>Google Camera</#>
 # Google Chrome
 # Google Keep
 # Google Mail
@@ -51,14 +68,13 @@
 # Google Plus
 # Google Play Music
 # Google Translate
-# ViPER4Android Audio Effects
 
 ##################
 #  MrturDroid Apps
 #
 # MrturDroid Update
 # Trickster MOD
-# VNC Viewer
+# ViPER4Android Audio Effects
 # <#selectbg_g>Titanium Backup</#>
 # Greenify
 # LMT

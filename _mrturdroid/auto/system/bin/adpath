@@ -16,27 +16,18 @@
 # Mounts
 # Used by ArchiDroid for providing universal device-based paths
 fs="ext4" # Filesystem of blocks [USED]
-boot="/dev/block/mmcblk0p6" # ROM's kernel image
-recovery="/dev/block/mmcblk0p7" # Recovery image
-radio="/dev/block/mmcblk0p1" # Modem image
 cache="/dev/block/mmcblk0p22" # Cache partition
 system="/dev/block/mmcblk0p21" # System partition
 data="/dev/block/mmcblk0p23" # Data and internal memory
 
 case $1 in
 	fs) echo "$fs" ;;
-	boot) echo "$boot" ;;
-	recovery) echo "$recovery" ;;
-	radio) echo "$radio" ;;
 	cache) echo "$cache" ;;
 	system) echo "$system" ;;
 	data) echo "$data" ;;
 
 *)
 echo "fs $fs
-boot $boot
-recovery $recovery
-radio $radio
 cache $cache
 system $cache
 data $data

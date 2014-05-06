@@ -1,24 +1,31 @@
- MrturDroid 2.5.3
+ MrturDroid 2.5.4
 
 1. Aktualizacja:
-- Semaphore 2.1.0 kernel
-- BlackPlayStore 4.6.17
-- MrturDroid Update 1.3(2.5.3) (kosmetyka)
-- Google Chrome 34.0.1847.114
-- hells-Core-b46-kk-t4_anykernel
+- Semaphore 2.1.1
+- Update ArchiDroid Backend
+- XPrivacy 2.0.19
+- PA GAPPS 0417
+- usunieto VNC Viewer
+- ViPER4Android 2.3.3
+- MrturDroid Update 1.6(2.5.3) -> del ZAMKNIJ+kosmetyka
 - UPDATE-adreno-drivers-occam
-- AdAway and MOAB adblocking
-- Xposed 2.5.1
-- Google Keyboard 3.0.19423
-- TouchPal 5.5.5.1
-- App Settings 1.8
-- XPrivacy to 2.0.16
+- Complete Action Plus 2.1.1
+- BootManager 2.0.5
+- Cool Tool 5.4.1
 
 2. Poprawki:
-- przeniesiono BetterBatteryStats to priv-app
- 
+- dodalem w RUNONCE kill app w przypadku przytrzymania BACK
+- usunieto preset TRICKSTER
+- ADBLOCK: Fixed adblock sometimes not working on mobile data connection [by Archi]
+- Updated ArchiDroid Backend (dnsmasq, inotify-tools) to latest versions [by Archi]
+
 3. ISTOTNE ZMIANY:
-- Baza gapps instalowana jest bez Aromy. W "Sam szkielet" dalej jest omijana. 
-- ikone lockscreen'a MrturDroid dodano na stale w ustawieniach
-- dodano moduł Xposed -> Complete Action Plus
-- Slim-mako-4.4.2.build.4.4-WEEKLY-3791
+- dodano Aparat od Google (Google Camera)
+- dodano wybor roota w Aroma (Disable, Apps only, ADB only, Apps and ADB)
+- dodano wybor "Czas wykonywania" (ART lub Dalvik)
+- optymalizacja skryptów Archi'ego
+- dodano Faux kernel do wyboru w Aroma
+- dodano Franco kernel do wyboru w Aroma
+- Slim-mako-4.4.2.build.4.9-WEEKLY-3943.zip
+
+ ZDECYDOWANIE ZALECAM FULL WIPE

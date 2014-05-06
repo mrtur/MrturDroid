@@ -24,7 +24,7 @@
 AD="/data/media/0/MrturDroid"
 ADSYS="/system/archidroid"
 ADDEV="$ADSYS/dev"
-ADPROC="/dev/archidroid"
+ADPROC="$ADSYS/tmpfs"
 ADCRON="$ADPROC/cron"
 LOG="$AD/Cron.log"
 ADSTATUS="$ADPROC/ARCHIDROID_CRON_STATUS"
@@ -182,6 +182,12 @@ rm -f "$LISTENERS_DIR"/* "$MONITORS_DIR/"* "$INTERNAL_EVENTS_DIR"/* "$EXTERNAL_E
 exec 1>>"$LOG"
 exec 2>&1
 echo "CRON: Active! $$"
+
+# Halt if we failed creating proper folders
+if [ ! -d "$ADCRON" ]; then
+	echo "FATAL ERROR: Could not create directories, please investigate!"
+	exit 1
+fi
 
 LISTEN_EXTERNAL_EVENTS &
 LISTEN_INTERNAL_EVENTS &

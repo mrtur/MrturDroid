@@ -116,6 +116,8 @@ mrturdroid.kernel.stock.desc=Pochodzący z samego ROMu
 mrturdroid.kernel.franco.desc=Zalecany jako alternatywa dla stocka
 mrturdroid.kernel.semaphore.desc=Alternatywa dla stocka
 mrturdroid.kernel.hells.desc=Podobno stabilny i bardzo "przyjazny" dla baterii ;)
+mrturdroid.kernel.faux.desc=Alternatywa do wyboru :)
+mrturdroid.kernel.franco.desc=Alternatywa do wyboru :)
 
 mrturdroid.dpi.240.desc=UWAGA! Możliwe niewielkie bugi graficzne
 mrturdroid.dpi.268.desc=Zalecane przez autorów SlimKat
@@ -152,7 +154,6 @@ mrturdroid.other=Inne
 mrturdroid.apps.mdu.desc=Zainstaluję aplikację MrturDroid Update (monitoruje zmiany i informuje o aktualizacjach)
 mrturdroid.apps.trickster.desc=Program do obsługi zaawansowanych opcji w modyfikowanych kernelach.
 mrturdroid.apps.viper4.desc=Podnosi jakość dźwięku i próg głośności twojego telefonu. Usuwa DSP Manager
-mrturdroid.apps.vnc.desc=Klient VNC pozwalający na używanie GUI w MrturDroidowym Pocket Debianie
 mrturdroid.apps.titaniumbackup.desc=Świetne narzędzie do zarządzania kopiami zapasowymi pomiędzy flashami romów
 mrturdroid.apps.greenify.desc=Użyteczne w celu zamrażania zbędnych aplikacji
 mrturdroid.apps.lmt.desc=Użyteczne narzędzie znane jako pie ze SlimBeana
@@ -164,6 +165,7 @@ mrturdroid.apps.totalcommander.desc=Jeden z najlepszych menadżerów plików, ws
 mrturdroid.apps.youtube.desc=Odtwarzacz YouTube
 mrturdroid.apps.facebook.desc=Facebook i Messenger
 mrturdroid.apps.gplaymusic.desc=Zamienia Apollo
+mrturdroid.apps.gcamera.desc=Nowa wersja aparatu od Google. Zamienia systemowy.
 
 mrturdroid.tweaks.buildtweaks.desc=Wiele tweaków build.prop, w tym m.in. głębszy sen oraz większa wydajność
 mrturdroid.tweaks.debianoff.desc=Zaznacz jeżeli nie masz zamiaru używać środowiska Debian

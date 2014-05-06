@@ -4,13 +4,13 @@
 Ten ROM oparty jest na pracy wielu innych ludzi, ich modyfikacji, ich poprawek, ich skryptów i innych implementacjach.Podziękowania dla developerów:
 - Aroma & Aroma File Manager
 - ROMS: Archidroid | Slim Kat
-- GApps: Paranoid Android GApps | Team BlackOut Inverts
+- GApps: SlimKat Android GAPPS | Team BlackOut Inverts
 - Launcher: Nova Launcher | Google Home
-- Klawiatura: TouchPal X | Hacker's Keyboard
-- Narzędzia: CrossBreeder | Xposed Framework + moduły
-- Xposed Modules: App Settings | XPrivacy | BootManager
+- Klawiatura: TouchPal X | Hacker's Keyboard | Google Keyboard
+- Narzędzia: Xposed Framework + moduły
+- Xposed Modules: App Settings | XPrivacy | BootManager | Complete Action Plus
 - Qualcomm Adreno GPU
-- Wykorzystano kernele : HellsCore | Semaphore
+- Wykorzystano kernele : HellsCore | Semaphore | Faux | Franco
 - wiele darmowych aplikacji
 
 Specjalne podziękowania dla :
