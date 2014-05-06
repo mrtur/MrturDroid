@@ -1,31 +1,7 @@
-MrturDroid 2.5.4 EXPERIMENTAL
+MrturDroid 2.5.5 EXPERIMENTAL
 
 1. Aktualizacja:
-- Semaphore 2.1.1
-- Update ArchiDroid Backend
-- XPrivacy 2.0.19
-- PA GAPPS 0417
-- usunieto VNC Viewer
-- ViPER4Android 2.3.3
-- MrturDroid Update 1.6(2.5.3) -> del ZAMKNIJ+kosmetyka
-- UPDATE-adreno-drivers-occam
-- Complete Action Plus 2.1.1
-- BootManager 2.0.5
-- Cool Tool 5.4.1
 
 2. Poprawki:
-- dodalem w RUNONCE kill app w przypadku przytrzymania BACK
-- usunieto preset TRICKSTER
-- ADBLOCK: Fixed adblock sometimes not working on mobile data connection [by Archi]
-- Updated ArchiDroid Backend (dnsmasq, inotify-tools) to latest versions [by Archi]
 
 3. ISTOTNE ZMIANY:
-- dodano Aparat od Google (Google Camera)
-- dodano wybor roota w Aroma (Disable, Apps only, ADB only, Apps and ADB)
-- dodano wybor "Czas wykonywania" (ART lub Dalvik)
-- optymalizacja skryptów Archi'ego
-- dodano Faux kernel do wyboru w Aroma
-- dodano Franco kernel do wyboru w Aroma
-- Slim-mako-4.4.2.build.4.9-WEEKLY-3943.zip
-
- ZDECYDOWANIE ZALECAM FULL WIPE
