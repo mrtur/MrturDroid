@@ -3,12 +3,12 @@
 ro.build.id=KVT49L
 ro.build.display.id=MrturDroid 2.5.4 EXPERIMENTAL
 ro.mrturdroid.version=MrturDroid 2.5.4 EXPERIMENTAL
-ro.build.version.incremental=3891
+ro.build.version.incremental=3943
 ro.build.version.sdk=19
 ro.build.version.codename=REL
 ro.build.version.release=4.4.2
-ro.build.date=Mon Apr 28 09:57:24 CEST 2014
-ro.build.date.utc=1398671844
+ro.build.date=Tue May  6 01:35:49 CEST 2014
+ro.build.date.utc=1399332949
 ro.build.type=userdebug
 ro.build.user=autobuild
 ro.build.host=slimgerrit
@@ -48,8 +48,8 @@ ro.build.selinux=1
 dalvik.vm.debug.alloc=0
 BUILD_DISPLAY_ID=KVT49L
 
-ro.slim.version=Slim-4.4.2.build.4.8-WEEKLY-3891
-ro.modversion=Slim-mako-4.4.2.build.4.8-WEEKLY-3891
+ro.slim.version=Slim-4.4.2.build.4.9-WEEKLY-3943
+ro.modversion=Slim-mako-4.4.2.build.4.9-WEEKLY-3943
 ro.config.ringtone=Magic_Tone.mp3
 ro.config.notification_sound=notification.mp3
 ro.carrier=unknown

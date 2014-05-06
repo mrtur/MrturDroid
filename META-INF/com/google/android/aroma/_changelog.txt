@@ -25,7 +25,7 @@ MrturDroid 2.5.4 EXPERIMENTAL
 - dodano wybor "Czas wykonywania" (ART lub Dalvik)
 - optymalizacja skryptów Archi'ego
 - dodano Faux kernel do wyboru w Aroma
-- Slim-mako-4.4.2.build.4.8-WEEKLY-3891.zip
 - dodano Franco kernel do wyboru w Aroma
+- Slim-mako-4.4.2.build.4.9-WEEKLY-3943.zip
 
  ZDECYDOWANIE ZALECAM FULL WIPE
