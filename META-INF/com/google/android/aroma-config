@@ -157,6 +157,7 @@ else
 
 		"preset","<#selectbg_g><~mrturdroid.preset.group></#>","","group",
 		"custom","<~mrturdroid.preset.custom>", "<~mrturdroid.preset.custom.desc>","select.selected",
+		"previousexpert","<~mrturdroid.preset.previousexpert>","<~mrturdroid.preset.previousexpert.desc>","select",		
 		"previous","<~mrturdroid.preset.previous>","<~mrturdroid.preset.previous.desc>","select",
 		"barebones","<~mrturdroid.preset.barebones>","<~mrturdroid.preset.barebones.desc>","select",
 		"recovery","Recovery","","select",
@@ -269,6 +270,14 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"adreno=1\n"+		
 		"zerowakeup=0\n"
 	);
+endif;
+
+if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "previousexpert" then
+	# TODO: Aroma hangs when no files are present, add exception for this later
+	writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
+	writetmpfile("mrturdroid.prop",read(getvar("adaroma")+"/mrturdroid.prop"));
+	writetmpfile("mrturdroidxposed.prop",read(getvar("adaroma")+"/mrturdroidxposed.prop"));
+	writetmpfile("mrturdroidbuild.prop",read(getvar("adaroma")+"/mrturdroidbuild.prop"));
 endif;
 
 ###############################
