@@ -1,6 +1,7 @@
 MrturDroid 2.5.5 EXPERIMENTAL
 
 1. Aktualizacja:
+- Google Camera 2.1.043
 
 2. Poprawki:
 - Code review of adflash utility, POSIX-standard fixes, misc improvements and cleanup [by Archi]
