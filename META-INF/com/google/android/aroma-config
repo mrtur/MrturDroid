@@ -44,6 +44,7 @@ ini_set("rom_date",             "XX-05-2014");
 #
 # THEME
 #
+ini_set("force_colorspace","rgba");
 theme("Black&White");
 
 #
@@ -71,19 +72,19 @@ setvar("aroma_fast","OFF");
 if getvar("aroma_fast")=="OFF" then
 	anisplash(
 	1,
-	"preview/splash/mrturdroidsplash13", 100,
-	"preview/splash/mrturdroidsplash12", 100,
-	"preview/splash/mrturdroidsplash11", 100,
-	"preview/splash/mrturdroidsplash10", 100,
-	"preview/splash/mrturdroidsplash09", 100,
-	"preview/splash/mrturdroidsplash08", 100,
-	"preview/splash/mrturdroidsplash07", 100,
-	"preview/splash/mrturdroidsplash06", 100,
-	"preview/splash/mrturdroidsplash05", 100,
-	"preview/splash/mrturdroidsplash04", 100,
-	"preview/splash/mrturdroidsplash03", 100,
+	"preview/splash/mrturdroidsplash01", 100,
 	"preview/splash/mrturdroidsplash02", 100,
-	"preview/splash/mrturdroidsplash01", 500
+	"preview/splash/mrturdroidsplash03", 100,
+	"preview/splash/mrturdroidsplash04", 100,
+	"preview/splash/mrturdroidsplash05", 100,
+	"preview/splash/mrturdroidsplash06", 100,
+	"preview/splash/mrturdroidsplash07", 100,
+	"preview/splash/mrturdroidsplash08", 100,
+	"preview/splash/mrturdroidsplash09", 100,
+	"preview/splash/mrturdroidsplash10", 100,
+	"preview/splash/mrturdroidsplash11", 100,
+	"preview/splash/mrturdroidsplash12", 100,
+	"preview/splash/mrturdroidsplash13", 500
 	);
 
 	viewbox(

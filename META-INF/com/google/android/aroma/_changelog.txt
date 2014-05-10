@@ -9,3 +9,4 @@ MrturDroid 2.5.5 EXPERIMENTAL
 - Fixed adflash not showing changelog properly, thanks to @oaid [by Archi]
 
 3. ISTOTNE ZMIANY:
+- Aroma instaler juz nie falszuje kolorow

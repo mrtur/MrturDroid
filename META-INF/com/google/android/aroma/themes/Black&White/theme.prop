@@ -25,7 +25,7 @@ img.radio.on.push=radio_on_press
 
 
 color.winbg           = #000
-color.winbg_g         = #1082ac
+color.winbg_g         = #d98d15
 color.winfg           = #fff
 color.winfg_gray      = #666
 color.dialogbg        = #000
@@ -38,11 +38,11 @@ color.controlbg       = #000000
 color.controlbg_g     = #000000
 color.controlfg       = #ffffff
 color.selectbg        = #FFFFFF
-color.selectbg_g      = #1082ac
+color.selectbg_g      = #d98d15
 color.selectfg        = #fff
 color.titlebg         = #000
 color.titlebg_g       = #000
-color.titlefg         = #1082ac
+color.titlefg         = #d98d15
 color.dlgtitlebg      = #fff
 color.dlgtitlebg_g    = #000
 color.dlgtitlefg      = #fff
