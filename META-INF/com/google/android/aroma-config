@@ -178,6 +178,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "previ
 			alert("MrturDroid Wizard","<~mrturdroid.detect.previouspreset.fail>","@welcome");
 			writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
 		else
+			# TODO: Aroma hangs when no files are present, add exception for this later
 			writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
 			writetmpfile("mrturdroid.prop",read(getvar("adaroma")+"/mrturdroid.prop"));
 			writetmpfile("mrturdroidxposed.prop",read(getvar("adaroma")+"/mrturdroidxposed.prop"));
