@@ -171,13 +171,18 @@ endif;
 ##############################
 ### PREVIOUS PRESET EXPERT ###
 ##############################
-
+	
 if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "previousexpert" then
-	# TODO: Aroma hangs when no files are present, add exception for this later
-	writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
-	writetmpfile("mrturdroid.prop",read(getvar("adaroma")+"/mrturdroid.prop"));
-	writetmpfile("mrturdroidxposed.prop",read(getvar("adaroma")+"/mrturdroidxposed.prop"));
-	writetmpfile("mrturdroidbuild.prop",read(getvar("adaroma")+"/mrturdroidbuild.prop"));
+	setvar("preset_version_probe",read(getvar("adaroma")+"/version.txt"));
+		if getvar("preset_version")!=getvar("preset_version_probe") then
+			alert("MrturDroid Wizard","<~mrturdroid.detect.previouspreset.fail>","@welcome");
+			writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
+		else
+			writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
+			writetmpfile("mrturdroid.prop",read(getvar("adaroma")+"/mrturdroid.prop"));
+			writetmpfile("mrturdroidxposed.prop",read(getvar("adaroma")+"/mrturdroidxposed.prop"));
+			writetmpfile("mrturdroidbuild.prop",read(getvar("adaroma")+"/mrturdroidbuild.prop"));
+		endif;
 endif;
 
 #######################
@@ -185,7 +190,7 @@ endif;
 #######################
 	
 if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "previous" then
-	setvar("preset_version_probe",read("/data/media/0/MrturDroid/AromaPreset/Slim_work/version.txt"));
+	setvar("preset_version_probe",read(getvar("adaroma")+"/version.txt"));
 		if getvar("preset_version")!=getvar("preset_version_probe") then
 			alert("MrturDroid Wizard","<~mrturdroid.detect.previouspreset.fail>","@welcome");
 			writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
