@@ -132,6 +132,7 @@ if getvar("aroma_fast")=="OFF" then
 
 		"preset","<#selectbg_g><~mrturdroid.preset.group></#>","","group",
 		"custom","<~mrturdroid.preset.custom>", "<~mrturdroid.preset.custom.desc>","select.selected",
+		"previousexpert","<~mrturdroid.preset.previousexpert>","<~mrturdroid.preset.previousexpert.desc>","select",		
 		"previous","<~mrturdroid.preset.previous>","<~mrturdroid.preset.previous.desc>","select",
 		"barebones","<~mrturdroid.preset.barebones>","<~mrturdroid.preset.barebones.desc>","select",
 		"recovery","Recovery","<~mrturdroid.preset.recovery.desc>","select",
