@@ -59,7 +59,7 @@ fontresload( "1", "ttf/lucon.ttf;", "16" );
 resexec("exec/admount.sh", "/system");
 resexec("exec/admount.sh", "/data");
 resexec("exec/archidroid_init.sh", "Slim_work");
-resexec("exec/mrturdroid_init.sh", "mrtur");
+resexec("exec/archidroid_init.sh", "mrtur");
 setvar("extsdinstall", resexec("exec/archidroid_detect_zip.sh"));
 
 #
