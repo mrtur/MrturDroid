@@ -10,3 +10,4 @@ MrturDroid 2.5.5 EXPERIMENTAL
 
 3. ISTOTNE ZMIANY:
 - Aroma instaler juz nie falszuje kolorow
+- Aroma installer tryby instalacji (Poprzedni preset i Porzedni preset+Edycja)

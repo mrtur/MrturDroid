@@ -34,6 +34,7 @@
 
 setvar("preset_version","9");
 setvar("adaroma","/data/media/0/MrturDroid/AromaPreset/Slim_work");
+setvar("adaromamrtur","/data/media/0/MrturDroid/AromaPreset/mrtur");
 
 ini_set("dp","3");
 ini_set("rom_name",             "MrturDroid");
@@ -58,6 +59,7 @@ fontresload( "1", "ttf/lucon.ttf;", "16" );
 resexec("exec/admount.sh", "/system");
 resexec("exec/admount.sh", "/data");
 resexec("exec/archidroid_init.sh", "Slim_work");
+resexec("exec/mrturdroid_init.sh", "mrtur");
 setvar("extsdinstall", resexec("exec/archidroid_detect_zip.sh"));
 
 #
@@ -134,9 +136,9 @@ if getvar("aroma_fast")=="OFF" then
 		"custom","<~mrturdroid.preset.custom>", "<~mrturdroid.preset.custom.desc>","select.selected",
 		"previousexpert","<~mrturdroid.preset.previousexpert>","<~mrturdroid.preset.previousexpert.desc>","select",		
 		"previous","<~mrturdroid.preset.previous>","<~mrturdroid.preset.previous.desc>","select",
+		"mrtur","<~mrturdroid.preset.mrtur>","<~mrturdroid.preset.mrtur.desc>","select",		
 		"barebones","<~mrturdroid.preset.barebones>","<~mrturdroid.preset.barebones.desc>","select",
-		"recovery","Recovery","<~mrturdroid.preset.recovery.desc>","select",
-		"mrtur","<~mrturdroid.preset.mrtur>","<~mrturdroid.preset.mrtur.desc>","select"
+		"recovery","<~mrturdroid.preset.recovery>","<~mrturdroid.preset.recovery.desc>","select"
 	);
 else
 	form(
@@ -160,10 +162,38 @@ else
 		"custom","<~mrturdroid.preset.custom>", "<~mrturdroid.preset.custom.desc>","select.selected",
 		"previousexpert","<~mrturdroid.preset.previousexpert>","<~mrturdroid.preset.previousexpert.desc>","select",		
 		"previous","<~mrturdroid.preset.previous>","<~mrturdroid.preset.previous.desc>","select",
+		"mrtur","<~mrturdroid.preset.mrtur>","<~mrturdroid.preset.mrtur.desc>","select",		
 		"barebones","<~mrturdroid.preset.barebones>","<~mrturdroid.preset.barebones.desc>","select",
-		"recovery","Recovery","","select",
-		"mrtur","<~mrturdroid.preset.mrtur>","<~mrturdroid.preset.mrtur.desc>","select"
+		"recovery","Recovery","","select"
 	);
+endif;
+
+##############################
+### PREVIOUS PRESET EXPERT ###
+##############################
+
+if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "previousexpert" then
+	# TODO: Aroma hangs when no files are present, add exception for this later
+	writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
+	writetmpfile("mrturdroid.prop",read(getvar("adaroma")+"/mrturdroid.prop"));
+	writetmpfile("mrturdroidxposed.prop",read(getvar("adaroma")+"/mrturdroidxposed.prop"));
+	writetmpfile("mrturdroidbuild.prop",read(getvar("adaroma")+"/mrturdroidbuild.prop"));
+endif;
+
+#######################
+### PREVIOUS PRESET ###
+#######################
+	
+if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "previous" then
+	setvar("preset_version_probe",read("/data/media/0/MrturDroid/AromaPreset/Slim_work/version.txt"));
+		if getvar("preset_version")!=getvar("preset_version_probe") then
+			alert("MrturDroid Wizard","<~mrturdroid.detect.previouspreset.fail>","@welcome");
+			writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
+		else
+			writetmpfile("mrturdroid.prop",read(getvar("adaroma")+"/mrturdroid.prop"));
+			writetmpfile("mrturdroidxposed.prop",read(getvar("adaroma")+"/mrturdroidxposed.prop"));
+			writetmpfile("mrturdroidbuild.prop",read(getvar("adaroma")+"/mrturdroidbuild.prop"));
+		endif;
 endif;
 
 ################
@@ -188,35 +218,11 @@ else
 	);
 endif;
 
-#######################
-### PREVIOUS PRESET ###
-#######################
-
-	
-if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "previous" then
-	setvar("preset_version_probe",read("/data/media/0/MrturDroid/AromaPreset/Slim_work/version.txt"));
-		if getvar("preset_version")!=getvar("preset_version_probe") then
-			alert("MrturDroid Wizard","<~mrturdroid.detect.previouspreset.fail>","@welcome");
-			writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
-		else
-			writetmpfile("mrturdroid.prop",read(getvar("adaroma")+"/mrturdroid.prop"));
-			writetmpfile("mrturdroidxposed.prop",read(getvar("adaroma")+"/mrturdroidxposed.prop"));
-			writetmpfile("mrturdroidbuild.prop",read(getvar("adaroma")+"/mrturdroidbuild.prop"));
-		endif;
-endif;
-
 #############
 ### mrtur ###
 #############
 
 if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur" then
-	textbox(
-		"Preset",
-		"Preset",
-		"@welcome",
-		resread("preset_mrtur.txt")
-	);
-
 	writetmpfile(
 		"mrturdroid.prop",
 		"kernel=hells\n"+
@@ -255,6 +261,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"buildtweaks=1\n"+
 		"debianoff=0\n"
 	);
+		write(getvar("adaromamrtur")+"/mrturdroid.prop",readtmpfile("mrturdroid.prop"));	
 	writetmpfile(
 		"mrturdroidxposed.prop",
 		
@@ -264,6 +271,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"actionplus=1\n"+		
 		"xprivacy=0\n"
 	);
+		write(getvar("adaromamrtur")+"/mrturdroidxposed.prop",readtmpfile("mrturdroidxposed.prop"));		
 	writetmpfile(
 		"mrturdroidbuild.prop",
 
@@ -271,14 +279,12 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"adreno=1\n"+		
 		"zerowakeup=0\n"
 	);
-endif;
+		write(getvar("adaromamrtur")+"/mrturdroidbuild.prop",readtmpfile("mrturdroidbuild.prop"));	
 
-if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "previousexpert" then
-	# TODO: Aroma hangs when no files are present, add exception for this later
 	writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
-	writetmpfile("mrturdroid.prop",read(getvar("adaroma")+"/mrturdroid.prop"));
-	writetmpfile("mrturdroidxposed.prop",read(getvar("adaroma")+"/mrturdroidxposed.prop"));
-	writetmpfile("mrturdroidbuild.prop",read(getvar("adaroma")+"/mrturdroidbuild.prop"));
+	writetmpfile("mrturdroid.prop",read(getvar("adaromamrtur")+"/mrturdroid.prop"));
+	writetmpfile("mrturdroidxposed.prop",read(getvar("adaromamrtur")+"/mrturdroidxposed.prop"));
+	writetmpfile("mrturdroidbuild.prop",read(getvar("adaromamrtur")+"/mrturdroidbuild.prop"));		
 endif;
 
 ###############################
