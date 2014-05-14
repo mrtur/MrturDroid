@@ -1,5 +1,5 @@
 
-<@center><b><#selectbg_g>Informacja!!</#></b>
+<@center><b><#selectbg_g>Informacja</#></b>
 <@left>
 Wybrałeś aplikację ViPER4Android.
 Podnosi ona jakość dźwięku i próg głośności twojego telefonu.

@@ -1,14 +1,14 @@
-ui_print("#########################################################");
-ui_print("#<#1082ac>  __  __      _              ____            _     _   </#>#");
-ui_print("#<#1082ac> |  \/  |_ __| |_ _   _ _ __|  _ \ _ __ ___ (_) __| |  </#>#");
-ui_print("#<#1082ac> | |\/| | '__| __| | | | '__| | | | '__/ _ \| |/ _` |  </#>#");
-ui_print("#<#1082ac> | |  | | |  | |_| |_| | |  | |_| | | | (_) | | (_| |  </#>#");
-ui_print("#<#1082ac> |_|  |_|_|   \__|\__,_|_|  |____/|_|  \___/|_|\__,_|  </#>#");
-ui_print("#<#1082ac>                                                       </#>#");
-ui_print("#########################################################");
+#ui_print("#########################################################");
+#ui_print("#<#d98d15>  __  __      _              ____            _     _   </#>#");
+#ui_print("#<#d98d15> |  \/  |_ __| |_ _   _ _ __|  _ \ _ __ ___ (_) __| |  </#>#");
+#ui_print("#<#d98d15> | |\/| | '__| __| | | | '__| | | | '__/ _ \| |/ _` |  </#>#");
+#ui_print("#<#d98d15> | |  | | |  | |_| |_| | |  | |_| | | | (_) | | (_| |  </#>#");
+#ui_print("#<#d98d15> |_|  |_|_|   \__|\__,_|_|  |____/|_|  \___/|_|\__,_|  </#>#");
+#ui_print("#<#d98d15>                                                       </#>#");
+#ui_print("#########################################################");
 #sleep (1);
 (getprop("ro.product.device") == "mako" || getprop("ro.build.product") == "mako") || abort("This package is for \"mako\" devices; this is a \"" + getprop("ro.product.device") + "\".");
-ui_print("<b><#1082ac> MrturDroid ~</#></b> Ready!");
+ui_print("<b><#d98d15> MrturDroid ~</#></b> Ready!");
 set_progress(0.01);
 #sleep (2);
 ################
@@ -17,12 +17,12 @@ set_progress(0.01);
 
 ### TWRP ###
 if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "twrp" then
-		ui_print("<b><#1082ac> MrturDroid ~</#></b> Flashing TWRP Recovery");
+		ui_print("<b><#d98d15> MrturDroid ~</#></b> Flashing TWRP Recovery");
 	assert(package_extract_file("_mrturdroid/recovery/twrp.img", "/tmp/recovery.img"),write_raw_image("/tmp/recovery.img", "/dev/block/mmcblk0p7"),delete("/tmp/recovery.img"));
 endif;
 ### CWM ###
 if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "cwm" then
-		ui_print("<b><#1082ac> MrturDroid ~</#></b> Flashing ClockWorkMod Recovery");
+		ui_print("<b><#d98d15> MrturDroid ~</#></b> Flashing ClockWorkMod Recovery");
 	assert(package_extract_file("_mrturdroid/recovery/cwm.img", "/tmp/recovery.img"),write_raw_image("/tmp/recovery.img", "/dev/block/mmcblk0p7"),delete("/tmp/recovery.img"));
 endif;
 
@@ -34,7 +34,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 	set_progress(0.02);
 
 	if file_getprop("/tmp/aroma-data/mrturdroidwipe.prop","wipe") == "no" && file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") != "barebones" then
-		ui_print("<b><#1082ac> MrturDroid ~</#></b> Backing up all addons");
+		ui_print("<b><#d98d15> MrturDroid ~</#></b> Backing up all addons");
 		package_extract_file("system/bin/backuptool.sh", "/tmp/backuptool.sh");
 		package_extract_file("system/bin/backuptool.functions", "/tmp/backuptool.functions");
 		set_perm(0, 0, 0777, "/tmp/backuptool.sh");
@@ -47,13 +47,13 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 	### UNLOCK ###
 	run_program("/tmp/adlock.sh", "unlock", "/system/etc/hosts");
 
-	ui_print("<b><#1082ac> MrturDroid ~</#></b> Formatting Partitions");
+	ui_print("<b><#d98d15> MrturDroid ~</#></b> Formatting Partitions");
 	delete_recursive("/system");
 
 	set_progress(0.07);
 
 	if file_getprop("/tmp/aroma-data/mrturdroidwipe.prop","wipe") == "yes" then
-		ui_print("<b><#1082ac> MrturDroid ~</#></b> Formatting /data excluding /data/media");
+		ui_print("<b><#d98d15> MrturDroid ~</#></b> Formatting /data excluding /data/media");
 		package_extract_file("_mrturdroid/exec/wipe.sh", "/tmp/wipe.sh");
 		set_perm(0, 0, 0777, "/tmp/wipe.sh");
 		run_program("/tmp/wipe.sh");
@@ -63,26 +63,26 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 	set_progress(0.08);
 
 	if file_getprop("/tmp/aroma-data/mrturdroidwipe.prop","wipe") == "no" then
-		ui_print("<b><#1082ac> MrturDroid ~</#></b> wipe cache, dalvik cache, resource cache");
+		ui_print("<b><#d98d15> MrturDroid ~</#></b> wipe cache, dalvik cache, resource cache");
 		delete_recursive("/data/dalvik-cache");
 		delete_recursive("/dalvik/dalvik-cache");
 		delete_recursive("/data/resource-cache");
 	endif;
 
-	ui_print("<b><#1082ac> MrturDroid ~</#></b> Executing Archi's Scripts");
+	ui_print("<b><#d98d15> MrturDroid ~</#></b> Executing Archi's Scripts");
 	package_extract_file("_mrturdroid/exec/archidroid.sh", "/tmp/archidroid.sh");
 	set_perm(0, 0, 0777, "/tmp/archidroid.sh");
 
 
 	if file_getprop("/tmp/aroma-data/mrturdroidwipe.prop","wipe") == "yes" then
-		ui_print("<b><#1082ac> MrturDroid ~</#></b> Install Mode Detected");
+		ui_print("<b><#d98d15> MrturDroid ~</#></b> Install Mode Detected");
 		run_program("/tmp/archidroid.sh", "INSTALL");
 	else
 		if file_getprop("/tmp/aroma-data/mrturdroidwipe.prop","force") == "no" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Update Mode Detected");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Update Mode Detected");
 			run_program("/tmp/archidroid.sh", "UPDATE");
 		else
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Forced Update Mode Detected");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Forced Update Mode Detected");
 			run_program("/tmp/archidroid.sh", "UPDATE", "FORCE");
 		endif;
 	endif;
@@ -91,18 +91,18 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 
 	set_progress(0.1);
 
-	ui_print("<b><#1082ac> MrturDroid ~</#></b> Flashing MrturDroid Core");
+	ui_print("<b><#d98d15> MrturDroid ~</#></b> Flashing MrturDroid Core");
 	show_progress(0.4, 1212);
 	package_extract_dir("system", "/system");
 	if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur" then
-		ui_print("<#1082ac> mrtur ~</#> Flashing mrtur's Core");
+		ui_print("<#d98d15> mrtur ~</#> Flashing mrtur's Core");
 		package_extract_dir("_mrtur/system", "/system");
 	endif;
 
 	run_program("/sbin/sync");
 	set_progress(0.51);
 
-	ui_print("<b><#1082ac> MrturDroid ~</#></b> Creating symlinks");
+	ui_print("<b><#d98d15> MrturDroid ~</#></b> Creating symlinks");
 
 	symlink("../xbin/su", "/system/bin/su");
 	symlink("/data/misc/audio/mbhc.bin", "/system/etc/firmware/wcd9310/wcd9310_mbhc.bin");
@@ -218,12 +218,12 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			
 	set_progress(0.52);
 			
-	ui_print("<b><#1082ac> MrturDroid ~</#></b> Flashing MrturDroid Init Scripts");
+	ui_print("<b><#d98d15> MrturDroid ~</#></b> Flashing MrturDroid Init Scripts");
 	
 	### IMPORTANT ###
 	package_extract_dir("_mrturdroid/auto", "/");
 	if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur" then
-		ui_print("<#1082ac> mrtur ~</#> Flashing mrtur's Preset");
+		ui_print("<#d98d15> mrtur ~</#> Flashing mrtur's Preset");
 		package_extract_dir("_mrtur/auto", "/");
 	endif;
 	package_extract_file("_mrturdroid/exec/archidroid_backend.sh", "/tmp/archidroid_backend.sh");
@@ -234,7 +234,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 
 	set_progress(0.53);
 
-	ui_print("<b><#1082ac> MrturDroid ~</#></b> Setting Permissions");
+	ui_print("<b><#d98d15> MrturDroid ~</#></b> Setting Permissions");
 	set_metadata_recursive("/system", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 	set_metadata_recursive("/system/addon.d", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 	set_metadata_recursive("/system/bin", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
@@ -294,9 +294,9 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 	#################
 	
 	if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "barebones" then
-		ui_print("<b><#1082ac> MrturDroid ~</#></b> Flashing Stock Kernel");
+		ui_print("<b><#d98d15> MrturDroid ~</#></b> Flashing Stock Kernel");
 		package_extract_file("boot.img", "/dev/block/platform/msm_sdcc.1/by-name/boot");
-		ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Stock Keyboard");
+		ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Stock Keyboard");
 		package_extract_dir("_mrturdroid/apps/latinime", "/");		
 	else
 	
@@ -304,9 +304,9 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		### SUPERUSER ###
 		#################
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","root") != "0" then		
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Root Activate");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Root Activate");
 		else
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Root Disable");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Root Disable");
 		endif;			
 		
 		package_extract_file("_mrturdroid/exec/superuser.sh", "/tmp/superuser.sh");
@@ -315,7 +315,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		delete("tmp/superuser.sh");
 			
 		if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur" then		
-			ui_print("<#1082ac> mrtur ~</#> Root acces -> Apps and ADB");
+			ui_print("<#d98d15> mrtur ~</#> Root acces -> Apps and ADB");
 			package_extract_dir("_mrtur/apps/superuser", "/");
 		endif;
 
@@ -323,7 +323,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		### RUNTIME ###
 		###############
 				
-		ui_print("<b><#1082ac> MrturDroid ~</#></b> Applying ", file_getprop("/tmp/aroma-data/mrturdroid.prop","runtime"), " Runtime");
+		ui_print("<b><#d98d15> MrturDroid ~</#></b> Applying ", file_getprop("/tmp/aroma-data/mrturdroid.prop","runtime"), " Runtime");
 		package_extract_file("_mrturdroid/exec/runtime.sh", "/tmp/runtime.sh");
 		set_perm(0, 0, 0777, "/tmp/runtime.sh");
 		run_program("/tmp/runtime.sh", file_getprop("/tmp/aroma-data/mrturdroid.prop","runtime"));
@@ -334,7 +334,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		##############
 		
 		if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur" then
-			ui_print("<#1082ac> mrtur ~</#> Including mrtur's no MTP");
+			ui_print("<#d98d15> mrtur ~</#> Including mrtur's no MTP");
 			package_extract_file("_mrtur/exec/no_mtp.sh", "/tmp/no_mtp.sh");
 			set_perm(0, 0, 0777, "/tmp/no_mtp.sh");
 			run_program("/tmp/no_mtp.sh");
@@ -346,12 +346,12 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		##############
 
 		# We need to make sure that current kernel is based to prevent random zygote kernel panics
-		ui_print("<b><#1082ac> MrturDroid ~</#></b> Cleaning Old Kernel");
+		ui_print("<b><#d98d15> MrturDroid ~</#></b> Cleaning Old Kernel");
 		package_extract_file("boot.img", "/dev/block/platform/msm_sdcc.1/by-name/boot");
 
 		### STOCK ###
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","kernel") == "stock" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Flashing Stock Kernel");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Flashing Stock Kernel");
 			
 			# Not needed since zygote kernel panic fix
 			#package_extract_file("boot.img", "/tmp/stock.img");
@@ -361,7 +361,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 
 		### SEMAPHORE ###
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","kernel") == "semaphore" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Flashing Semaphore Kernel");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Flashing Semaphore Kernel");
 			set_perm_recursive(0, 0, 0755, 0755, "/system/etc/init.d");
 			package_extract_dir("_mrturdroid/kernels/semaphore", "/tmp");
 			set_perm(0, 0, 0777, "/tmp/mkbootimg.sh");
@@ -374,7 +374,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		
 		### HELLS-CORE ###
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","kernel") == "hells" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Flashing Hells-Core Kernel");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Flashing Hells-Core Kernel");
 			package_extract_dir("_mrturdroid/kernels/hells/system", "/system");			
 			set_perm_recursive(0, 2000, 0755, 0755, "/system/etc/init.d");
 			set_perm(0, 0, 0755, "/system/etc/init.d");
@@ -396,7 +396,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		
 		### FAUX ###
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","kernel") == "faux" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Flashing Faux Kernel");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Flashing Faux Kernel");
 			delete_recursive("/system/lib/modules");
 			package_extract_dir("_mrturdroid/kernels/faux/system", "/system");
 			set_perm_recursive(0, 0, 0755, 0755, "/system/etc/init.d");
@@ -413,7 +413,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		
 		### FRANCO ###
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","kernel") == "franco" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Flashing Franco Kernel");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Flashing Franco Kernel");
 			package_extract_file("_mrturdroid/kernels/franco/boot.img", "/dev/block/platform/msm_sdcc.1/by-name/boot");
 		endif;
 
@@ -424,7 +424,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		###############
 
 		if file_getprop("/tmp/aroma-data/mrturdroidwipe.prop","wipe") == "no" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Restoring Addons");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Restoring Addons");
 			package_extract_file("system/bin/backuptool.sh", "/tmp/backuptool.sh");
 			package_extract_file("system/bin/backuptool.functions", "/tmp/backuptool.functions");
 			set_perm(0, 0, 0777, "/tmp/backuptool.sh");
@@ -440,7 +440,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		### DPI ###
 		###########
 
-		ui_print("<b><#1082ac> MrturDroid ~</#></b> Applying ", file_getprop("/tmp/aroma-data/mrturdroid.prop","dpi"), " DPI");
+		ui_print("<b><#d98d15> MrturDroid ~</#></b> Applying ", file_getprop("/tmp/aroma-data/mrturdroid.prop","dpi"), " DPI");
 		package_extract_file("_mrturdroid/exec/dpi.sh", "/tmp/dpi.sh");
 		set_perm(0, 0, 0777, "/tmp/dpi.sh");
 		run_program("/tmp/dpi.sh", file_getprop("/tmp/aroma-data/mrturdroid.prop","dpi"));
@@ -452,14 +452,14 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		### GAPPS CORE ###
 		##################
 
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Google Apps");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Google Apps");
 			delete("/system/app/Provision.apk");
 			package_extract_dir("_mrturdroid/gapps/system", "/system");
 			set_perm_recursive(0, 0, 0755, 0644, "/system/app");
 			set_perm_recursive(0, 0, 0755, 0644, "/system/priv-app");
 
 		if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur" then
-			ui_print("<#1082ac> mrtur ~</#> Installing market for mrtur's preset");
+			ui_print("<#d98d15> mrtur ~</#> Installing market for mrtur's preset");
 			package_extract_dir("_mrtur/apps/market", "/");
 		endif;
 
@@ -470,38 +470,38 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		#############
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","gcamera") == "1" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Google Camera");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Google Camera");
 			delete("/system/app/Camera2.apk");			
 			package_extract_dir("_mrturdroid/apps/google/camera", "/");
 		endif;
 		
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","gcalendar") == "1" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Google Calendar");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Google Calendar");
 			package_extract_dir("_mrturdroid/apps/google/calendar", "/");
 		endif;
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","gchrome") == "1" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Google Chrome");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Google Chrome");
 			package_extract_dir("_mrturdroid/apps/google/chrome", "/");
 		endif;
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","gkeep") == "1" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Google Keep");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Google Keep");
 			package_extract_dir("_mrturdroid/apps/google/keep", "/");
 		endif;
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","gmail") == "1" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Google Mail");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Google Mail");
 			package_extract_dir("_mrturdroid/apps/google/mail", "/");
 		endif;
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","gmaps") == "1" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Google Maps");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Google Maps");
 			package_extract_dir("_mrturdroid/apps/google/maps", "/");
 		endif;
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","gvoice") == "1" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Google Voice");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Google Voice");
 			package_extract_dir("_mrturdroid/apps/google/voice", "/");
 			delete("/system/app/VoiceSearchStub.apk");
 			delete("/system/app/GoogleSearchWidget.apk");
@@ -511,23 +511,23 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		endif;
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","ghangouts") == "1" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Google Hangouts");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Google Hangouts");
 			package_extract_dir("_mrturdroid/apps/google/hangouts", "/");
 		endif;
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","gplus") == "1" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Google Plus");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Google Plus");
 			package_extract_dir("_mrturdroid/apps/google/plus", "/");
 		endif;
 		
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","gplaymusic") == "1" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Google Play Music");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Google Play Music");
 			delete("/system/app/Apollo.apk");		
 			package_extract_dir("_mrturdroid/apps/google/playmusic", "/");
 		endif;	
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","gtranslate") == "1" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Google Translate");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Google Translate");
 			package_extract_dir("_mrturdroid/apps/google/translate", "/");
 		endif;
 
@@ -540,25 +540,25 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","runtime") == "libdvm.so" then
 
 			if file_getprop("/tmp/aroma-data/mrturdroidxposed.prop","xposed") == "1" then
-				ui_print("<b><#1082ac> MrturDroid ~</#></b> Including Xposed Framework");
+				ui_print("<b><#d98d15> MrturDroid ~</#></b> Including Xposed Framework");
 				run_program("/sbin/busybox","mv","-f","/system/bin/app_process","/system/bin/app_process.orig");
 				package_extract_dir("_mrturdroid/apps/xposed/xposed", "/");
 				set_metadata("/system/bin/app_process", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 			endif;
 			if file_getprop("/tmp/aroma-data/mrturdroidxposed.prop","appsettings") == "1" then
-				ui_print("<b><#1082ac> MrturDroid ~</#></b> Including App Settings Xposed Module");
+				ui_print("<b><#d98d15> MrturDroid ~</#></b> Including App Settings Xposed Module");
 				package_extract_dir("_mrturdroid/apps/xposed/appsettings", "/");
 			endif;
 			if file_getprop("/tmp/aroma-data/mrturdroidxposed.prop","bootmanager") == "1" then
-				ui_print("<b><#1082ac> MrturDroid ~</#></b> Including BootManager Xposed Module");
+				ui_print("<b><#d98d15> MrturDroid ~</#></b> Including BootManager Xposed Module");
 				package_extract_dir("_mrturdroid/apps/xposed/bootmanager", "/");
 			endif;	
 			if file_getprop("/tmp/aroma-data/mrturdroidxposed.prop","actionplus") == "1" then
-				ui_print("<b><#1082ac> MrturDroid ~</#></b> Including Complete Action Plus Xposed Module");
+				ui_print("<b><#d98d15> MrturDroid ~</#></b> Including Complete Action Plus Xposed Module");
 				package_extract_dir("_mrturdroid/apps/xposed/actionplus", "/");
 			endif;			
 			if file_getprop("/tmp/aroma-data/mrturdroidxposed.prop","xprivacy") == "1" then
-				ui_print("<b><#1082ac> MrturDroid ~</#></b> Including XPrivacy Xposed Module");
+				ui_print("<b><#d98d15> MrturDroid ~</#></b> Including XPrivacy Xposed Module");
 				package_extract_dir("_mrturdroid/apps/xposed/xprivacy", "/");
 			endif;
 			
@@ -571,7 +571,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		###########
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","mdu") == "1" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing MrturDroid Update");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing MrturDroid Update");
 			package_extract_dir("_mrturdroid/mdu/app", "/");
 		endif;
 
@@ -582,25 +582,25 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		
 		### GOOGLE ###
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","googlekb") == "1" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Google Keyboard");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Google Keyboard");
 			package_extract_dir("_mrturdroid/apps/google/keyboard", "/");
 		endif;
 
 		### TOUCHPAL ###
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","touchpal") == "1" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing TouchPal Keyboard");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing TouchPal Keyboard");
 			package_extract_dir("_mrturdroid/apps/touchpal", "/");
 		endif;
 
 		### HACKERS ###
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","hackers") == "1" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Hacker's Keyboard");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Hacker's Keyboard");
 			package_extract_dir("_mrturdroid/apps/hackers", "/");
 		endif;
 		
 		### STOCK ###
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","stock") == "1" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Stock Keyboard");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Stock Keyboard");
 			package_extract_dir("_mrturdroid/apps/latinime", "/");			
 		endif;		
 
@@ -612,7 +612,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 
 		### NOVA ###
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","launcher") == "nova" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Nova Launcher");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Nova Launcher");
 			delete("/system/priv-app/Launcher3.apk");
 			delete("/system/app/Launcher3.apk");		
 			package_extract_dir("_mrturdroid/apps/nova", "/");
@@ -620,7 +620,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 
 		### GOOGLE ###
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","launcher") == "google" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Google Launcher");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Google Launcher");
 			delete("/system/priv-app/Launcher3.apk");
 			delete("/system/app/Launcher3.apk");		
 			package_extract_dir("_mrturdroid/apps/google/launcher", "/");
@@ -629,7 +629,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		### NONE ###
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","launcher") == "none" then
 			# Just delete Launcher then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Skipping Launcher");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Skipping Launcher");
 			delete("/system/priv-app/Launcher3.apk");
 			delete("/system/app/Launcher3.apk");
 		endif;
@@ -641,27 +641,27 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		#####################
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","bootanimation") == "mrtur" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Applying MrturDroid Bootanimation");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Applying MrturDroid Bootanimation");
 			package_extract_dir("_mrturdroid/bootanimations/mrtur", "/");
 		endif;
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","bootanimation") == "stock" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Applying Slim Bootanimation");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Applying Slim Bootanimation");
 			# Not needed, haha!
 		endif;
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","bootanimation") == "nexus" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Applying Nexus Bootanimation");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Applying Nexus Bootanimation");
 			package_extract_dir("_mrturdroid/bootanimations/nexus", "/");
 		endif;
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","bootanimation") == "google" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Applying Google Bootanimation");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Applying Google Bootanimation");
 			package_extract_dir("_mrturdroid/bootanimations/google", "/");
 		endif;
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","bootanimation") == "none" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Disabling Bootanimation");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Disabling Bootanimation");
 			package_extract_file("_mrturdroid/bootanimations/none/disablebootanim.sh", "/tmp/disablebootanim.sh");
 			set_perm(0, 0, 0777, "/tmp/disablebootanim.sh");
 			run_program("/tmp/disablebootanim.sh");
@@ -676,10 +676,10 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		##############
 
 		### MrturDroid Tweaks ###
-		ui_print("<b><#1082ac> MrturDroid ~</#></b> Applying MrturDroid Tweaks");
+		ui_print("<b><#d98d15> MrturDroid ~</#></b> Applying MrturDroid Tweaks");
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","buildtweaks") == "1" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Applying build.prop Tweaks");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Applying build.prop Tweaks");
 			package_extract_file("_mrturdroid/tweaks/build.prop/tweaks.sh", "/tmp/tweaks.sh");
 			set_perm(0, 0, 0777, "/tmp/tweaks.sh");
 			run_program("/tmp/tweaks.sh");
@@ -687,7 +687,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 
 				
 			if file_getprop("/tmp/aroma-data/mrturdroidbuild.prop","fastdormancy") == "0" then
-				ui_print("<b><#1082ac> MrturDroid ~</#></b> Disabling Fast Dormancy");
+				ui_print("<b><#d98d15> MrturDroid ~</#></b> Disabling Fast Dormancy");
 				package_extract_file("_mrturdroid/tweaks/build.prop/fdOFF.sh", "/tmp/fdOFF.sh");
 				set_perm(0, 0, 0777, "/tmp/fdOFF.sh");
 				run_program("/tmp/fdOFF.sh");
@@ -695,7 +695,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			endif;
 
 			if file_getprop("/tmp/aroma-data/mrturdroidbuild.prop","zerowakeup") == "1" then
-				ui_print("<b><#1082ac> MrturDroid ~</#></b> Enabling ZeroWakeUp");
+				ui_print("<b><#d98d15> MrturDroid ~</#></b> Enabling ZeroWakeUp");
 				package_extract_file("_mrturdroid/tweaks/build.prop/zerowakeupON.sh", "/tmp/zerowakeupON.sh");
 				set_perm(0, 0, 0777, "/tmp/zerowakeupON.sh");
 				run_program("/tmp/zerowakeupON.sh");
@@ -711,67 +711,67 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		############
 		
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","trickster") == "1" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Trickster MOD");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Trickster MOD");
 			package_extract_dir("_mrturdroid/apps/trickster", "/");
 		endif;
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","viper4") == "1" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing ViPER4Android Audio Effects");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing ViPER4Android Audio Effects");
 			delete("/system/app/DSPManager.apk");		
 			package_extract_dir("_mrturdroid/apps/viper4", "/");
 		endif;	
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","titaniumbackup") == "1" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Titanium Backup");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Titanium Backup");
 			package_extract_dir("_mrturdroid/apps/titaniumbackup", "/");
 		endif;
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","greenify") == "1" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Greenify");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Greenify");
 			package_extract_dir("_mrturdroid/apps/greenify", "/");
 		endif;
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","lmt") == "1" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing LMT");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing LMT");
 			package_extract_dir("_mrturdroid/apps/lmt", "/");
 		endif;
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","mxplayer") == "1" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing MXPlayer");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing MXPlayer");
 			package_extract_dir("_mrturdroid/apps/mxplayer", "/");
 		endif;
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","bbs") == "1" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing BetterBatteryStats");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing BetterBatteryStats");
 			package_extract_dir("_mrturdroid/apps/betterbatterystats", "/");
 		endif;
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","cooltool") == "1" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing CoolTool");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing CoolTool");
 			package_extract_dir("_mrturdroid/apps/cooltool", "/");
 		endif;
 		if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur" then
-			ui_print("<#1082ac> mrtur ~</#> Installing CoolTool for mrtur's preset");
+			ui_print("<#d98d15> mrtur ~</#> Installing CoolTool for mrtur's preset");
 			package_extract_dir("_mrtur/apps/cooltool", "/");
 		endif;
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","rootbrowser") == "1" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Root Browser");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Root Browser");
 			package_extract_dir("_mrturdroid/apps/rootbrowser", "/");
 		endif;
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","totalcommander") == "1" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Total Commander");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Total Commander");
 			package_extract_dir("_mrturdroid/apps/totalcommander", "/");
 		endif;
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","youtube") == "1" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing YouTube");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing YouTube");
 			package_extract_dir("_mrturdroid/apps/youtube", "/");
 		endif;
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","facebook") == "1" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Facebook");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Facebook");
 			package_extract_dir("_mrturdroid/apps/facebook", "/");
 		endif;
 		
@@ -782,7 +782,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		###########################
 
 		if file_getprop("/tmp/aroma-data/mrturdroidbuild.prop","adreno") == "1" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Installing Qualcomm Adreno GPU");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Qualcomm Adreno GPU");
 			package_extract_dir("_mrturdroid/tweaks/adreno", "/");
 		endif;
 		
@@ -793,7 +793,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		##################
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","debianoff") == "1" then
-			ui_print("<b><#1082ac> MrturDroid ~</#></b> Delete Debian");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Delete Debian");
 			delete_recursive("/data/media/0/MrturDroid/debian");
 			delete_recursive("/data/media/0/MrturDroid/tmp");
 			delete_recursive("/data/media/0/MrturDroid/GitHub");
@@ -804,7 +804,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		set_progress(0.93);
 
 		# One more fix to logcat
-		ui_print("<b><#1082ac> MrturDroid ~</#></b> Syncing System");
+		ui_print("<b><#d98d15> MrturDroid ~</#></b> Syncing System");
 		#set_perm(1000, 1000, 0771, "/data");
 		#set_perm_recursive(1000, 1000, 0771, 0644, "/data/app");
 		#set_perm_recursive(0, 0, 0771, 0660, "/data/data");
@@ -821,15 +821,16 @@ endif;
 run_program("/sbin/sync");
 set_progress(0.99);
 
-ui_print("<b><#1082ac> MrturDroid ~</#></b> Unmounting partitions");
+ui_print("<b><#d98d15> MrturDroid ~</#></b> Unmounting partitions");
+ui_print("<b><#d98d15> MrturDroid ~</#></b> FINISH");
 
-ui_print("###############################");
-ui_print("#  _____ _       _     _      #");
-ui_print("# |  ___(_)_ __ (_)___| |__   #");
-ui_print("# | |_  | | '_ \| / __| '_ \  #");
-ui_print("# |  _| | | | | | \__ \ | | | #");
-ui_print("# |_|   |_|_| |_|_|___/_| |_| #");
-ui_print("#                             #");
-ui_print("###############################");
+#ui_print("###############################");
+#ui_print("#  _____ _       _     _      #");
+#ui_print("# |  ___(_)_ __ (_)___| |__   #");
+#ui_print("# | |_  | | '_ \| / __| '_ \  #");
+#ui_print("# |  _| | | | | | \__ \ | | | #");
+#ui_print("# |_|   |_|_| |_|_|___/_| |_| #");
+#ui_print("#                             #");
+#ui_print("###############################");
 #run_program("cp", "/tmp/recovery.log", "/sdcard/MrturDroid.log");
 set_progress(1.0);
