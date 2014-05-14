@@ -1,5 +1,5 @@
 
-<@center><b><#FF0A1F>U W A G A !!</#>
+<@center><b><#selectbg_g>UWAGA</#></b>
 <@left>
 Wykryłem,że nie wybrałeś żadnej klawiatury.
 

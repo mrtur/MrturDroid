@@ -44,13 +44,13 @@ ini_set("rom_device",           "Nexus 4");
 ini_set("rom_date",             "XX-05-2014");
 
 #
-# THEME
+# THEME START
 #
 ini_set("force_colorspace","rgba");
-theme("Black&White");
+theme("Black&Orange");
 
 #
-# FONTS
+# FONTS START
 #
 fontresload( "0", "ttf/lucon.ttf;", "13" );
 fontresload( "1", "ttf/lucon.ttf;", "16" );
@@ -89,6 +89,39 @@ if getvar("aroma_fast")=="OFF" then
 	"preview/splash/mrturdroidsplash12", 100,
 	"preview/splash/mrturdroidsplash13", 500
 	);
+	
+	#
+	#SELECT THEME
+	#
+	form(
+		"Witaj!",
+		"<~mrturdroid.theme.dsc>",
+		"@welcome",
+		"mrturdroidtheme.prop",
+	  	
+		"theme","<#selectbg_g><~mrturdroid.theme.group></#>","","group",
+		"blackorange","Black & Orange", "","select.selected",
+		"grayorange","Gray & Orange", "","select",
+		"miui","Miui", "","select"		
+		);
+	if file_getprop("/tmp/aroma-data/mrturdroidtheme.prop","theme") == "blackorange" then
+		ini_set("force_colorspace","rgba");
+		theme("Black&Orange");
+		fontresload( "0", "ttf/lucon.ttf;", "13" );
+		fontresload( "1", "ttf/lucon.ttf;", "16" );
+	endif;
+	if file_getprop("/tmp/aroma-data/mrturdroidtheme.prop","theme") == "grayorange" then
+		ini_set("force_colorspace","rgba");
+		theme("Gray&Orange");
+		fontresload( "0", "ttf/DroidSans.ttf;ttf/DroidSansFallback.ttf;ttf/DroidSansArabic.ttf;", "12" );
+		fontresload( "1", "ttf/DroidSans.ttf;ttf/DroidSansFallback.ttf;ttf/DroidSansArabic.ttf;", "14" );
+	endif;
+		if file_getprop("/tmp/aroma-data/mrturdroidtheme.prop","theme") == "miui" then
+		ini_set("force_colorspace","rgba");
+		theme("miui");
+		fontresload( "0", "ttf/DroidSans.ttf;ttf/DroidSansFallback.ttf;ttf/DroidSansArabic.ttf;", "12" );
+		fontresload( "1", "ttf/DroidSans.ttf;ttf/DroidSansFallback.ttf;ttf/DroidSansArabic.ttf;", "14" );
+	endif;
 
 	viewbox(
 		"Witaj!",

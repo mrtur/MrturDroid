@@ -25,7 +25,7 @@ img.radio.on.push=radio_on_press
 
 
 color.winbg           = #000
-color.winbg_g         = #d98d15
+color.winbg_g         = #444
 color.winfg           = #fff
 color.winfg_gray      = #666
 color.dialogbg        = #000
@@ -62,6 +62,6 @@ font.small                   = font.roboto.small
 font.big                     = font.roboto.big
 
 
-info.themename        = Black&White
-info.description      = Touchwiz Theme for AROMA Installer
+info.themename        = Black&Orange
+info.description      = Black&Orange Theme for AROMA Installer
 info.author           = mrtur

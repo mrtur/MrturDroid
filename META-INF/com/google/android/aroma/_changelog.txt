@@ -12,3 +12,4 @@ MrturDroid 2.5.5 EXPERIMENTAL
 - Aroma instaler juz nie falszuje kolorow
 - Aroma installer tryby instalacji (Poprzedni preset i Porzedni preset+Edycja)
 - Slim-mako-4.4.2.build.5-OFFICIAL-4085
+- dodano dwa motywy do Aroma (Gray&Orange oraz Miui)

@@ -1,5 +1,5 @@
 
-<@center><b><#selectbg_g>Uwaga!!</#></b>
+<@center><b><#selectbg_g>UWAGA</#></b>
 
 Na wstępie: nie jestem developerem!
 Rom jest połączeniem bazy SlimKat Rom(Android 4.4) oraz skryptów i Aromy autorstwa JustArchi i dla nich należy się główna zasługa powstania tego romu.
