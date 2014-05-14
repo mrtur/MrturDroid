@@ -28,20 +28,30 @@
 # #                                                          #
 # ############################################################
 
-##
+#
 # Initializing Rom Information
-##
-
-setvar("preset_version","9");
-setvar("adaroma","/data/media/0/MrturDroid/AromaPreset/Slim_work");
-setvar("adaromamrtur","/data/media/0/MrturDroid/AromaPreset/mrtur");
-
+#
 ini_set("dp","3");
 ini_set("rom_name",             "MrturDroid");
 ini_set("rom_version",          "2.5.6 EXPERIMENTAL");
 ini_set("rom_author",           "mrtur");
 ini_set("rom_device",           "Nexus 4");
 ini_set("rom_date",             "XX-05-2014");
+
+#
+# Setvar
+#
+setvar("preset_version","9");
+setvar("adaroma","/data/media/0/MrturDroid/AromaPreset/Slim_work");
+setvar("adaromamrtur","/data/media/0/MrturDroid/AromaPreset/mrtur");
+setvar("aroma_fast","OFF");
+
+# Mount required filesystems
+resexec("exec/admount.sh", "/system");
+resexec("exec/admount.sh", "/data");
+resexec("exec/archidroid_init.sh", "Slim_work");
+resexec("exec/archidroid_init.sh", "mrtur");
+setvar("extsdinstall", resexec("exec/archidroid_detect_zip.sh"));
 
 #
 # THEME START
@@ -55,13 +65,6 @@ theme("Black&Orange");
 fontresload( "0", "ttf/lucon.ttf;", "13" );
 fontresload( "1", "ttf/lucon.ttf;", "16" );
 
-# Mount required filesystems
-resexec("exec/admount.sh", "/system");
-resexec("exec/admount.sh", "/data");
-resexec("exec/archidroid_init.sh", "Slim_work");
-resexec("exec/archidroid_init.sh", "mrtur");
-setvar("extsdinstall", resexec("exec/archidroid_detect_zip.sh"));
-
 #
 # LANGUAGE
 #
@@ -70,8 +73,6 @@ loadlang("langs/pl.lang");
 #
 # aroma_fast ON or OFF
 #
-setvar("aroma_fast","OFF");
-
 if getvar("aroma_fast")=="OFF" then
 	anisplash(
 	1,
