@@ -1,15 +1,7 @@
-MrturDroid 2.5.5 EXPERIMENTAL
+MrturDroid 2.5.6 EXPERIMENTAL
 
 1. Aktualizacja:
-- Google Camera 2.1.043
-- Titanium Backup 6.1.5.5
 
 2. Poprawki:
-- Code review of adflash utility, POSIX-standard fixes, misc improvements and cleanup [by Archi]
-- Fixed adflash not showing changelog properly, thanks to @oaid [by Archi]
 
 3. ISTOTNE ZMIANY:
-- Aroma instaler juz nie falszuje kolorow
-- Aroma installer tryby instalacji (Poprzedni preset i Porzedni preset+Edycja)
-- Slim-mako-4.4.2.build.5-OFFICIAL-4085
-- dodano dwa motywy do Aroma (Gray&Orange oraz Miui)
