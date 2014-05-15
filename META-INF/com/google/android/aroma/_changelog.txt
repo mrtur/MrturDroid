@@ -3,7 +3,10 @@ MrturDroid 2.5.6 EXPERIMENTAL
 1. Aktualizacja:
 - Titanium Backup 6.1.5.6
 - Complete Action Plus 2.1.2
+- PA GAPPS to 13 May
 
 2. Poprawki:
 
 3. ISTOTNE ZMIANY:
+- Code review of adflash utility, POSIX-standard fixes, misc improvements and cleanup
+- Fixed adflash not showing changelog properly, thanks to @oaid
