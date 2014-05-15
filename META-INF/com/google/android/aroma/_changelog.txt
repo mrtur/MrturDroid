@@ -2,6 +2,7 @@ MrturDroid 2.5.6 EXPERIMENTAL
 
 1. Aktualizacja:
 - Titanium Backup 6.1.5.6
+- Complete Action Plus 2.1.2
 
 2. Poprawki:
 
