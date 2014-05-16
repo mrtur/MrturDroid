@@ -5,6 +5,7 @@ MrturDroid 2.5.6 EXPERIMENTAL
 - Complete Action Plus 2.1.2
 - PA GAPPS to 13 May
 - Xposed to 2.6 beta1
+- App Settings to 1.9
 
 2. Poprawki:
 - Code review of adflash utility, POSIX-standard fixes, misc improvements and cleanup [by Archi]
