@@ -11,6 +11,7 @@ MrturDroid 2.5.6 EXPERIMENTAL
 - Complete Action Plus 2.1.4
 - Xposed to 2.6 beta1
 - PA Gapps 17 May
+- Updated ArchiDroid's Pocket Debian to 17 May (you will need to use adlinux rebuild) [by Archi]
 
 2. Poprawki:
 - Code review of adflash utility, POSIX-standard fixes, misc improvements and cleanup [by Archi]
