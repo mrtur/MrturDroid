@@ -168,8 +168,8 @@ if getvar("aroma_fast")=="OFF" then
 
 		"preset","<#selectbg_g><~mrturdroid.preset.group></#>","","group",
 		"custom","<~mrturdroid.preset.custom>", "<~mrturdroid.preset.custom.desc>","select.selected",
-		"previousexpert","<~mrturdroid.preset.previousexpert>","<~mrturdroid.preset.previousexpert.desc>","select",		
 		"previous","<~mrturdroid.preset.previous>","<~mrturdroid.preset.previous.desc>","select",
+		"previousexpert","<~mrturdroid.preset.previousexpert>","<~mrturdroid.preset.previousexpert.desc>","select",		
 		"mrtur","<~mrturdroid.preset.mrtur>","<~mrturdroid.preset.mrtur.desc>","select",		
 		"barebones","<~mrturdroid.preset.barebones>","<~mrturdroid.preset.barebones.desc>","select",
 		"recovery","<~mrturdroid.preset.recovery>","<~mrturdroid.preset.recovery.desc>","select"
@@ -194,30 +194,12 @@ else
 
 		"preset","<#selectbg_g><~mrturdroid.preset.group></#>","","group",
 		"custom","<~mrturdroid.preset.custom>", "<~mrturdroid.preset.custom.desc>","select.selected",
-		"previousexpert","<~mrturdroid.preset.previousexpert>","<~mrturdroid.preset.previousexpert.desc>","select",		
 		"previous","<~mrturdroid.preset.previous>","<~mrturdroid.preset.previous.desc>","select",
+		"previousexpert","<~mrturdroid.preset.previousexpert>","<~mrturdroid.preset.previousexpert.desc>","select",		
 		"mrtur","<~mrturdroid.preset.mrtur>","<~mrturdroid.preset.mrtur.desc>","select",		
 		"barebones","<~mrturdroid.preset.barebones>","<~mrturdroid.preset.barebones.desc>","select",
 		"recovery","Recovery","","select"
 	);
-endif;
-
-##############################
-### PREVIOUS PRESET EXPERT ###
-##############################
-	
-if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "previousexpert" then
-	setvar("preset_version_probe",read(getvar("adaroma")+"/version.txt"));
-		if getvar("preset_version")!=getvar("preset_version_probe") then
-			alert("MrturDroid Wizard","<~mrturdroid.detect.previouspreset.fail>","@welcome");
-			writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
-		else
-			# TODO: Aroma hangs when no files are present, add exception for this later
-			writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
-			writetmpfile("mrturdroid.prop",read(getvar("adaroma")+"/mrturdroid.prop"));
-			writetmpfile("mrturdroidxposed.prop",read(getvar("adaroma")+"/mrturdroidxposed.prop"));
-			writetmpfile("mrturdroidbuild.prop",read(getvar("adaroma")+"/mrturdroidbuild.prop"));
-		endif;
 endif;
 
 #######################
@@ -230,6 +212,23 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "previ
 			alert("MrturDroid Wizard","<~mrturdroid.detect.previouspreset.fail>","@welcome");
 			writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
 		else
+			writetmpfile("mrturdroid.prop",read(getvar("adaroma")+"/mrturdroid.prop"));
+			writetmpfile("mrturdroidxposed.prop",read(getvar("adaroma")+"/mrturdroidxposed.prop"));
+			writetmpfile("mrturdroidbuild.prop",read(getvar("adaroma")+"/mrturdroidbuild.prop"));
+		endif;
+endif;
+
+##############################
+### PREVIOUS PRESET EXPERT ###
+##############################
+	
+if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "previousexpert" then
+	setvar("preset_version_probe",read(getvar("adaroma")+"/version.txt"));
+		if getvar("preset_version")!=getvar("preset_version_probe") then
+			alert("MrturDroid Wizard","<~mrturdroid.detect.previouspreset.fail>","@welcome");
+			writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
+		else
+			writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
 			writetmpfile("mrturdroid.prop",read(getvar("adaroma")+"/mrturdroid.prop"));
 			writetmpfile("mrturdroidxposed.prop",read(getvar("adaroma")+"/mrturdroidxposed.prop"));
 			writetmpfile("mrturdroidbuild.prop",read(getvar("adaroma")+"/mrturdroidbuild.prop"));
