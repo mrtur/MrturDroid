@@ -7,6 +7,7 @@ MrturDroid 2.5.6 EXPERIMENTAL
 - Xposed to 2.6 beta1
 - App Settings to 1.9
 - XPrivacy to 2.0.22
+- BootManager 2.0.7
 
 2. Poprawki:
 - Code review of adflash utility, POSIX-standard fixes, misc improvements and cleanup [by Archi]
