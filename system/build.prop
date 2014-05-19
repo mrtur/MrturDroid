@@ -3,12 +3,12 @@
 ro.build.id=KVT49L
 ro.build.display.id=MrturDroid 2.5.6 EXPERIMENTAL
 ro.mrturdroid.version=MrturDroid 2.5.6 EXPERIMENTAL
-ro.build.version.incremental=4085
+ro.build.version.incremental=4246
 ro.build.version.sdk=19
 ro.build.version.codename=REL
 ro.build.version.release=4.4.2
-ro.build.date=Sun May 11 09:55:17 CEST 2014
-ro.build.date.utc=1399794917
+ro.build.date=Mon May 19 02:49:56 CEST 2014
+ro.build.date.utc=1400460596
 ro.build.type=userdebug
 ro.build.user=autobuild
 ro.build.host=slimautobuild
@@ -36,10 +36,10 @@ ro.build.characteristics=nosdcard
 #
 # ADDITIONAL_BUILD_PROPERTIES
 #
+ro.com.google.clientidbase=android-google
 keyguard.no_require_sim=true
 ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html
 ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html
-ro.com.google.clientidbase=android-google
 ro.com.android.wifi-watchlist=GoogleGuest
 ro.setupwizard.enterprise_mode=1
 ro.com.android.dateformat=MM-dd-yyyy
@@ -48,8 +48,8 @@ ro.build.selinux=1
 dalvik.vm.debug.alloc=0
 BUILD_DISPLAY_ID=KVT49L
 
-rro.slim.version=Slim-4.4.2.build.5-OFFICIAL-4085
-ro.modversion=Slim-mako-4.4.2.build.5-OFFICIAL-4085
+rro.slim.version=Slim-4.4.2.build.5.2-OFFICIAL-4246
+ro.modversion=Slim-mako-4.4.2.build.5.2-OFFICIAL-4246
 ro.config.ringtone=Magic_Tone.mp3
 ro.config.notification_sound=notification.mp3
 ro.carrier=unknown

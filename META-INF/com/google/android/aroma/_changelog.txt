@@ -18,3 +18,4 @@ MrturDroid 2.5.6 EXPERIMENTAL
 - Fixed adflash not showing changelog properly, thanks to @oaid [by Archi]
 
 3. ISTOTNE ZMIANY:
+- Slim-mako-4.4.2.build.5.2-WEEKLY-4246
