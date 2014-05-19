@@ -226,6 +226,18 @@ By default built-in apps are not shown. If you want to show them or filter apps 
     <string name="status_bar_toggle_brightness">Brightness control</string>
     <string name="status_bar_toggle_brightness_summary">Adjust brightness by sliding across status bar</string>
     <string name="status_bar_toggle_info">Automatic brightness is enabled</string>
+    <string name="shake_events_title">Shake events</string>
+    <string name="shake_events_enabled_title">Enable shake listener</string>
+    <string name="shake_events_normal_title">Active shake events</string>
+    <string name="shake_events_disabled_title">Disabled apps</string>
+    <string name="shake_events_disabled_summary">Shake will be disabled while in these apps</string>
+    <string name="shake_event_x_title">Activity to launch when shaken horizontally</string>
+    <string name="shake_event_y_title">Activity to launch when shaken vertically</string>
+    <string name="shake_event_z_title">Activity to launch when shaken back-and-forth</string>
+    <string name="shake_sensitivity_title">Shake sensitivity</string>
+    <string name="shake_sensitivity_summary">Global sensitivity of all shake preferences</string>
+    <string name="shake_sensitivity_less_sensitive">Less sensitive</string>
+    <string name="shake_sensitivity_more_sensitive">More sensitive</string>
     <string name="display_category_wakeup_options_title">Wakeup options</string>
     <string name="pref_volume_wake_title">Volume rocker wake</string>
     <string name="pref_volume_wake_summary">Pressing the volume rocker up/down will wake the device</string>
@@ -368,6 +380,7 @@ As the start volume is set higher than the ringer volume, the ring tone will be 
     <string name="low_battery_warning_policy_sound">Sound only</string>
     <string name="battery_prefs_title">Options</string>
     <string name="battery_stats_title">Statistics</string>
+    <string name="shortcut_action_keyguard_camera">Keyguard camera</string>
     <string name="shortcut_action_navbar">Navigation bar</string>
     <string name="shortcut_action_pie">Pie controls</string>
     <string name="shortcut_action_airplane">Airplane mode</string>
@@ -415,6 +428,7 @@ Add an entry to enable this feature"</string>
     <string name="shortcut_duplicate_entry">The chosen action cannot be added twice</string>
     <string name="shortcut_action_help_shortcut">shortcut</string>
     <string name="shortcut_action_help_button">button</string>
+    <string name="shortcut_action_help_app">app</string>
     <string name="shortcut_action_help_icon">, while selecting the icon will bring up customization options</string>
     <string name="shortcut_action_help_main">"To add a %1$s, select the Add icon. Once a %1$s is added, selecting the row will change the target%2$s
 
@@ -508,10 +522,12 @@ To clear or reset to defaults, select the Reset icon."</string>
     <string name="battery_status_icon">Icon</string>
     <string name="battery_status_percentage">Percentage</string>
     <string name="battery_status_icon_percentage">Icon with percentage</string>
+    <string name="battery_status_icon_percentage_jb">Icon with percentage (JB style)</string>
     <string name="battery_status_circle">Circle</string>
     <string name="battery_status_circle_percentage">Circle with percentage</string>
     <string name="battery_status_dotted_circle_percentage">Dotted Circle with percentage</string>
     <string name="battery_status_dotted_circle">Dotted Circle</string>
+    <string name="battery_status_gone">No battery</string>
     <string name="battery_color_title">Battery color</string>
     <string name="circle_battery_animation_speed">Circle animation speed</string>
     <string name="circle_battery_animation_speed_none">None</string>
@@ -521,6 +537,7 @@ To clear or reset to defaults, select the Reset icon."</string>
     <string name="battery_text_color">Percentage text color</string>
     <string name="battery_bolt_color">Bolt charging color</string>
     <string name="battery_text_charging_color">Percentage text charging color</string>
+    <string name="battery_circle_charging_color">Circle charging color</string>
     <string name="battery_style_reset_message">Reset all battery colors?</string>
     <string name="power_notifications_category_title">Power connectivity alert</string>
     <string name="power_notifications_enable_title">Enable</string>
@@ -734,6 +751,10 @@ With eight lockscreen targets enabled you cannot use your lockscreen shortcuts a
     <string name="shake_to_secure_dlg_title">Warning:</string>
     <string name="shake_to_secure_dlg_message">Your device will be insecure until you explicitly shake to enable a temporary secure lock. Once secure: if your device is successfully unlocked it will become insecure until you shake again.</string>
     <string name="shake_secure_timeout_title">Automatically resecure</string>
+    <string name="shake_all">Shake any direction</string>
+    <string name="shake_horizontal">Shake horizontally</string>
+    <string name="shake_vertical">Shake vertically</string>
+    <string name="shake_back_forth">Shake back-and-forth</string>
     <string name="shake_secure_timeout_disabled">Never automatically secure</string>
     <string name="shake_secure_timeout_1min">1 minute after screen turned off</string>
     <string name="shake_secure_timeout_5min">5 minutes after screen turned off</string>
@@ -801,6 +822,7 @@ With eight lockscreen targets enabled you cannot use your lockscreen shortcuts a
     <string name="title_tile_music">Music</string>
     <string name="title_tile_reboot">Reboot</string>
     <string name="title_tile_theme">Theme switcher</string>
+    <string name="title_tile_shake">Shake events</string>
     <string name="dynamic_tile_ime_switcher">IME switcher</string>
     <string name="dynamic_tile_usb_tether">USB tether</string>
     <string name="dynamic_tile_alarm">Alarm</string>
@@ -822,6 +844,7 @@ To disable quick settings, remove all tiles."</string>
     <string name="custom_toggle_extras">Custom tile extras</string>
     <string name="custom_toggle_collapse_check">Collapse notification shade</string>
     <string name="custom_toggle_match_state_check">Click action matches icon</string>
+    <string name="custom_toggle_double_click_check">Double-tap to switch to the previous action</string>
     <string name="custom_tile_long_press">Longpress:</string>
     <string name="custom_tile_null_warning">An action must be set first</string>
     <string name="custom_tile_resolve_name">Unknown</string>
@@ -854,10 +877,11 @@ To disable quick settings, remove all tiles."</string>
     <string name="quick_pulldown_left">Left</string>
     <string name="quick_pulldown_right">Right</string>
     <string name="smart_pulldown_title">Smart pulldown</string>
-    <string name="smart_pulldown_summary">Open Quick Settings when there are no %1$s notifications present</string>
+    <string name="smart_pulldown_summary">Open Quick Settings when there are %1$s notifications present</string>
     <string name="smart_pulldown_off">Off</string>
-    <string name="smart_pulldown_dismissable">Dismissable</string>
-    <string name="smart_pulldown_persistent">Persistent</string>
+    <string name="smart_pulldown_dismissable">No dismissable</string>
+    <string name="smart_pulldown_persistent">No persistent</string>
+    <string name="smart_pulldown_all">No dismissable or persistent</string>
     <string name="title_collapse_panel">Quick collapse</string>
     <string name="summary_collapse_panel">Close the notification panel upon toggle</string>
     <string name="gestures_settings_title">Stylus gestures</string>
@@ -926,6 +950,16 @@ To disable quick settings, remove all tiles."</string>
     <string name="no_home_key">"You have no button assigned any more to the \"Home\" action!
 
 This can make your device unusable!"</string>
+    <string name="button_backlight_title">Backlight</string>
+    <string name="button_backlight_enabled">Illuminate buttons</string>
+    <string name="keyboard_backlight_enabled">Illuminate keyboard</string>
+    <string name="button_backlight_seekbar_title">Button brightness</string>
+    <string name="keyboard_backlight_seekbar_title">Keyboard brightness</string>
+    <string name="backlight_timeout_title">Illumination timeout</string>
+    <string name="backlight_timeout_unlimited">"Don't turn off"</string>
+    <string name="backlight_summary_disabled">Disabled</string>
+    <string name="backlight_summary_enabled_with_timeout">Enabled for %s</string>
+    <string name="backlight_summary_enabled">Enabled</string>
     <string name="confirm_delete_apn">The APN will be deleted.</string>
     <string name="minimum_vibration_duration">Minimum vibration duration</string>
     <string name="interface_settings_animation_title">Animation options</string>
