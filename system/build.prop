@@ -48,7 +48,7 @@ ro.build.selinux=1
 dalvik.vm.debug.alloc=0
 BUILD_DISPLAY_ID=KVT49L
 
-rro.slim.version=Slim-4.4.2.build.5.2-OFFICIAL-4246
+ro.slim.version=Slim-4.4.2.build.5.2-OFFICIAL-4246
 ro.modversion=Slim-mako-4.4.2.build.5.2-OFFICIAL-4246
 ro.config.ringtone=Magic_Tone.mp3
 ro.config.notification_sound=notification.mp3
