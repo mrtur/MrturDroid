@@ -179,17 +179,6 @@ else
 		"<~mrturdroid.preset>",
 		"<~mrturdroid.preset.desc>",
 		"@welcome",
-		"mrturdroidwipe.prop",
-
-		"wipe","<#selectbg_g><~mrturdroid.preset.group></#>","","group",
-		"yes","Full Wipe", "Czyści wszelkie dane użytkownika i ustawienia. Nie rusza Internal SD","select.selected",
-		"no","Aktualizacja","W razie problemów wgraj ROM jeszcze raz z opcją Full Wipe","select"
-	);
-
-	form(
-		"<~mrturdroid.preset>",
-		"<~mrturdroid.preset.desc>",
-		"@welcome",
 		"mrturdroidinstallmode.prop",
 
 		"preset","<#selectbg_g><~mrturdroid.preset.group></#>","","group",
@@ -198,8 +187,20 @@ else
 		"previousexpert","<~mrturdroid.preset.previousexpert>","<~mrturdroid.preset.previousexpert.desc>","select",		
 		"mrtur","<~mrturdroid.preset.mrtur>","<~mrturdroid.preset.mrtur.desc>","select",		
 		"barebones","<~mrturdroid.preset.barebones>","<~mrturdroid.preset.barebones.desc>","select",
-		"recovery","Recovery","","select"
+		"recovery","<~mrturdroid.preset.recovery>","<~mrturdroid.preset.recovery.desc>","select"
 	);
+	if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") != "recovery" then
+		form(
+		"<~mrturdroid.preset>",
+		"<~mrturdroid.preset.desc>",
+		"@welcome",
+		"mrturdroidwipe.prop",
+
+		"wipe","<#selectbg_g><~mrturdroid.preset.group></#>","","group",
+		"yes","Full Wipe", "Czyści wszelkie dane użytkownika i ustawienia. Nie rusza Internal SD","select.selected",
+		"no","Aktualizacja","W razie problemów wgraj ROM jeszcze raz z opcją Full Wipe","select"
+	);
+	endif;
 endif;
 
 #######################
