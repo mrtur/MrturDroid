@@ -20,3 +20,5 @@ MrturDroid 2.5.6 EXPERIMENTAL
 
 3. ISTOTNE ZMIANY:
 - Slim-mako-4.4.2.build.5.4-WEEKLY-4485
+- dodano motyw do recovey TWRP przystosowany pod MrturDroid [by z31s1g]
+(wymagane jest wgranie recovery TWRP w instalatorze Aroma)

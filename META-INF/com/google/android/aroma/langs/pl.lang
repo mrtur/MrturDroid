@@ -93,6 +93,9 @@ mrturdroid.recovery.cwm.desc=Alternatywne recovery.\
 Przechodząc z TWRP na CWM musisz po flashowaniu wybrać <b><#d98d15>Restart</#></b> a potem wykonać\
 <b><#FF0A1F>HOME -> Reboot -> Recovery</#></b>
 
+mrturdroid.recoverytheme.twrp=Recovery TWRP Theme
+mrturdroid.recoverytheme.twrp.desc=Czy chcesz dodatkowo motyw MrturDroid do recovery TWRP?\
+<#FF0A1F>Jeżeli już jakiś posiadasz zostanie podmieniony!</#>\
 
 mrturdroid.preset=Preset Instalacji MrturDroid
 mrturdroid.preset.desc=Wybierz proszę swój preset:

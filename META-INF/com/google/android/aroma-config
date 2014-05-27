@@ -250,6 +250,20 @@ form(
 	"twrp","TWRP","<~mrturdroid.recovery.twrp.desc>","select.selected",
 	"cwm","ClockWorkMod","<~mrturdroid.recovery.cwm.desc>","select"
 );
+	if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "twrp" then
+			if confirm(
+				"<~mrturdroid.recoverytheme.twrp>",
+				"<~mrturdroid.recoverytheme.twrp.desc>",
+				"@welcome",
+				"<~text_yes>",
+				"<~text_no>"
+			)=="yes" then
+				writetmpfile(
+					"mrturdroidrecoverytheme.prop",
+					"recoverytheme=yes\n"
+					);
+			endif;
+	endif;
 else
 	writetmpfile(
 		"mrturdroidrecovery.prop",
