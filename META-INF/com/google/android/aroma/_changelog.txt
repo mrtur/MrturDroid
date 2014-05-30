@@ -18,6 +18,7 @@ MrturDroid 2.5.6 EXPERIMENTAL
 - kernel faux 038u
 - kernel franco r208
 - Google Camera 2.2.024
+- XPrivacy to 2.0.26
 
 2. Poprawki:
 - Code review of adflash utility, POSIX-standard fixes, misc improvements and cleanup [by Archi]
