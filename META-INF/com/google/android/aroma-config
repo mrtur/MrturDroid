@@ -28,20 +28,30 @@
 # #                                                          #
 # ############################################################
 
-##
+#
 # Initializing Rom Information
-##
-
-setvar("preset_version","5");
-setvar("adaroma","/data/media/0/MrturDroid/AromaPreset/Slim");
-setvar("adaromamrtur","/data/media/0/MrturDroid/AromaPreset/mrtur");
-
+#
 ini_set("dp","3");
 ini_set("rom_name",             "MrturDroid");
-ini_set("rom_version",          "2.5.5");
+ini_set("rom_version",          "2.5.6");
 ini_set("rom_author",           "mrtur");
 ini_set("rom_device",           "Nexus 4");
-ini_set("rom_date",             "14-05-2014");
+ini_set("rom_date",             "01-06-2014");
+
+#
+# Setvar
+#
+setvar("preset_version","6");
+setvar("adaroma","/data/media/0/MrturDroid/AromaPreset/Slim");
+setvar("adaromamrtur","/data/media/0/MrturDroid/AromaPreset/mrtur");
+setvar("aroma_fast","OFF");
+
+# Mount required filesystems
+resexec("exec/admount.sh", "/system");
+resexec("exec/admount.sh", "/data");
+resexec("exec/archidroid_init.sh", "Slim");
+resexec("exec/archidroid_init.sh", "mrtur");
+setvar("extsdinstall", resexec("exec/archidroid_detect_zip.sh"));
 
 #
 # THEME START
@@ -55,13 +65,6 @@ theme("Black&Orange");
 fontresload( "0", "ttf/lucon.ttf;", "13" );
 fontresload( "1", "ttf/lucon.ttf;", "16" );
 
-# Mount required filesystems
-resexec("exec/admount.sh", "/system");
-resexec("exec/admount.sh", "/data");
-resexec("exec/archidroid_init.sh", "Slim");
-resexec("exec/archidroid_init.sh", "mrtur");
-setvar("extsdinstall", resexec("exec/archidroid_detect_zip.sh"));
-
 #
 # LANGUAGE
 #
@@ -70,8 +73,6 @@ loadlang("langs/pl.lang");
 #
 # aroma_fast ON or OFF
 #
-setvar("aroma_fast","OFF");
-
 if getvar("aroma_fast")=="OFF" then
 	anisplash(
 	1,
@@ -167,8 +168,8 @@ if getvar("aroma_fast")=="OFF" then
 
 		"preset","<#selectbg_g><~mrturdroid.preset.group></#>","","group",
 		"custom","<~mrturdroid.preset.custom>", "<~mrturdroid.preset.custom.desc>","select.selected",
-		"previousexpert","<~mrturdroid.preset.previousexpert>","<~mrturdroid.preset.previousexpert.desc>","select",		
 		"previous","<~mrturdroid.preset.previous>","<~mrturdroid.preset.previous.desc>","select",
+		"previousexpert","<~mrturdroid.preset.previousexpert>","<~mrturdroid.preset.previousexpert.desc>","select",		
 		"mrtur","<~mrturdroid.preset.mrtur>","<~mrturdroid.preset.mrtur.desc>","select",		
 		"barebones","<~mrturdroid.preset.barebones>","<~mrturdroid.preset.barebones.desc>","select",
 		"recovery","<~mrturdroid.preset.recovery>","<~mrturdroid.preset.recovery.desc>","select"
@@ -178,45 +179,28 @@ else
 		"<~mrturdroid.preset>",
 		"<~mrturdroid.preset.desc>",
 		"@welcome",
+		"mrturdroidinstallmode.prop",
+
+		"preset","<#selectbg_g><~mrturdroid.preset.group></#>","","group",
+		"custom","<~mrturdroid.preset.custom>", "<~mrturdroid.preset.custom.desc>","select.selected",
+		"previous","<~mrturdroid.preset.previous>","<~mrturdroid.preset.previous.desc>","select",
+		"previousexpert","<~mrturdroid.preset.previousexpert>","<~mrturdroid.preset.previousexpert.desc>","select",		
+		"mrtur","<~mrturdroid.preset.mrtur>","<~mrturdroid.preset.mrtur.desc>","select",		
+		"barebones","<~mrturdroid.preset.barebones>","<~mrturdroid.preset.barebones.desc>","select",
+		"recovery","<~mrturdroid.preset.recovery>","<~mrturdroid.preset.recovery.desc>","select"
+	);
+	if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") != "recovery" then
+		form(
+		"<~mrturdroid.preset>",
+		"<~mrturdroid.preset.desc>",
+		"@welcome",
 		"mrturdroidwipe.prop",
 
 		"wipe","<#selectbg_g><~mrturdroid.preset.group></#>","","group",
 		"yes","Full Wipe", "Czyści wszelkie dane użytkownika i ustawienia. Nie rusza Internal SD","select.selected",
 		"no","Aktualizacja","W razie problemów wgraj ROM jeszcze raz z opcją Full Wipe","select"
 	);
-
-	form(
-		"<~mrturdroid.preset>",
-		"<~mrturdroid.preset.desc>",
-		"@welcome",
-		"mrturdroidinstallmode.prop",
-
-		"preset","<#selectbg_g><~mrturdroid.preset.group></#>","","group",
-		"custom","<~mrturdroid.preset.custom>", "<~mrturdroid.preset.custom.desc>","select.selected",
-		"previousexpert","<~mrturdroid.preset.previousexpert>","<~mrturdroid.preset.previousexpert.desc>","select",		
-		"previous","<~mrturdroid.preset.previous>","<~mrturdroid.preset.previous.desc>","select",
-		"mrtur","<~mrturdroid.preset.mrtur>","<~mrturdroid.preset.mrtur.desc>","select",		
-		"barebones","<~mrturdroid.preset.barebones>","<~mrturdroid.preset.barebones.desc>","select",
-		"recovery","Recovery","","select"
-	);
-endif;
-
-##############################
-### PREVIOUS PRESET EXPERT ###
-##############################
-	
-if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "previousexpert" then
-	setvar("preset_version_probe",read(getvar("adaroma")+"/version.txt"));
-		if getvar("preset_version")!=getvar("preset_version_probe") then
-			alert("MrturDroid Wizard","<~mrturdroid.detect.previouspreset.fail>","@welcome");
-			writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
-		else
-			# TODO: Aroma hangs when no files are present, add exception for this later
-			writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
-			writetmpfile("mrturdroid.prop",read(getvar("adaroma")+"/mrturdroid.prop"));
-			writetmpfile("mrturdroidxposed.prop",read(getvar("adaroma")+"/mrturdroidxposed.prop"));
-			writetmpfile("mrturdroidbuild.prop",read(getvar("adaroma")+"/mrturdroidbuild.prop"));
-		endif;
+	endif;
 endif;
 
 #######################
@@ -229,6 +213,23 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "previ
 			alert("MrturDroid Wizard","<~mrturdroid.detect.previouspreset.fail>","@welcome");
 			writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
 		else
+			writetmpfile("mrturdroid.prop",read(getvar("adaroma")+"/mrturdroid.prop"));
+			writetmpfile("mrturdroidxposed.prop",read(getvar("adaroma")+"/mrturdroidxposed.prop"));
+			writetmpfile("mrturdroidbuild.prop",read(getvar("adaroma")+"/mrturdroidbuild.prop"));
+		endif;
+endif;
+
+##############################
+### PREVIOUS PRESET EXPERT ###
+##############################
+	
+if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "previousexpert" then
+	setvar("preset_version_probe",read(getvar("adaroma")+"/version.txt"));
+		if getvar("preset_version")!=getvar("preset_version_probe") then
+			alert("MrturDroid Wizard","<~mrturdroid.detect.previouspreset.fail>","@welcome");
+			writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
+		else
+			writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
 			writetmpfile("mrturdroid.prop",read(getvar("adaroma")+"/mrturdroid.prop"));
 			writetmpfile("mrturdroidxposed.prop",read(getvar("adaroma")+"/mrturdroidxposed.prop"));
 			writetmpfile("mrturdroidbuild.prop",read(getvar("adaroma")+"/mrturdroidbuild.prop"));
@@ -250,6 +251,25 @@ form(
 	"twrp","TWRP","<~mrturdroid.recovery.twrp.desc>","select.selected",
 	"cwm","ClockWorkMod","<~mrturdroid.recovery.cwm.desc>","select"
 );
+	if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "twrp" then
+			if confirm(
+				"<~mrturdroid.recoverytheme.twrp>",
+				"<~mrturdroid.recoverytheme.twrp.desc>",
+				"@welcome",
+				"<~text_yes>",
+				"<~text_no>"
+			)=="yes" then
+				writetmpfile(
+					"mrturdroidrecoverytheme.prop",
+					"recoverytheme=yes\n"
+					);
+			else
+				writetmpfile(
+					"mrturdroidrecoverytheme.prop",
+					"recoverytheme=no\n"
+					);
+			endif;
+	endif;
 else
 	writetmpfile(
 		"mrturdroidrecovery.prop",

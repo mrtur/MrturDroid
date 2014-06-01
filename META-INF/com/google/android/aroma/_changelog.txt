@@ -1,15 +1,34 @@
- MrturDroid 2.5.5
+ MrturDroid 2.5.6
 
 1. Aktualizacja:
-- Google Camera 2.1.043
-- Titanium Backup 6.1.5.5
+- Titanium Backup 6.1.5.6
+- PA GAPPS to 13 May
+- Xposed to 2.6 beta1
+- App Settings to 1.9
+- XPrivacy to 2.0.22
+- BootManager 2.0.7
+- Xposed to 2.6 beta1
+- PA Gapps 17 May
+- Updated ArchiDroid's Pocket Debian to 17 May (you will need to use adlinux rebuild) [by Archi]
+- Complete Action Plus 2.2.2
+- Android Terminal Emulator 1.6.0
+- Greenify to 2.3.1
+- kernel Semaphore 2.1.5
+- kernel faux 038u
+- kernel franco r208
+- Google Camera 2.2.024
+- XPrivacy to 2.0.26
+- PA GAPPS to 24 May
+- Nova Launcher to 3.0 beta4
+- MrturDroid Update 1.6(2.5.6)
 
 2. Poprawki:
 - Code review of adflash utility, POSIX-standard fixes, misc improvements and cleanup [by Archi]
 - Fixed adflash not showing changelog properly, thanks to @oaid [by Archi]
+- fix Market
+- przeniesiono menadzer aromafm.zip do TWRP i ustawiono jako default w motywie
 
 3. ISTOTNE ZMIANY:
-- Aroma instaler juz nie falszuje kolorow
-- Aroma installer tryby instalacji (Poprzedni preset i Porzedni preset+Edycja)
-- Slim-mako-4.4.2.build.5-OFFICIAL-4085
-- dodano dwa motywy do Aroma (Gray&Orange oraz Miui)
+- Slim-mako-4.4.2.build.5.4-WEEKLY-4485
+- dodano motyw do recovey TWRP przystosowany pod MrturDroid [by z31s1g]
+(wymagane jest wgranie recovery TWRP w instalatorze Aroma)

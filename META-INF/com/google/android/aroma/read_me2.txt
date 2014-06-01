@@ -3,6 +3,8 @@
 
 Ten ROM oparty jest na pracy wielu innych ludzi, ich modyfikacji, ich poprawek, ich skryptów i innych implementacjach.Podziękowania dla developerów:
 - Aroma & Aroma File Manager
+- Recovery ClockWorkMod(CWM)
+- Recovery TeamWin(TWRP) | theme [by z31s1g]
 - ROMS: Archidroid | Slim Kat
 - GApps: SlimKat Android GAPPS | Team BlackOut Inverts
 - Launcher: Nova Launcher | Google Home
