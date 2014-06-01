@@ -20,6 +20,7 @@ MrturDroid 2.5.6 EXPERIMENTAL
 - XPrivacy to 2.0.26
 - PA GAPPS to 24 May
 - Nova Launcher to 3.0 beta4
+- MrturDroid Update 1.6(2.5.6)
 
 2. Poprawki:
 - Code review of adflash utility, POSIX-standard fixes, misc improvements and cleanup [by Archi]
