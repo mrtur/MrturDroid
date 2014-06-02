@@ -1,30 +1,7 @@
-MrturDroid 2.5.6 EXPERIMENTAL
+MrturDroid 2.5.7 EXPERIMENTAL
 
 1. Aktualizacja:
-- Titanium Backup 6.1.5.6
-- App Settings to 1.9
-- BootManager 2.0.7
-- Xposed to 2.6 beta1
-- Updated ArchiDroid's Pocket Debian to 17 May (you will need to use adlinux rebuild) [by Archi]
-- Complete Action Plus 2.2.2
-- Android Terminal Emulator 1.6.0
-- Greenify to 2.3.1
-- kernel Semaphore 2.1.5
-- kernel faux 038u
-- kernel franco r208
-- Google Camera 2.2.024
-- XPrivacy to 2.0.26
-- PA GAPPS to 24 May
-- Nova Launcher to 3.0 beta4
-- MrturDroid Update 1.6(2.5.6)
 
 2. Poprawki:
-- Code review of adflash utility, POSIX-standard fixes, misc improvements and cleanup [by Archi]
-- Fixed adflash not showing changelog properly, thanks to @oaid [by Archi]
-- fix Market
-- przeniesiono menadzer aromafm.zip do TWRP i ustawiono jako default w motywie
 
 3. ISTOTNE ZMIANY:
-- Slim-mako-4.4.2.build.5.4-WEEKLY-4485
-- dodano motyw do recovey TWRP przystosowany pod MrturDroid [by z31s1g]
-(wymagane jest wgranie recovery TWRP w instalatorze Aroma)
