@@ -236,8 +236,12 @@ By default built-in apps are not shown. If you want to show them or filter apps 
     <string name="shake_event_z_title">Activity to launch when shaken back-and-forth</string>
     <string name="shake_sensitivity_title">Shake sensitivity</string>
     <string name="shake_sensitivity_summary">Global sensitivity of all shake preferences</string>
+    <string name="shake_sensitivity_even_less_sensitive">Very insensitive</string>
     <string name="shake_sensitivity_less_sensitive">Less sensitive</string>
     <string name="shake_sensitivity_more_sensitive">More sensitive</string>
+    <string name="shake_sensitivity_very_sensitive">Very sensitive</string>
+    <string name="shake_sensitivity_super_sensitive">Super sensitive</string>
+    <string name="shake_sensitivity_ultra_sensitive">Ultra sensitive</string>
     <string name="display_category_wakeup_options_title">Wakeup options</string>
     <string name="pref_volume_wake_title">Volume rocker wake</string>
     <string name="pref_volume_wake_summary">Pressing the volume rocker up/down will wake the device</string>
@@ -1084,6 +1088,17 @@ Do you really want to enable this function?"</string>
     <string name="recent_panel_expanded_mode_never">Never</string>
     <string name="recent_panel_lefty_mode_title">Show on the left edge</string>
     <string name="recent_panel_lefty_mode_summary">Show recent apps panel on the left edge.</string>
+    <string name="app_moving_enable">Enable app moving</string>
+    <string name="app_moving_disable">Disable app moving</string>
+    <string name="app_moving_reboot_title">Reboot now?</string>
+    <string name="app_moving_reboot_enabled_desc">"Successfully enabled application moving.
+
+The device needs to be rebooted for the setting to take effect."</string>
+    <string name="app_moving_reboot_disabled_desc">"Successfully disabled application moving.
+
+The device needs to be rebooted for the setting to take effect."</string>
+    <string name="app_moving_reboot_now_button">Reboot now</string>
+    <string name="app_moving_reboot_later_button">Reboot later</string>
     <string name="adb_notify">USB debugging notify</string>
     <string name="adb_notify_summary">Display a notification when USB debugging is connected</string>
     <string name="yes">Yes</string>
