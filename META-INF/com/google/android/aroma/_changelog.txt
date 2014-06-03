@@ -1,6 +1,7 @@
 MrturDroid 2.5.7 EXPERIMENTAL
 
 1. Aktualizacja:
+- Google Maps 8.1.0
 
 2. Poprawki:
 
