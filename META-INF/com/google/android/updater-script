@@ -99,7 +99,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 	ui_print("<b><#d98d15> MrturDroid ~</#></b> Flashing MrturDroid Core");
 	show_progress(0.4, 1212);
 	package_extract_dir("system", "/system");
-	if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur" then
+	if file_getprop("/tmp/aroma-data/mrturpreset.prop","preset") == "yes" then
 		ui_print("<#d98d15> mrtur ~</#> Flashing mrtur's Core");
 		package_extract_dir("_mrtur/system", "/system");
 	endif;
@@ -227,7 +227,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 	
 	### IMPORTANT ###
 	package_extract_dir("_mrturdroid/auto", "/");
-	if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur" then
+	if file_getprop("/tmp/aroma-data/mrturpreset.prop","preset") == "yes" then
 		ui_print("<#d98d15> mrtur ~</#> Flashing mrtur's Preset");
 		package_extract_dir("_mrtur/auto", "/");
 	endif;
@@ -319,7 +319,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		run_program("/tmp/superuser.sh", file_getprop("/tmp/aroma-data/mrturdroid.prop","root"));
 		delete("tmp/superuser.sh");
 			
-		if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur" then		
+		if file_getprop("/tmp/aroma-data/mrturpreset.prop","preset") == "yes" then		
 			ui_print("<#d98d15> mrtur ~</#> Root acces -> Apps and ADB");
 			package_extract_dir("_mrtur/apps/superuser", "/");
 		endif;
@@ -338,7 +338,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		### NO MTP ###
 		##############
 		
-		if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur" then
+		if file_getprop("/tmp/aroma-data/mrturpreset.prop","preset") == "yes" then
 			ui_print("<#d98d15> mrtur ~</#> Including mrtur's no MTP");
 			package_extract_file("_mrtur/exec/no_mtp.sh", "/tmp/no_mtp.sh");
 			set_perm(0, 0, 0777, "/tmp/no_mtp.sh");
@@ -463,7 +463,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			set_perm_recursive(0, 0, 0755, 0644, "/system/app");
 			set_perm_recursive(0, 0, 0755, 0644, "/system/priv-app");
 
-		if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur" then
+		if file_getprop("/tmp/aroma-data/mrturpreset.prop","preset") == "yes" then
 			ui_print("<#d98d15> mrtur ~</#> Installing market for mrtur's preset");
 			package_extract_dir("_mrtur/apps/market", "/");
 		endif;
@@ -755,7 +755,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing CoolTool");
 			package_extract_dir("_mrturdroid/apps/cooltool", "/");
 		endif;
-		if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur" then
+		if file_getprop("/tmp/aroma-data/mrturpreset.prop","preset") == "yes" then
 			ui_print("<#d98d15> mrtur ~</#> Installing CoolTool for mrtur's preset");
 			package_extract_dir("_mrtur/apps/cooltool", "/");
 		endif;

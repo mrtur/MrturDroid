@@ -43,14 +43,12 @@ ini_set("rom_date",             "XX-06-2014");
 #
 setvar("preset_version","9");
 setvar("adaroma","/data/media/0/MrturDroid/AromaPreset/Slim_work");
-setvar("adaromamrtur","/data/media/0/MrturDroid/AromaPreset/mrtur");
 setvar("aroma_fast","OFF");
 
 # Mount required filesystems
 resexec("exec/admount.sh", "/system");
 resexec("exec/admount.sh", "/data");
 resexec("exec/archidroid_init.sh", "Slim_work");
-resexec("exec/archidroid_init.sh", "mrtur");
 setvar("extsdinstall", resexec("exec/archidroid_detect_zip.sh"));
 
 #
@@ -229,10 +227,10 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "previ
 			alert("MrturDroid Wizard","<~mrturdroid.detect.previouspreset.fail>","@welcome");
 			writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
 		else
-			writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
 			writetmpfile("mrturdroid.prop",read(getvar("adaroma")+"/mrturdroid.prop"));
 			writetmpfile("mrturdroidxposed.prop",read(getvar("adaroma")+"/mrturdroidxposed.prop"));
 			writetmpfile("mrturdroidbuild.prop",read(getvar("adaroma")+"/mrturdroidbuild.prop"));
+			writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
 		endif;
 endif;
 
@@ -320,7 +318,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"buildtweaks=1\n"+
 		"debianoff=0\n"
 	);
-		write(getvar("adaromamrtur")+"/mrturdroid.prop",readtmpfile("mrturdroid.prop"));	
 	writetmpfile(
 		"mrturdroidxposed.prop",
 		
@@ -330,7 +327,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"actionplus=1\n"+		
 		"xprivacy=0\n"
 	);
-		write(getvar("adaromamrtur")+"/mrturdroidxposed.prop",readtmpfile("mrturdroidxposed.prop"));		
 	writetmpfile(
 		"mrturdroidbuild.prop",
 
@@ -338,12 +334,9 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"adreno=1\n"+		
 		"zerowakeup=0\n"
 	);
-		write(getvar("adaromamrtur")+"/mrturdroidbuild.prop",readtmpfile("mrturdroidbuild.prop"));	
-
 	writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
-	writetmpfile("mrturdroid.prop",read(getvar("adaromamrtur")+"/mrturdroid.prop"));
-	writetmpfile("mrturdroidxposed.prop",read(getvar("adaromamrtur")+"/mrturdroidxposed.prop"));
-	writetmpfile("mrturdroidbuild.prop",read(getvar("adaromamrtur")+"/mrturdroidbuild.prop"));		
+	writetmpfile("mrturpreset.prop","preset=yes\n");
+	
 endif;
 
 ###############################
@@ -435,8 +428,10 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		splash(2000,"preview/bootanimation/" + file_getprop("/tmp/aroma-data/mrturdroid.prop","bootanimation"));
 		back("1");
 	endif;
-	
-	write(getvar("adaroma")+"/mrturdroid.prop",readtmpfile("mrturdroid.prop"));
+
+	if file_getprop("/tmp/aroma-data/mrturpreset.prop","preset") != "yes" then
+		write(getvar("adaroma")+"/mrturdroid.prop",readtmpfile("mrturdroid.prop"));
+	endif;
 	
 	if file_getprop("/tmp/aroma-data/mrturdroid.prop","googlekb") !="1" && file_getprop("/tmp/aroma-data/mrturdroid.prop","touchpal") !="1" && file_getprop("/tmp/aroma-data/mrturdroid.prop","hackers") !="1" && file_getprop("/tmp/aroma-data/mrturdroid.prop","stock") !="1" then
 	textbox(
@@ -470,7 +465,11 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 			"actionplus","Complete Action Plus","<~mrturdroid.xposed.actionplus.desc>","check.checked",			
 			"xprivacy","XPrivacy","<~mrturdroid.xposed.xprivacy.desc>","check"
 		);
+		
+	if file_getprop("/tmp/aroma-data/mrturpreset.prop","preset") != "yes" then
 		write(getvar("adaroma")+"/mrturdroidxposed.prop",readtmpfile("mrturdroidxposed.prop"));
+	endif;		
+
 	endif;
 		
 	if file_getprop("/tmp/aroma-data/mrturdroid.prop","buildtweaks") == "1" then
@@ -485,7 +484,11 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 			"adreno","Qualcomm Adreno GPU","<~mrturdroid.buildtweaks.adreno.desc>","check.checked",				
 			"zerowakeup","ZeroWakeUp","<~mrturdroid.buildtweaks.zerowakeup.desc>","check"
 		);
+		
+	if file_getprop("/tmp/aroma-data/mrturpreset.prop","preset") != "yes" then
 		write(getvar("adaroma")+"/mrturdroidbuild.prop",readtmpfile("mrturdroidbuild.prop"));
+	endif;		
+
 	endif;
 		write(getvar("adaroma")+"/version.txt",getvar("preset_version"));
 endif;
