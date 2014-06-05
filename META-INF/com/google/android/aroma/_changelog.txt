@@ -6,6 +6,7 @@ MrturDroid 2.5.7 EXPERIMENTAL
 - XPrivacy 2.0.28
 - MX Player to 1.7.27
 - Nova 3.0.1-beta1
+- PA GAPPS 03 June
 
 2. Poprawki:
 - naprawiono skopany preset mrtur

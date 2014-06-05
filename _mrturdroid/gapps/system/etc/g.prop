@@ -2,6 +2,11 @@
 ro.addon.type=gapps
 ro.addon.platform=44
 ro.addon.pa_type=micro
+<<<<<<< HEAD:_mrturdroid/gapps/system/etc/g.prop
 ro.addon.pa_size=119576
 ro.addon.pa_version=20140524
+=======
+ro.addon.pa_size=121716
+ro.addon.pa_version=20140603
+>>>>>>> aaba24f... PA GAPPS 03 June:_archidroid/gapps/core/system/etc/g.prop
 # end addon properties
