@@ -5,6 +5,7 @@ MrturDroid 2.5.7 EXPERIMENTAL
 - Android Terminal Emulator 1.0.61
 - XPrivacy 2.0.28
 - MX Player to 1.7.27
+- Nova 3.0.1-beta1
 
 2. Poprawki:
 - naprawiono skopany preset mrtur
