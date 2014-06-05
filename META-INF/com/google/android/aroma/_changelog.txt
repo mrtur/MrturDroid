@@ -3,6 +3,7 @@ MrturDroid 2.5.7 EXPERIMENTAL
 1. Aktualizacja:
 - Google Maps 8.1.0
 - Android Terminal Emulator 1.0.61
+- XPrivacy 2.0.28
 
 2. Poprawki:
 - naprawiono skopany preset mrtur
