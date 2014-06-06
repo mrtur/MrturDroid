@@ -227,10 +227,10 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "previ
 			alert("MrturDroid Wizard","<~mrturdroid.detect.previouspreset.fail>","@welcome");
 			writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
 		else
+			writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");		
 			writetmpfile("mrturdroid.prop",read(getvar("adaroma")+"/mrturdroid.prop"));
 			writetmpfile("mrturdroidxposed.prop",read(getvar("adaroma")+"/mrturdroidxposed.prop"));
 			writetmpfile("mrturdroidbuild.prop",read(getvar("adaroma")+"/mrturdroidbuild.prop"));
-			writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
 		endif;
 endif;
 
@@ -292,7 +292,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"bootanimation=mrtur\n"+
 		"root=3\n"+
 		"runtime=libdvm.so\n"+
-		"mdu=0\n"+
 		"gcamera=1\n"+		
 		"gchrome=0\n"+
 		"gkeep=0\n"+
@@ -303,6 +302,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"gplus=0\n"+
 		"gplaymusic=0\n"+	
 		"gtranslate=0\n"+
+		"mdu=0\n"+		
 		"trickster=0\n"+	
 		"viper4=0\n"+
 		"titaniumbackup=1\n"+
