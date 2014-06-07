@@ -14,6 +14,7 @@ MrturDroid 2.5.7 EXPERIMENTAL
 
 2. Poprawki:
 - naprawiono skopany preset mrtur
+- Xposed ciemny na starcie
 
 3. ISTOTNE ZMIANY:
 - Slim-mako-4.4.2.build.5.6-WEEKLY-4577

@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <string name="release_type_global">stable</string>
+    <int name="install_mode" value="0" />
+    <boolean name="cleaned_up_sdcard" value="true" />
+    <boolean name="cleaned_up_debug_log" value="true" />
+    <boolean name="enable_downloads" value="true" />
+    <int name="theme" value="1" />
+</map>
