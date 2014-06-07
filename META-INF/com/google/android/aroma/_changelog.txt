@@ -5,7 +5,7 @@ MrturDroid 2.5.7 EXPERIMENTAL
 - Android Terminal Emulator 1.0.61
 - XPrivacy 2.0.28
 - MX Player to 1.7.27
-- Nova 3.0.1-beta1
+- Nova 3.0.1
 - PA GAPPS 03 June
 - Adreno-drivers-n4-may-30
 - Google Chrome 35.0.1916.141
