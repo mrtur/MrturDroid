@@ -8,6 +8,7 @@ MrturDroid 2.5.7 EXPERIMENTAL
 - Nova 3.0.1-beta1
 - PA GAPPS 03 June
 - Adreno-drivers-n4-may-30
+- Google Chrome 35.0.1916.141
 
 2. Poprawki:
 - naprawiono skopany preset mrtur
