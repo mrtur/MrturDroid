@@ -1,0 +1,297 @@
+stream {
+  name: "input"
+  classname: "CopyStream"
+}
+stream {
+  name: "rewrite_simple"
+  classname: "RewriteGrmStream"
+  params {
+    [speech.tts.ResourceReferenceParams.id] {
+      grm_far_ref: "rewrite_grm_fst"
+    }
+  }
+}
+stream {
+  name: "tokenize_and_classify_kestrel"
+  classname: "TokenizeAndClassifyGrmStream"
+  params {
+    [speech.tts.ResourceReferenceParams.id] {
+      grm_far_ref: "tokenize_and_classify_grm_fst"
+      phonology_ref: "phonology"
+      lexicon_ref: "combined_lexicon"
+      textnorm_params_ref: "textnorm_params"
+      utf8_utils_ref: "utf8_utils"
+    }
+  }
+}
+stream {
+  name: "analyze_morphology"
+  classname: "AnalyzeMorphologyStream"
+  params {
+    [speech.tts.ResourceReferenceParams.id] {
+      morph_attribute_map_ref: "morph_analyzer_attribute_map"
+      morph_portable_sequence_analyzer_ref: "morph_portable_sequence_analyzer"
+    }
+  }
+}
+stream {
+  name: "verbalize_kestrel"
+  classname: "VerbalizeGrmStream"
+  params {
+    [speech.tts.ResourceReferenceParams.id] {
+      grm_far_ref: "verbalize_grm_fst"
+      phonology_ref: "phonology"
+      lexicon_ref: "combined_lexicon"
+      textnorm_params_ref: "textnorm_params"
+    }
+  }
+}
+stream {
+  name: "classify_homographs_simple"
+  classname: "ResolveHomographsSimpleStream"
+  params {
+    [speech.tts.ResourceReferenceParams.id] {
+      basic_homographs_ref: "homograph_definitions"
+    }
+  }
+}
+stream {
+  name: "slavic_pronounce"
+  classname: "SlavicPronounceStream"
+  params {
+    [speech.tts.ResourceReferenceParams.id] {
+      phonology_ref: "phonology"
+      lexicon_ref: "combined_lexicon"
+      g2p_fst_ref: "g2p_fst"
+    }
+  }
+}
+stream {
+  name: "hmm"
+  classname: "Patts1HybridSynthesizerStream"
+  params {
+    [speech.tts.ResourceReferenceParams.id] {
+      phonology_ref: "phonology"
+      treemap_config_ref: "treemap_config"
+      patts1_hybrid_synth_ref: "hybrid_synthesizer"
+    }
+  }
+}
+stream {
+  name: "controller_events"
+  classname: "CopyStream"
+}
+connect {
+  from: "input"
+  to: "rewrite_simple"
+}
+connect {
+  from: "rewrite_simple"
+  to: "tokenize_and_classify_kestrel"
+}
+connect {
+  from: "tokenize_and_classify_kestrel"
+  to: "analyze_morphology"
+}
+connect {
+  from: "analyze_morphology"
+  to: "verbalize_kestrel"
+}
+connect {
+  from: "verbalize_kestrel"
+  to: "classify_homographs_simple"
+}
+connect {
+  from: "classify_homographs_simple"
+  to: "slavic_pronounce"
+}
+connect {
+  from: "slavic_pronounce"
+  to: "hmm"
+}
+connect {
+  from: "hmm"
+  to: "controller_events"
+}
+resource {
+  name: "phonology"
+  classname: "Phonology"
+  params {
+    [speech.tts.DataSourceParams.id] {
+      path: "blaze-out/gcc-4.X.Y-crosstool-v17-hybrid-grtev3-k8-opt/genfiles/speech/patts2/linguistic/phonology/pl/pl/phonology.pb"
+      type: FILE
+    }
+  }
+}
+resource {
+  name: "treemap_config"
+  classname: "TreeMapConfigResource"
+  params {
+    [speech.tts.TreeMapConfigResourceParams.id] {
+      data_sources {
+        path: "blaze-out/gcc-4.X.Y-crosstool-v17-hybrid-grtev3-k8-opt/genfiles/speech/patts2/linguistic/phonology/pl/pl/phonology.cfg"
+        type: FILE
+      }
+      data_sources {
+        path: "speech/tts/data/params/compile_hmm_phoneme.cfg"
+        type: FILE
+      }
+      data_sources {
+        path: "speech/patts/config/engine_hmm_22050_ap-embedded_lsp.cfg"
+        type: FILE
+      }
+    }
+  }
+}
+resource {
+  name: "morph_analyzer_attribute_map"
+  classname: "AttributeMap"
+  params {
+    [speech.tts.DataSourceParams.id] {
+      path: "blaze-out/gcc-4.X.Y-crosstool-v17-hybrid-grtev3-k8-opt/genfiles/speech/patts2/linguistic/kestrel_grammar/analyze_morphology/pl/attribute_map.pb"
+      type: FILE
+    }
+  }
+}
+resource {
+  name: "morph_analyzer_pack"
+  classname: "MorphologyPack"
+  params {
+    [speech.tts.DataSourceParams.id] {
+      path: "blaze-out/gcc-4.X.Y-crosstool-v17-hybrid-grtev3-k8-opt/genfiles/speech/patts2/portable/nlp/morphology/languages/pl/pl.morph_pack_small"
+      type: FILE
+    }
+  }
+}
+resource {
+  name: "hmm_voice"
+  classname: "HmmVoiceResource"
+  params {
+    [speech.tts.HmmVoiceResourceParams.id] {
+      data_source {
+        path: "blaze-out/gcc-4.X.Y-crosstool-v17-hybrid-grtev3-k8-opt/genfiles/speech/patts_data/voices/workspace/hts/pretrained/pl/oda/all/_22050/patts1_hmm_voice_pl_pl_oda_all_22050_phoneme_lsp_swop_ap_msd_bin_8bit.voice"
+        type: FILE
+      }
+      treemap_config_ref: "treemap_config"
+    }
+  }
+}
+resource {
+  name: "hybrid_synthesizer"
+  classname: "Patts1HybridSynthesizerResource"
+  params {
+    [speech.tts.Patts1HybridSynthesizerResourceParams.id] {
+      treemap_config_ref: "treemap_config"
+      hmm_voice_ref: "hmm_voice"
+      use_linguistic_builder: false
+    }
+  }
+}
+resource {
+  name: "g2p_fst"
+  classname: "G2pFstResource"
+  params {
+    [speech.tts.G2pFstResourceParams.id] {
+      data_source {
+        path: "speech/patts/data/g2p/compiled/m3/g2p_m3_syls0_stress0_pl-PL.fst"
+        type: FILE
+      }
+      phonology_ref: "phonology"
+    }
+  }
+}
+resource {
+  name: "combined_lexicon"
+  classname: "LexiconResource"
+  params {
+    [speech.tts.LexiconResourceParams.id] {
+      data_source {
+        path: "blaze-out/gcc-4.X.Y-crosstool-v17-hybrid-grtev3-k8-opt/genfiles/speech/patts_data/voices/workspace/std/flatstart/pl/compressed_lexicon_pl_pl.blex"
+        type: FILE
+      }
+      phonology_ref: "phonology"
+    }
+  }
+}
+resource {
+  name: "homograph_definitions"
+  classname: "HomographDefinitionsResource"
+  params {
+    [speech.tts.DataSourceParams.id] {
+      path: "blaze-out/gcc-4.X.Y-crosstool-v17-hybrid-grtev3-k8-opt/genfiles/speech/patts2/linguistic/kestrel_grammar/resolve/pl/resolve_homographs_simple_pl.pb"
+      type: FILE
+    }
+  }
+}
+resource {
+  name: "rewrite_grm_fst"
+  classname: "GrmManager"
+  params {
+    [speech.tts.GrmFarResourceParams.id] {
+      fst_names: "REWRITE"
+      data_source {
+        path: "blaze-out/gcc-4.X.Y-crosstool-v17-hybrid-grtev3-k8-opt/genfiles/speech/patts2/linguistic/kestrel_grammar/rewrite/pl/rewrite_android.far"
+        type: FILE
+      }
+    }
+  }
+}
+resource {
+  name: "textnorm_params"
+  classname: "TextnormParams"
+  params {
+    [speech.tts.DataSourceParams.id] {
+      path: "blaze-out/gcc-4.X.Y-crosstool-v17-hybrid-grtev3-k8-opt/genfiles/speech/patts2/linguistic/kestrel_grammar/params/pl/pl/textnorm_params.pb"
+      type: FILE
+    }
+  }
+}
+resource {
+  name: "tokenize_and_classify_grm_fst"
+  classname: "GrmManager"
+  params {
+    [speech.tts.GrmFarResourceParams.id] {
+      fst_names: "TOKENIZE_AND_CLASSIFY"
+      data_source {
+        path: "blaze-out/gcc-4.X.Y-crosstool-v17-hybrid-grtev3-k8-opt/genfiles/speech/patts2/linguistic/kestrel_grammar/classify/pl/tokenize_and_classify_android.far"
+        type: FILE
+      }
+    }
+  }
+}
+resource {
+  name: "verbalize_grm_fst"
+  classname: "GrmManager"
+  params {
+    [speech.tts.GrmFarResourceParams.id] {
+      fst_names: "ALL"
+      data_source {
+        path: "blaze-out/gcc-4.X.Y-crosstool-v17-hybrid-grtev3-k8-opt/genfiles/speech/patts2/linguistic/kestrel_grammar/verbalize/pl/verbalize_android.far"
+        type: FILE
+      }
+    }
+  }
+}
+resource {
+  name: "utf8_utils"
+  classname: "Utf8UtilsResource"
+  params {
+    [speech.tts.Utf8UtilsResourceParams.id] {
+      phonology_ref: "phonology"
+    }
+  }
+}
+resource {
+  name: "morph_portable_sequence_analyzer"
+  classname: "PortableSequenceAnalyzerResource"
+  params {
+    [speech.tts.ResourceReferenceParams.id] {
+      phonology_ref: "phonology"
+      morph_pack_ref: "morph_analyzer_pack"
+      morph_attribute_map_ref: "morph_analyzer_attribute_map"
+    }
+  }
+}
+thread {
+  stream: "controller_events"
+}

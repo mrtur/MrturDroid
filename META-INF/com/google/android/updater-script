@@ -535,6 +535,11 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Google Translate");
 			package_extract_dir("_mrturdroid/apps/google/translate", "/");
 		endif;
+		
+		if file_getprop("/tmp/aroma-data/mrturdroid.prop","gtts") == "1" then
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Google TTS");
+			package_extract_dir("_mrturdroid/apps/google/gtts", "/");
+		endif;		
 
 		set_progress(0.69);
 

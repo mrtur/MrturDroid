@@ -41,7 +41,7 @@ ini_set("rom_date",             "XX-06-2014");
 #
 # Setvar
 #
-setvar("preset_version","0");
+setvar("preset_version","1");
 setvar("adaroma","/data/media/0/MrturDroid/AromaPreset/Slim_work");
 setvar("aroma_fast","OFF");
 
@@ -68,6 +68,7 @@ writetmpfile(
 	"gplus=0\n"+
 	"gplaymusic=0\n"+	
 	"gtranslate=0\n"+
+	"gtts=1\n"+
 	"mdu=1\n"+		
 	"trickster=1\n"+	
 	"viper4=1\n"+
@@ -363,6 +364,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"gplus=0\n"+
 		"gplaymusic=0\n"+	
 		"gtranslate=0\n"+
+		"gtts=1\n"+
 		"mdu=0\n"+		
 		"trickster=0\n"+	
 		"viper4=0\n"+
@@ -469,6 +471,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		"gplus","Google Plus [<~common.inverted>]","","check",
 		"gplaymusic","Google Play Music [<~common.inverted>]","<~mrturdroid.apps.gplaymusic.desc>","check",	
 		"gtranslate","Google Translate [<~common.inverted>]","","check",
+		"gtts","Google TTS ","<~mrturdroid.apps.gtts.desc>","check.checked",		
 
 		"mrturapps","<#selectbg_g>MrturDroid Apps</#>","","group",
 		"mdu","MrturDroid Update","<~mrturdroid.apps.mdu.desc>","check.checked",		

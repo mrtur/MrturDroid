@@ -18,3 +18,4 @@ MrturDroid 2.5.7 EXPERIMENTAL
 
 3. ISTOTNE ZMIANY:
 - Slim-mako-4.4.2.build.5.6-WEEKLY-4577
+- Dodano mechanizm przetwarzania mowy od google wraz z jezykiem polskim (wybor w Aroma)
