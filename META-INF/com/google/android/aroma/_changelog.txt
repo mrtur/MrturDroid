@@ -10,6 +10,7 @@ MrturDroid 2.5.7 EXPERIMENTAL
 - Adreno-drivers-n4-may-30
 - Google Chrome 35.0.1916.141
 - CoolTool 5.4.1
+- Complete Action Plus 2.2.2
 
 2. Poprawki:
 - naprawiono skopany preset mrtur
