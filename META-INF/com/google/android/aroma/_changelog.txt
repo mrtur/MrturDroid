@@ -3,7 +3,7 @@ MrturDroid 2.5.7 EXPERIMENTAL
 1. Aktualizacja:
 - Google Maps 8.1.0
 - Android Terminal Emulator 1.0.61
-- XPrivacy 2.0.28
+- XPrivacy 2.0.30
 - MX Player to 1.7.27
 - Nova 3.0.1
 - PA GAPPS 03 June
