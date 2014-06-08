@@ -6,7 +6,7 @@ MrturDroid 2.5.7 EXPERIMENTAL
 - XPrivacy 2.0.30
 - MX Player to 1.7.27
 - Nova 3.0.1
-- PA GAPPS 03 June
+- PA GAPPS 8 June
 - Adreno-drivers-n4-may-30
 - Google Chrome 35.0.1916.141
 - CoolTool 5.4.1
