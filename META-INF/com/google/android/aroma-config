@@ -214,7 +214,7 @@ if getvar("aroma_fast")=="OFF" then
 		"<~terms.check2>",
 		"<~terms.confirm2>"
 	);
-
+#	setvar("mrturpreset","OFF");
 	form(
 		"<~mrturdroid.preset>",
 		"<~mrturdroid.preset.desc>",
@@ -230,6 +230,7 @@ if getvar("aroma_fast")=="OFF" then
 		"recovery","<~mrturdroid.preset.recovery>","<~mrturdroid.preset.recovery.desc>","select"
 	);
 else
+#	setvar("mrturpreset","OFF");
 	form(
 		"<~mrturdroid.preset>",
 		"<~mrturdroid.preset.desc>",
@@ -263,7 +264,7 @@ endif;
 #######################
 	
 if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "previous" then
-	writetmpfile("mrturpreset.prop","preset=no\n");
+#	setvar("mrturpreset","OFF");
 	setvar("preset_version_probe",read(getvar("adaroma")+"/version.txt"));
 		if getvar("preset_version")!=getvar("preset_version_probe") then
 			alert("MrturDroid Wizard","<~mrturdroid.detect.previouspreset.fail>","@welcome");
@@ -281,7 +282,7 @@ endif;
 ##############################
 	
 if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "previousexpert" then
-	writetmpfile("mrturpreset.prop","preset=no\n");
+#	setvar("mrturpreset","OFF");
 	setvar("preset_version_probe",read(getvar("adaroma")+"/version.txt"));
 		if getvar("preset_version")!=getvar("preset_version_probe") then
 			alert("MrturDroid Wizard","<~mrturdroid.detect.previouspreset.fail>","@welcome");
@@ -398,8 +399,16 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"zerowakeup=0\n"
 	);
 	setvar("customrefresh","OFF");
-	writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
-	writetmpfile("mrturpreset.prop","preset=yes\n");
+#	setvar("mrturpreset","ON");
+#	writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
+
+	textbox(
+		"preset mrtur",
+		"",
+		"@welcome",
+		resread("preset_mrtur.txt")
+	);
+	
 endif;
 
 ###############################
@@ -497,11 +506,11 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		splash(2000,"preview/bootanimation/" + file_getprop("/tmp/aroma-data/mrturdroid.prop","bootanimation"));
 		back("1");
 	endif;
-
-		if file_getprop("/tmp/aroma-data/mrturpreset.prop","preset") != "yes" then
-			write(getvar("adaroma")+"/mrturdroid.prop",readtmpfile("mrturdroid.prop"));
-		endif;
 	
+#		if getvar("mrturpreset")=="OFF" then
+			write(getvar("adaroma")+"/mrturdroid.prop",readtmpfile("mrturdroid.prop"));
+#		endif;
+		
 	if file_getprop("/tmp/aroma-data/mrturdroid.prop","googlekb") !="1" && file_getprop("/tmp/aroma-data/mrturdroid.prop","touchpal") !="1" && file_getprop("/tmp/aroma-data/mrturdroid.prop","hackers") !="1" && file_getprop("/tmp/aroma-data/mrturdroid.prop","stock") !="1" then
 	textbox(
 		"Wykryłem Brak Klawiatury",
@@ -535,10 +544,10 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 			"xprivacy","XPrivacy","<~mrturdroid.xposed.xprivacy.desc>","check"
 		);
 		
-		if file_getprop("/tmp/aroma-data/mrturpreset.prop","preset") != "yes" then
+#		if getvar("mrturpreset")=="OFF" then
 			write(getvar("adaroma")+"/mrturdroidxposed.prop",readtmpfile("mrturdroidxposed.prop"));
-		endif;		
-
+#		endif;
+		
 	endif;
 		
 	if file_getprop("/tmp/aroma-data/mrturdroid.prop","buildtweaks") == "1" then
@@ -554,10 +563,10 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 			"zerowakeup","ZeroWakeUp","<~mrturdroid.buildtweaks.zerowakeup.desc>","check"
 		);
 		
-		if file_getprop("/tmp/aroma-data/mrturpreset.prop","preset") != "yes" then
+#		if getvar("mrturpreset")=="OFF" then
 			write(getvar("adaroma")+"/mrturdroidbuild.prop",readtmpfile("mrturdroidbuild.prop"));
-		endif;		
-
+#		endif;
+		
 	endif;
 		write(getvar("adaroma")+"/version.txt",getvar("preset_version"));
 		setvar("customrefresh","ON");
