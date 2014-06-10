@@ -33,24 +33,79 @@
 #
 ini_set("dp","3");
 ini_set("rom_name",             "MrturDroid");
-ini_set("rom_version",          "2.5.6");
+ini_set("rom_version",          "2.5.7");
 ini_set("rom_author",           "mrtur");
 ini_set("rom_device",           "Nexus 4");
-ini_set("rom_date",             "01-06-2014");
+ini_set("rom_date",             "10-06-2014");
 
 #
 # Setvar
 #
-setvar("preset_version","6");
-setvar("adaroma","/data/media/0/MrturDroid/AromaPreset/Slim");
-setvar("adaromamrtur","/data/media/0/MrturDroid/AromaPreset/mrtur");
+setvar("preset_version","7");
+setvar("adaroma","/data/media/0/MrturDroid/AromaPreset/Slim_work");
 setvar("aroma_fast","OFF");
 
+writetmpfile(
+	"defmrturdroid.prop",
+	
+	"kernel=stock\n"+
+	"dpi=268\n"+
+	"launcher=nova\n"+
+	"googlekb=0\n"+
+	"touchpal=1\n"+		
+	"hackers=1\n"+
+	"stock=0\n"+		
+	"bootanimation=mrtur\n"+
+	"root=3\n"+
+	"runtime=libdvm.so\n"+
+	"gcamera=1\n"+		
+	"gchrome=1\n"+
+	"gkeep=0\n"+
+	"gmail=1\n"+
+	"gmaps=1\n"+
+	"gvoice=1\n"+
+	"ghangouts=0\n"+
+	"gplus=0\n"+
+	"gplaymusic=0\n"+	
+	"gtranslate=0\n"+
+	"gtts=1\n"+
+	"mdu=1\n"+		
+	"trickster=1\n"+	
+	"viper4=1\n"+
+	"titaniumbackup=1\n"+
+	"greenify=1\n"+
+	"lmt=0\n"+
+	"mxplayer=1\n"+
+	"bbs=1\n"+
+	"cooltool=1\n"+
+	"rootbrowser=0\n"+
+	"totalcommander=1\n"+
+	"youtube=1\n"+
+	"facebook=0\n"+
+	"buildtweaks=1\n"+
+	"debianoff=1\n"
+);
+writetmpfile(
+	"defmrturdroidxposed.prop",
+	
+	"xposed=1\n"+
+	"appsettings=1\n"+
+	"bootmanager=1\n"+
+	"actionplus=1\n"+		
+	"xprivacy=0\n"
+);
+writetmpfile(
+	"defmrturdroidbuild.prop",
+
+	"fastdormancy=1\n"+
+	"adreno=1\n"+		
+	"zerowakeup=0\n"
+);
+		
 # Mount required filesystems
 resexec("exec/admount.sh", "/system");
 resexec("exec/admount.sh", "/data");
 resexec("exec/archidroid_init.sh", "Slim");
-resexec("exec/archidroid_init.sh", "mrtur");
 setvar("extsdinstall", resexec("exec/archidroid_detect_zip.sh"));
 
 #
@@ -102,28 +157,55 @@ if getvar("aroma_fast")=="OFF" then
 	  	
 		"theme","<#selectbg_g><~mrturdroid.theme.group></#>","","group",
 		"blackorange","Black & Orange", "","select.selected",
+		"blackorangebig","Black & Orange -> Bigger", "","select",		
 		"grayorange","Gray & Orange", "","select",
-		"miui","Miui", "","select"		
+		"grayorangebig","Gray & Orange -> Bigger", "","select",
+		"miui","Miui", "","select",
+		"miuibig","Miui -> Bigger", "","select"		
 		);
 	if file_getprop("/tmp/aroma-data/mrturdroidtheme.prop","theme") == "blackorange" then
+		ini_set("dp","3");
 		ini_set("force_colorspace","rgba");
 		theme("Black&Orange");
 		fontresload( "0", "ttf/lucon.ttf;", "13" );
 		fontresload( "1", "ttf/lucon.ttf;", "16" );
 	endif;
+		if file_getprop("/tmp/aroma-data/mrturdroidtheme.prop","theme") == "blackorangebig" then
+		ini_set("dp","4");
+		ini_set("force_colorspace","rgba");
+		theme("Black&Orange");
+		fontresload( "0", "ttf/lucon.ttf;", "11" );
+		fontresload( "1", "ttf/lucon.ttf;", "14" );
+	endif;
 	if file_getprop("/tmp/aroma-data/mrturdroidtheme.prop","theme") == "grayorange" then
+		ini_set("dp","3");
 		ini_set("force_colorspace","rgba");
 		theme("Gray&Orange");
 		fontresload( "0", "ttf/DroidSans.ttf;ttf/DroidSansFallback.ttf;ttf/DroidSansArabic.ttf;", "12" );
 		fontresload( "1", "ttf/DroidSans.ttf;ttf/DroidSansFallback.ttf;ttf/DroidSansArabic.ttf;", "14" );
 	endif;
+		if file_getprop("/tmp/aroma-data/mrturdroidtheme.prop","theme") == "grayorangebig" then
+		ini_set("dp","4");
+		ini_set("force_colorspace","rgba");
+		theme("Gray&Orange");
+		fontresload( "0", "ttf/DroidSans.ttf;ttf/DroidSansFallback.ttf;ttf/DroidSansArabic.ttf;", "10" );
+		fontresload( "1", "ttf/DroidSans.ttf;ttf/DroidSansFallback.ttf;ttf/DroidSansArabic.ttf;", "12" );
+	endif;
 		if file_getprop("/tmp/aroma-data/mrturdroidtheme.prop","theme") == "miui" then
+		ini_set("dp","3");
 		ini_set("force_colorspace","rgba");
 		theme("miui");
 		fontresload( "0", "ttf/DroidSans.ttf;ttf/DroidSansFallback.ttf;ttf/DroidSansArabic.ttf;", "12" );
 		fontresload( "1", "ttf/DroidSans.ttf;ttf/DroidSansFallback.ttf;ttf/DroidSansArabic.ttf;", "14" );
 	endif;
-
+		if file_getprop("/tmp/aroma-data/mrturdroidtheme.prop","theme") == "miuibig" then
+		ini_set("dp","4");
+		ini_set("force_colorspace","rgba");
+		theme("miui");
+		fontresload( "0", "ttf/DroidSans.ttf;ttf/DroidSansFallback.ttf;ttf/DroidSansArabic.ttf;", "10" );
+		fontresload( "1", "ttf/DroidSans.ttf;ttf/DroidSansFallback.ttf;ttf/DroidSansArabic.ttf;", "12" );
+	endif;
+	
 	viewbox(
 		"Witaj!",
 		"Witaj w AROMA. Instalujesz <b>"+
@@ -159,7 +241,7 @@ if getvar("aroma_fast")=="OFF" then
 		"<~terms.check2>",
 		"<~terms.confirm2>"
 	);
-
+#	setvar("mrturpreset","OFF");
 	form(
 		"<~mrturdroid.preset>",
 		"<~mrturdroid.preset.desc>",
@@ -175,6 +257,7 @@ if getvar("aroma_fast")=="OFF" then
 		"recovery","<~mrturdroid.preset.recovery>","<~mrturdroid.preset.recovery.desc>","select"
 	);
 else
+#	setvar("mrturpreset","OFF");
 	form(
 		"<~mrturdroid.preset>",
 		"<~mrturdroid.preset.desc>",
@@ -208,9 +291,11 @@ endif;
 #######################
 	
 if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "previous" then
+#	setvar("mrturpreset","OFF");
 	setvar("preset_version_probe",read(getvar("adaroma")+"/version.txt"));
 		if getvar("preset_version")!=getvar("preset_version_probe") then
 			alert("MrturDroid Wizard","<~mrturdroid.detect.previouspreset.fail>","@welcome");
+			setvar("customrefresh","OFF");			
 			writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
 		else
 			writetmpfile("mrturdroid.prop",read(getvar("adaroma")+"/mrturdroid.prop"));
@@ -224,9 +309,11 @@ endif;
 ##############################
 	
 if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "previousexpert" then
+#	setvar("mrturpreset","OFF");
 	setvar("preset_version_probe",read(getvar("adaroma")+"/version.txt"));
 		if getvar("preset_version")!=getvar("preset_version_probe") then
 			alert("MrturDroid Wizard","<~mrturdroid.detect.previouspreset.fail>","@welcome");
+			setvar("customrefresh","OFF");
 			writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
 		else
 			writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
@@ -284,6 +371,7 @@ endif;
 if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur" then
 	writetmpfile(
 		"mrturdroid.prop",
+		
 		"kernel=hells\n"+
 		"dpi=268\n"+
 		"launcher=nova\n"+
@@ -294,7 +382,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"bootanimation=mrtur\n"+
 		"root=3\n"+
 		"runtime=libdvm.so\n"+
-		"mdu=0\n"+
 		"gcamera=1\n"+		
 		"gchrome=0\n"+
 		"gkeep=0\n"+
@@ -305,6 +392,8 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"gplus=0\n"+
 		"gplaymusic=0\n"+	
 		"gtranslate=0\n"+
+		"gtts=1\n"+
+		"mdu=0\n"+		
 		"trickster=0\n"+	
 		"viper4=0\n"+
 		"titaniumbackup=1\n"+
@@ -320,7 +409,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"buildtweaks=1\n"+
 		"debianoff=0\n"
 	);
-		write(getvar("adaromamrtur")+"/mrturdroid.prop",readtmpfile("mrturdroid.prop"));	
 	writetmpfile(
 		"mrturdroidxposed.prop",
 		
@@ -330,7 +418,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"actionplus=1\n"+		
 		"xprivacy=0\n"
 	);
-		write(getvar("adaromamrtur")+"/mrturdroidxposed.prop",readtmpfile("mrturdroidxposed.prop"));		
 	writetmpfile(
 		"mrturdroidbuild.prop",
 
@@ -338,12 +425,17 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"adreno=1\n"+		
 		"zerowakeup=0\n"
 	);
-		write(getvar("adaromamrtur")+"/mrturdroidbuild.prop",readtmpfile("mrturdroidbuild.prop"));	
+	setvar("customrefresh","OFF");
+#	setvar("mrturpreset","ON");
+#	writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
 
-	writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
-	writetmpfile("mrturdroid.prop",read(getvar("adaromamrtur")+"/mrturdroid.prop"));
-	writetmpfile("mrturdroidxposed.prop",read(getvar("adaromamrtur")+"/mrturdroidxposed.prop"));
-	writetmpfile("mrturdroidbuild.prop",read(getvar("adaromamrtur")+"/mrturdroidbuild.prop"));		
+	textbox(
+		"preset mrtur",
+		"",
+		"@welcome",
+		resread("preset_mrtur.txt")
+	);
+	
 endif;
 
 ###############################
@@ -351,6 +443,11 @@ endif;
 ###############################
 
 if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custom" then
+#	if getvar("customrefresh")!="OFF" then
+#			writetmpfile("mrturdroid.prop",readtmpfile("defmrturdroid.prop"));
+#			writetmpfile("mrturdroidxposed.prop",readtmpfile("defmrturdroidxposed.prop"));
+#			writetmpfile("mrturdroidbuild.prop",readtmpfile("defmrturdroidbuild.prop"));
+#	endif;
 	form(
 		"<~mrturdroid.custom>",
 		"<~mrturdroid.custom.desc>",
@@ -410,6 +507,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		"gplus","Google Plus [<~common.inverted>]","","check",
 		"gplaymusic","Google Play Music [<~common.inverted>]","<~mrturdroid.apps.gplaymusic.desc>","check",	
 		"gtranslate","Google Translate [<~common.inverted>]","","check",
+		"gtts","Google TTS ","<~mrturdroid.apps.gtts.desc>","check.checked",		
 
 		"mrturapps","<#selectbg_g>MrturDroid Apps</#>","","group",
 		"mdu","MrturDroid Update","<~mrturdroid.apps.mdu.desc>","check.checked",		
@@ -436,8 +534,10 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		back("1");
 	endif;
 	
-	write(getvar("adaroma")+"/mrturdroid.prop",readtmpfile("mrturdroid.prop"));
-	
+#		if getvar("mrturpreset")=="OFF" then
+			write(getvar("adaroma")+"/mrturdroid.prop",readtmpfile("mrturdroid.prop"));
+#		endif;
+		
 	if file_getprop("/tmp/aroma-data/mrturdroid.prop","googlekb") !="1" && file_getprop("/tmp/aroma-data/mrturdroid.prop","touchpal") !="1" && file_getprop("/tmp/aroma-data/mrturdroid.prop","hackers") !="1" && file_getprop("/tmp/aroma-data/mrturdroid.prop","stock") !="1" then
 	textbox(
 		"Wykryłem Brak Klawiatury",
@@ -470,7 +570,11 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 			"actionplus","Complete Action Plus","<~mrturdroid.xposed.actionplus.desc>","check.checked",			
 			"xprivacy","XPrivacy","<~mrturdroid.xposed.xprivacy.desc>","check"
 		);
-		write(getvar("adaroma")+"/mrturdroidxposed.prop",readtmpfile("mrturdroidxposed.prop"));
+		
+#		if getvar("mrturpreset")=="OFF" then
+			write(getvar("adaroma")+"/mrturdroidxposed.prop",readtmpfile("mrturdroidxposed.prop"));
+#		endif;
+		
 	endif;
 		
 	if file_getprop("/tmp/aroma-data/mrturdroid.prop","buildtweaks") == "1" then
@@ -485,9 +589,14 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 			"adreno","Qualcomm Adreno GPU","<~mrturdroid.buildtweaks.adreno.desc>","check.checked",				
 			"zerowakeup","ZeroWakeUp","<~mrturdroid.buildtweaks.zerowakeup.desc>","check"
 		);
-		write(getvar("adaroma")+"/mrturdroidbuild.prop",readtmpfile("mrturdroidbuild.prop"));
+		
+#		if getvar("mrturpreset")=="OFF" then
+			write(getvar("adaroma")+"/mrturdroidbuild.prop",readtmpfile("mrturdroidbuild.prop"));
+#		endif;
+		
 	endif;
 		write(getvar("adaroma")+"/version.txt",getvar("preset_version"));
+		setvar("customrefresh","ON");
 endif;
 
 if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") != "recovery" then

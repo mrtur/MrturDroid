@@ -1,0 +1,27 @@
+#!PA_PROJECT!#
+Description                    "Blaze-generated patts1_hmm_phone voice for pl_pl (speaker oda, sample rate 22050, size all)";
+ServerVoiceName                "oda-phone-hmm";
+sample_rate                    "22050";
+gender                         "female";
+subset                         "all";
+aligner                        "pretrained";
+language                       "pl";
+region                         "pl";
+pipeline                       "pretrained_patts1_hmm_phone_pl_pl_oda_22050_all.pipeline";
+CompileParamsFile              "compile_hmm_phoneme.cfg";
+EngineParamsFile               "engine_hmm_22050_ap-embedded_lsp.cfg";
+G2pFstFile                     "g2p_m3_syls0_stress0_pl-PL.fst";
+ActiveLexicon                  "compressed_lexicon_pl_pl.blex";
+morph_analyzer_attribute_map   "attribute_map.pb";
+morph_analyzer_pack            "pl.morph_pack_small";
+RunVoiceFile                   "patts1_hmm_voice_pl_pl_oda_all_22050_phoneme_lsp_swop_ap_msd_bin_8bit.voice";
+TextNormParamsFile             "textnorm_kestrel.cfg";
+DataParamsFile                 "phonology.cfg";
+phonology                      "phonology.pb";
+resolve_homographs_simple      "resolve_homographs_simple_pl.pb";
+rewrite                        "rewrite_android.far";
+textnorm_params                "textnorm_params.pb";
+tokenize_and_classify          "tokenize_and_classify_android.far";
+verbalize                      "verbalize_android.far";
+modules                        "rewrite_simple tokenize_and_classify_kestrel analyze_morphology verbalize_kestrel classify_homographs_simple slavic_pronounce hmm";
+

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <string name="default_voice_for_pl-PL">pl-pl-x-oda-phone-hmm</string>
+    <boolean name="auto_update" value="true" />
+    <long name="METADATA_UPDATE_TIME_MS" value="1402164347575" />
+    <boolean name="auto_update_wifi" value="true" />
+</map>
