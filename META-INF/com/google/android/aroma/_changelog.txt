@@ -1,22 +1,7 @@
-MrturDroid 2.5.7 EXPERIMENTAL
+MrturDroid 2.5.8 EXPERIMENTAL
 
 1. Aktualizacja:
-- Google Maps 8.1.0
-- Android Terminal Emulator 1.0.61
-- XPrivacy 2.0.30
-- MX Player to 1.7.27
-- Nova 3.0.1
-- PA GAPPS 8 June
-- Adreno-drivers-n4-may-30
-- Google Chrome 35.0.1916.141
-- CoolTool 5.4.1
-- Complete Action Plus 2.2.2
 
 2. Poprawki:
-- naprawiono skopany preset mrtur
-- Xposed ciemny na starcie
 
 3. ISTOTNE ZMIANY:
-- Slim-mako-4.4.2.build.5.6-WEEKLY-4577
-- Dodano mechanizm przetwarzania mowy od google wraz z jezykiem polskim (wybor w Aroma)
-- Theme Bigger -> dodano kopie motywow aroma troche powiekszonych
