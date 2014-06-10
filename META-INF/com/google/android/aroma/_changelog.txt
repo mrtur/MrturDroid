@@ -5,6 +5,7 @@ MrturDroid 2.5.8 EXPERIMENTAL
 2. Poprawki:
 - tymczasowo wylaczone inne kernele
 - dodano kernel semaphore 2.2.0 (dla 4.4.3)
+- dodano kernel faux 0.39u_r2 (dla 4.4.3)
 
 3. ISTOTNE ZMIANY:
 - Slim-mako-4.4.3.build.5.8-WEEKLY-4812
