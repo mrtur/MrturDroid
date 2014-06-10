@@ -1509,7 +1509,7 @@ To resume using your phone, you need to perform a factory reset. When you set up
     <string name="bluetooth_device_context_connect_advanced">Options…</string>
     <string name="bluetooth_menu_advanced">Advanced</string>
     <string name="bluetooth_advanced_titlebar">Advanced Bluetooth</string>
-    <string name="bluetooth_empty_list_bluetooth_off">To see devices, turn Bluetooth on.</string>
+    <string name="bluetooth_empty_list_bluetooth_off">When Bluetooth is turned on, your device can communicate with other nearby Bluetooth devices.</string>
     <string name="bluetooth_connect_specific_profiles_title">Connect to…</string>
     <string name="bluetooth_profile_a2dp">Media audio</string>
     <string name="bluetooth_profile_headset">Phone audio</string>
@@ -2051,7 +2051,7 @@ To clear music, pictures, and other user data, the "<b>USB storage</b> needs to 
     <string name="manage_mobile_plan_title">Mobile plan</string>
     <string name="sms_application_title">Default SMS app</string>
     <string name="sms_change_default_dialog_title">Change SMS app?</string>
-    <string name="sms_change_default_dialog_text" formatted="false">Use %s instead of %s as your SMS app?</string>
+    <string name="sms_change_default_dialog_text">Use %1$s instead of %2$s as your SMS app?</string>
     <string name="sms_change_default_no_previous_dialog_text">Use %s as your SMS app?</string>
     <string name="mobile_unknown_sim_operator">Uknown SIM operator</string>
     <string name="mobile_no_provisioning_url">%1$s has no known provisioning website</string>
@@ -2472,6 +2472,7 @@ If the device has multiple users, using this shortcut on the lock screen tempora
     <string name="captioning_background_color">Background color</string>
     <string name="captioning_background_opacity">Background opacity</string>
     <string name="captioning_foreground_color">Text color</string>
+    <string name="captioning_foreground_opacity">Text opacity</string>
     <string name="captioning_edge_color">Edge color</string>
     <string name="captioning_edge_type">Edge type</string>
     <string name="captioning_typeface">Font family</string>
