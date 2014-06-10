@@ -3,6 +3,7 @@ MrturDroid 2.5.8 EXPERIMENTAL
 1. Aktualizacja:
 
 2. Poprawki:
+- tymczasowo wylaczone inne kernele
 
 3. ISTOTNE ZMIANY:
 - Slim-mako-4.4.3.build.5.8-WEEKLY-4812

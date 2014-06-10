@@ -41,7 +41,7 @@ ini_set("rom_date",             "XX-06-2014");
 #
 # Setvar
 #
-setvar("preset_version","1");
+setvar("preset_version","2");
 setvar("adaroma","/data/media/0/MrturDroid/AromaPreset/Slim_work");
 setvar("aroma_fast","OFF");
 
@@ -372,7 +372,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 	writetmpfile(
 		"mrturdroid.prop",
 		
-		"kernel=hells\n"+
+		"kernel=stock\n"+
 		"dpi=268\n"+
 		"launcher=nova\n"+
 		"googlekb=1\n"+
@@ -456,10 +456,10 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 
 		"kernel","<#selectbg_g>Kernel</#>","","group",
 		"stock","Stock(Slim)","<~mrturdroid.kernel.stock.desc>","select.selected",
-		"semaphore","Semaphore","<~mrturdroid.kernel.semaphore.desc>","select",
-		"hells","hells-Core","<~mrturdroid.kernel.hells.desc>","select",	
-		"faux","Faux","<~mrturdroid.kernel.faux.desc>","select",		
-		"franco","Franco","<~mrturdroid.kernel.franco.desc>","select",
+#		"semaphore","Semaphore","<~mrturdroid.kernel.semaphore.desc>","select",
+#		"hells","hells-Core","<~mrturdroid.kernel.hells.desc>","select",	
+#		"faux","Faux","<~mrturdroid.kernel.faux.desc>","select",		
+#		"franco","Franco","<~mrturdroid.kernel.franco.desc>","select",
 
 		"dpi","<#selectbg_g>DPI</#>","","group",
 		"240","240","<~mrturdroid.dpi.240.desc>","select",
