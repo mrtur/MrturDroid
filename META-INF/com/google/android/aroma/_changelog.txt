@@ -2,6 +2,7 @@ MrturDroid 2.5.8 EXPERIMENTAL
 
 1. Aktualizacja:
 - Google Maps 8.1.0
+- recovery TWRP 2.7.1.0
 
 2. Poprawki:
 - dodano kernel semaphore 2.2.0 (dla 4.4.3)
