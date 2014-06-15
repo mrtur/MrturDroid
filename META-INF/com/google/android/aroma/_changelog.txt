@@ -6,6 +6,7 @@ MrturDroid 2.5.8 EXPERIMENTAL
 - Trickster Mod 2.11.920
 - TouchPal 5.5.5.6
 - hells core kernel b47
+- MXPalyer 1.7.28
 
 2. Poprawki:
 - dodano kernel semaphore 2.2.0 (dla 4.4.3)
