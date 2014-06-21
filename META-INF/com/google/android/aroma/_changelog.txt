@@ -9,6 +9,7 @@ MrturDroid 2.5.8 EXPERIMENTAL
 - MXPalyer 1.7.28
 - Complete Action Plus 2.2.4
 - MrturDroid Update 1.7 (poprawiono wpisywanie godziny)
+- Android Terminal Emulator 1.0.62
 
 2. Poprawki:
 - dodano kernel semaphore 2.2.0 (dla 4.4.3)
