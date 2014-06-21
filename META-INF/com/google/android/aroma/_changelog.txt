@@ -8,6 +8,7 @@ MrturDroid 2.5.8 EXPERIMENTAL
 - hells core kernel b47
 - MXPalyer 1.7.28
 - Complete Action Plus 2.2.4
+- MrturDroid Update 1.7 (poprawiono wpisywanie godziny)
 
 2. Poprawki:
 - dodano kernel semaphore 2.2.0 (dla 4.4.3)
