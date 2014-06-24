@@ -18,6 +18,6 @@ MrturDroid 2.5.8 EXPERIMENTAL
 - dodano wifi_fix do pozostalych kerneli
 
 3. ISTOTNE ZMIANY:
-- Slim-mako-4.4.3.build.5.9-WEEKLY-5026
+- Slim-mako-4.4.4.build.5.10-WEEKLY-5129
 
 **FULL WIPE ZALECANE**
