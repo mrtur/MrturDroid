@@ -10,6 +10,7 @@ MrturDroid 2.5.8 EXPERIMENTAL
 - Complete Action Plus 2.2.5
 - MrturDroid Update 1.7 (poprawiono wpisywanie godziny)
 - Android Terminal Emulator 1.0.62
+- Cloud Print 0.9.8
 
 2. Poprawki:
 - dodano kernel semaphore 2.2.0 (dla 4.4.3)
