@@ -12,6 +12,7 @@ MrturDroid 2.5.8 EXPERIMENTAL
 - Android Terminal Emulator 1.0.62
 - Cloud Print 0.9.8
 - PA GAPPS to 20 June
+- Xposed to 2.7 exp1
 
 2. Poprawki:
 - dodano kernel semaphore 2.2.0 (dla 4.4.3)
