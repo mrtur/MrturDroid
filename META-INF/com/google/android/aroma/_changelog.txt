@@ -1,7 +1,7 @@
 MrturDroid 2.5.8 EXPERIMENTAL
 
 1. Aktualizacja:
-- Google Maps 8.1.0
+- Google Maps 8.1.1
 - recovery TWRP 2.7.1.0
 - Trickster Mod 2.11.920
 - TouchPal 5.5.5.6
