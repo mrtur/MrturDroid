@@ -11,7 +11,7 @@ MrturDroid 2.5.8 EXPERIMENTAL
 - MrturDroid Update 1.7 (poprawiono wpisywanie godziny)
 - Android Terminal Emulator 1.0.62
 - Cloud Print 0.9.8
-- PA GAPPS to 20 June
+- PA GAPPS to 29 June
 - Xposed to 2.7 exp1
 - Qualcomm Adreno GPU
 - kernel Semaphore 2.3.0
