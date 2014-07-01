@@ -17,6 +17,7 @@ MrturDroid 2.5.8 EXPERIMENTAL
 - kernel Semaphore 2.3.0
 - Greenify 2.3.2
 - XPrivacty 2.1.17
+- BBS 1.16 RC4
 
 2. Poprawki:
 - dodano kernel semaphore 2.2.0 (dla 4.4.3)
