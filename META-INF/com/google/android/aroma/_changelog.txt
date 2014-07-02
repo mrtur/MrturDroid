@@ -1,22 +1,30 @@
- MrturDroid 2.5.7
+ MrturDroid 2.5.8
 
 1. Aktualizacja:
-- Google Maps 8.1.0
-- Android Terminal Emulator 1.0.61
-- XPrivacy 2.0.30
-- MX Player to 1.7.27
-- Nova 3.0.1
-- PA GAPPS 8 June
-- Adreno-drivers-n4-may-30
-- Google Chrome 35.0.1916.141
-- CoolTool 5.4.1
-- Complete Action Plus 2.2.2
+- Google Maps 8.1.1
+- recovery TWRP 2.7.1.0
+- Trickster Mod 2.11.920
+- TouchPal 5.5.5.6
+- hells core kernel b47
+- MXPalyer 1.7.28
+- Complete Action Plus 2.2.6
+- MrturDroid Update 1.7 (poprawiono wpisywanie godziny)
+- Android Terminal Emulator 1.0.62
+- Cloud Print 0.9.8
+- PA GAPPS to 29 June
+- Xposed to 2.7 exp1
+- Qualcomm Adreno GPU
+- kernel Semaphore 2.3.0
+- Greenify 2.3.2
+- XPrivacty 2.1.17
+- BBS 1.16 RC4
 
 2. Poprawki:
-- naprawiono skopany preset mrtur
-- Xposed ciemny na starcie
+- dodano kernel semaphore 2.2.0 (dla 4.4.3)
+- dodano kernel faux 0.39u_r2 (dla 4.4.3)
+- dodano wifi_fix do pozostalych kerneli
 
 3. ISTOTNE ZMIANY:
-- Slim-mako-4.4.2.build.5.6-WEEKLY-4577
-- Dodano mechanizm przetwarzania mowy od google wraz z jezykiem polskim (wybor w Aroma)
-- Theme Bigger -> dodano kopie motywow aroma troche powiekszonych
+- Slim-mako-4.4.4.build.5.10-WEEKLY-5150
+
+**FULL WIPE ZALECANE**

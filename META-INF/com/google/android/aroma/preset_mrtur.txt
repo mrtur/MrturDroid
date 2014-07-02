@@ -17,9 +17,9 @@
 ##################
 #  Kernel
 #
-# Stock(Slim)
+# <#selectbg_g>Stock(Slim)</#>
 # Semaphore
-# <#selectbg_g>Hells-Core</#>
+# Hells-Core
 # Faux
 # Franco
 
