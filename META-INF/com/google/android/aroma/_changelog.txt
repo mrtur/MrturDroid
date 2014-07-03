@@ -1,7 +1,8 @@
 MrturDroid 2.5.9 EXPERIMENTAL
 
 1. Aktualizacja:
--ArchiDroid binaries (dnsmasq, dnsproxy2, haveged, pixelserv, inotify-tools) to latest versions
+- ArchiDroid binaries (dnsmasq, dnsproxy2, haveged, pixelserv, inotify-tools) to latest versions
+- XPrivacy 2.1.19
 
 2. Poprawki:
 
