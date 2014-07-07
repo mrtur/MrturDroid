@@ -402,7 +402,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			run_program("/tmp/mkbootimg.sh");
 			run_program("/tmp/busybox", "dd", "if=/tmp/newboot.img", "of=/dev/block/mmcblk0p6");
 			delete("/system/lib/hw/power.msm8960.so");
-			package_extract_dir("_mrturdroid/kernels/wifi_fix/system", "/system");
+#			package_extract_dir("_mrturdroid/kernels/wifi_fix/system", "/system");
 		endif;		
 		
 		### FAUX ###
