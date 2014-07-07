@@ -8,6 +8,6 @@ MrturDroid 2.5.9 EXPERIMENTAL
 - kernel franco r209
 
 2. Poprawki:
-- dziala wi-fi przy hells core
+- dziala wi-fi przy hells core i franco
 
 3. ISTOTNE ZMIANY:

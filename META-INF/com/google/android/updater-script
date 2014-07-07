@@ -402,7 +402,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			run_program("/tmp/mkbootimg.sh");
 			run_program("/tmp/busybox", "dd", "if=/tmp/newboot.img", "of=/dev/block/mmcblk0p6");
 			delete("/system/lib/hw/power.msm8960.so");
-#			package_extract_dir("_mrturdroid/kernels/wifi_fix/system", "/system");
 		endif;		
 		
 		### FAUX ###
@@ -426,7 +425,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","kernel") == "franco" then
 			ui_print("<b><#d98d15> MrturDroid ~</#></b> Flashing Franco Kernel");
 			package_extract_file("_mrturdroid/kernels/franco/boot.img", "/dev/block/platform/msm_sdcc.1/by-name/boot");
-			package_extract_dir("_mrturdroid/kernels/wifi_fix/system", "/system");			
 		endif;
 
 		set_progress(0.6);
