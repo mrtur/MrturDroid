@@ -5,6 +5,7 @@ MrturDroid 2.5.9 EXPERIMENTAL
 - XPrivacy 2.1.19
 - BetterBatteryStats 1.16 RC5
 - kernel faux 040u
+- kernel franco r209
 
 2. Poprawki:
 
