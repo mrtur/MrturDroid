@@ -11,3 +11,4 @@ MrturDroid 2.5.9 EXPERIMENTAL
 - dziala wi-fi przy hells core i franco
 
 3. ISTOTNE ZMIANY:
+- Slim-mako-4.4.4.build.6.2-WEEKLY-5533
