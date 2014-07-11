@@ -6,6 +6,7 @@ MrturDroid 2.5.9 EXPERIMENTAL
 - BetterBatteryStats 1.16
 - kernel faux 040u
 - kernel franco r209
+- Updated all ArchiDroid backend tools to latest versions [Archi]
 
 2. Poprawki:
 - dziala wi-fi przy hells core i franco
