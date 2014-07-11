@@ -34,7 +34,7 @@ endif;
 if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" then
 	### MRTURDROID TOOLS ###
 	package_extract_file("_mrturdroid/exec/adlock.sh", "/tmp/adlock.sh");
-	set_perm(0, 0, 0777, "/tmp/adlock.sh");
+	set_perm(0, 0, 0755, "/tmp/adlock.sh");
 
 	set_progress(0.02);
 
@@ -42,7 +42,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		ui_print("<b><#d98d15> MrturDroid ~</#></b> Backing up all addons");
 		package_extract_file("system/bin/backuptool.sh", "/tmp/backuptool.sh");
 		package_extract_file("system/bin/backuptool.functions", "/tmp/backuptool.functions");
-		set_perm(0, 0, 0777, "/tmp/backuptool.sh");
+		set_perm(0, 0, 0755, "/tmp/backuptool.sh");
 		set_perm(0, 0, 0644, "/tmp/backuptool.functions");
 		run_program("/tmp/backuptool.sh", "backup");
 	endif;
@@ -60,7 +60,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 	if file_getprop("/tmp/aroma-data/mrturdroidwipe.prop","wipe") == "yes" then
 		ui_print("<b><#d98d15> MrturDroid ~</#></b> Formatting /data excluding /data/media");
 		package_extract_file("_mrturdroid/exec/wipe.sh", "/tmp/wipe.sh");
-		set_perm(0, 0, 0777, "/tmp/wipe.sh");
+		set_perm(0, 0, 0755, "/tmp/wipe.sh");
 		run_program("/tmp/wipe.sh");
 		delete("/tmp/wipe.sh");
 	endif;
@@ -76,7 +76,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 
 	ui_print("<b><#d98d15> MrturDroid ~</#></b> Executing Archi's Scripts");
 	package_extract_file("_mrturdroid/exec/archidroid.sh", "/tmp/archidroid.sh");
-	set_perm(0, 0, 0777, "/tmp/archidroid.sh");
+	set_perm(0, 0, 0755, "/tmp/archidroid.sh");
 
 
 	if file_getprop("/tmp/aroma-data/mrturdroidwipe.prop","wipe") == "yes" then
@@ -237,7 +237,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		package_extract_dir("_mrtur/auto", "/");
 	endif;
 	package_extract_file("_mrturdroid/exec/archidroid_backend.sh", "/tmp/archidroid_backend.sh");
-	set_perm(0, 0, 0777, "/tmp/archidroid_backend.sh");
+	set_perm(0, 0, 0755, "/tmp/archidroid_backend.sh");
 	run_program("/tmp/archidroid_backend.sh", file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset"));
 	delete("/tmp/archidroid_backend.sh");
 	### IMPORTANT ###
@@ -320,7 +320,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		endif;			
 		
 		package_extract_file("_mrturdroid/exec/superuser.sh", "/tmp/superuser.sh");
-		set_perm(0, 0, 0777, "/tmp/superuser.sh");
+		set_perm(0, 0, 0755, "/tmp/superuser.sh");
 		run_program("/tmp/superuser.sh", file_getprop("/tmp/aroma-data/mrturdroid.prop","root"));
 		delete("tmp/superuser.sh");
 			
@@ -335,7 +335,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 				
 		ui_print("<b><#d98d15> MrturDroid ~</#></b> Applying ", file_getprop("/tmp/aroma-data/mrturdroid.prop","runtime"), " Runtime");
 		package_extract_file("_mrturdroid/exec/runtime.sh", "/tmp/runtime.sh");
-		set_perm(0, 0, 0777, "/tmp/runtime.sh");
+		set_perm(0, 0, 0755, "/tmp/runtime.sh");
 		run_program("/tmp/runtime.sh", file_getprop("/tmp/aroma-data/mrturdroid.prop","runtime"));
 		delete("tmp/runtime.sh");
 		
@@ -346,7 +346,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur" then
 			ui_print("<#d98d15> mrtur ~</#> Including mrtur's no MTP");
 			package_extract_file("_mrtur/exec/no_mtp.sh", "/tmp/no_mtp.sh");
-			set_perm(0, 0, 0777, "/tmp/no_mtp.sh");
+			set_perm(0, 0, 0755, "/tmp/no_mtp.sh");
 			run_program("/tmp/no_mtp.sh");
 			delete("tmp/no_mtp.sh");
 		endif;
@@ -374,11 +374,11 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			ui_print("<b><#d98d15> MrturDroid ~</#></b> Flashing Semaphore Kernel");
 			set_perm_recursive(0, 0, 0755, 0755, "/system/etc/init.d");
 			package_extract_dir("_mrturdroid/kernels/semaphore", "/tmp");
-			set_perm(0, 0, 0777, "/tmp/mkbootimg.sh");
-			set_perm(0, 0, 0777, "/tmp/mkbootimg");
-			set_perm(0, 0, 0777, "/tmp/unpackbootimg");
-			set_perm(0, 0, 0777, "/tmp/busybox");
-			set_perm(0, 0, 0777, "/tmp/install_kernel");
+			set_perm(0, 0, 0755, "/tmp/mkbootimg.sh");
+			set_perm(0, 0, 0755, "/tmp/mkbootimg");
+			set_perm(0, 0, 0755, "/tmp/unpackbootimg");
+			set_perm(0, 0, 0755, "/tmp/busybox");
+			set_perm(0, 0, 0755, "/tmp/install_kernel");
 			run_program("/tmp/install_kernel");
 		endif;
 		
@@ -389,12 +389,12 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			set_perm_recursive(0, 2000, 0755, 0755, "/system/etc/init.d");
 			set_perm(0, 0, 0755, "/system/etc/init.d");
 			package_extract_dir("_mrturdroid/kernels/hells/kernel", "/tmp");
-			set_perm(0, 0, 0777, "/tmp/mkbootimg.sh");
-			set_perm(0, 0, 0777, "/tmp/edit_ramdisk.sh");
-			set_perm(0, 0, 0777, "/tmp/compatibility.sh");
-			set_perm(0, 0, 0777, "/tmp/mkbootimg");
-			set_perm(0, 0, 0777, "/tmp/unpackbootimg");
-			set_perm(0, 0, 0777, "/tmp/busybox");
+			set_perm(0, 0, 0755, "/tmp/mkbootimg.sh");
+			set_perm(0, 0, 0755, "/tmp/edit_ramdisk.sh");
+			set_perm(0, 0, 0755, "/tmp/compatibility.sh");
+			set_perm(0, 0, 0755, "/tmp/mkbootimg");
+			set_perm(0, 0, 0755, "/tmp/unpackbootimg");
+			set_perm(0, 0, 0755, "/tmp/busybox");
 			run_program("/tmp/compatibility.sh");
 			run_program("/tmp/busybox", "dd", "if=/dev/block/mmcblk0p6", "of=/tmp/boot.img");
 			run_program("/tmp/unpackbootimg", "-i", "/tmp/boot.img", "-o", "/tmp/");
@@ -411,10 +411,10 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			package_extract_dir("_mrturdroid/kernels/faux/system", "/system");
 			set_perm_recursive(0, 0, 0755, 0755, "/system/etc/init.d");
 			package_extract_dir("_mrturdroid/kernels/faux/kernel", "/tmp");
-			set_perm(0, 0, 0777, "/tmp/mkbootimg.sh");
-			set_perm(0, 0, 0777, "/tmp/mkbootimg");
-			set_perm(0, 0, 0777, "/tmp/unpackbootimg");
-			set_perm(0, 0, 0777, "/tmp/busybox");
+			set_perm(0, 0, 0755, "/tmp/mkbootimg.sh");
+			set_perm(0, 0, 0755, "/tmp/mkbootimg");
+			set_perm(0, 0, 0755, "/tmp/unpackbootimg");
+			set_perm(0, 0, 0755, "/tmp/busybox");
 			run_program("/tmp/busybox", "dd", "if=/dev/block/mmcblk0p6", "of=/tmp/boot.img");
 			run_program("/tmp/unpackbootimg", "-i", "/tmp/boot.img", "-o", "/tmp/");
 			run_program("/tmp/mkbootimg.sh");
@@ -437,7 +437,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			ui_print("<b><#d98d15> MrturDroid ~</#></b> Restoring Addons");
 			package_extract_file("system/bin/backuptool.sh", "/tmp/backuptool.sh");
 			package_extract_file("system/bin/backuptool.functions", "/tmp/backuptool.functions");
-			set_perm(0, 0, 0777, "/tmp/backuptool.sh");
+			set_perm(0, 0, 0755, "/tmp/backuptool.sh");
 			set_perm(0, 0, 0644, "/tmp/backuptool.functions");
 			run_program("/tmp/backuptool.sh", "restore");
 			delete("/system/bin/backuptool.sh");
@@ -452,7 +452,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 
 		ui_print("<b><#d98d15> MrturDroid ~</#></b> Applying ", file_getprop("/tmp/aroma-data/mrturdroid.prop","dpi"), " DPI");
 		package_extract_file("_mrturdroid/exec/dpi.sh", "/tmp/dpi.sh");
-		set_perm(0, 0, 0777, "/tmp/dpi.sh");
+		set_perm(0, 0, 0755, "/tmp/dpi.sh");
 		run_program("/tmp/dpi.sh", file_getprop("/tmp/aroma-data/mrturdroid.prop","dpi"));
 		delete("tmp/dpi.sh");
 
@@ -678,7 +678,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","bootanimation") == "none" then
 			ui_print("<b><#d98d15> MrturDroid ~</#></b> Disabling Bootanimation");
 			package_extract_file("_mrturdroid/bootanimations/none/disablebootanim.sh", "/tmp/disablebootanim.sh");
-			set_perm(0, 0, 0777, "/tmp/disablebootanim.sh");
+			set_perm(0, 0, 0755, "/tmp/disablebootanim.sh");
 			run_program("/tmp/disablebootanim.sh");
 			delete("/tmp/disablebootanim.sh");
 			delete("/system/media/bootanimation.zip");
@@ -696,7 +696,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","buildtweaks") == "1" then
 			ui_print("<b><#d98d15> MrturDroid ~</#></b> Applying build.prop Tweaks");
 			package_extract_file("_mrturdroid/tweaks/build.prop/tweaks.sh", "/tmp/tweaks.sh");
-			set_perm(0, 0, 0777, "/tmp/tweaks.sh");
+			set_perm(0, 0, 0755, "/tmp/tweaks.sh");
 			run_program("/tmp/tweaks.sh");
 			delete ("/tmp/tweaks.sh");
 
@@ -704,7 +704,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			if file_getprop("/tmp/aroma-data/mrturdroidbuild.prop","fastdormancy") == "0" then
 				ui_print("<b><#d98d15> MrturDroid ~</#></b> Disabling Fast Dormancy");
 				package_extract_file("_mrturdroid/tweaks/build.prop/fdOFF.sh", "/tmp/fdOFF.sh");
-				set_perm(0, 0, 0777, "/tmp/fdOFF.sh");
+				set_perm(0, 0, 0755, "/tmp/fdOFF.sh");
 				run_program("/tmp/fdOFF.sh");
 				delete ("/tmp/fdOFF.sh");
 			endif;
@@ -712,7 +712,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			if file_getprop("/tmp/aroma-data/mrturdroidbuild.prop","zerowakeup") == "1" then
 				ui_print("<b><#d98d15> MrturDroid ~</#></b> Enabling ZeroWakeUp");
 				package_extract_file("_mrturdroid/tweaks/build.prop/zerowakeupON.sh", "/tmp/zerowakeupON.sh");
-				set_perm(0, 0, 0777, "/tmp/zerowakeupON.sh");
+				set_perm(0, 0, 0755, "/tmp/zerowakeupON.sh");
 				run_program("/tmp/zerowakeupON.sh");
 				delete("/tmp/zerowakeupON.sh");
 			endif;
