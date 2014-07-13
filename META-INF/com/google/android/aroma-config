@@ -372,7 +372,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 	writetmpfile(
 		"mrturdroid.prop",
 		
-		"kernel=stock\n"+
+		"kernel=hells\n"+
 		"dpi=268\n"+
 		"launcher=nova\n"+
 		"googlekb=1\n"+
