@@ -364,7 +364,7 @@ while ( ! pgrep com.android.systemu >/dev/null 2>&1 && [[ "$LOOP" -lt 600 ]]) ||
 						#esac
 						case "$(basename "$mFILE")" in # This will match filenames
 							"XposedBridge.jar") chmod 664 "$mFILE" ;;
-							*) chmod 660 "$mFILE"
+							*) chmod 666 "$mFILE"
 						esac
 					done
 
