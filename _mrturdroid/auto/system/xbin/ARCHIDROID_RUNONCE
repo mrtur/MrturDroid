@@ -42,7 +42,6 @@ if [[ -f /system/archidroid/dev/PRESET_BAREBONES ]]; then
 fi
 
 # Exit if user wiped data without reflashing
-
 if [[ ! -f "/data/ARCHIDROID_DONT_REMOVE_ME" ]] ; then
 	if ADMOUNTED "/data"; then
 		echo "ERROR: MrturDroid is not compatible with wiping data, please reflash your system!"
@@ -52,7 +51,6 @@ if [[ ! -f "/data/ARCHIDROID_DONT_REMOVE_ME" ]] ; then
 		# User is probably only charging his device, that's fine
 		exit 0
 	fi
-
 fi
 
 if [[ ! -f "$ADSTATUS" ]]; then
@@ -176,46 +174,29 @@ DBUPDATE() {
 	return 1
 }
 
-# Parse args to variables
-BACKGROUND=0
-FORCEDSEMAPHORE=0
-for ARG in $@; do
-	case "$ARG" in
-		"background") BACKGROUND=1 ;;
-		"force") FORCEDSEMAPHORE=1 ;;
-	esac
-done
 
-echo "$(date)" >> $LOG
-echo "MrturDroid $(getprop ro.mrturdroid.version)" >> $LOG
-echo "$(uname -a)" >> $LOG
-echo "INFO: ArchiDroid_RunOnce executed!" >> $LOG
-
-# Now we need to make sure that this is background process to prevent slowing down bootup
-if [ $BACKGROUND -ne 1 ]; then
-	# We're not running in background, let's start a child and tell him that he's running in background
-	echo "INFO: Spawning child!" >> $LOG
-	echo "RESTART" > $ADSTATUS
-	sh $0 "background" &
-
-	# Nothing to do here anymore, exit call
-	exit 1
-else
-	# We're running in background so let's proceed
-	echo "INFO: I'm a child!" >> $LOG
-fi
 
 # mrtur presset?
-MRTUR=1
-if [ -e /system/etc/mrtur.txt ]; then
 MRTUR=0
-# Which mode are we using?
-#
-# 1 - Nexus4
-#
-ROM=1 # Default to Nexus4
+if [ -e /system/etc/mrtur.txt ]; then
+MRTUR=1
 fi
-
+#   ____
+#  / ___| ___   _ __  ___
+# | |    / _ \ | '__|/ _ \
+# | |___| (_) || |  |  __/
+#  \____|\___/ |_|   \___|
+#
+# Which mode are we using?
+# 0 - Slim
+# 1 - CyanogenMod
+# 2 - Omni
+ROM=0 # Default to Slim
+if [[ "$(grep -qi "ro.cm.version" "/system/build.prop"; echo $?)" -eq 0 ]]; then
+	ROM=1 # OK, definitely CM
+elif [[ "$(grep -qi "ro.omni.version" "/system/build.prop"; echo $?)" -eq 0 ]]; then
+	ROM=2 # OK, definitely Omni
+fi
 # Don't force install mode, unless FORCE file exists
 if [[ -f "$AD/FORCE" ]]; then
 	echo "WARNING: Forcing Install mode, even if Update mode found!"
@@ -261,7 +242,6 @@ fi
 # Also respect number of loops, maybe something went wrong
 echo "INFO: RunOnce Semaphore started"
 LOOP=0
-
 while ( ! pgrep com.android.systemu >/dev/null 2>&1 && [[ "$LOOP" -lt 600 ]]) || [[ "$FORCEDSEMAPHORE" -eq 1 ]] ; do
 	if [[ "$DBUPDATE" -eq 1 ]]; then
 		if [[ -f /data/data/com.android.providers.settings/databases/settings.db ]]; then
@@ -282,15 +262,19 @@ while ( ! pgrep com.android.systemu >/dev/null 2>&1 && [[ "$LOOP" -lt 600 ]]) ||
 					#DBUPDATE secure enabled_input_methods "$KEYBOARDFULL" APPEND ":"
 				fi
 			done
-			
-				echo "INFO: Applying standard preset DBUPDATE" >> $LOG
 
-				DBUPDATE secure ui_theme_mode 2
+				DBUPDATE secure advanced_reboot 1
 				DBUPDATE global transition_animation_scale 0.0
 				DBUPDATE global animator_duration_scale 0.0
 				DBUPDATE global window_animation_scale 0.0
 				DBUPDATE global wifi_scan_always_enabled 0
 				DBUPDATE global install_non_market_apps 1
+				DBUPDATE global development_settings_enabled 1
+				DBUPDATE global adb_enabled 0
+
+			if [[ "$ROM" -eq 0 ]]; then
+				# Slim
+				echo "INFO: Applying Slim-specific DBUPDATE"
 				DBUPDATE global package_verifier_enable 0			
 				DBUPDATE system haptic_feedback_enabled 0
 				DBUPDATE system status_bar_battery 1
@@ -300,59 +284,53 @@ while ( ! pgrep com.android.systemu >/dev/null 2>&1 && [[ "$LOOP" -lt 600 ]]) ||
 				DBUPDATE system navigation_bar_config '**recents**|**null**|empty|**home**|**null**|empty|**back**|**kill**|empty'
 				DBUPDATE system navigation_bar_height 36
 				DBUPDATE system navigation_bar_width 36
-				DBUPDATE secure advanced_reboot 1				
+				DBUPDATE secure ui_theme_mode 2			
 				
-			if [ $MRTUR -eq 1 ]; then
-				echo "INFO: Applying supplementary preset DBUPDATE" >> $LOG
+				if [[ $MRTUR -eq 0 ]]; then
 
-				#DBUPDATE global adb_enabled 1
-				DBUPDATE secure lockscreen_lock_icon '/data/data/com.android.settings/files/slim_lock1397128684009.png'
-			
-			else
-				echo "INFO: Applying mrtur preset DBUPDATE" >> $LOG
+					DBUPDATE secure lockscreen_lock_icon '/data/data/com.android.settings/files/slim_lock1397128684009.png'
 				
-				DBUPDATE system statusbar_clock_date_display 1
-				DBUPDATE system statusbar_clock_date_format 'EEE dd MMM'
-				DBUPDATE system statusbar_clock_date_style 2
-				DBUPDATE system statusbar_clock_style 1
-				DBUPDATE global adb_enabled 1
-				DBUPDATE global airplane_mode_on 0
-				DBUPDATE global assisted_gps_enabled 1
-				DBUPDATE global bluetooth_on 1
-				DBUPDATE global call_auto_retry 0
-				DBUPDATE global data_roaming 0
-				DBUPDATE global dock_audio_media_enabled 1
-				DBUPDATE global dock_sounds_enabled 0
-				DBUPDATE global emergency_tone 0
-				DBUPDATE global mobile_data 1
-				DBUPDATE global mode_ringer 2
-				DBUPDATE global power_notifications_enabled 0
-				DBUPDATE global power_notifications_vibrate 0
-				DBUPDATE global power_sounds_enabled 1
-				DBUPDATE global stay_on_while_plugged_in 0
-				DBUPDATE global usb_mass_storage_enabled 0
-				DBUPDATE secure incall_power_button_behavior 2
-				DBUPDATE secure long_press_timeout 500
-				DBUPDATE system accelerometer_rotation 0
-				DBUPDATE system auto_brightness_backlight 14,28,37,51,71,80,96,108,255,255,255,255
-				DBUPDATE system auto_brightness_lux 10,50,100,200,400,500,800,1000,1600,3000,10000
-				DBUPDATE system auto_brightness_responsiveness 1.0
-				DBUPDATE system dim_screen 1
-				DBUPDATE system lock_volume_keys 1
-				DBUPDATE system lockscreen_sounds_enabled 0
-				DBUPDATE system menu_location 2
-				DBUPDATE system menu_visibility 0
-				DBUPDATE system power_ui_low_battery_warning_policy 1
-				DBUPDATE system recents_clear_all_on_right 1
-				DBUPDATE system sound_effects_enabled 0
-				DBUPDATE system system_power_enable_crt_off 0
-				DBUPDATE system system_profiles_enabled 0
-				DBUPDATE system user_rotation 0
-				DBUPDATE system vibrate_when_ringing 1
-				DBUPDATE system wakeup_when_plugged_unplugged 0
-				#DBUPDATE system notification_sound 'content://media/internal/audio/media/32'
-				#DBUPDATE system ringtone 'content://media/internal/audio/media/21'
-			
+				else
+					echo "INFO: Applying mrtur preset DBUPDATE"
+					DBUPDATE system statusbar_clock_date_display 1
+					DBUPDATE system statusbar_clock_date_format 'EEE dd MMM'
+					DBUPDATE system statusbar_clock_date_style 2
+					DBUPDATE system statusbar_clock_style 1
+					DBUPDATE global airplane_mode_on 0
+					DBUPDATE global assisted_gps_enabled 1
+					DBUPDATE global bluetooth_on 1
+					DBUPDATE global call_auto_retry 0
+					DBUPDATE global data_roaming 0
+					DBUPDATE global dock_audio_media_enabled 1
+					DBUPDATE global dock_sounds_enabled 0
+					DBUPDATE global emergency_tone 0
+					DBUPDATE global mobile_data 1
+					DBUPDATE global mode_ringer 2
+					DBUPDATE global power_notifications_enabled 0
+					DBUPDATE global power_notifications_vibrate 0
+					DBUPDATE global power_sounds_enabled 1
+					DBUPDATE global stay_on_while_plugged_in 0
+					DBUPDATE global usb_mass_storage_enabled 0
+					DBUPDATE secure incall_power_button_behavior 2
+					DBUPDATE secure long_press_timeout 500
+					DBUPDATE system accelerometer_rotation 0
+					DBUPDATE system auto_brightness_backlight 14,28,37,51,71,80,96,108,255,255,255,255
+					DBUPDATE system auto_brightness_lux 10,50,100,200,400,500,800,1000,1600,3000,10000
+					DBUPDATE system auto_brightness_responsiveness 1.0
+					DBUPDATE system dim_screen 1
+					DBUPDATE system lock_volume_keys 1
+					DBUPDATE system lockscreen_sounds_enabled 0
+					DBUPDATE system menu_location 2
+					DBUPDATE system menu_visibility 0
+					DBUPDATE system power_ui_low_battery_warning_policy 1
+					DBUPDATE system recents_clear_all_on_right 1
+					DBUPDATE system sound_effects_enabled 0
+					DBUPDATE system system_power_enable_crt_off 0
+					DBUPDATE system system_profiles_enabled 0
+					DBUPDATE system user_rotation 0
+					DBUPDATE system vibrate_when_ringing 1
+					DBUPDATE system wakeup_when_plugged_unplugged 0
+				fi
 			fi
 
 			# And don't execute twice
@@ -362,41 +340,6 @@ while ( ! pgrep com.android.systemu >/dev/null 2>&1 && [[ "$LOOP" -lt 600 ]]) ||
 	fi
 
 	# Now let's MAKE SURE that our settings are in fact applied, only if we don't have shared_prefs already (prevent non-clean override)
-	if [ $ADMANY -gt 0 ]; then
-		cd $AD/FIRSTBOOT/DATA
-		for FOLDER in * ; do
-			if [ -d /data/data/$FOLDER ]; then
-				echo "INFO: I'm currently merging $FOLDER, called by ADMANY" >> $LOG
-				ADOWNER=$(busybox ls -ld /data/data/$FOLDER | awk '{print $3}')
-				cp -R $FOLDER/* /data/data/$FOLDER/
-				busybox chown -hR $ADOWNER.$ADOWNER /data/data/$FOLDER
-				#busybox chmod -R 777 /data/data/$FOLDER
-
-				# Let's make it as safe as possible
-				cd /data/data/$FOLDER
-				for FILE in $(busybox find . -type d -mindepth 1); do
-					busybox chmod 775 $FILE
-				done
-				for FILE in $(busybox find . -type f -mindepth 1); do
-					EXTENSION=$(echo $FILE | awk -F '.' '{print $NF}')
-
-					# Try to apply correct permissions for specific files
-					# For example XposedBridge requires at least 644, so it doesn't work with generic 660
-					case "$EXTENSION" in
-						"jar") busybox chmod 664 $FILE ;;
-						*) busybox chmod 666 $FILE
-					esac
-				done
-
-				cd $AD/FIRSTBOOT/DATA
-				# And we're done!
-				rm -Rf $FOLDER
-				rm -Rf /data/data/$FOLDER/_ADTEMP
-				ADOWNER=""
-				ADMANY=$(expr $ADMANY - 1)
-				echo "INFO: Done! $ADMANY to go" >> $LOG
-			fi
-		done
 	if [[ "$ADMANY" -gt 0 ]]; then
 		# We need to use the same trick here as well
 		ADMANY="$(
@@ -456,22 +399,19 @@ if [[ ! -z "$(getprop ro.build.selinux)" && -f /file_contexts ]]; then
 	echo "INFO: Found SELinux build, relabeling /data"
 	restorecon -R /data
 fi
-# I'm runonce script so let's clean everything and delete myself
 
+# I'm runonce script so let's clean everything and delete myself
 rm -f "$AD/INSTALL" "$AD/UPDATE" "$AD/FORCE"
 rm -rf "$AD/FIRSTBOOT"
-
 
 # Execute a reboot if we need it
 if [[ "$ADRELOAD" -eq 1 ]]; then
 	echo "INFO: Reboot required, I'm rebooting the device right now"
 	setsid ARCHIDROID_INIT "background" &
 	sleep 1
-
 	if [[ -f "$ADSYS/system/reboot.wav" && ! -z "$(which tinyplay)" ]]; then
 		tinyplay "$ADSYS/system/reboot.wav" >/dev/null 2>&1 &
 	fi
-
 	setprop ctl.restart surfaceflinger
 	setprop ctl.restart zygote
 fi

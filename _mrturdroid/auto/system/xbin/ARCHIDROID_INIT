@@ -379,7 +379,6 @@ done
 
 # Now we need to make sure that this is a background process to prevent slowing down bootup
 if [[ "$BACKGROUND" -ne 1 ]]; then
-
 	# We're not running in background, let's start a child and tell him that he's running in background
 	echo "RESTART" > "$ADSTATUS"
 	"$0" "background" "$@" &
@@ -397,15 +396,22 @@ uname -a
 echo "INFO: ArchiDroid_Init executed!"
 
 
+#   ____
+#  / ___| ___   _ __  ___
+# | |    / _ \ | '__|/ _ \
+# | |___| (_) || |  |  __/
+#  \____|\___/ |_|   \___|
+#
 # Which mode are we using?
-#
-# 1 - Nexus4
-#
-ROM=1 # Default to Nexus4
-
-# ArchiDroid tmpfs
-mkdir -p "$ADPROC"
-mount -t tmpfs tmpfs "$ADPROC"
+# 0 - Slim
+# 1 - CyanogenMod
+# 2 - Omni
+ROM=0 # Default to Slim
+if [[ "$(grep -qi "ro.cm.version" "/system/build.prop"; echo $?)" -eq 0 ]]; then
+	ROM=1 # OK, definitely CM
+elif [[ "$(grep -qi "ro.omni.version" "/system/build.prop"; echo $?)" -eq 0 ]]; then
+	ROM=2 # OK, definitely Omni
+fi
 
 # Bring su daemon if available
 if [[ ! -z "$(which daemonsu)" ]]; then
@@ -416,18 +422,14 @@ fi
 # ArchiDroid services
 ADSTART "ALL"
 
-
 # ArchiDroid Semaphore
 # Wait until we see some android processes to consider boot is more or less complete (credits to AndiP71)
 # Also respect number of loops, maybe something went wrong
 echo "INFO: Init Semaphore started"
 LOOP=0
-
 while ! pgrep com.android.systemu >/dev/null 2>&1 && [[ "$LOOP" -lt 600 ]]; do
-
 	((LOOP++))
 	sleep 1
-
 done
 
 if [[ "$LOOP" -ge 600 ]]; then
@@ -437,7 +439,6 @@ else
 fi
 
 # Execute a reboot if we need it
-
 if [[ -f "$AD/HARD_REBOOT_REQUIRED" ]]; then
 	echo "INFO: HARD_REBOOT_REQUIRED found, I'm rebooting device now..."
 	rm -f "$AD/SOFT_REBOOT_REQUIRED"
@@ -453,7 +454,6 @@ elif [[ -f "$AD/SOFT_REBOOT_REQUIRED" ]]; then
 	if [[ -f "$ADSYS/system/reboot.wav" && ! -z "$(which tinyplay)" ]]; then
 		tinyplay "$ADSYS/system/reboot.wav" >/dev/null 2>&1 &
 	fi
-
 	sync
 	setprop ctl.restart surfaceflinger
 	setprop ctl.restart zygote
