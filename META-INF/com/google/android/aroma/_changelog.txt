@@ -11,6 +11,7 @@ MrturDroid 2.5.9 EXPERIMENTAL
 - Fixed ArchiDroid backend not being executed in some scenarios [Archi]
 - ArchiDroid_Init code review [Archi]
 - ArchiDroid_RunOnce code review [Archi]
+- Google Camera 2.3.019
 
 2. Poprawki:
 - dziala wi-fi przy hells core i franco
