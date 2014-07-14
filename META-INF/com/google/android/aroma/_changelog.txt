@@ -12,6 +12,7 @@ MrturDroid 2.5.9 EXPERIMENTAL
 - ArchiDroid_Init code review [Archi]
 - ArchiDroid_RunOnce code review [Archi]
 - Google Camera 2.3.019
+- Nova Launcher 3.0.2
 
 2. Poprawki:
 - dziala wi-fi przy hells core i franco
