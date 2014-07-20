@@ -14,6 +14,7 @@ MrturDroid 2.5.9 EXPERIMENTAL
 - Google Camera 2.3.019
 - Nova Launcher 3.0.2
 - BootManager 2.1.1
+- kernel semaphore 2.3.3
 
 2. Poprawki:
 - dziala wi-fi przy hells core i franco
