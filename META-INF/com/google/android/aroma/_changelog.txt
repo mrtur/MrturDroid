@@ -16,7 +16,7 @@ MrturDroid 2.5.9 EXPERIMENTAL
 - BootManager 2.1.1
 - kernel semaphore 2.3.3
 - Updated Google Keyboard
-- PA GAPPS 20 July
+- PA GAPPS 23 July
 
 2. Poprawki:
 - dziala wi-fi przy hells core i franco
