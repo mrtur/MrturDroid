@@ -18,8 +18,8 @@
 #  Kernel
 #
 # Stock(Slim)
-# Semaphore
-# <#selectbg_g>Hells-Core</#>
+# <#selectbg_g>Semaphore</#>
+# Hells-Core
 # Faux
 # Franco
 
@@ -40,7 +40,7 @@
 ##################
 #  Klawiatura
 # 
-# <#selectbg_g>Google Kevboard</#>
+# Google Kevboard
 # TouchPal Keyboard
 # Hacker's Keyboard
 # <#selectbg_g>Hacker's Keyboard</#>
