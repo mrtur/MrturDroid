@@ -17,6 +17,7 @@ MrturDroid 2.5.9 EXPERIMENTAL
 - kernel semaphore 2.3.3
 - Updated Google Keyboard
 - PA GAPPS 25 July
+- Google Maps 8.2.0
 
 2. Poprawki:
 - dziala wi-fi przy hells core i franco
