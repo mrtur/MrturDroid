@@ -33,74 +33,17 @@
 #
 ini_set("dp","3");
 ini_set("rom_name",             "MrturDroid");
-ini_set("rom_version",          "2.5.8");
+ini_set("rom_version",          "2.5.9");
 ini_set("rom_author",           "mrtur");
 ini_set("rom_device",           "Nexus 4");
-ini_set("rom_date",             "02-07-2014");
+ini_set("rom_date",             "31-07-2014");
 
 #
 # Setvar
 #
-setvar("preset_version","0");
+setvar("preset_version","1");
 setvar("adaroma","/data/media/0/MrturDroid/AromaPreset/Slim");
 setvar("aroma_fast","OFF");
-
-writetmpfile(
-	"defmrturdroid.prop",
-	
-	"kernel=stock\n"+
-	"dpi=268\n"+
-	"launcher=nova\n"+
-	"googlekb=0\n"+
-	"touchpal=1\n"+		
-	"hackers=1\n"+
-	"stock=0\n"+		
-	"bootanimation=mrtur\n"+
-	"root=3\n"+
-	"runtime=libdvm.so\n"+
-	"gcamera=1\n"+		
-	"gchrome=1\n"+
-	"gkeep=0\n"+
-	"gmail=1\n"+
-	"gmaps=1\n"+
-	"gvoice=1\n"+
-	"ghangouts=0\n"+
-	"gplus=0\n"+
-	"gplaymusic=0\n"+	
-	"gtranslate=0\n"+
-	"gtts=1\n"+
-	"mdu=1\n"+		
-	"trickster=1\n"+	
-	"viper4=1\n"+
-	"titaniumbackup=1\n"+
-	"greenify=1\n"+
-	"lmt=0\n"+
-	"mxplayer=1\n"+
-	"bbs=1\n"+
-	"cooltool=1\n"+
-	"rootbrowser=0\n"+
-	"totalcommander=1\n"+
-	"youtube=1\n"+
-	"facebook=0\n"+
-	"buildtweaks=1\n"+
-	"debianoff=1\n"
-);
-writetmpfile(
-	"defmrturdroidxposed.prop",
-	
-	"xposed=1\n"+
-	"appsettings=1\n"+
-	"bootmanager=1\n"+
-	"actionplus=1\n"+		
-	"xprivacy=0\n"
-);
-writetmpfile(
-	"defmrturdroidbuild.prop",
-
-	"fastdormancy=1\n"+
-	"adreno=1\n"+		
-	"zerowakeup=0\n"
-);
 		
 # Mount required filesystems
 resexec("exec/admount.sh", "/system");
@@ -241,7 +184,7 @@ if getvar("aroma_fast")=="OFF" then
 		"<~terms.check2>",
 		"<~terms.confirm2>"
 	);
-#	setvar("mrturpreset","OFF");
+
 	form(
 		"<~mrturdroid.preset>",
 		"<~mrturdroid.preset.desc>",
@@ -257,7 +200,7 @@ if getvar("aroma_fast")=="OFF" then
 		"recovery","<~mrturdroid.preset.recovery>","<~mrturdroid.preset.recovery.desc>","select"
 	);
 else
-#	setvar("mrturpreset","OFF");
+
 	form(
 		"<~mrturdroid.preset>",
 		"<~mrturdroid.preset.desc>",
@@ -291,11 +234,9 @@ endif;
 #######################
 	
 if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "previous" then
-#	setvar("mrturpreset","OFF");
 	setvar("preset_version_probe",read(getvar("adaroma")+"/version.txt"));
 		if getvar("preset_version")!=getvar("preset_version_probe") then
 			alert("MrturDroid Wizard","<~mrturdroid.detect.previouspreset.fail>","@welcome");
-			setvar("customrefresh","OFF");			
 			writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
 		else
 			writetmpfile("mrturdroid.prop",read(getvar("adaroma")+"/mrturdroid.prop"));
@@ -309,11 +250,9 @@ endif;
 ##############################
 	
 if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "previousexpert" then
-#	setvar("mrturpreset","OFF");
 	setvar("preset_version_probe",read(getvar("adaroma")+"/version.txt"));
 		if getvar("preset_version")!=getvar("preset_version_probe") then
 			alert("MrturDroid Wizard","<~mrturdroid.detect.previouspreset.fail>","@welcome");
-			setvar("customrefresh","OFF");
 			writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
 		else
 			writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
@@ -375,7 +314,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"kernel=stock\n"+
 		"dpi=268\n"+
 		"launcher=nova\n"+
-		"googlekb=1\n"+
+		"googlekb=0\n"+
 		"touchpal=0\n"+		
 		"hackers=1\n"+
 		"stock=0\n"+		
@@ -425,9 +364,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"adreno=1\n"+		
 		"zerowakeup=0\n"
 	);
-	setvar("customrefresh","OFF");
-#	setvar("mrturpreset","ON");
-#	writetmpfile("mrturdroidinstallmode.prop","preset=custom\n");
 
 	textbox(
 		"preset mrtur",
@@ -443,11 +379,6 @@ endif;
 ###############################
 
 if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custom" then
-#	if getvar("customrefresh")!="OFF" then
-#			writetmpfile("mrturdroid.prop",readtmpfile("defmrturdroid.prop"));
-#			writetmpfile("mrturdroidxposed.prop",readtmpfile("defmrturdroidxposed.prop"));
-#			writetmpfile("mrturdroidbuild.prop",readtmpfile("defmrturdroidbuild.prop"));
-#	endif;
 	form(
 		"<~mrturdroid.custom>",
 		"<~mrturdroid.custom.desc>",
@@ -533,10 +464,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		splash(2000,"preview/bootanimation/" + file_getprop("/tmp/aroma-data/mrturdroid.prop","bootanimation"));
 		back("1");
 	endif;
-	
-#		if getvar("mrturpreset")=="OFF" then
-			write(getvar("adaroma")+"/mrturdroid.prop",readtmpfile("mrturdroid.prop"));
-#		endif;
 		
 	if file_getprop("/tmp/aroma-data/mrturdroid.prop","googlekb") !="1" && file_getprop("/tmp/aroma-data/mrturdroid.prop","touchpal") !="1" && file_getprop("/tmp/aroma-data/mrturdroid.prop","hackers") !="1" && file_getprop("/tmp/aroma-data/mrturdroid.prop","stock") !="1" then
 	textbox(
@@ -571,10 +498,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 			"xprivacy","XPrivacy","<~mrturdroid.xposed.xprivacy.desc>","check"
 		);
 		
-#		if getvar("mrturpreset")=="OFF" then
-			write(getvar("adaroma")+"/mrturdroidxposed.prop",readtmpfile("mrturdroidxposed.prop"));
-#		endif;
-		
 	endif;
 		
 	if file_getprop("/tmp/aroma-data/mrturdroid.prop","buildtweaks") == "1" then
@@ -590,13 +513,8 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 			"zerowakeup","ZeroWakeUp","<~mrturdroid.buildtweaks.zerowakeup.desc>","check"
 		);
 		
-#		if getvar("mrturpreset")=="OFF" then
-			write(getvar("adaroma")+"/mrturdroidbuild.prop",readtmpfile("mrturdroidbuild.prop"));
-#		endif;
-		
 	endif;
 		write(getvar("adaroma")+"/version.txt",getvar("preset_version"));
-		setvar("customrefresh","ON");
 endif;
 
 if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") != "recovery" then
