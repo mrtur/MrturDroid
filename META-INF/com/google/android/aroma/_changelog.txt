@@ -5,7 +5,7 @@ MrturDroid 2.5.9 EXPERIMENTAL
 - XPrivacy 2.2.1
 - BetterBatteryStats 1.16
 - kernel faux 040u
-- kernel franco r209
+- kernel franco r210
 - Updated all ArchiDroid backend tools to latest versions [Archi]
 - Fixed rebooting to recovery after plugging charger to powered down phone in ArchiDroid 1.X [Archi]
 - Fixed ArchiDroid backend not being executed in some scenarios [Archi]
