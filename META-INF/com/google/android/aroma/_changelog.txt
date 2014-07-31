@@ -18,6 +18,7 @@ MrturDroid 2.5.9 EXPERIMENTAL
 - Updated Google Keyboard
 - PA GAPPS 29 July
 - Google Maps 8.2.0
+- MDU 1.7(2.5.8)
 
 2. Poprawki:
 - dziala wi-fi przy hells core i franco
