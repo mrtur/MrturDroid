@@ -1,6 +1,0 @@
-<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
-<map>
-    <string name="pref_weather_location"></string>
-    <long name="state_weather_last_update_elapsed_millis" value="215673" />
-    <string name="pref_weather_units">c</string>
-</map>
