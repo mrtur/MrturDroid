@@ -2,6 +2,7 @@ MrturDroid 2.6.0 EXPERIMENTAL
 
 1. Aktualizacja:
 - Faux kernel 041u
+- MXPlayer 1.7.29
 
 2. Poprawki:
 
