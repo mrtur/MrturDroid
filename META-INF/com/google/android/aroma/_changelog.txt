@@ -1,6 +1,7 @@
 MrturDroid 2.6.0 EXPERIMENTAL
 
 1. Aktualizacja:
+- Faux kernel 041u
 
 2. Poprawki:
 
