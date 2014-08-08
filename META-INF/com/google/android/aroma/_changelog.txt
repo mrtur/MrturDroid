@@ -4,6 +4,7 @@ MrturDroid 2.6.0 EXPERIMENTAL
 - Faux kernel 041u
 - MXPlayer 1.7.29
 - BootManager 2.1.3
+- adreno-drivers for 4.4.4
 
 2. Poprawki:
 
