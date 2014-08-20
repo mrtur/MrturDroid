@@ -7,7 +7,7 @@ MrturDroid 2.6.0 EXPERIMENTAL
 - adreno-drivers for 4.4.4
 - Complete Action Plus 2.3.0
 - XPrivacy 2.2.7
-- PA GAPPS 11 August
+- PA GAPPS 18 August
 
 2. Poprawki:
 
