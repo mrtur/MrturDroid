@@ -33,7 +33,7 @@
 #
 ini_set("dp","3");
 ini_set("rom_name",             "MrturDroid");
-ini_set("rom_version",          "2.6.0 EXPERIMENTAL");
+ini_set("rom_version",          "2.6.0 EXPERIMENTAL_Mahdi");
 ini_set("rom_author",           "mrtur");
 ini_set("rom_device",           "Nexus 4");
 ini_set("rom_date",             "XX-08-2014");
@@ -42,13 +42,13 @@ ini_set("rom_date",             "XX-08-2014");
 # Setvar
 #
 setvar("preset_version","2");
-setvar("adaroma","/data/media/0/MrturDroid/AromaPreset/Slim_work");
+setvar("adaroma","/data/media/0/MrturDroid/AromaPreset/Mahdi_work");
 setvar("aroma_fast","OFF");
 		
 # Mount required filesystems
 resexec("exec/admount.sh", "/system");
 resexec("exec/admount.sh", "/data");
-resexec("exec/archidroid_init.sh", "Slim_work");
+resexec("exec/archidroid_init.sh", "Mahdi_work");
 setvar("extsdinstall", resexec("exec/archidroid_detect_zip.sh"));
 
 #
@@ -332,7 +332,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"gplaymusic=0\n"+	
 		"gtranslate=0\n"+
 		"gtts=1\n"+
-		"mdu=0\n"+		
 		"trickster=0\n"+	
 		"viper4=0\n"+
 		"titaniumbackup=1\n"+
@@ -386,7 +385,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		"mrturdroid.prop",
 
 		"kernel","<#selectbg_g>Kernel</#>","","group",
-		"stock","Stock(Slim)","<~mrturdroid.kernel.stock.desc>","select.selected",
+		"stock","Stock(Mahdi ROM)","<~mrturdroid.kernel.stock.desc>","select.selected",
 		"semaphore","Semaphore","<~mrturdroid.kernel.semaphore.desc>","select",
 		"hells","hells-Core","<~mrturdroid.kernel.hells.desc>","select",	
 		"faux","Faux","<~mrturdroid.kernel.faux.desc>","select",		
@@ -400,7 +399,8 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 
 		"launcher","<#selectbg_g>Launcher</#>","","group",
 		"nova","Nova Launcher","<~mrturdroid.launcher.nova.desc>","select.selected",
-		"google","Google Launcher","<~mrturdroid.launcher.google.desc>","select",		
+#		"google","Google Launcher","<~mrturdroid.launcher.google.desc>","select",		
+		"trebuchet","Trebuchet","<~mrturdroid.launcher.trebuchet.desc>","select",		
 		"none","<~common.none>","<~mrturdroid.launcher.none.desc>","select",
 
 		"keyboard","<#selectbg_g><~mrturdroid.keyboard></#>","","group",
@@ -411,7 +411,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 
 		"bootanimation","<#selectbg_g><~mrturdroid.bootanimation></#>","","group",
 		"mrtur","MrturDroid","<~mrturdroid.bootanimation.mrtur.desc>","select.selected",
-		"stock","Slim","<~mrturdroid.bootanimation.stock.desc>","select",
+		"stock","Mahdi","<~mrturdroid.bootanimation.stock.desc>","select",
 		"nexus","Nexus","<~mrturdroid.bootanimation.nexus.desc>","select",
 		"google","Google","<~mrturdroid.bootanimation.google.desc>","select",
 		"none","<~common.none>","<~mrturdroid.bootanimation.none.desc>","select",
@@ -441,7 +441,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		"gtts","Google TTS ","<~mrturdroid.apps.gtts.desc>","check.checked",		
 
 		"mrturapps","<#selectbg_g>MrturDroid Apps</#>","","group",
-		"mdu","MrturDroid Update","<~mrturdroid.apps.mdu.desc>","check.checked",		
+#		"mdu","MrturDroid Update","<~mrturdroid.apps.mdu.desc>","check.checked",		
 		"trickster","Trickster MOD","<~mrturdroid.apps.trickster.desc>","check.checked",	
 		"viper4","ViPER4Android Audio Effects","<~mrturdroid.apps.viper4.desc>","check.checked",	
 		"titaniumbackup","Titanium Backup","<~mrturdroid.apps.titaniumbackup.desc>","check.checked",
@@ -465,6 +465,8 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		back("1");
 	endif;
 		
+	write(getvar("adaroma")+"/mrturdroid.prop",readtmpfile("mrturdroid.prop"));
+	
 	if file_getprop("/tmp/aroma-data/mrturdroid.prop","googlekb") !="1" && file_getprop("/tmp/aroma-data/mrturdroid.prop","touchpal") !="1" && file_getprop("/tmp/aroma-data/mrturdroid.prop","hackers") !="1" && file_getprop("/tmp/aroma-data/mrturdroid.prop","stock") !="1" then
 	textbox(
 		"Wykryłem Brak Klawiatury",
@@ -498,6 +500,8 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 			"xprivacy","XPrivacy","<~mrturdroid.xposed.xprivacy.desc>","check"
 		);
 		
+	write(getvar("adaroma")+"/mrturdroidxposed.prop",readtmpfile("mrturdroidxposed.prop"));
+		
 	endif;
 		
 	if file_getprop("/tmp/aroma-data/mrturdroid.prop","buildtweaks") == "1" then
@@ -513,8 +517,12 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 			"zerowakeup","ZeroWakeUp","<~mrturdroid.buildtweaks.zerowakeup.desc>","check"
 		);
 		
+	write(getvar("adaroma")+"/mrturdroidbuild.prop",readtmpfile("mrturdroidbuild.prop"));
+		
 	endif;
-		write(getvar("adaroma")+"/version.txt",getvar("preset_version"));
+	
+	write(getvar("adaroma")+"/version.txt",getvar("preset_version"));
+	
 endif;
 
 if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") != "recovery" then

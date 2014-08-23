@@ -1,7 +1,2 @@
 #!/system/bin/sh
-#
-# Print startup info
-#
-L="log -p i -t slim"
-
-$L "Welcome to Android `getprop ro.build.version.release` / SlimKat `getprop ro.slim.version`";
+log -p i -t start "Welcome to Android `getprop ro.build.version.release` / Mahdi-`getprop ro.mahdi.version`";

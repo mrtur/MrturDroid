@@ -277,7 +277,8 @@ while ( ! pgrep com.android.systemu >/dev/null 2>&1 && [[ "$LOOP" -lt 600 ]]) ||
 				echo "INFO: Applying Slim-specific DBUPDATE"
 				DBUPDATE global package_verifier_enable 0			
 				DBUPDATE system haptic_feedback_enabled 0
-				DBUPDATE system status_bar_battery 1
+				DBUPDATE system status_bar_battery 2
+				DBUPDATE system status_bar_battery_show_percent 1
 				DBUPDATE system screen_off_timeout 30000			
 				DBUPDATE system notification_alpha 0.0
 				DBUPDATE system power_menu_config '**poweroff**|empty|**reboot**|empty|**screenshot**|empty|**sound**|empty'			

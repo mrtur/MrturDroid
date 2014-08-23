@@ -17,7 +17,7 @@
 ##################
 #  Kernel
 #
-# <#selectbg_g>Stock(Slim)</#>
+# <#selectbg_g>Stock(Mahdi)</#>
 # Semaphore
 # Hells-Core
 # Faux
@@ -35,7 +35,7 @@
 #  Launcher
 #  
 # <#selectbg_g>Nova Launcher</#>
-# Google Home
+# Trebuchet(Mahdi)
 
 ##################
 #  Klawiatura
@@ -73,7 +73,6 @@
 ##################
 #  MrturDroid Apps
 #
-# MrturDroid Update
 # Trickster MOD
 # ViPER4Android Audio Effects
 # <#selectbg_g>Titanium Backup</#>
