@@ -404,7 +404,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 
 		"keyboard","<#selectbg_g><~mrturdroid.keyboard></#>","","group",
 		"googlekb","Google Keyboard","<~mrturdroid.keyboard.google.desc>","check",	
-		"touchpal","TouchPal Keyboard","<~mrturdroid.keyboard.touchpal.desc>","check.checked",
 		"hackers","Hacker's Keyboard","<~mrturdroid.keyboard.hackers.desc>","check.checked",
 		"stock","Stock","<~mrturdroid.keyboard.stock.desc>","check",
 
@@ -466,7 +465,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		
 	write(getvar("adaroma")+"/mrturdroid.prop",readtmpfile("mrturdroid.prop"));
 	
-	if file_getprop("/tmp/aroma-data/mrturdroid.prop","googlekb") !="1" && file_getprop("/tmp/aroma-data/mrturdroid.prop","touchpal") !="1" && file_getprop("/tmp/aroma-data/mrturdroid.prop","hackers") !="1" && file_getprop("/tmp/aroma-data/mrturdroid.prop","stock") !="1" then
+	if file_getprop("/tmp/aroma-data/mrturdroid.prop","googlekb") !="1" && file_getprop("/tmp/aroma-data/mrturdroid.prop","hackers") !="1" && file_getprop("/tmp/aroma-data/mrturdroid.prop","stock") !="1" then
 	textbox(
 		"Wykryłem Brak Klawiatury",
 		"",

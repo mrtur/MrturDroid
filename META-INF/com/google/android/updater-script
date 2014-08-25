@@ -593,12 +593,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			package_extract_dir("_mrturdroid/apps/google/keyboard", "/");
 		endif;
 
-		### TOUCHPAL ###
-		if file_getprop("/tmp/aroma-data/mrturdroid.prop","touchpal") == "1" then
-			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing TouchPal Keyboard");
-			package_extract_dir("_mrturdroid/apps/touchpal", "/");
-		endif;
-
 		### HACKERS ###
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","hackers") == "1" then
 			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Hacker's Keyboard");

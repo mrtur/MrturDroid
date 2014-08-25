@@ -16,3 +16,4 @@ MrturDroid 2.6.0 EXPERIMENTAL
 3. ISTOTNE ZMIANY:
 - Slim-mako-4.4.4.build.7.4-WEEKLY-6170
 - usunieto Google Home z intsalatora Aroma (dostepny jest w Markecie)
+- usunieto TouchPall z intsalatora Aroma (dostepny jest w Markecie)

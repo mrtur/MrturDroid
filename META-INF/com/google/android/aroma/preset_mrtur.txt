@@ -35,8 +35,6 @@
 #  Klawiatura
 # 
 # Google Kevboard
-# TouchPal Keyboard
-# Hacker's Keyboard
 # <#selectbg_g>Hacker's Keyboard</#>
 # Stock 
 
