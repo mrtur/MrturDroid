@@ -12,4 +12,4 @@ MrturDroid 2.6.0 EXPERIMENTAL
 2. Poprawki:
 
 3. ISTOTNE ZMIANY:
-- Nowa baza Mahdi ROM 2.7
+- mahdi-2.7-mako-20140824
