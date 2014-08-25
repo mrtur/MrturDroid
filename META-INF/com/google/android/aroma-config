@@ -41,7 +41,7 @@ ini_set("rom_date",             "XX-08-2014");
 #
 # Setvar
 #
-setvar("preset_version","2");
+setvar("preset_version","3");
 setvar("adaroma","/data/media/0/MrturDroid/AromaPreset/Slim_work");
 setvar("aroma_fast","OFF");
 		
@@ -400,7 +400,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 
 		"launcher","<#selectbg_g>Launcher</#>","","group",
 		"nova","Nova Launcher","<~mrturdroid.launcher.nova.desc>","select.selected",
-		"google","Google Launcher","<~mrturdroid.launcher.google.desc>","select",		
 		"none","<~common.none>","<~mrturdroid.launcher.none.desc>","select",
 
 		"keyboard","<#selectbg_g><~mrturdroid.keyboard></#>","","group",

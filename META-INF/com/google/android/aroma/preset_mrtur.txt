@@ -32,12 +32,6 @@
 # 320 DPI
 
 ##################
-#  Launcher
-#  
-# <#selectbg_g>Nova Launcher</#>
-# Google Home
-
-##################
 #  Klawiatura
 # 
 # Google Kevboard

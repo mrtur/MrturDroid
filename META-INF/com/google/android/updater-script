@@ -625,14 +625,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			package_extract_dir("_mrturdroid/apps/nova", "/");
 		endif;
 
-		### GOOGLE ###
-		if file_getprop("/tmp/aroma-data/mrturdroid.prop","launcher") == "google" then
-			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Google Launcher");
-			delete("/system/priv-app/Launcher3.apk");
-			delete("/system/app/Launcher3.apk");		
-			package_extract_dir("_mrturdroid/apps/google/launcher", "/");
-		endif;
-
 		### NONE ###
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","launcher") == "none" then
 			# Just delete Launcher then
