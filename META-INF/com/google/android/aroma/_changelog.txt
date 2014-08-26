@@ -16,6 +16,6 @@ MrturDroid 2.6.0 EXPERIMENTAL
 - naprawiono systemowy dialer
 
 3. ISTOTNE ZMIANY:
-- Slim-mako-4.4.4.build.7.4-WEEKLY-6170
+- Slim-mako-4.4.4.build.7.6-WEEKLY-6198
 - usunieto Google Home z instalatora Aroma (dostepny jest w Markecie)
 - usunieto TouchPal z instalatora Aroma (dostepny jest w Markecie)
