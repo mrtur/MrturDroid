@@ -8,6 +8,7 @@ MrturDroid 2.6.0 EXPERIMENTAL
 - Complete Action Plus 2.3.0
 - XPrivacy 2.2.7
 - PA GAPPS 18 August
+- kernel semaphore 2.4.0 
 
 2. Poprawki:
 - naprawiono zapis presetu w aroma
