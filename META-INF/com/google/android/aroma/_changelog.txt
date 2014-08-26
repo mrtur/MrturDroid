@@ -9,6 +9,7 @@ MrturDroid 2.6.0 EXPERIMENTAL
 - XPrivacy 2.2.7
 - PA GAPPS 18 August
 - kernel semaphore 2.4.0 
+- kernel franco r211
 
 2. Poprawki:
 - naprawiono zapis presetu w aroma
