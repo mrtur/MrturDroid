@@ -4,6 +4,11 @@ ui_print("<b><#d98d15> MrturDroid ~</#></b> Ready!");
 set_progress(0.01);
 #sleep (2);
 
+### Recovery None ###
+if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" then
+	ui_print("<b><#d98d15> MrturDroid ~</#></b> None Recovery");	
+endif;
+
 ### TWRP ###
 if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "twrp" then
 	ui_print("<b><#d98d15> MrturDroid ~</#></b> Flashing TWRP Recovery");
@@ -24,6 +29,91 @@ endif;
 if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "cwm" then
 		ui_print("<b><#d98d15> MrturDroid ~</#></b> Flashing ClockWorkMod Recovery");
 	assert(package_extract_file("_mrturdroid/recovery/cwm.img", "/tmp/recovery.img"),write_raw_image("/tmp/recovery.img", "/dev/block/mmcblk0p7"),delete("/tmp/recovery.img"));
+endif;
+
+### MultiRom None ###
+if file_getprop("/tmp/aroma-data/mrturdroidmultirom.prop","multirom") == "none" then
+	ui_print("<b><#d98d15> MrturDroid ~</#></b> None MultiROM");
+endif;
+
+### MultiRom Add ###
+if file_getprop("/tmp/aroma-data/mrturdroidmultirom.prop","multirom") == "multiromadd" then
+	ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing MultiROM for mako");
+	ui_print("<b><#d98d15> MrturDroid ~</#></b> Extracting binaries...");
+	run_program("/sbin/busybox", "mount", "/data");
+
+	delete_recursive("/tmp/multirom");
+	run_program("/sbin/busybox", "mkdir", "/tmp/multirom");
+	package_extract_dir("_mrturdroid/multirom/add/multirom", "/tmp/multirom/");
+	package_extract_dir("_mrturdroid/multirom/add/scripts", "/tmp/");
+
+	set_perm(0, 0, 0777, "/tmp/multirom/busybox");
+	set_perm(0, 0, 0777, "/tmp/bbootimg");
+	set_perm(0, 0, 0777, "/tmp/extract_multirom.sh");
+	set_perm(0, 0, 0777, "/tmp/inject_boot.sh");
+
+	assert(run_program("/tmp/extract_multirom.sh") == 0);
+	ui_print("<b><#d98d15> MrturDroid ~</#></b> Injecting boot image...");
+	assert(run_program("/tmp/inject_boot.sh") == 0);
+
+	ui_print("<b><#d98d15> MrturDroid ~</#></b> Cleaning up...");
+	delete_recursive("/tmp/boot");
+	delete_recursive("/tmp/multirom");
+	delete("/tmp/bbootimg");
+	delete("/tmp/bootimg.cfg");
+	delete("/tmp/initrd.img");
+	delete("/tmp/zImage");
+	delete("/tmp/boot.img");
+	delete("/tmp/dtb.img");
+	delete("/tmp/second.img");
+	delete("/tmp/newboot.img");
+	delete("/tmp/extract_multirom.sh");
+	delete("/tmp/inject_boot.sh");
+	delete("/tmp/bootdev");
+	delete("/tmp/rd_addr");
+	delete("/tmp/use_mrom_fstab");
+
+	ui_print("<b><#d98d15> MrturDroid ~</#></b> Installation complete!");
+endif;
+
+### MultiRom Del ###
+if file_getprop("/tmp/aroma-data/mrturdroidmultirom.prop","multirom") == "multiromdel" then
+	ui_print("<b><#d98d15> MrturDroid ~</#></b> MultiROM uninstaller - mako");
+
+	ui_print("<b><#d98d15> MrturDroid ~</#></b> Extracting binaries...");
+	run_program("/sbin/busybox", "mount", "/data");
+
+	package_extract_dir("_mrturdroid/multirom/del/scripts", "/tmp/");
+
+	set_perm(0, 0, 0777, "/tmp/busybox");
+	set_perm(0, 0, 0777, "/tmp/bbootimg");
+	set_perm(0, 0, 0777, "/tmp/lz4");
+	set_perm(0, 0, 0777, "/tmp/erase_multirom.sh");
+	set_perm(0, 0, 0777, "/tmp/clear_boot.sh");
+
+	ui_print("<b><#d98d15> MrturDroid ~</#></b> Removing MultiROM from boot.img...");
+	assert(run_program("/tmp/clear_boot.sh") == 0);
+	ui_print("<b><#d98d15> MrturDroid ~</#></b> Erasing MultiROM's data folder...");
+	assert(run_program("/tmp/erase_multirom.sh") == 0);
+
+	ui_print("<b><#d98d15> MrturDroid ~</#></b> Cleaning up...");
+	delete_recursive("/tmp/boot");
+	delete_recursive("/tmp/multirom");
+	delete("/tmp/lz4");
+	delete("/tmp/bootimg.cfg");
+	delete("/tmp/initrd.img");
+	delete("/tmp/zImage");
+	delete("/tmp/bbootimg");
+	delete("/tmp/boot.img");
+	delete("/tmp/newboot.img");
+	delete("/tmp/busybox");
+	delete("/tmp/erase_multirom.sh");
+	delete("/tmp/clear_boot.sh");
+	delete("/tmp/bootdev");
+	delete("/tmp/rd_addr");
+
+	ui_print("<b><#d98d15> MrturDroid ~</#></b> MultiROM was removed!");
+
 endif;
 
 set_progress(0.99);

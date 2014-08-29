@@ -57,6 +57,7 @@ text_quit_msg=Czy jesteś pewny, że chcesz zakończyć instalację?
 common.for=dla
 common.none=Brak
 common.reboot=Restart
+common.end=Koniec
 common.flashing=Flashuję
 
 mrturdroid.tos=Dodatkowa informacja
@@ -68,6 +69,9 @@ mrturdroid.recovery.twrp.desc=Najlepsze moim zdaniem i wygodne w obsłudze recov
 mrturdroid.recovery.twrp_multirom.desc=Recovery z obsługą wiecej niż jeden ROM. Konieczny jest kernel z tzw. kexec-hardboot patch
 mrturdroid.recovery.cwm.desc=Alternatywne recovery.
 
+mrturdroid.multiromadd.desc=Instalacja MultiRom do obsługi więcej niż jeden rom. Wymagany TWRP z obsługą MultiRom
+mrturdroid.multiromdel.desc=Usunięcie MultiRom. Jeżeli posiadasz jakieś romy jako drugie zostaną również usunięte!
+
 mrturdroid.recoverytheme.twrp=Recovery TWRP Theme
 mrturdroid.recoverytheme.twrp.desc=Czy chcesz dodatkowo motyw MrturDroid do recovery TWRP?\
 <#FF0A1F>Jeżeli już jakiś posiadasz zostanie podmieniony!</#>\
@@ -76,7 +80,7 @@ mrturdroid.custom=Dostosowywanie MrturDroid
 mrturdroid.custom.desc=Zmodyfikuj proszę poniższe ustawienia do Twoich predyspozycji:
 
 mrturdroid.install.desc=<b>MrturDroid</b> właśnie jest instalowany.\
-Poczekaj proszę cierpliwie, aż instalator sflashuje rom\
+Poczekaj proszę cierpliwie, aż instalator sflashuje komponenty\
 <b>UWAGA! W przypadku braku postępu przytrzymaj kombinację recovery i spróbuj jeszcze raz!</b>
 
 mrturdroid.install.finish=Instalator AROMA pomyślnie zainstalował <b>MrturDroid</b>a na Twoim urządzeniu\

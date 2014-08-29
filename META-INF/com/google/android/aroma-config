@@ -55,19 +55,36 @@ form(
 	"mrturdroidrecovery.prop",
 
 	"recovery","<#selectbg_g>Recovery</#>","","group",
-	"twrp","TWRP","<~mrturdroid.recovery.twrp.desc>","select.selected",
+	"none","Bez zmian","","select.selected",	
+	"twrp","TWRP","<~mrturdroid.recovery.twrp.desc>","select",
 	"twrp_multirom","TWRP MultiRom","<~mrturdroid.recovery.twrp_multirom.desc>","select",	
 	"cwm","ClockWorkMod","<~mrturdroid.recovery.cwm.desc>","select"
 );
-agreebox(
-	"<~mrturdroid.tos>",
-	"",
-	"@alert",
-	resread("recovery.txt"),
-	"<~terms.check>",
-	"<~terms.confirm>"
+
+form(
+	"<~mrturdroid.custom>",
+	"<~mrturdroid.custom.desc>",
+	"@welcome",
+	"mrturdroidmultirom.prop",
+	
+	"multirom","<#selectbg_g>MultiROM</#>","","group",
+	"none","Bez zmian","","select.selected",
+	"multiromadd","Add MultiROM","<~mrturdroid.multiromadd.desc>","select",
+	"multiromdel","Delete MultiROM","<~mrturdroid.multiromdel.desc>","select"
 );
-ini_set("text_next", "<~common.reboot>");
+
+if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") != "none" then
+	agreebox(
+		"<~mrturdroid.tos>",
+		"",
+		"@alert",
+		resread("recovery.txt"),
+		"<~terms.check>",
+		"<~terms.confirm>"
+	);
+endif;
+
+ini_set("text_next", "<~common.end>");
 install(
 	"<~common.flashing>",
 	"<~mrturdroid.install.desc>",
