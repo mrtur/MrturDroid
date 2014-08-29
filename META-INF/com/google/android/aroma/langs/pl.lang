@@ -59,12 +59,14 @@ common.none=Brak
 common.reboot=Restart
 common.flashing=Flashuję
 
+mrturdroid.tos=Dodatkowa informacja
+terms.check=OK
+terms.confirm=Musisz zaznaczyć "OK" aby kontynuować!
+
 mrturdroid.preset.recovery.desc=Ta funkcja sflashuje wyłącznie recovery zamiast ROMu. Może być użyteczne w przypadku, gdy update recovery będzie wymagany przed flashowaniem samego ROMu
 mrturdroid.recovery.twrp.desc=Najlepsze moim zdaniem i wygodne w obsłudze recovery na Nexus 4. Tworzone przez TeamWin
-mrturdroid.recovery.cwm.desc=Alternatywne recovery.\
-<b><#FF0A1F>UWAGA!</#></b>\
-Przechodząc z TWRP na CWM musisz po flashowaniu wybrać <b><#d98d15>Restart</#></b> a potem wykonać\
-<b><#FF0A1F>HOME -> Reboot -> Recovery</#></b>
+mrturdroid.recovery.twrp_multirom.desc=Recovery z obsługą wiecej niż jeden ROM. Konieczny jest kernel z tzw. kexec-hardboot patch
+mrturdroid.recovery.cwm.desc=Alternatywne recovery.
 
 mrturdroid.recoverytheme.twrp=Recovery TWRP Theme
 mrturdroid.recoverytheme.twrp.desc=Czy chcesz dodatkowo motyw MrturDroid do recovery TWRP?\
