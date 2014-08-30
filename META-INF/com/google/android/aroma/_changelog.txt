@@ -9,7 +9,7 @@ MrturDroid 2.6.0 EXPERIMENTAL
 - XPrivacy 2.2.7
 - PA GAPPS 18 August
 - kernel semaphore 2.4.0 
-- kernel franco r211
+- kernel franco r212
 - hells-Core-b51_anykernel
 
 2. Poprawki:
