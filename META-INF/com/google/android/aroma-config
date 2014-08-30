@@ -277,30 +277,14 @@ form(
 	"twrp","TWRP","<~mrturdroid.recovery.twrp.desc>","select.selected",
 	"cwm","ClockWorkMod","<~mrturdroid.recovery.cwm.desc>","select"
 );
-	if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "twrp" then
-			if confirm(
-				"<~mrturdroid.recoverytheme.twrp>",
-				"<~mrturdroid.recoverytheme.twrp.desc>",
-				"@welcome",
-				"<~text_yes>",
-				"<~text_no>"
-			)=="yes" then
-				writetmpfile(
-					"mrturdroidrecoverytheme.prop",
-					"recoverytheme=yes\n"
-					);
-			else
-				writetmpfile(
-					"mrturdroidrecoverytheme.prop",
-					"recoverytheme=no\n"
-					);
-			endif;
-	endif;
-else
-	writetmpfile(
-		"mrturdroidrecovery.prop",
-		"recovery=none\n"
-	);
+agreebox(
+	"<~mrturdroid.tos>",
+	"",
+	"@alert",
+	resread("recovery.txt"),
+	"<~terms.check>",
+	"<~terms.confirm>"
+);
 endif;
 
 #############
@@ -635,11 +619,7 @@ viewbox(
 	"@welcome"
 );
 
-if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "recovery" then
-	ini_set("text_next", "<~common.reboot>");
-else
 	ini_set("text_next", "<~common.finish>");
-endif;
 
 install(
 	"<~common.flashing>",
@@ -651,9 +631,7 @@ install(
 resexec("exec/adumount.sh", "/system");
 resexec("exec/adumount.sh", "/data");
 
-if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "recovery" then
-	resexec("exec/cmd.sh", "reboot", "recovery");
-else
+if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") != "recovery" then
 	if confirm(
 		"MrturDroid Wizard",
 		"<~mrturdroid.wizard.reboot>",

@@ -19,3 +19,4 @@ MrturDroid 2.6.0 EXPERIMENTAL
 - Slim-mako-4.4.4.build.7.6-WEEKLY-6198
 - usunieto Google Home z instalatora Aroma (dostepny jest w Markecie)
 - usunieto TouchPal z instalatora Aroma (dostepny jest w Markecie)
+- reorganizacja instalatora recovery

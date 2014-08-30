@@ -9,17 +9,15 @@ set_progress(0.01);
 
 ### TWRP ###
 if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "twrp" then
-		ui_print("<b><#d98d15> MrturDroid ~</#></b> Flashing TWRP Recovery");
+	ui_print("<b><#d98d15> MrturDroid ~</#></b> Flashing TWRP Recovery");
 	assert(package_extract_file("_mrturdroid/recovery/twrp.img", "/tmp/recovery.img"),write_raw_image("/tmp/recovery.img", "/dev/block/mmcblk0p7"),delete("/tmp/recovery.img"));
-	if file_getprop("/tmp/aroma-data/mrturdroidrecoverytheme.prop","recoverytheme") == "yes" then
-			ui_print("<b><#d98d15> MrturDroid ~</#></b> Including TWRP MrturDroid Theme");
-		package_extract_dir("_mrturdroid/recovery/twrptheme", "/");		
-	endif;
+	ui_print("<b><#d98d15> MrturDroid ~</#></b> Including TWRP MrturDroid Theme");
+	package_extract_dir("_mrturdroid/recovery/twrptheme", "/");		
 endif;
 
 ### CWM ###
 if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "cwm" then
-		ui_print("<b><#d98d15> MrturDroid ~</#></b> Flashing ClockWorkMod Recovery");
+	ui_print("<b><#d98d15> MrturDroid ~</#></b> Flashing ClockWorkMod Recovery");
 	assert(package_extract_file("_mrturdroid/recovery/cwm.img", "/tmp/recovery.img"),write_raw_image("/tmp/recovery.img", "/dev/block/mmcblk0p7"),delete("/tmp/recovery.img"));
 endif;
 
