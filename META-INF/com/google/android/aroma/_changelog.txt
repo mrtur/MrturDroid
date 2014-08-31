@@ -10,7 +10,7 @@ MrturDroid 2.6.0 EXPERIMENTAL
 - PA GAPPS 18 August
 - kernel semaphore 2.4.0 
 - kernel franco r212
-- hells-Core-b51_anykernel
+- hells-Core-b52_anykernel
 
 2. Poprawki:
 - naprawiono zapis presetu w aroma
