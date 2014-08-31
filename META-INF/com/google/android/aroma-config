@@ -41,7 +41,7 @@ ini_set("rom_date",             "XX-08-2014");
 #
 # Setvar
 #
-setvar("preset_version","3");
+setvar("preset_version","4");
 setvar("adaroma","/data/media/0/MrturDroid/AromaPreset/Slim_work");
 setvar("aroma_fast","OFF");
 		
@@ -267,24 +267,29 @@ endif;
 ################
 
 if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "recovery" then
-form(
-	"<~mrturdroid.custom>",
-	"<~mrturdroid.custom.desc>",
-	"@welcome",
-	"mrturdroidrecovery.prop",
+	form(
+		"<~mrturdroid.custom>",
+		"<~mrturdroid.custom.desc>",
+		"@welcome",
+		"mrturdroidrecovery.prop",
 
-	"recovery","<#selectbg_g>Recovery</#>","","group",
-	"twrp","TWRP","<~mrturdroid.recovery.twrp.desc>","select.selected",
-	"cwm","ClockWorkMod","<~mrturdroid.recovery.cwm.desc>","select"
-);
-agreebox(
-	"<~mrturdroid.tos>",
-	"",
-	"@alert",
-	resread("recovery.txt"),
-	"<~terms.check>",
-	"<~terms.confirm>"
-);
+		"recovery","<#selectbg_g>Recovery</#>","","group",
+		"twrp","TWRP","<~mrturdroid.recovery.twrp.desc>","select.selected",
+		"cwm","ClockWorkMod","<~mrturdroid.recovery.cwm.desc>","select"
+	);
+	agreebox(
+		"<~mrturdroid.tos>",
+		"",
+		"@alert",
+		resread("recovery.txt"),
+		"<~terms.check>",
+		"<~terms.confirm>"
+	);
+else
+	writetmpfile(
+		"mrturdroidrecovery.prop",
+		"recovery=none\n"
+	);
 endif;
 
 #############
@@ -304,7 +309,8 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"stock=0\n"+		
 		"bootanimation=mrtur\n"+
 		"root=3\n"+
-		"runtime=libdvm.so\n"+
+#		"runtime=libdvm.so\n"+
+		"gmarketblacktheme=1\n"+		
 		"gcamera=1\n"+		
 		"gchrome=0\n"+
 		"gkeep=0\n"+
@@ -335,7 +341,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 	writetmpfile(
 		"mrturdroidxposed.prop",
 		
-		"xposed=1\n"+
+#		"xposed=1\n"+
 		"appsettings=1\n"+
 		"bootmanager=1\n"+
 		"actionplus=1\n"+		
@@ -405,10 +411,14 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		"2","ADB only","","select",
 		"3","Apps and ADB","","select.selected",		
 						
-		"runtime","<#selectbg_g>Runtime</#>","","group",
-		"libart.so","ART","<~mrturdroid.runtime.art.desc>","select",
-		"libdvm.so","Dalvik Legacy","<~mrturdroid.runtime.dalvik.desc>","select.selected",		
+#		"runtime","<#selectbg_g>Runtime</#>","","group",
+#		"libart.so","ART","<~mrturdroid.runtime.art.desc>","select",
+#		"libdvm.so","Dalvik Legacy","<~mrturdroid.runtime.dalvik.desc>","select.selected",		
 
+		"googlemarkettheme","<#selectbg_g>Google Market Theme</#>","","group",
+		"gmarketoriginaltheme","Original Theme","<~mrturdroid.apps.gmarketoriginaltheme.desc>","select",		
+		"gmarketblacktheme","Black Theme","<~mrturdroid.apps.gmarketblacktheme.desc>","select.selected",
+		
 		"googleapps","<#selectbg_g>Google Apps</#>","","group",
 		"gcamera","Google Camera","<~mrturdroid.apps.gcamera.desc>","check",		
 		"gchrome","Google Chrome","","check.checked",
@@ -467,24 +477,21 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 	);
 	endif;
 	
-	if file_getprop("/tmp/aroma-data/mrturdroid.prop","runtime") == "libdvm.so" then
+#	if file_getprop("/tmp/aroma-data/mrturdroid.prop","runtime") == "libdvm.so" then
 		form(
-			"<~mrturdroid.custom.extra>",
+			"<~mrturdroid.xposed.infomarket.desc>",
 			"<~mrturdroid.custom.desc>",
 			"@welcome",
 			"mrturdroidxposed.prop",
 
 			"modules","<#selectbg_g>Xposed Area</#>","","group",
-			"xposed","Xposed Framework","<~mrturdroid.xposed.desc>","check.checked",			
 			"appsettings","App Settings","<~mrturdroid.xposed.appsettings.desc>","check.checked",
 			"bootmanager","BootManager","<~mrturdroid.xposed.bootmanager.desc>","check.checked",
 			"actionplus","Complete Action Plus","<~mrturdroid.xposed.actionplus.desc>","check.checked",			
 			"xprivacy","XPrivacy","<~mrturdroid.xposed.xprivacy.desc>","check"
 		);
-		
-	write(getvar("adaroma")+"/mrturdroidxposed.prop",readtmpfile("mrturdroidxposed.prop"));
-		
-	endif;
+		write(getvar("adaroma")+"/mrturdroidxposed.prop",readtmpfile("mrturdroidxposed.prop"));		
+#	endif;
 		
 	if file_getprop("/tmp/aroma-data/mrturdroid.prop","buildtweaks") == "1" then
 		form(

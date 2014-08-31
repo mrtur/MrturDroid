@@ -21,3 +21,8 @@ MrturDroid 2.6.0 EXPERIMENTAL
 - usunieto Google Home z instalatora Aroma (dostepny jest w Markecie)
 - usunieto TouchPal z instalatora Aroma (dostepny jest w Markecie)
 - reorganizacja instalatora recovery
+- dodano wybor instalacji pomiedzy oryginalnym marketem a wersja z czarnym motywem
+- dodano automatyczna instalacje Xposed + moduł PlayStoreFix(tylko w przypadku wyboru originalnego marketu)
+Moduł PlayStoreFix symuluje dla marketu DPI na 320 niezależnie jakie jest ustawione w telefonie
+- w zwiazku z powyzszym wylaczono mozliwosc ustawienia na starcie systemu plikow (DALVIK i ART)
+gdyz Xposed dziala tylko jak narazie na systemie plikow DALVIK. 

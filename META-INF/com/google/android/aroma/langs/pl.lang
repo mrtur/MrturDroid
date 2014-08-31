@@ -173,6 +173,11 @@ mrturdroid.apps.gtts.desc=Najnowsze przetwarzanie tekstu na mowę od Google wraz
 mrturdroid.tweaks.buildtweaks.desc=Wiele tweaków build.prop, w tym m.in. głębszy sen oraz większa wydajność
 mrturdroid.tweaks.debianoff.desc=Zaznacz jeżeli nie masz zamiaru używać środowiska Debian
 
+mrturdroid.apps.gmarketoriginaltheme.desc=Oryginalny niezmieniany Market.\
+Zostanie dodatkowo zainstalowny moduł PlayStoreFix.
+mrturdroid.apps.gmarketblacktheme.desc=Market w czarnej oprawie graficznej.
+
+mrturdroid.xposed.infomarket.desc=Xposed zostanie zainstalowany
 mrturdroid.xposed.desc=Wymagane do używania poniższych modułów i wielu innych
 mrturdroid.xposed.appsettings.desc=Pozwala na zarządzanie ustawieniami specyficznymi dla danych aplikacji. Bardzo użyteczny moduł
 mrturdroid.xposed.bootmanager.desc=Pozwala na zarządzanie jakie aplikacje będą ładowane wraz ze startem systemu.

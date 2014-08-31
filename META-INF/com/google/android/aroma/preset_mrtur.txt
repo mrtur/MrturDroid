@@ -9,12 +9,6 @@
 # <#selectbg_g>Apps and ADB</#>
 
 ##################
-#  Runtime
-#
-# <#selectbg_g>Dalvik</#>
-# ART
-
-##################
 #  Kernel
 #
 # <#selectbg_g>Stock(Slim)</#>
@@ -41,11 +35,16 @@
 ##################
 #  Xposed Area
 #
-# <#selectbg_g>Xposed Framework</#>
 # <#selectbg_g>AppSettings</#>
 # <#selectbg_g>Bootmanager</#>
 # <#selectbg_g>Complete Action Plus</#>
 # XPrivacy
+
+##################
+#  Google Market
+#
+# Original Theme
+# <#selectbg_g>Black Theme</#>
 
 ##################
 #  Google Apps
