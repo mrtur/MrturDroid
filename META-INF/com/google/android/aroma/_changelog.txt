@@ -5,7 +5,7 @@ MrturDroid 2.6.0 EXPERIMENTAL
 - MX Player 1.7.31
 - BootManager 2.1.3
 - adreno-drivers for 4.4.4
-- Complete Action Plus 2.3.0
+- Complete Action Plus 2.4.1
 - XPrivacy 2.2.7
 - PA GAPPS 18 August
 - kernel semaphore 2.4.0 
