@@ -11,6 +11,7 @@ MrturDroid 2.6.0 EXPERIMENTAL
 - kernel semaphore 2.4.0 
 - kernel franco r212
 - hells-Core-b52_anykernel
+- Nova Launcher 3.1
 
 2. Poprawki:
 - naprawiono zapis presetu w aroma
