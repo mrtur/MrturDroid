@@ -576,13 +576,13 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		### MARKET ##
 		#############
 
-		if file_getprop("/tmp/aroma-data/mrturdroid.prop","googlemarkettheme") == "gmarketoriginaltheme" then
+		if file_getprop("/tmp/aroma-data/mrturdroid.prop","googlemarkettheme") == "original" then
 			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Market Original Theme");
 			ui_print("<b><#d98d15> MrturDroid ~</#></b> Including Xposed modules PlayStoreFix");
 			package_extract_dir("_mrturdroid/apps/xposed/xposedmarket", "/");				
 		endif;
 		
-		if file_getprop("/tmp/aroma-data/mrturdroid.prop","googlemarkettheme") == "gmarketblacktheme" then
+		if file_getprop("/tmp/aroma-data/mrturdroid.prop","googlemarkettheme") == "black" then
 			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Market Black Theme");
 			package_extract_dir("_mrturdroid/apps/google/marketblacktheme", "/");
 		endif;
