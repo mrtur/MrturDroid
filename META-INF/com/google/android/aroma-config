@@ -42,13 +42,13 @@ ini_set("rom_date",             "XX-08-2014");
 # Setvar
 #
 setvar("preset_version","4");
-setvar("adaroma","/data/media/0/MrturDroid/AromaPreset/Slim_work");
+setvar("adaroma","/data/media/0/MrturDroid/AromaPreset/EXPERIMENTAL");
 setvar("aroma_fast","OFF");
 		
 # Mount required filesystems
 resexec("exec/admount.sh", "/system");
 resexec("exec/admount.sh", "/data");
-resexec("exec/archidroid_init.sh", "Slim_work");
+resexec("exec/archidroid_init.sh", "EXPERIMENTAL");
 setvar("extsdinstall", resexec("exec/archidroid_detect_zip.sh"));
 
 #
