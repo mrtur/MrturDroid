@@ -12,6 +12,7 @@
 - kernel franco r212
 - hells-Core-b52_anykernel
 - Nova Launcher 3.1
+- MDU 1.8
 
 2. Poprawki:
 - naprawiono zapis presetu w aroma
