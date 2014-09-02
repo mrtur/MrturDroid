@@ -1,30 +1,7 @@
-MrturDroid 2.6.0 EXPERIMENTAL
+MrturDroid 2.6.1 EXPERIMENTAL
 
 1. Aktualizacja:
-- Faux kernel 041u-r2
-- MX Player 1.7.31
-- BootManager 2.1.3
-- adreno-drivers for 4.4.4
-- Complete Action Plus 2.4.1
-- XPrivacy 2.2.7
-- PA GAPPS 18 August
-- kernel semaphore 2.4.0 
-- kernel franco r212
-- hells-Core-b52_anykernel
-- Nova Launcher 3.1
-- MDU 1.8
 
 2. Poprawki:
-- naprawiono zapis presetu w aroma
-- naprawiono systemowy dialer
 
 3. ISTOTNE ZMIANY:
-- Slim-mako-4.4.4.build.7.6-WEEKLY-6198
-- usunieto Google Home z instalatora Aroma (dostepny jest w Markecie)
-- usunieto TouchPal z instalatora Aroma (dostepny jest w Markecie)
-- reorganizacja instalatora recovery
-- dodano wybor instalacji pomiedzy oryginalnym marketem a wersja z czarnym motywem
-- dodano automatyczna instalacje Xposed + moduł PlayStoreFix(tylko w przypadku wyboru originalnego marketu)
-Moduł PlayStoreFix symuluje dla marketu DPI na 320 niezależnie jakie jest ustawione w telefonie
-- w zwiazku z powyzszym wylaczono mozliwosc ustawienia na starcie systemu plikow (DALVIK i ART)
-gdyz Xposed dziala tylko jak narazie na systemie plikow DALVIK. 
