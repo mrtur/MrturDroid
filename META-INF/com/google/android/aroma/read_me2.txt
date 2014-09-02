@@ -10,7 +10,7 @@ Ten ROM oparty jest na pracy wielu innych ludzi, ich modyfikacji, ich poprawek, 
 - Launcher: Nova Launcher | Google Home
 - Klawiatura: TouchPal X | Hacker's Keyboard | Google Keyboard
 - Narzędzia: Xposed Framework + moduły
-- Xposed Modules: App Settings | XPrivacy | BootManager | Complete Action Plus
+- Xposed Modules: App Settings | XPrivacy | BootManager | Complete Action Plus | PlayStoreFix
 - Qualcomm Adreno GPU
 - Wykorzystano kernele : HellsCore | Semaphore | Faux | Franco
 - wiele darmowych aplikacji

@@ -9,17 +9,15 @@ set_progress(0.01);
 
 ### TWRP ###
 if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "twrp" then
-		ui_print("<b><#d98d15> MrturDroid ~</#></b> Flashing TWRP Recovery");
+	ui_print("<b><#d98d15> MrturDroid ~</#></b> Flashing TWRP Recovery");
 	assert(package_extract_file("_mrturdroid/recovery/twrp.img", "/tmp/recovery.img"),write_raw_image("/tmp/recovery.img", "/dev/block/mmcblk0p7"),delete("/tmp/recovery.img"));
-	if file_getprop("/tmp/aroma-data/mrturdroidrecoverytheme.prop","recoverytheme") == "yes" then
-			ui_print("<b><#d98d15> MrturDroid ~</#></b> Including TWRP MrturDroid Theme");
-		package_extract_dir("_mrturdroid/recovery/twrptheme", "/");		
-	endif;
+	ui_print("<b><#d98d15> MrturDroid ~</#></b> Including TWRP MrturDroid Theme");
+	package_extract_dir("_mrturdroid/recovery/twrptheme", "/");		
 endif;
 
 ### CWM ###
 if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "cwm" then
-		ui_print("<b><#d98d15> MrturDroid ~</#></b> Flashing ClockWorkMod Recovery");
+	ui_print("<b><#d98d15> MrturDroid ~</#></b> Flashing ClockWorkMod Recovery");
 	assert(package_extract_file("_mrturdroid/recovery/cwm.img", "/tmp/recovery.img"),write_raw_image("/tmp/recovery.img", "/dev/block/mmcblk0p7"),delete("/tmp/recovery.img"));
 endif;
 
@@ -544,14 +542,15 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		### XPOSED ###
 		##############
 
-		if file_getprop("/tmp/aroma-data/mrturdroid.prop","runtime") == "libdvm.so" then
+#		if file_getprop("/tmp/aroma-data/mrturdroid.prop","runtime") == "libdvm.so" then
 
-			if file_getprop("/tmp/aroma-data/mrturdroidxposed.prop","xposed") == "1" then
+#			if file_getprop("/tmp/aroma-data/mrturdroidxposed.prop","xposed") == "1" then
 				ui_print("<b><#d98d15> MrturDroid ~</#></b> Including Xposed Framework");
 				run_program("/sbin/busybox","mv","-f","/system/bin/app_process","/system/bin/app_process.orig");
 				package_extract_dir("_mrturdroid/apps/xposed/xposed", "/");
 				set_metadata("/system/bin/app_process", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
-			endif;
+#			endif;
+
 			if file_getprop("/tmp/aroma-data/mrturdroidxposed.prop","appsettings") == "1" then
 				ui_print("<b><#d98d15> MrturDroid ~</#></b> Including App Settings Xposed Module");
 				package_extract_dir("_mrturdroid/apps/xposed/appsettings", "/");
@@ -569,9 +568,26 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 				package_extract_dir("_mrturdroid/apps/xposed/xprivacy", "/");
 			endif;
 			
-		endif;
+#		endif;
 
 		set_progress(0.71);
+
+		#############
+		### MARKET ##
+		#############
+
+		if file_getprop("/tmp/aroma-data/mrturdroid.prop","googlemarkettheme") == "original" then
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Market Original Theme");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Including Xposed modules PlayStoreFix");
+			package_extract_dir("_mrturdroid/apps/xposed/xposedmarket", "/");				
+		endif;
+		
+		if file_getprop("/tmp/aroma-data/mrturdroid.prop","googlemarkettheme") == "black" then
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Market Black Theme");
+			package_extract_dir("_mrturdroid/apps/google/marketblacktheme", "/");
+		endif;
+
+		set_progress(0.72);
 
 		###########
 		### MDU ###
@@ -591,12 +607,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","googlekb") == "1" then
 			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Google Keyboard");
 			package_extract_dir("_mrturdroid/apps/google/keyboard", "/");
-		endif;
-
-		### TOUCHPAL ###
-		if file_getprop("/tmp/aroma-data/mrturdroid.prop","touchpal") == "1" then
-			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing TouchPal Keyboard");
-			package_extract_dir("_mrturdroid/apps/touchpal", "/");
 		endif;
 
 		### HACKERS ###
@@ -623,14 +633,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			delete("/system/priv-app/Launcher3.apk");
 			delete("/system/app/Launcher3.apk");		
 			package_extract_dir("_mrturdroid/apps/nova", "/");
-		endif;
-
-		### GOOGLE ###
-		if file_getprop("/tmp/aroma-data/mrturdroid.prop","launcher") == "google" then
-			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Google Launcher");
-			delete("/system/priv-app/Launcher3.apk");
-			delete("/system/app/Launcher3.apk");		
-			package_extract_dir("_mrturdroid/apps/google/launcher", "/");
 		endif;
 
 		### NONE ###

@@ -132,16 +132,13 @@ mrturdroid.dpi.280.desc=Dobry kompromis pomiędzy 320, a 240 DPI
 mrturdroid.dpi.320.desc=Wartość domyślna
 
 mrturdroid.launcher.nova.desc=Zalecany dla o wiele większej wydajności i elastyczności. Domyślny w SlimKat
-mrturdroid.launcher.google.desc=Zalecany dla google experience w czystej postaci, znany również pod nazwą Google Home
 mrturdroid.launcher.none.desc=Brak Launchera. UWAGA! Nie zaznaczaj tej opcji jeśli wykonałeś full wipe. Potrzebujesz przynajmniej 1 własnego launchera przed pierwszym bootem!
 
 mrturdroid.keyboard=Klawiatura
-mrturdroid.keyboard.google.desc=Klawiatura od Google, obsługuje Swype/Curve. Dobry zamiennik Touchpal'a
-mrturdroid.keyboard.touchpal.desc=Zalecana jako świetna i bardzo elastyczna klawiatura Swype/Curve
-mrturdroid.keyboard.hackers.desc=Świetna alternatywa dla TouchPal'a jeśli nie potrzebujemy Swype/Curve
+mrturdroid.keyboard.google.desc=Klawiatura od Google, obsługuje Swype/Curve.
+mrturdroid.keyboard.hackers.desc=Świetna i szybka jeśli nie potrzebujemy Swype/Curve
 mrturdroid.keyboard.both.desc=Jeśli z jakiegoś powodu chciałbyś zainstalować obydwie te klawiatury
 mrturdroid.keyboard.stock.desc=Jeśli chciałbyś pozostać przy klawiaturze prosto od SlimKat
-mrturdroid.keyboard.none.desc=Brak Klawiatury. UWAGA! Nie zaznaczaj tej opcji jeśli wykonałeś full wipe. Potrzebujesz przynajmniej 1 własnej klawiatury przed pierwszym bootem!
 
 mrturdroid.bootanimation=Animacja Ładowania
 mrturdroid.bootanimation.mrtur.desc=Animacja MrturDroid dla Nexus 4
@@ -176,6 +173,11 @@ mrturdroid.apps.gtts.desc=Najnowsze przetwarzanie tekstu na mowę od Google wraz
 mrturdroid.tweaks.buildtweaks.desc=Wiele tweaków build.prop, w tym m.in. głębszy sen oraz większa wydajność
 mrturdroid.tweaks.debianoff.desc=Zaznacz jeżeli nie masz zamiaru używać środowiska Debian
 
+mrturdroid.apps.gmarketoriginaltheme.desc=Oryginalny niezmieniany Market.\
+Zostanie dodatkowo zainstalowny moduł PlayStoreFix.
+mrturdroid.apps.gmarketblacktheme.desc=Market w czarnej oprawie graficznej.
+
+mrturdroid.xposed.infomarket.desc=Xposed zostanie zainstalowany
 mrturdroid.xposed.desc=Wymagane do używania poniższych modułów i wielu innych
 mrturdroid.xposed.appsettings.desc=Pozwala na zarządzanie ustawieniami specyficznymi dla danych aplikacji. Bardzo użyteczny moduł
 mrturdroid.xposed.bootmanager.desc=Pozwala na zarządzanie jakie aplikacje będą ładowane wraz ze startem systemu.

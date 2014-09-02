@@ -9,12 +9,6 @@
 # <#selectbg_g>Apps and ADB</#>
 
 ##################
-#  Runtime
-#
-# <#selectbg_g>Dalvik</#>
-# ART
-
-##################
 #  Kernel
 #
 # <#selectbg_g>Stock(Slim)</#>
@@ -32,28 +26,25 @@
 # 320 DPI
 
 ##################
-#  Launcher
-#  
-# <#selectbg_g>Nova Launcher</#>
-# Google Home
-
-##################
 #  Klawiatura
 # 
 # Google Kevboard
-# TouchPal Keyboard
-# Hacker's Keyboard
 # <#selectbg_g>Hacker's Keyboard</#>
 # Stock 
 
 ##################
 #  Xposed Area
 #
-# <#selectbg_g>Xposed Framework</#>
 # <#selectbg_g>AppSettings</#>
 # <#selectbg_g>Bootmanager</#>
 # <#selectbg_g>Complete Action Plus</#>
 # XPrivacy
+
+##################
+#  Google Market
+#
+# Original Theme
+# <#selectbg_g>Black Theme</#>
 
 ##################
 #  Google Apps

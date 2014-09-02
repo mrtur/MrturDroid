@@ -33,15 +33,15 @@
 #
 ini_set("dp","3");
 ini_set("rom_name",             "MrturDroid");
-ini_set("rom_version",          "2.5.9");
+ini_set("rom_version",          "2.6.0 STABLE");
 ini_set("rom_author",           "mrtur");
 ini_set("rom_device",           "Nexus 4");
-ini_set("rom_date",             "31-07-2014");
+ini_set("rom_date",             "02-09-2014");
 
 #
 # Setvar
 #
-setvar("preset_version","1");
+setvar("preset_version","2");
 setvar("adaroma","/data/media/0/MrturDroid/AromaPreset/Slim");
 setvar("aroma_fast","OFF");
 		
@@ -267,35 +267,24 @@ endif;
 ################
 
 if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "recovery" then
-form(
-	"<~mrturdroid.custom>",
-	"<~mrturdroid.custom.desc>",
-	"@welcome",
-	"mrturdroidrecovery.prop",
+	form(
+		"<~mrturdroid.custom>",
+		"<~mrturdroid.custom.desc>",
+		"@welcome",
+		"mrturdroidrecovery.prop",
 
-	"recovery","<#selectbg_g>Recovery</#>","","group",
-	"twrp","TWRP","<~mrturdroid.recovery.twrp.desc>","select.selected",
-	"cwm","ClockWorkMod","<~mrturdroid.recovery.cwm.desc>","select"
-);
-	if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "twrp" then
-			if confirm(
-				"<~mrturdroid.recoverytheme.twrp>",
-				"<~mrturdroid.recoverytheme.twrp.desc>",
-				"@welcome",
-				"<~text_yes>",
-				"<~text_no>"
-			)=="yes" then
-				writetmpfile(
-					"mrturdroidrecoverytheme.prop",
-					"recoverytheme=yes\n"
-					);
-			else
-				writetmpfile(
-					"mrturdroidrecoverytheme.prop",
-					"recoverytheme=no\n"
-					);
-			endif;
-	endif;
+		"recovery","<#selectbg_g>Recovery</#>","","group",
+		"twrp","TWRP","<~mrturdroid.recovery.twrp.desc>","select.selected",
+		"cwm","ClockWorkMod","<~mrturdroid.recovery.cwm.desc>","select"
+	);
+	agreebox(
+		"<~mrturdroid.tos>",
+		"",
+		"@alert",
+		resread("recovery.txt"),
+		"<~terms.check>",
+		"<~terms.confirm>"
+	);
 else
 	writetmpfile(
 		"mrturdroidrecovery.prop",
@@ -320,7 +309,8 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"stock=0\n"+		
 		"bootanimation=mrtur\n"+
 		"root=3\n"+
-		"runtime=libdvm.so\n"+
+#		"runtime=libdvm.so\n"+
+		"googlemarkettheme=black\n"+		
 		"gcamera=1\n"+		
 		"gchrome=0\n"+
 		"gkeep=0\n"+
@@ -351,7 +341,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 	writetmpfile(
 		"mrturdroidxposed.prop",
 		
-		"xposed=1\n"+
+#		"xposed=1\n"+
 		"appsettings=1\n"+
 		"bootmanager=1\n"+
 		"actionplus=1\n"+		
@@ -400,12 +390,10 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 
 		"launcher","<#selectbg_g>Launcher</#>","","group",
 		"nova","Nova Launcher","<~mrturdroid.launcher.nova.desc>","select.selected",
-		"google","Google Launcher","<~mrturdroid.launcher.google.desc>","select",		
 		"none","<~common.none>","<~mrturdroid.launcher.none.desc>","select",
 
 		"keyboard","<#selectbg_g><~mrturdroid.keyboard></#>","","group",
 		"googlekb","Google Keyboard","<~mrturdroid.keyboard.google.desc>","check",	
-		"touchpal","TouchPal Keyboard","<~mrturdroid.keyboard.touchpal.desc>","check.checked",
 		"hackers","Hacker's Keyboard","<~mrturdroid.keyboard.hackers.desc>","check.checked",
 		"stock","Stock","<~mrturdroid.keyboard.stock.desc>","check",
 
@@ -423,10 +411,14 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		"2","ADB only","","select",
 		"3","Apps and ADB","","select.selected",		
 						
-		"runtime","<#selectbg_g>Runtime</#>","","group",
-		"libart.so","ART","<~mrturdroid.runtime.art.desc>","select",
-		"libdvm.so","Dalvik Legacy","<~mrturdroid.runtime.dalvik.desc>","select.selected",		
+#		"runtime","<#selectbg_g>Runtime</#>","","group",
+#		"libart.so","ART","<~mrturdroid.runtime.art.desc>","select",
+#		"libdvm.so","Dalvik Legacy","<~mrturdroid.runtime.dalvik.desc>","select.selected",		
 
+		"googlemarkettheme","<#selectbg_g>Google Market Theme</#>","","group",
+		"original","Original Theme","<~mrturdroid.apps.gmarketoriginaltheme.desc>","select",		
+		"black","Black Theme","<~mrturdroid.apps.gmarketblacktheme.desc>","select.selected",
+		
 		"googleapps","<#selectbg_g>Google Apps</#>","","group",
 		"gcamera","Google Camera","<~mrturdroid.apps.gcamera.desc>","check",		
 		"gchrome","Google Chrome","","check.checked",
@@ -465,7 +457,9 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		back("1");
 	endif;
 		
-	if file_getprop("/tmp/aroma-data/mrturdroid.prop","googlekb") !="1" && file_getprop("/tmp/aroma-data/mrturdroid.prop","touchpal") !="1" && file_getprop("/tmp/aroma-data/mrturdroid.prop","hackers") !="1" && file_getprop("/tmp/aroma-data/mrturdroid.prop","stock") !="1" then
+	write(getvar("adaroma")+"/mrturdroid.prop",readtmpfile("mrturdroid.prop"));
+	
+	if file_getprop("/tmp/aroma-data/mrturdroid.prop","googlekb") !="1" && file_getprop("/tmp/aroma-data/mrturdroid.prop","hackers") !="1" && file_getprop("/tmp/aroma-data/mrturdroid.prop","stock") !="1" then
 	textbox(
 		"Wykryłem Brak Klawiatury",
 		"",
@@ -483,22 +477,21 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 	);
 	endif;
 	
-	if file_getprop("/tmp/aroma-data/mrturdroid.prop","runtime") == "libdvm.so" then
+#	if file_getprop("/tmp/aroma-data/mrturdroid.prop","runtime") == "libdvm.so" then
 		form(
-			"<~mrturdroid.custom.extra>",
+			"<~mrturdroid.xposed.infomarket.desc>",
 			"<~mrturdroid.custom.desc>",
 			"@welcome",
 			"mrturdroidxposed.prop",
 
 			"modules","<#selectbg_g>Xposed Area</#>","","group",
-			"xposed","Xposed Framework","<~mrturdroid.xposed.desc>","check.checked",			
 			"appsettings","App Settings","<~mrturdroid.xposed.appsettings.desc>","check.checked",
 			"bootmanager","BootManager","<~mrturdroid.xposed.bootmanager.desc>","check.checked",
 			"actionplus","Complete Action Plus","<~mrturdroid.xposed.actionplus.desc>","check.checked",			
 			"xprivacy","XPrivacy","<~mrturdroid.xposed.xprivacy.desc>","check"
 		);
-		
-	endif;
+		write(getvar("adaroma")+"/mrturdroidxposed.prop",readtmpfile("mrturdroidxposed.prop"));		
+#	endif;
 		
 	if file_getprop("/tmp/aroma-data/mrturdroid.prop","buildtweaks") == "1" then
 		form(
@@ -513,8 +506,12 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 			"zerowakeup","ZeroWakeUp","<~mrturdroid.buildtweaks.zerowakeup.desc>","check"
 		);
 		
+	write(getvar("adaroma")+"/mrturdroidbuild.prop",readtmpfile("mrturdroidbuild.prop"));
+		
 	endif;
+	
 		write(getvar("adaroma")+"/version.txt",getvar("preset_version"));
+	
 endif;
 
 if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") != "recovery" then
@@ -629,11 +626,7 @@ viewbox(
 	"@welcome"
 );
 
-if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "recovery" then
-	ini_set("text_next", "<~common.reboot>");
-else
 	ini_set("text_next", "<~common.finish>");
-endif;
 
 install(
 	"<~common.flashing>",
@@ -645,9 +638,7 @@ install(
 resexec("exec/adumount.sh", "/system");
 resexec("exec/adumount.sh", "/data");
 
-if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "recovery" then
-	resexec("exec/cmd.sh", "reboot", "recovery");
-else
+if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") != "recovery" then
 	if confirm(
 		"MrturDroid Wizard",
 		"<~mrturdroid.wizard.reboot>",
