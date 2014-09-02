@@ -28,3 +28,4 @@
 Moduł PlayStoreFix symuluje dla marketu DPI na 320 niezależnie jakie jest ustawione w telefonie
 - w zwiazku z powyzszym wylaczono mozliwosc ustawienia na starcie systemu plikow (DALVIK i ART)
 gdyz Xposed dziala tylko jak narazie na systemie plikow DALVIK. 
+- Dotychczasowy zapis do SD/MrturDroid/AromaPreset/Slim zmieniony na SD/MrturDroid/AromaPreset/STABLE
