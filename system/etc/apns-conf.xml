@@ -159,6 +159,8 @@
   <apn carrier="TIM IT WAP" mcc="222" mnc="01" apn="wap.tim.it" proxy="213.26.205.1" port="80" user="WAPTIM" password="WAPTIM" server="http://wap.i.tim.it" type="default,supl" />
   <apn carrier="NOVERCA MMS" mcc="222" mnc="01" apn="mms.noverca.it" mmsc="http://mms.noverca.it/" mmsproxy="213.230.130.89" mmsport="80" type="mms" />
   <apn carrier="TIM MMS" mcc="222" mnc="01" apn="mms.tim.it" mmsc="http://mms.tim.it/servlets/mms" mmsproxy="213.230.130.89" mmsport="80" type="mms" />
+  <apn carrier="Tiscali INTERNET" mcc="222" mnc="01" apn="tiscalimobileinternet" type="default,supl" />
+  <apn carrier="Tiscali MMS" mcc="222" mnc="01" apn="tiscalimobilemms" mmsc="http://mms.tiscali.mobi/servlets/mms" mmsproxy="213.230.130.89" mmsport="80" type="mms" />
   <apn carrier="iTIM" mcc="222" mnc="01" apn="unico.tim.it" proxy="213.230.130.89" port="80" mmsc="http://mms.tim.it/servlets/mms" mmsproxy="213.230.130.89" mmsport="80" type="mms" />
   <apn carrier="NOVERCA WEB" mcc="222" mnc="01" apn="web.noverca.it" type="default,supl" />
   <apn carrier="Vodafone IT MMS" mcc="222" mnc="10" apn="mms.vodafone.it" mmsc="http://mms.vodafone.it/servlets/mms" mmsproxy="10.128.224.10" mmsport="80" type="mms" />
@@ -291,8 +293,10 @@
   <apn carrier="Telenor MMS" mcc="240" mnc="04" apn="services.telenor.se" mmsc="http://mms" mmsproxy="172.30.253.241" mmsport="8799" type="mms" />
   <apn carrier="Telenor Mobilsurf" mcc="240" mnc="06" apn="services.telenor.se" proxy="173.30.253.241" port="8799" type="default,supl" />
   <apn carrier="Telenor MMS" mcc="240" mnc="06" apn="services.telenor.se" mmsc="http://mms" mmsproxy="173.30.253.241" mmsport="8799" type="mms" />
+  <apn carrier="Tele2 4G" mcc="240" mnc="07" apn="4g.tele2.se" mmsc="http://mmsc.tele2.se" mmsproxy="130.244.202.30" mmsport="8080" authenticationtype="CHAP" type="default,mms" />
+  <apn carrier="Tele2" mcc="240" mnc="07" apn="mobileinternet.tele2.se" mmsc="http://mmsc.tele2.se" mmsproxy="130.244.202.30" mmsport="8080" authenticationtype="CHAP" type="default,supl,mms" />
   <apn carrier="Tele2 SE" mcc="240" mnc="07" apn="internet.tele2.se" user="wap" password="wap" mmsc="http://mmsc.tele2.se" mmsproxy="130.244.202.030" mmsport="8080" type="default,supl,mms" />
-  <apn carrier="Tele2" mcc="240" mnc="07" apn="internet.tele2.se" mmsc="http://mmsc.tele2.se" mmsproxy="130.244.202.30" mmsport="8080" type="default,supl,mms" />
+  <apn carrier="Tele2 3G" mcc="240" mnc="07" apn="internet.tele2.se" mmsc="http://mmsc.tele2.se" mmsproxy="130.244.202.30" mmsport="8080" type="default,supl,mms" />
   <apn carrier="Telenor SE" mcc="240" mnc="08" apn="internet.telenor.se" type="default,supl" />
   <apn carrier="Telenor Mobilsurf" mcc="240" mnc="08" apn="services.telenor.se" proxy="172.30.253.241" port="8799" type="default,supl" />
   <apn carrier="Telenor SE MMS" mcc="240" mnc="08" apn="services.telenor.se" mmsc="http://mms" mmsproxy="172.30.253.241" mmsport="8799" type="mms" />
@@ -1555,6 +1559,8 @@
   <apn carrier="Enitel MMS" mcc="710" mnc="730" apn="mms.indeasalo.ni" user="mms" password="mms" mmsproxy="10.6.32.2" mmsport="8080" mmsc="http://10.6.32.27/servlets/mms" authtype="1" type="mms" />
   <apn carrier="Cable and Wireless Panama" mcc="714" mnc="01" apn="apn01.cwpanama.com.pa" type="default,supl" />
   <apn carrier="Cable and Wireless Panama MMS" mcc="714" mnc="01" apn="apn02.cwpanama.com.pa" mmsc="http://mms.zonamovil.com.pa:80/i.bin" mmsproxy="172.25.3.5" mmsport="8080" type="mms" />
+  <apn carrier="Claro Web" mcc="714" mnc="03" apn="web.claro.com.pa" user="CLAROWEB" password="CLAROWEB" authenticationtype="PAP" type="default,supl" />
+  <apn carrier="Claro MMS" mcc="714" mnc="03" apn="mms.claro.com.pa" user="CLAROMMS" password="CLAROMMS" mmsc="http://www.claro.com.pa/mms" authenticationtype="PAP" type="mms" />
   <apn carrier="QUAM" mcc="722" mnc="01" apn="internet.movil" user="internet" password="internet" authenticationtype="PAP" type="default,supl,dun" />
   <apn carrier="QUAM MMS" mcc="722" mnc="01" apn="mms.movil" user="mms" password="mms" mmsc="http://mms.quam.com.ar" mmsproxy="200.68.32.239" mmsport="9090" type="mms" />
   <apn carrier="Movistar AG" mcc="722" mnc="007" apn="internet.unifon" user="wap" password="password" type="default,supl" />
