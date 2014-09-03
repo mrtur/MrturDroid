@@ -1,4 +1,4 @@
- MrturDroid 2.5.9
+ MrturDroid 2.6.0 STABLE
 
 1. Aktualizacja:
 - Faux kernel 041u-r2
