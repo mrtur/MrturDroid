@@ -330,6 +330,7 @@ while ( ! pgrep com.android.systemu >/dev/null 2>&1 && [[ "$LOOP" -lt 600 ]]) ||
 					DBUPDATE system user_rotation 0
 					DBUPDATE system vibrate_when_ringing 1
 					DBUPDATE system wakeup_when_plugged_unplugged 0
+					DBUPDATE system incall_glowpad_transparency 0
 				fi
 			fi
 
