@@ -1,0 +1,34 @@
+MrturDroid 2.6.1 EXPERIMENTAL
+
+<<<<<<< HEAD
+1. Aktualizacja:
+
+2. Poprawki:
+
+3. ISTOTNE ZMIANY:
+- Slim-mako-4.4.4.build.7.8-WEEKLY-6234
+=======
+-cm-11-20140804-NIGHTLY-mako
+-Updated Play Store to 4.8.20 # Also it's white (stock) now
+-Updated PA GAPPS to 1 September
+-Reverted back to official Google PlayStore # This means that multi-dpi patch is not included anymore in the app itself, use xposed module or patch yourself
+-Updated Xposed to 2.7 exp1
+-Updated Nova launcher to 3.1
+-Implemented QuickBoot, available in developer settings # Thanks to @cheveguerra
+-Added missing dedupe tool # Thanks to @globs7
+-Updated Greenify to 2.3.2
+-Updated Android Terminal Emulator 1.0.62
+-Updated XPrivacy 2.2.7
+-Updated GravityBox to 3.2.5
+-Updated BetterBatteryStats to 1.16
+-Updated MX Player 1.7.30
+-Updated all ArchiDroid backend tools to latest versions # They're now also compatible with every armv7-a NEON device, previously only CortexA9+
+-Fixed rebooting to recovery after plugging charger to powered down phone in ArchiDroid 1.X
+-Fixed ArchiDroid backend not being executed in some scenarios
+-ArchiDroid_Init code review
+-ArchiDroid_RunOnce code review
+-PlayStoreFix is now included with Xposed
+-App Settings is now included with Xposed
+-Updated Google Keyboard
+-Removed BBS app as per developer request
+>>>>>>> cd66a0b... PA GAPPS 1 September

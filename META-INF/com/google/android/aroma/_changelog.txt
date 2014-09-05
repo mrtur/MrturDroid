@@ -1,6 +1,7 @@
 MrturDroid 2.6.1 EXPERIMENTAL
 
 1. Aktualizacja:
+- PA GAPPS 1 September
 
 2. Poprawki:
 
