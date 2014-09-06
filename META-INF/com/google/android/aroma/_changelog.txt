@@ -6,6 +6,7 @@ MrturDroid 2.6.1 EXPERIMENTAL
 - App Settings 1.10
 - LMT 2.1
 - Greenify 2.4
+- MoAB hosts 3 September
 
 2. Poprawki:
 
