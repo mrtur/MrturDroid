@@ -8,6 +8,11 @@ MrturDroid 2.6.1 EXPERIMENTAL
 - Greenify 2.4
 - MoAB hosts 3 September
 - AdAway hosts najnowszy
+- [!] Adlinux code review
+# ArchiDroid's Pocket Debian has been rewritten from scratch to become more user friendly
+# If you've already used APD before, I suggest to call "adlinux rebuild" in order to update, as this release also includes updated Pocket Debian
+# Adlinux command is now more newbie friendly and allows even easier mounting than before
+# It now takes care of things such as setting password or allowing root access by OpenSSH, to minimize required skill for using APB to the bare minimum
 
 2. Poprawki:
 
