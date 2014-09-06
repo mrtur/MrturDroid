@@ -7,6 +7,7 @@ MrturDroid 2.6.1 EXPERIMENTAL
 - LMT 2.1
 - Greenify 2.4
 - MoAB hosts 3 September
+- AdAway hosts najnowszy
 
 2. Poprawki:
 
