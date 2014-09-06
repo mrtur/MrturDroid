@@ -15,6 +15,7 @@ MrturDroid 2.6.1 EXPERIMENTAL
 # It now takes care of things such as setting password or allowing root access by OpenSSH, to minimize required skill for using APB to the bare minimum
 
 2. Poprawki:
+- Backend is now charging-aware, i.e. doesn't execute when you charge your device in offline mode
 
 3. ISTOTNE ZMIANY:
 - Slim-mako-4.4.4.build.7.8-WEEKLY-6234
