@@ -310,7 +310,7 @@ while ( ! pgrep com.android.systemu >/dev/null 2>&1 && [[ "$LOOP" -lt 600 ]]) ||
 				DBUPDATE system navigation_bar_height 36
 				DBUPDATE system navigation_bar_width 36
 				DBUPDATE secure ui_theme_mode 2
-				DBUPDATE system incall_glowpad_transparency 0
+				DBUPDATE system incall_glowpad_transparency 1
 				
 				if [[ $MRTUR -eq 0 ]]; then
 
