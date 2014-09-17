@@ -9,6 +9,7 @@ MrturDroid 2.6.1 EXPERIMENTAL
 - MoAB hosts 3 September
 - AdAway hosts najnowszy
 - Google Camera 2.3.020
+- Complete Action Plus 2.4.3
 - [!] Adlinux code review
 # ArchiDroid's Pocket Debian has been rewritten from scratch to become more user friendly
 # If you've already used APD before, I suggest to call "adlinux rebuild" in order to update, as this release also includes updated Pocket Debian
