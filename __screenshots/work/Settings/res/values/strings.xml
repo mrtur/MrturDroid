@@ -848,6 +848,7 @@ With eight lockscreen targets enabled you cannot use your lockscreen shortcuts a
     <string name="title_tile_wifiap">Wi-Fi AP</string>
     <string name="title_tile_wifi">Wi-Fi</string>
     <string name="title_tile_user">User switcher</string>
+    <string name="title_tile_network_adb">ADB over network</string>
     <string name="title_tile_networkmode">Network mode</string>
     <string name="title_tile_nfc">NFC</string>
     <string name="title_tile_screen_timeout">Screen timeout</string>
@@ -1118,8 +1119,10 @@ Do you really want to enable this function?"</string>
     <string name="recent_panel_expanded_mode_never">Never</string>
     <string name="recent_panel_show_topmost_title">Show topmost task</string>
     <string name="recent_panel_show_topmost_summary">"Don't exclude the topmost task in recents view"</string>
-    <string name="recent_panel_bg_color_title">Background color</string>
     <string name="trds_default_color">TRDS default</string>
+    <string name="recent_panel_bg_color_title">Panel background color</string>
+    <string name="recent_card_bg_color_title">Card background color</string>
+    <string name="recent_card_text_color_title">Card text color</string>
     <string name="recent_panel_lefty_mode_title">Show on the left edge</string>
     <string name="recent_panel_lefty_mode_summary">Show recent apps panel on the left edge</string>
     <string name="app_moving_enable">Enable app moving</string>
