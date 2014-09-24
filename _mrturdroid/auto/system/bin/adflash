@@ -49,8 +49,8 @@ if [ $# -eq 0 ]; then
 	echo "Usage: $0 <VERSION>"
 	echo
 	echo "Available versions:"
-	echo "s -> Slim"
-	echo "sw -> Slim_work"
+	echo "exp -> EXPERIMENTAL"
+	echo "stb -> STABLE"
 
 	echo
 	printf "Your choice: "
@@ -142,11 +142,11 @@ if [ "$MODE" = "clean" ]; then
 fi
 
 case "$VERSION" in
-	"s")
-		VERSION="Slim"
+	"exp")
+		VERSION="EXPERIMENTAL"
 		;;
-	"sw")
-		VERSION="Slim_work"
+	"stb")
+		VERSION="STABLE"
 		;;
 	*)
 		echo "Sorry, could not detect any valid version, exiting"

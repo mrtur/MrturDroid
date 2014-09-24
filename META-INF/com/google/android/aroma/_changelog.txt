@@ -20,5 +20,6 @@ MrturDroid 2.6.1 EXPERIMENTAL
 - Backend is now charging-aware, i.e. doesn't execute when you charge your device in offline mode
 
 3. ISTOTNE ZMIANY:
-- Slim-mako-4.4.4.build.7.8-WEEKLY-6234
+- Slim-mako-4.4.4.build.8.0-OFFICIAL-6939
 - ArchiDroid's backend now creates a "rainbow" from LEDs during booting process # Perfect way to tell if backend has been executed properly
+- Branch na Github'ie przechodzi w nazwy EXPERIMENTAL i STABLE
