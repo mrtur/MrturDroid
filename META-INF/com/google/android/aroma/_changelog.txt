@@ -1,26 +1,7 @@
-MrturDroid 2.6.1 EXPERIMENTAL
+MrturDroid 2.6.2 EXPERIMENTAL
 
 1. Aktualizacja:
-- MDU 1.9 (przygotowany pod download Google Drive i Mega)
-- PA GAPPS 1 September
-- XPrivacy 3.1.1
-- App Settings 1.10
-- LMT 2.1
-- Greenify 2.4
-- MoAB hosts 3 September
-- AdAway hosts najnowszy
-- Google Camera 2.3.020
-- Complete Action Plus 2.4.3
-- [!] Adlinux code review
-# ArchiDroid's Pocket Debian has been rewritten from scratch to become more user friendly
-# If you've already used APD before, I suggest to call "adlinux rebuild" in order to update, as this release also includes updated Pocket Debian
-# Adlinux command is now more newbie friendly and allows even easier mounting than before
-# It now takes care of things such as setting password or allowing root access by OpenSSH, to minimize required skill for using APB to the bare minimum
 
 2. Poprawki:
-- Backend is now charging-aware, i.e. doesn't execute when you charge your device in offline mode
 
 3. ISTOTNE ZMIANY:
-- Slim-mako-4.4.4.build.8.0-OFFICIAL-6939
-- ArchiDroid's backend now creates a "rainbow" from LEDs during booting process # Perfect way to tell if backend has been executed properly
-- Branch na Github'ie przechodzi w nazwy EXPERIMENTAL i STABLE
