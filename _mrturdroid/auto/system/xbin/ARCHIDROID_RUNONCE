@@ -101,6 +101,9 @@ if [[ "$BACKGROUND" -ne 1 ]]; then
 fi
 
 # Redirect stdout and stderr to our log, just in case something bad happen
+if [[ -f "$LOG" ]]; then
+	mv "$LOG" "$LOG.old"
+fi
 exec 1>"$LOG"
 exec 2>&1
 
@@ -108,6 +111,20 @@ date
 echo "MrturDroid $(getprop ro.mrturdroid.version)"
 uname -a
 echo "INFO: ArchiDroid_RunOnce executed!"
+
+echo "INFO: Waiting for bootanimation..."
+LOOP=0
+while ! pgrep bootanimation >/dev/null 2>&1 && [[ "$LOOP" -lt 10 ]]; do
+	((LOOP++))
+	sleep 1
+done
+
+if ! pgrep bootanimation >/dev/null 2>&1; then
+	echo "INFO: Bootanimation didn't spawn in given period, aborting backend!"
+	exit 0
+else
+	echo "INFO: Bootanimation spawned!"
+fi
 
 DBUPDATE() {
 	# Thanks to idcrisis, modified by JustArchi
@@ -237,12 +254,20 @@ else
 	exit 2
 fi
 
+# Check if we have LED sysfs available
+if [[ -e "/sys/class/leds/led_r/brightness" && -e "/sys/class/leds/led_g/brightness" && -e "/sys/class/leds/led_b/brightness" ]]; then
+	LEDS=1
+else
+	LEDS=0
+fi
+
 # ArchiDroid Semaphore
-# Wait until we see some android processes to consider boot is more or less complete (credits to AndiP71)
+# Wait until we see some android processes to consider boot is more or less complete (initial idea thanks to AndiP71)
 # Also respect number of loops, maybe something went wrong
 echo "INFO: RunOnce Semaphore started"
 LOOP=0
 while ( ! pgrep com.android.systemu >/dev/null 2>&1 && [[ "$LOOP" -lt 600 ]]) || [[ "$FORCEDSEMAPHORE" -eq 1 ]] ; do
+	((LOOP++))
 	if [[ "$DBUPDATE" -eq 1 ]]; then
 		if [[ -f /data/data/com.android.providers.settings/databases/settings.db ]]; then
 			echo "INFO: settings.db created! Performing DBUPDATE"
@@ -284,7 +309,8 @@ while ( ! pgrep com.android.systemu >/dev/null 2>&1 && [[ "$LOOP" -lt 600 ]]) ||
 				DBUPDATE system navigation_bar_config '**recents**|**null**|empty|**home**|**null**|empty|**back**|**kill**|empty'
 				DBUPDATE system navigation_bar_height 36
 				DBUPDATE system navigation_bar_width 36
-				DBUPDATE secure ui_theme_mode 2			
+				DBUPDATE secure ui_theme_mode 2
+				DBUPDATE system incall_glowpad_transparency 1
 				
 				if [[ $MRTUR -eq 0 ]]; then
 
@@ -380,8 +406,28 @@ while ( ! pgrep com.android.systemu >/dev/null 2>&1 && [[ "$LOOP" -lt 600 ]]) ||
 
 	# Sleeping time
 	FORCEDSEMAPHORE=0
-	((LOOP++))
-	sleep 1
+
+	if [[ "$LEDS" -ge 1 ]]; then
+		while :; do
+			case "$LEDS" in
+				1) RED=40; GREEN=0; BLUE=0; ;;
+				2) RED=40; GREEN=40; BLUE=0 ;;
+				3) RED=0; GREEN=40; BLUE=0 ;;
+				4) RED=0; GREEN=40; BLUE=40 ;;
+				5) RED=0; GREEN=0; BLUE=40 ;;
+				6) RED=40; GREEN=0; BLUE=40 ;;
+				7) RED=0; GREEN=0; BLUE=0 ;;
+				8) LEDS=1; break ;; # This is the last one, so we go back to the start
+			esac
+			echo "$RED" > "/sys/class/leds/led_r/brightness"
+			echo "$GREEN" > "/sys/class/leds/led_g/brightness"
+			echo "$BLUE" > "/sys/class/leds/led_b/brightness"
+			((LEDS++))
+			sleep 0.2
+		done
+	else
+		sleep 1
+	fi
 done
 
 if [[ "$LOOP" -ge 600 ]]; then

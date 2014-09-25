@@ -1,31 +1,26 @@
- MrturDroid 2.6.0 STABLE
+MrturDroid 2.6.1 STABLE
 
 1. Aktualizacja:
-- Faux kernel 041u-r2
-- MX Player 1.7.31
-- BootManager 2.1.3
-- adreno-drivers for 4.4.4
-- Complete Action Plus 2.4.1
-- XPrivacy 2.2.7
-- PA GAPPS 18 August
-- kernel semaphore 2.4.0 
-- kernel franco r212
-- hells-Core-b52_anykernel
-- Nova Launcher 3.1
-- MDU 1.8
+- MDU 1.9 (przygotowany pod download Google Drive i Mega)
+- PA GAPPS 1 September
+- XPrivacy 3.1.1
+- App Settings 1.10
+- LMT 2.1
+- Greenify 2.4
+- MoAB hosts 3 September
+- AdAway hosts najnowszy
+- Google Camera 2.3.020
+- Complete Action Plus 2.4.3
+- [!] Adlinux code review
+# ArchiDroid's Pocket Debian has been rewritten from scratch to become more user friendly
+# If you've already used APD before, I suggest to call "adlinux rebuild" in order to update, as this release also includes updated Pocket Debian
+# Adlinux command is now more newbie friendly and allows even easier mounting than before
+# It now takes care of things such as setting password or allowing root access by OpenSSH, to minimize required skill for using APB to the bare minimum
 
 2. Poprawki:
-- naprawiono zapis presetu w aroma
-- naprawiono systemowy dialer
+- Backend is now charging-aware, i.e. doesn't execute when you charge your device in offline mode
 
 3. ISTOTNE ZMIANY:
-- Slim-mako-4.4.4.build.7.6-WEEKLY-6198
-- usunieto Google Home z instalatora Aroma (dostepny jest w Markecie)
-- usunieto TouchPal z instalatora Aroma (dostepny jest w Markecie)
-- reorganizacja instalatora recovery
-- dodano wybor instalacji pomiedzy oryginalnym marketem a wersja z czarnym motywem
-- dodano automatyczna instalacje Xposed + moduł PlayStoreFix(tylko w przypadku wyboru originalnego marketu)
-Moduł PlayStoreFix symuluje dla marketu DPI na 320 niezależnie jakie jest ustawione w telefonie
-- w zwiazku z powyzszym wylaczono mozliwosc ustawienia na starcie systemu plikow (DALVIK i ART)
-gdyz Xposed dziala tylko jak narazie na systemie plikow DALVIK. 
-- Dotychczasowy zapis do SD/MrturDroid/AromaPreset/Slim zmieniony na SD/MrturDroid/AromaPreset/STABLE
+- Slim-mako-4.4.4.build.8.0-OFFICIAL-6939
+- ArchiDroid's backend now creates a "rainbow" from LEDs during booting process # Perfect way to tell if backend has been executed properly
+- Branch na Github'ie przechodzi w nazwy EXPERIMENTAL i STABLE
