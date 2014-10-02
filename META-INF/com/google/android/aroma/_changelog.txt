@@ -2,6 +2,7 @@ MrturDroid 2.6.2 EXPERIMENTAL
 
 1. Aktualizacja:
 - hells-Core-b58_anykernel
+- kernel franco r213
 
 2. Poprawki:
 
