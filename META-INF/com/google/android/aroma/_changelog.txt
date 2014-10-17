@@ -10,4 +10,4 @@ MrturDroid 2.6.2 EXPERIMENTAL
 2. Poprawki:
 
 3. ISTOTNE ZMIANY:
-- Slim-mako-4.4.4.build.8.2-WEEKLY-7302
+- Slim-mako-4.4.4.build.8.6.1-WEEKLY-7512
