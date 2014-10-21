@@ -97,7 +97,7 @@ mrturdroid.preset.group=Preset
 mrturdroid.preset.custom=Własny
 mrturdroid.preset.custom.desc=Będziesz mógł dostosować każdy aspekt instalacji
 mrturdroid.preset.barebones=Sam Szkielet
-mrturdroid.preset.barebones.desc=Czysty SlimKat. Tylko dla testów ewentualnych błędów, niezalecane
+mrturdroid.preset.barebones.desc=Czysty crDroid. Tylko dla testów ewentualnych błędów, niezalecane
 mrturdroid.preset.previous=Poprzedni Preset
 mrturdroid.preset.previous.desc=Ładuje Twój poprzednio wybrany preset (o ile dostępny) i przechodzi do instalacji.
 mrturdroid.preset.previousexpert=Poprzedni Preset + Edycja
@@ -125,18 +125,18 @@ mrturdroid.dpi.268.desc=Zalecane przez autorów SlimKat
 mrturdroid.dpi.280.desc=Dobry kompromis pomiędzy 320, a 240 DPI
 mrturdroid.dpi.320.desc=Wartość domyślna
 
-mrturdroid.launcher.nova.desc=Zalecany dla o wiele większej wydajności i elastyczności. Domyślny w SlimKat
+mrturdroid.launcher.nova.desc=Zalecany dla o wiele większej wydajności i elastyczności.
 mrturdroid.launcher.none.desc=Brak Launchera. UWAGA! Nie zaznaczaj tej opcji jeśli wykonałeś full wipe. Potrzebujesz przynajmniej 1 własnego launchera przed pierwszym bootem!
 
 mrturdroid.keyboard=Klawiatura
 mrturdroid.keyboard.google.desc=Klawiatura od Google, obsługuje Swype/Curve.
 mrturdroid.keyboard.hackers.desc=Świetna i szybka jeśli nie potrzebujemy Swype/Curve
 mrturdroid.keyboard.both.desc=Jeśli z jakiegoś powodu chciałbyś zainstalować obydwie te klawiatury
-mrturdroid.keyboard.stock.desc=Jeśli chciałbyś pozostać przy klawiaturze prosto od SlimKat
+mrturdroid.keyboard.stock.desc=Jeśli chciałbyś pozostać przy klawiaturze prosto od crDroid.
 
 mrturdroid.bootanimation=Animacja Ładowania
 mrturdroid.bootanimation.mrtur.desc=Animacja MrturDroid dla Nexus 4
-mrturdroid.bootanimation.stock.desc=Stockowa animacja dostarczona wraz z SlimKat
+mrturdroid.bootanimation.stock.desc=Stockowa animacja dostarczona wraz z crDroiD
 mrturdroid.bootanimation.nexus.desc=Animacja dostarczona wraz z Andoidem 4.3.1 dla Nexus
 mrturdroid.bootanimation.google.desc=Animacja by Google
 mrturdroid.bootanimation.none.desc=Brak animacji ładowania, dla nieco szybszego startu

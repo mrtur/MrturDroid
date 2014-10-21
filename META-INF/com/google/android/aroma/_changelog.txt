@@ -1,13 +1,12 @@
 MrturDroid 2.6.2 EXPERIMENTAL
 
 1. Aktualizacja:
-- hells-Core-b58_anykernel
-- kernel franco r213
-- Faux kernel 042u
 - openrecovery-twrp-2.8.0.1-mako.img
 - BootManager 2.5.0
 
 2. Poprawki:
 
 3. ISTOTNE ZMIANY:
-- Slim-mako-4.4.4.build.8.6.1-WEEKLY-7512
+
+Zmiana Bazy. Zdecydowanie Full Wipe!!!
+- crDroid-4.4.4-20141013-OFFICIAL-mako

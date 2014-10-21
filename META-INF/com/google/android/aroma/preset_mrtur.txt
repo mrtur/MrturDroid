@@ -1,28 +1,15 @@
 <b><#selectbg_g>Preferowane ustawienia mrtur'a</#></b>
 
 ##################
-#  Root
-#
-# Disable
-# Apps only
-# ADB only
-# <#selectbg_g>Apps and ADB</#>
-
-##################
 #  Kernel
 #
-# <#selectbg_g>Stock(Slim)</#>
-# Semaphore
-# Hells-Core
-# Faux
-# Franco
+# <#selectbg_g>Stock(crDroid)</#>
 
 ##################
 #  DPI
 #
 # 240 DPI
-# <#selectbg_g>268 DPI</#>
-# 280 DPI
+# <#selectbg_g>280 DPI</#>
 # 320 DPI
 
 ##################

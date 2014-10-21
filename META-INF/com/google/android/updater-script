@@ -22,6 +22,14 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "cwm" t
 endif;
 
 if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" then
+	if file_getprop("/tmp/aroma-data/mrturdroidwipe.prop","wipe") != "yes" then
+		package_extract_file("system/bin/otasigcheck.sh", "/tmp/otasigcheck.sh");
+		package_extract_file("META-INF/org/cyanogenmod/releasekey", "/tmp/releasekey");
+		set_metadata("/tmp/otasigcheck.sh", "uid", 0, "gid", 0, "mode", 0755);
+		run_program("/tmp/otasigcheck.sh");
+		sha1_check(read_file("/tmp/releasekey"),"7241e92725436afc79389d4fc2333a2aa8c20230") && abort("Can't install this package on top of incompatible data. Please try another package or run a factory reset");
+	endif;
+
 	### MRTURDROID TOOLS ###
 	package_extract_file("_mrturdroid/exec/adlock.sh", "/tmp/adlock.sh");
 	set_perm(0, 0, 0755, "/tmp/adlock.sh");
@@ -32,8 +40,8 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		ui_print("<b><#d98d15> MrturDroid ~</#></b> Backing up all addons");
 		package_extract_file("system/bin/backuptool.sh", "/tmp/backuptool.sh");
 		package_extract_file("system/bin/backuptool.functions", "/tmp/backuptool.functions");
-		set_perm(0, 0, 0755, "/tmp/backuptool.sh");
-		set_perm(0, 0, 0644, "/tmp/backuptool.functions");
+		set_metadata("/tmp/backuptool.sh", "uid", 0, "gid", 0, "mode", 0755);
+		set_metadata("/tmp/backuptool.functions", "uid", 0, "gid", 0, "mode", 0644);
 		run_program("/tmp/backuptool.sh", "backup");
 	endif;
 
@@ -98,98 +106,102 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 	set_progress(0.51);
 
 	ui_print("<b><#d98d15> MrturDroid ~</#></b> Creating symlinks");
-	symlink("../bin/fsck.f2fs", "/system/bin/dump.f2fs");
-	symlink("../xbin/su", "/system/bin/su");
-	symlink("/data/misc/audio/mbhc.bin", "/system/etc/firmware/wcd9310/wcd9310_mbhc.bin");
-	symlink("/data/misc/audio/wcd9310_anc.bin", "/system/etc/firmware/wcd9310/wcd9310_anc.bin");
-	symlink("/data/misc/wifi/WCNSS_qcom_cfg.ini", "/system/vendor/firmware/wlan/prima/WCNSS_qcom_cfg.ini");
-	symlink("/data/misc/wifi/WCNSS_qcom_wlan_nv.bin", "/system/vendor/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin");
-	symlink("Roboto-Bold.ttf", "/system/fonts/DroidSans-Bold.ttf");
-	symlink("Roboto-Regular.ttf", "/system/fonts/DroidSans.ttf");
-	symlink("busybox", "/system/xbin/[", "/system/xbin/[[",
-			"/system/xbin/adjtimex", "/system/xbin/arp", "/system/xbin/ash",
-			"/system/xbin/awk", "/system/xbin/base64", "/system/xbin/basename",
-			"/system/xbin/bbconfig", "/system/xbin/blkid", "/system/xbin/blockdev",
-			"/system/xbin/brctl", "/system/xbin/bunzip2", "/system/xbin/bzcat",
-			"/system/xbin/bzip2", "/system/xbin/cal", "/system/xbin/cat",
-			"/system/xbin/catv", "/system/xbin/chattr", "/system/xbin/chcon",
-			"/system/xbin/chgrp", "/system/xbin/chmod", "/system/xbin/chown",
-			"/system/xbin/chroot", "/system/xbin/clear", "/system/xbin/cmp",
-			"/system/xbin/comm", "/system/xbin/cp", "/system/xbin/cpio",
-			"/system/xbin/crond", "/system/xbin/crontab", "/system/xbin/cut",
-			"/system/xbin/date", "/system/xbin/dc", "/system/xbin/dd",
-			"/system/xbin/depmod", "/system/xbin/devmem", "/system/xbin/df",
-			"/system/xbin/diff", "/system/xbin/dirname", "/system/xbin/dmesg",
-			"/system/xbin/dnsd", "/system/xbin/dos2unix", "/system/xbin/du",
-			"/system/xbin/echo", "/system/xbin/ed", "/system/xbin/egrep",
-			"/system/xbin/env", "/system/xbin/expand", "/system/xbin/expr",
-			"/system/xbin/false", "/system/xbin/fbsplash", "/system/xbin/fdisk",
-			"/system/xbin/fgrep", "/system/xbin/find", "/system/xbin/flash_lock",
-			"/system/xbin/flash_unlock", "/system/xbin/flashcp",
-			"/system/xbin/flock", "/system/xbin/fold", "/system/xbin/free",
-			"/system/xbin/freeramdisk", "/system/xbin/fstrim", "/system/xbin/fsync",
-			"/system/xbin/ftpget", "/system/xbin/ftpput", "/system/xbin/fuser",
-			"/system/xbin/getenforce", "/system/xbin/getopt",
-			"/system/xbin/getsebool", "/system/xbin/grep", "/system/xbin/groups",
-			"/system/xbin/gunzip", "/system/xbin/gzip", "/system/xbin/halt",
-			"/system/xbin/head", "/system/xbin/hexdump", "/system/xbin/id",
-			"/system/xbin/ifconfig", "/system/xbin/inetd", "/system/xbin/insmod",
-			"/system/xbin/install", "/system/xbin/ionice", "/system/xbin/iostat",
-			"/system/xbin/ip", "/system/xbin/kill", "/system/xbin/killall",
-			"/system/xbin/killall5", "/system/xbin/less", "/system/xbin/ln",
-			"/system/xbin/losetup", "/system/xbin/ls", "/system/xbin/lsattr",
-			"/system/xbin/lsmod", "/system/xbin/lsusb", "/system/xbin/lzcat",
-			"/system/xbin/lzma", "/system/xbin/lzop", "/system/xbin/lzopcat",
-			"/system/xbin/man", "/system/xbin/matchpathcon", "/system/xbin/md5sum",
-			"/system/xbin/mesg", "/system/xbin/mkdir", "/system/xbin/mke2fs",
-			"/system/xbin/mkfifo", "/system/xbin/mkfs.ext2",
-			"/system/xbin/mkfs.vfat", "/system/xbin/mknod", "/system/xbin/mkswap",
-			"/system/xbin/mktemp", "/system/xbin/modinfo", "/system/xbin/modprobe",
-			"/system/xbin/more", "/system/xbin/mount", "/system/xbin/mountpoint",
-			"/system/xbin/mpstat", "/system/xbin/mv", "/system/xbin/nanddump",
-			"/system/xbin/nandwrite", "/system/xbin/nbd-client",
-			"/system/xbin/netstat", "/system/xbin/nice", "/system/xbin/nohup",
-			"/system/xbin/nslookup", "/system/xbin/ntpd", "/system/xbin/od",
-			"/system/xbin/patch", "/system/xbin/pgrep", "/system/xbin/pidof",
-			"/system/xbin/ping", "/system/xbin/pipe_progress", "/system/xbin/pkill",
-			"/system/xbin/pmap", "/system/xbin/poweroff", "/system/xbin/printenv",
-			"/system/xbin/printf", "/system/xbin/ps", "/system/xbin/pstree",
-			"/system/xbin/pwd", "/system/xbin/pwdx", "/system/xbin/rdev",
-			"/system/xbin/readlink", "/system/xbin/realpath", "/system/xbin/renice",
-			"/system/xbin/reset", "/system/xbin/resize", "/system/xbin/restorecon",
-			"/system/xbin/rev", "/system/xbin/rm", "/system/xbin/rmdir",
-			"/system/xbin/rmmod", "/system/xbin/route", "/system/xbin/run-parts",
-			"/system/xbin/runcon", "/system/xbin/rx", "/system/xbin/sed",
-			"/system/xbin/selinuxenabled", "/system/xbin/seq",
-			"/system/xbin/sestatus", "/system/xbin/setconsole",
-			"/system/xbin/setenforce", "/system/xbin/setfiles",
-			"/system/xbin/setsebool", "/system/xbin/setserial",
-			"/system/xbin/setsid", "/system/xbin/sh", "/system/xbin/sha1sum",
-			"/system/xbin/sha256sum", "/system/xbin/sha3sum",
-			"/system/xbin/sha512sum", "/system/xbin/sleep", "/system/xbin/sort",
-			"/system/xbin/split", "/system/xbin/stat", "/system/xbin/strings",
-			"/system/xbin/stty", "/system/xbin/sum", "/system/xbin/swapoff",
-			"/system/xbin/swapon", "/system/xbin/sync", "/system/xbin/sysctl",
-			"/system/xbin/tac", "/system/xbin/tail", "/system/xbin/tar",
-			"/system/xbin/taskset", "/system/xbin/tee", "/system/xbin/telnet",
-			"/system/xbin/telnetd", "/system/xbin/test", "/system/xbin/tftp",
-			"/system/xbin/tftpd", "/system/xbin/time", "/system/xbin/timeout",
-			"/system/xbin/top", "/system/xbin/touch", "/system/xbin/tr",
-			"/system/xbin/traceroute", "/system/xbin/true", "/system/xbin/ttysize",
-			"/system/xbin/tune2fs", "/system/xbin/umount", "/system/xbin/uname",
-			"/system/xbin/uncompress", "/system/xbin/unexpand", "/system/xbin/uniq",
-			"/system/xbin/unix2dos", "/system/xbin/unlzma", "/system/xbin/unlzop",
-			"/system/xbin/unxz", "/system/xbin/unzip", "/system/xbin/uptime",
-			"/system/xbin/usleep", "/system/xbin/uudecode", "/system/xbin/uuencode",
-			"/system/xbin/vi", "/system/xbin/watch", "/system/xbin/wc",
-			"/system/xbin/wget", "/system/xbin/which", "/system/xbin/whoami",
-			"/system/xbin/xargs", "/system/xbin/xz", "/system/xbin/xzcat",
-			"/system/xbin/yes",
-			"/system/xbin/zcat");
+symlink("../bin/fsck.f2fs", "/system/bin/dump.f2fs");
+symlink("../xbin/su", "/system/bin/su");
+symlink("/data/misc/audio/mbhc.bin", "/system/etc/firmware/wcd9310/wcd9310_mbhc.bin");
+symlink("/data/misc/audio/wcd9310_anc.bin", "/system/etc/firmware/wcd9310/wcd9310_anc.bin");
+symlink("/data/misc/wifi/WCNSS_qcom_cfg.ini", "/system/vendor/firmware/wlan/prima/WCNSS_qcom_cfg.ini");
+symlink("/data/misc/wifi/WCNSS_qcom_wlan_nv.bin", "/system/vendor/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin");
+symlink("Roboto-Bold.ttf", "/system/fonts/DroidSans-Bold.ttf");
+symlink("Roboto-Regular.ttf", "/system/fonts/DroidSans.ttf");
+symlink("busybox", "/system/xbin/[", "/system/xbin/[[",
+        "/system/xbin/adjtimex", "/system/xbin/arp", "/system/xbin/ash",
+        "/system/xbin/awk", "/system/xbin/base64", "/system/xbin/basename",
+        "/system/xbin/bbconfig", "/system/xbin/blkid", "/system/xbin/blockdev",
+        "/system/xbin/brctl", "/system/xbin/bunzip2", "/system/xbin/bzcat",
+        "/system/xbin/bzip2", "/system/xbin/cal", "/system/xbin/cat",
+        "/system/xbin/catv", "/system/xbin/chattr", "/system/xbin/chcon",
+        "/system/xbin/chgrp", "/system/xbin/chmod", "/system/xbin/chown",
+        "/system/xbin/chroot", "/system/xbin/chvt", "/system/xbin/clear",
+        "/system/xbin/cmp", "/system/xbin/comm", "/system/xbin/cp",
+        "/system/xbin/cpio", "/system/xbin/crond", "/system/xbin/crontab",
+        "/system/xbin/cut", "/system/xbin/date", "/system/xbin/dc",
+        "/system/xbin/dd", "/system/xbin/deallocvt", "/system/xbin/depmod",
+        "/system/xbin/devmem", "/system/xbin/df", "/system/xbin/diff",
+        "/system/xbin/dirname", "/system/xbin/dmesg", "/system/xbin/dnsd",
+        "/system/xbin/dos2unix", "/system/xbin/du", "/system/xbin/echo",
+        "/system/xbin/ed", "/system/xbin/egrep", "/system/xbin/env",
+        "/system/xbin/expand", "/system/xbin/expr", "/system/xbin/false",
+        "/system/xbin/fbsplash", "/system/xbin/fdisk", "/system/xbin/fgconsole",
+        "/system/xbin/fgrep", "/system/xbin/find", "/system/xbin/findfs",
+        "/system/xbin/flash_lock", "/system/xbin/flash_unlock",
+        "/system/xbin/flashcp", "/system/xbin/flock", "/system/xbin/fold",
+        "/system/xbin/free", "/system/xbin/freeramdisk", "/system/xbin/fstrim",
+        "/system/xbin/fsync", "/system/xbin/ftpget", "/system/xbin/ftpput",
+        "/system/xbin/fuser", "/system/xbin/getenforce", "/system/xbin/getopt",
+        "/system/xbin/getsebool", "/system/xbin/grep", "/system/xbin/groups",
+        "/system/xbin/gunzip", "/system/xbin/gzip", "/system/xbin/halt",
+        "/system/xbin/head", "/system/xbin/hexdump", "/system/xbin/hwclock",
+        "/system/xbin/id", "/system/xbin/ifconfig", "/system/xbin/inetd",
+        "/system/xbin/insmod", "/system/xbin/install", "/system/xbin/ionice",
+        "/system/xbin/iostat", "/system/xbin/ip", "/system/xbin/kill",
+        "/system/xbin/killall", "/system/xbin/killall5", "/system/xbin/less",
+        "/system/xbin/ln", "/system/xbin/losetup", "/system/xbin/ls",
+        "/system/xbin/lsattr", "/system/xbin/lsmod", "/system/xbin/lspci",
+        "/system/xbin/lsusb", "/system/xbin/lzcat", "/system/xbin/lzma",
+        "/system/xbin/lzop", "/system/xbin/lzopcat", "/system/xbin/man",
+        "/system/xbin/matchpathcon", "/system/xbin/md5sum", "/system/xbin/mesg",
+        "/system/xbin/mkdir", "/system/xbin/mke2fs", "/system/xbin/mkfifo",
+        "/system/xbin/mkfs.ext2", "/system/xbin/mkfs.vfat",
+        "/system/xbin/mknod", "/system/xbin/mkswap", "/system/xbin/mktemp",
+        "/system/xbin/modinfo", "/system/xbin/modprobe", "/system/xbin/more",
+        "/system/xbin/mount", "/system/xbin/mountpoint", "/system/xbin/mpstat",
+        "/system/xbin/mv", "/system/xbin/nanddump", "/system/xbin/nandwrite",
+        "/system/xbin/nbd-client", "/system/xbin/netstat", "/system/xbin/nice",
+        "/system/xbin/nmeter", "/system/xbin/nohup", "/system/xbin/nslookup",
+        "/system/xbin/ntpd", "/system/xbin/od", "/system/xbin/openvt",
+        "/system/xbin/patch", "/system/xbin/pgrep", "/system/xbin/pidof",
+        "/system/xbin/ping", "/system/xbin/pipe_progress", "/system/xbin/pkill",
+        "/system/xbin/pmap", "/system/xbin/poweroff", "/system/xbin/printenv",
+        "/system/xbin/printf", "/system/xbin/ps", "/system/xbin/pstree",
+        "/system/xbin/pwd", "/system/xbin/pwdx", "/system/xbin/rdate",
+        "/system/xbin/rdev", "/system/xbin/readlink", "/system/xbin/realpath",
+        "/system/xbin/renice", "/system/xbin/reset", "/system/xbin/resize",
+        "/system/xbin/restorecon", "/system/xbin/rev", "/system/xbin/rm",
+        "/system/xbin/rmdir", "/system/xbin/rmmod", "/system/xbin/route",
+        "/system/xbin/run-parts", "/system/xbin/runcon", "/system/xbin/rx",
+        "/system/xbin/sed", "/system/xbin/selinuxenabled", "/system/xbin/seq",
+        "/system/xbin/sestatus", "/system/xbin/setconsole",
+        "/system/xbin/setenforce", "/system/xbin/setfiles",
+        "/system/xbin/setkeycodes", "/system/xbin/setsebool",
+        "/system/xbin/setserial", "/system/xbin/setsid", "/system/xbin/sh",
+        "/system/xbin/sha1sum", "/system/xbin/sha256sum",
+        "/system/xbin/sha3sum", "/system/xbin/sha512sum", "/system/xbin/sleep",
+        "/system/xbin/smemcap", "/system/xbin/sort", "/system/xbin/split",
+        "/system/xbin/stat", "/system/xbin/strings", "/system/xbin/stty",
+        "/system/xbin/sum", "/system/xbin/swapoff", "/system/xbin/swapon",
+        "/system/xbin/sync", "/system/xbin/sysctl", "/system/xbin/tac",
+        "/system/xbin/tail", "/system/xbin/tar", "/system/xbin/taskset",
+        "/system/xbin/tee", "/system/xbin/telnet", "/system/xbin/telnetd",
+        "/system/xbin/test", "/system/xbin/tftp", "/system/xbin/tftpd",
+        "/system/xbin/time", "/system/xbin/timeout", "/system/xbin/top",
+        "/system/xbin/touch", "/system/xbin/tr", "/system/xbin/traceroute",
+        "/system/xbin/true", "/system/xbin/ttysize", "/system/xbin/tune2fs",
+        "/system/xbin/umount", "/system/xbin/uname", "/system/xbin/uncompress",
+        "/system/xbin/unexpand", "/system/xbin/uniq", "/system/xbin/unix2dos",
+        "/system/xbin/unlzma", "/system/xbin/unlzop", "/system/xbin/unxz",
+        "/system/xbin/unzip", "/system/xbin/uptime", "/system/xbin/usleep",
+        "/system/xbin/uudecode", "/system/xbin/uuencode", "/system/xbin/vi",
+        "/system/xbin/watch", "/system/xbin/wc", "/system/xbin/wget",
+        "/system/xbin/which", "/system/xbin/whoami", "/system/xbin/xargs",
+        "/system/xbin/xz", "/system/xbin/xzcat", "/system/xbin/yes",
+        "/system/xbin/zcat");
 	symlink("libGLESv2.so", "/system/lib/libGLESv3.so");
+	symlink("logcat", "/system/bin/lolcat");
 	symlink("mksh", "/system/bin/sh");
 	symlink("mount.exfat", "/system/bin/fsck.exfat",
 			"/system/bin/mkfs.exfat");
+	symlink("pigz", "/system/xbin/unpigz");
 	symlink("toolbox", "/system/bin/cat", "/system/bin/chcon",
 			"/system/bin/chmod", "/system/bin/chown", "/system/bin/clear",
 			"/system/bin/cmp", "/system/bin/cp", "/system/bin/date",
@@ -205,15 +217,16 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			"/system/bin/mv", "/system/bin/nandread", "/system/bin/netstat",
 			"/system/bin/newfs_msdos", "/system/bin/notify", "/system/bin/printenv",
 			"/system/bin/ps", "/system/bin/r", "/system/bin/readlink",
-			"/system/bin/renice", "/system/bin/restorecon", "/system/bin/rm",
-			"/system/bin/rmdir", "/system/bin/rmmod", "/system/bin/route",
-			"/system/bin/runcon", "/system/bin/schedtop", "/system/bin/sendevent",
-			"/system/bin/setconsole", "/system/bin/setenforce",
-			"/system/bin/setprop", "/system/bin/setsebool", "/system/bin/sleep",
-			"/system/bin/smd", "/system/bin/start", "/system/bin/stop",
-			"/system/bin/swapoff", "/system/bin/swapon", "/system/bin/sync",
-			"/system/bin/top", "/system/bin/touch", "/system/bin/umount",
-			"/system/bin/uptime", "/system/bin/vmstat", "/system/bin/watchprops",
+			"/system/bin/renice", "/system/bin/restart", "/system/bin/restorecon",
+			"/system/bin/rm", "/system/bin/rmdir", "/system/bin/rmmod",
+			"/system/bin/route", "/system/bin/runcon", "/system/bin/schedtop",
+			"/system/bin/sendevent", "/system/bin/setconsole",
+			"/system/bin/setenforce", "/system/bin/setfattr", "/system/bin/setprop",
+			"/system/bin/setsebool", "/system/bin/sleep", "/system/bin/smd",
+			"/system/bin/start", "/system/bin/stop", "/system/bin/swapoff",
+			"/system/bin/swapon", "/system/bin/sync", "/system/bin/top",
+			"/system/bin/touch", "/system/bin/umount", "/system/bin/uptime",
+			"/system/bin/vmstat", "/system/bin/watchprops",
 			"/system/bin/wipe");
 			
 	set_progress(0.52);
@@ -242,7 +255,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 	set_metadata("/system/bin/bdAddrLoader", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:hci_exec:s0");
 	set_metadata("/system/bin/clatd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:clatd_exec:s0");
 	set_metadata("/system/bin/debuggerd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:debuggerd_exec:s0");
-	set_metadata("/system/xbin/debuggerd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:debuggerd_exec:s0");
 	set_metadata("/system/bin/dhcpcd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:dhcp_exec:s0");
 	set_metadata("/system/bin/dnsmasq", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:dnsmasq_exec:s0");
 	set_metadata("/system/bin/drmserver", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:drmserver_exec:s0");
@@ -272,11 +284,14 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 	set_metadata("/system/etc/dhcpcd/dhcpcd-run-hooks", "uid", 1014, "gid", 2000, "mode", 0550, "capabilities", 0x0, "selabel", "u:object_r:dhcp_system_file:s0");
 	set_metadata_recursive("/system/etc/init.d", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 	set_metadata("/system/etc/init.d", "uid", 0, "gid", 0, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+	set_metadata("/system/etc/install-cm-recovery.sh", "uid", 0, "gid", 0, "mode", 0544, "capabilities", 0x0);
 	set_metadata_recursive("/system/etc/ppp", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0555, "capabilities", 0x0, "selabel", "u:object_r:ppp_system_file:s0");
+	set_metadata("/system/recovery-from-boot.p", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0);
 	set_metadata("/system/vendor", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 	set_metadata_recursive("/system/vendor/etc", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 	set_metadata("/system/vendor/etc/audio_effects.conf", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 	set_metadata("/system/vendor/firmware", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+	set_metadata("/system/vendor/firmware/discretix", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 	set_metadata("/system/vendor/firmware/keymaster", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 	set_metadata_recursive("/system/vendor/firmware/wlan", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 	set_metadata("/system/vendor/firmware/wlan/prima/WCNSS_cfg.dat", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
@@ -290,6 +305,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 	set_metadata("/system/xbin/procmem", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 	set_metadata("/system/xbin/procrank", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 	set_metadata("/system/xbin/su", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:su_exec:s0");
+
 
 	set_progress(0.54);
 
@@ -307,31 +323,31 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		#################
 		### SUPERUSER ###
 		#################
-		if file_getprop("/tmp/aroma-data/mrturdroid.prop","root") != "0" then		
-			ui_print("<b><#d98d15> MrturDroid ~</#></b> Root Activate");
-		else
-			ui_print("<b><#d98d15> MrturDroid ~</#></b> Root Disable");
-		endif;			
+#		if file_getprop("/tmp/aroma-data/mrturdroid.prop","root") != "0" then		
+#			ui_print("<b><#d98d15> MrturDroid ~</#></b> Root Activate");
+#		else
+#			ui_print("<b><#d98d15> MrturDroid ~</#></b> Root Disable");
+#		endif;			
 		
-		package_extract_file("_mrturdroid/exec/superuser.sh", "/tmp/superuser.sh");
-		set_perm(0, 0, 0755, "/tmp/superuser.sh");
-		run_program("/tmp/superuser.sh", file_getprop("/tmp/aroma-data/mrturdroid.prop","root"));
-		delete("tmp/superuser.sh");
+#		package_extract_file("_mrturdroid/exec/superuser.sh", "/tmp/superuser.sh");
+#		set_perm(0, 0, 0755, "/tmp/superuser.sh");
+#		run_program("/tmp/superuser.sh", file_getprop("/tmp/aroma-data/mrturdroid.prop","root"));
+#		delete("tmp/superuser.sh");
 			
-		if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur" then		
-			ui_print("<#d98d15> mrtur ~</#> Root acces -> Apps and ADB");
-			package_extract_dir("_mrtur/apps/superuser", "/");
-		endif;
+#		if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur" then		
+#			ui_print("<#d98d15> mrtur ~</#> Root acces -> Apps and ADB");
+#			package_extract_dir("_mrtur/apps/superuser", "/");
+#		endif;
 
 		###############
 		### RUNTIME ###
 		###############
 				
-		ui_print("<b><#d98d15> MrturDroid ~</#></b> Applying ", file_getprop("/tmp/aroma-data/mrturdroid.prop","runtime"), " Runtime");
-		package_extract_file("_mrturdroid/exec/runtime.sh", "/tmp/runtime.sh");
-		set_perm(0, 0, 0755, "/tmp/runtime.sh");
-		run_program("/tmp/runtime.sh", file_getprop("/tmp/aroma-data/mrturdroid.prop","runtime"));
-		delete("tmp/runtime.sh");
+#		ui_print("<b><#d98d15> MrturDroid ~</#></b> Applying ", file_getprop("/tmp/aroma-data/mrturdroid.prop","runtime"), " Runtime");
+#		package_extract_file("_mrturdroid/exec/runtime.sh", "/tmp/runtime.sh");
+#		set_perm(0, 0, 0755, "/tmp/runtime.sh");
+#		run_program("/tmp/runtime.sh", file_getprop("/tmp/aroma-data/mrturdroid.prop","runtime"));
+#		delete("tmp/runtime.sh");
 		
 		##############
 		### NO MTP ###
@@ -458,6 +474,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 
 			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Google Apps");
 			delete("/system/app/Provision.apk");
+		show_progress(0.1, 80);
 			package_extract_dir("_mrturdroid/gapps/system", "/system");
 			set_perm_recursive(0, 0, 0755, 0644, "/system/app");
 			set_perm_recursive(0, 0, 0755, 0644, "/system/priv-app");
@@ -467,7 +484,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			package_extract_dir("_mrtur/apps/market", "/");
 		endif;
 
-		set_progress(0.65);
+
 		
 		#############
 		### GAPPS ###
@@ -475,7 +492,8 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","gcamera") == "1" then
 			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Google Camera");
-			delete("/system/app/Camera2.apk");			
+			delete("/system/app/Camera2.apk");
+			
 			package_extract_dir("_mrturdroid/apps/google/camera", "/");
 		endif;
 		
@@ -539,8 +557,8 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Google TTS");
 			package_extract_dir("_mrturdroid/apps/google/gtts", "/");
 		endif;		
+		set_progress(0.80);
 
-		set_progress(0.69);
 
 		##############
 		### XPOSED ###
@@ -574,7 +592,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			
 #		endif;
 
-		set_progress(0.71);
+		set_progress(0.82);
 
 		#############
 		### MARKET ##
@@ -591,7 +609,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			package_extract_dir("_mrturdroid/apps/google/marketblacktheme", "/");
 		endif;
 
-		set_progress(0.72);
+		set_progress(0.83);
 
 		###########
 		### MDU ###
@@ -602,7 +620,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			package_extract_dir("_mrturdroid/mdu/app", "/");
 		endif;
 
-		set_progress(0.73);
+		set_progress(0.84);
 		################
 		### KEYBOARD ###
 		################
@@ -625,7 +643,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			package_extract_dir("_mrturdroid/apps/latinime", "/");			
 		endif;		
 
-		set_progress(0.74);
+		set_progress(0.85);
 
 		################
 		### LAUNCHER ###
@@ -634,8 +652,8 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		### NOVA ###
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","launcher") == "nova" then
 			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing Nova Launcher");
-			delete("/system/priv-app/Launcher3.apk");
-			delete("/system/app/Launcher3.apk");		
+			delete("/system/priv-app/Trebuchet.apk");
+			delete("/system/app/Trebuchet.apk");		
 			package_extract_dir("_mrturdroid/apps/nova", "/");
 		endif;
 
@@ -643,11 +661,11 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","launcher") == "none" then
 			# Just delete Launcher then
 			ui_print("<b><#d98d15> MrturDroid ~</#></b> Skipping Launcher");
-			delete("/system/priv-app/Launcher3.apk");
-			delete("/system/app/Launcher3.apk");
+			delete("/system/priv-app/Trebuchet.apk");
+			delete("/system/app/Trebuchet.apk");
 		endif;
 
-		set_progress(0.75);
+		set_progress(0.86);
 
 		#####################
 		### BOOTANIMATION ###
@@ -659,7 +677,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		endif;
 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","bootanimation") == "stock" then
-			ui_print("<b><#d98d15> MrturDroid ~</#></b> Applying Slim Bootanimation");
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Applying crDroid Bootanimation");
 			# Not needed, haha!
 		endif;
 
@@ -682,7 +700,8 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			delete("/system/media/bootanimation.zip");
 		endif;
 
-		set_progress(0.76);
+		set_progress(0.87);
+		set_progress(0.88);
 
 		##############
 		### TWEAKS ###
@@ -717,7 +736,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			
 		endif;
 		
-		set_progress(0.77);
+		set_progress(0.89);
 			
 		############
 		### APPS ###
@@ -731,6 +750,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","viper4") == "1" then
 			ui_print("<b><#d98d15> MrturDroid ~</#></b> Installing ViPER4Android Audio Effects");
 			delete("/system/app/DSPManager.apk");		
+			delete("/system/priv-app/DSPManager.apk");			
 			package_extract_dir("_mrturdroid/apps/viper4", "/");
 		endif;	
 
@@ -788,7 +808,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			package_extract_dir("_mrturdroid/apps/facebook", "/");
 		endif;
 		
-		set_progress(0.81);
+		set_progress(0.90);
 
 		###########################
 		### QUALCOMM ADRENO GPU ###
@@ -799,7 +819,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			package_extract_dir("_mrturdroid/tweaks/adreno", "/");
 		endif;
 		
-		set_progress(0.92);
+		set_progress(0.91);
 
 		##################
 		### DEBIAN OFF ###
@@ -814,7 +834,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidrecovery.prop","recovery") == "none" 
 			delete("/system/bin/adflash","/system/bin/adgithub","/system/bin/adlinux","/system/bin/debian","/system/bin/openssl","/system/bin/curl","/system/archidroid/system/debian.tar.gz");
 		endif;
 		
-		set_progress(0.93);
+		set_progress(0.92);
 
 		# One more fix to logcat
 		ui_print("<b><#d98d15> MrturDroid ~</#></b> Syncing System");

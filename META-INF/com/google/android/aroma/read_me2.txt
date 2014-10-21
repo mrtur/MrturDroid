@@ -5,14 +5,13 @@ Ten ROM oparty jest na pracy wielu innych ludzi, ich modyfikacji, ich poprawek, 
 - Aroma & Aroma File Manager
 - Recovery ClockWorkMod(CWM)
 - Recovery TeamWin(TWRP) | theme [by z31s1g]
-- ROMS: Archidroid | Slim Kat
+- ROMS: Archidroid | crDroid | CyanogenMod
 - GApps: SlimKat Android GAPPS | Team BlackOut Inverts
-- Launcher: Nova Launcher | Google Home
+- Launcher: Nova Launcher
 - Klawiatura: TouchPal X | Hacker's Keyboard | Google Keyboard
 - Narzędzia: Xposed Framework + moduły
 - Xposed Modules: App Settings | XPrivacy | BootManager | Complete Action Plus | PlayStoreFix
 - Qualcomm Adreno GPU
-- Wykorzystano kernele : HellsCore | Semaphore | Faux | Franco
 - wiele darmowych aplikacji
 
 Specjalne podziękowania dla :

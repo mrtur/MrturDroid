@@ -41,7 +41,7 @@ ini_set("rom_date",             "XX-10-2014");
 #
 # Setvar
 #
-setvar("preset_version","4");
+setvar("preset_version","5");
 setvar("adaroma","/data/media/0/MrturDroid/AromaPreset/EXPERIMENTAL");
 setvar("aroma_fast","OFF");
 		
@@ -301,14 +301,14 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"mrturdroid.prop",
 		
 		"kernel=stock\n"+
-		"dpi=268\n"+
+		"dpi=280\n"+
 		"launcher=nova\n"+
 		"googlekb=0\n"+
 		"touchpal=0\n"+		
 		"hackers=1\n"+
 		"stock=0\n"+		
 		"bootanimation=mrtur\n"+
-		"root=3\n"+
+#		"root=3\n"+
 #		"runtime=libdvm.so\n"+
 		"googlemarkettheme=black\n"+		
 		"gcamera=1\n"+		
@@ -376,17 +376,17 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		"mrturdroid.prop",
 
 		"kernel","<#selectbg_g>Kernel</#>","","group",
-		"stock","Stock(Slim)","<~mrturdroid.kernel.stock.desc>","select.selected",
-		"semaphore","Semaphore","<~mrturdroid.kernel.semaphore.desc>","select",
-		"hells","hells-Core","<~mrturdroid.kernel.hells.desc>","select",	
-		"faux","Faux","<~mrturdroid.kernel.faux.desc>","select",		
-		"franco","Franco","<~mrturdroid.kernel.franco.desc>","select",
+		"stock","Stock(crDroid)","<~mrturdroid.kernel.stock.desc>","select.selected",
+#		"semaphore","Semaphore","<~mrturdroid.kernel.semaphore.desc>","select",
+#		"hells","hells-Core","<~mrturdroid.kernel.hells.desc>","select",	
+#		"faux","Faux","<~mrturdroid.kernel.faux.desc>","select",		
+#		"franco","Franco","<~mrturdroid.kernel.franco.desc>","select",
 
 		"dpi","<#selectbg_g>DPI</#>","","group",
 		"240","240","<~mrturdroid.dpi.240.desc>","select",
-		"268","268","<~mrturdroid.dpi.268.desc>","select.selected",
+#		"268","268","<~mrturdroid.dpi.268.desc>","select.selected",
 		"280","280","<~mrturdroid.dpi.280.desc>","select",
-		"320","320","<~mrturdroid.dpi.320.desc>","select",
+		"320","320","<~mrturdroid.dpi.320.desc>","select.selected",
 
 		"launcher","<#selectbg_g>Launcher</#>","","group",
 		"nova","Nova Launcher","<~mrturdroid.launcher.nova.desc>","select.selected",
@@ -399,17 +399,17 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 
 		"bootanimation","<#selectbg_g><~mrturdroid.bootanimation></#>","","group",
 		"mrtur","MrturDroid","<~mrturdroid.bootanimation.mrtur.desc>","select.selected",
-		"stock","Slim","<~mrturdroid.bootanimation.stock.desc>","select",
+		"stock","crDroid","<~mrturdroid.bootanimation.stock.desc>","select",
 		"nexus","Nexus","<~mrturdroid.bootanimation.nexus.desc>","select",
 		"google","Google","<~mrturdroid.bootanimation.google.desc>","select",
 		"none","<~common.none>","<~mrturdroid.bootanimation.none.desc>","select",
 		"bootanimationpreview","Preview","<~mrturdroid.previewbootanimation.desc>","check",
 		
-		"root","<#selectbg_g>Root</#>","","group",
-		"0","Disable","","select",
-		"1","Apps only","","select",
-		"2","ADB only","","select",
-		"3","Apps and ADB","","select.selected",		
+#		"root","<#selectbg_g>Root</#>","","group",
+#		"0","Disable","","select",
+#		"1","Apps only","","select",
+#		"2","ADB only","","select",
+#		"3","Apps and ADB","","select.selected",		
 						
 #		"runtime","<#selectbg_g>Runtime</#>","","group",
 #		"libart.so","ART","<~mrturdroid.runtime.art.desc>","select",
