@@ -304,7 +304,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"dpi=268\n"+
 		"launcher=nova\n"+
 		"googlekb=0\n"+
-		"touchpal=0\n"+		
 		"hackers=1\n"+
 		"stock=0\n"+		
 		"bootanimation=mrtur\n"+

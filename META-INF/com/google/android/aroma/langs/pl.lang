@@ -114,7 +114,6 @@ mrturdroid.custom.extra=Dostosywywanie Ekstra MrturDroid
 mrturdroid.custom.desc=Zmodyfikuj proszę poniższe ustawienia do Twoich predyspozycji:
 
 mrturdroid.kernel.stock.desc=Pochodzący z samego ROMu
-mrturdroid.kernel.franco.desc=Zalecany jako alternatywa dla stocka
 mrturdroid.kernel.semaphore.desc=Alternatywa dla stocka
 mrturdroid.kernel.hells.desc=Podobno stabilny i bardzo "przyjazny" dla baterii ;)
 mrturdroid.kernel.faux.desc=Alternatywa do wyboru :)
