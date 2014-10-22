@@ -125,7 +125,8 @@ mrturdroid.dpi.268.desc=Zalecane przez autorów SlimKat
 mrturdroid.dpi.280.desc=Dobry kompromis pomiędzy 320, a 240 DPI
 mrturdroid.dpi.320.desc=Wartość domyślna
 
-mrturdroid.launcher.nova.desc=Zalecany dla o wiele większej wydajności i elastyczności. Domyślny w SlimKat
+mrturdroid.launcher.slim.desc=Launcher prosto od SlimKat
+mrturdroid.launcher.nova.desc=Zalecany dla o wiele większej wydajności i elastyczności.
 mrturdroid.launcher.none.desc=Brak Launchera. UWAGA! Nie zaznaczaj tej opcji jeśli wykonałeś full wipe. Potrzebujesz przynajmniej 1 własnego launchera przed pierwszym bootem!
 
 mrturdroid.keyboard=Klawiatura
