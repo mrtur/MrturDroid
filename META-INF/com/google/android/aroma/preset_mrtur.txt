@@ -4,6 +4,7 @@
 #  Kernel
 #
 # <#selectbg_g>Stock(crDroid)</#>
+# Dimfish
 
 ##################
 #  DPI

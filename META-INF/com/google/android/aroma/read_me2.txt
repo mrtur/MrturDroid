@@ -6,6 +6,7 @@ Ten ROM oparty jest na pracy wielu innych ludzi, ich modyfikacji, ich poprawek, 
 - Recovery ClockWorkMod(CWM)
 - Recovery TeamWin(TWRP) | theme [by z31s1g]
 - ROMS: Archidroid | crDroid | CyanogenMod
+- Kernel: Dimfish
 - GApps: SlimKat Android GAPPS | Team BlackOut Inverts
 - Launcher: Nova Launcher
 - Klawiatura: TouchPal X | Hacker's Keyboard | Google Keyboard

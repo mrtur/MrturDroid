@@ -10,3 +10,4 @@ MrturDroid 2.6.2 EXPERIMENTAL
 
 Zmiana Bazy. Zdecydowanie Full Wipe!!!
 - crDroid-4.4.4-20141013-OFFICIAL-mako
+- dodano kernel dimfish(CM)

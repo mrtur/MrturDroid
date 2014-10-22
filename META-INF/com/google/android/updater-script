@@ -436,6 +436,20 @@ symlink("busybox", "/system/xbin/[", "/system/xbin/[[",
 			ui_print("<b><#d98d15> MrturDroid ~</#></b> Flashing Franco Kernel");
 			package_extract_file("_mrturdroid/kernels/franco/boot.img", "/dev/block/platform/msm_sdcc.1/by-name/boot");
 		endif;
+		
+		### DIMFISH ###
+		if file_getprop("/tmp/aroma-data/mrturdroid.prop","kernel") == "dimfish" then
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Flashing Dimfish Kernel");
+			package_extract_dir("_mrturdroid/kernels/dimfish", "/tmp");
+			set_perm(0, 0, 0755, "/tmp/mkbootimg.sh");
+			set_perm(0, 0, 0755, "/tmp/mkbootimg");
+			set_perm(0, 0, 0755, "/tmp/unpackbootimg");
+			set_perm(0, 0, 0755, "/tmp/busybox");
+			run_program("/tmp/busybox", "dd", "if=/dev/block/mmcblk0p6", "of=/tmp/boot.img");
+			run_program("/tmp/unpackbootimg", "-i", "/tmp/boot.img", "-o", "/tmp/");
+			run_program("/tmp/mkbootimg.sh");
+			run_program("/tmp/busybox", "dd", "if=/tmp/newboot.img", "of=/dev/block/mmcblk0p6");
+		endif;		
 
 		set_progress(0.6);
 
