@@ -379,19 +379,6 @@ symlink("busybox", "/system/xbin/[", "/system/xbin/[[",
 			#delete("/tmp/stock.img");
 		endif;
 
-		### SEMAPHORE ###
-		if file_getprop("/tmp/aroma-data/mrturdroid.prop","kernel") == "semaphore" then
-			ui_print("<b><#d98d15> MrturDroid ~</#></b> Flashing Semaphore Kernel");
-			set_perm_recursive(0, 0, 0755, 0755, "/system/etc/init.d");
-			package_extract_dir("_mrturdroid/kernels/semaphore", "/tmp");
-			set_perm(0, 0, 0755, "/tmp/mkbootimg.sh");
-			set_perm(0, 0, 0755, "/tmp/mkbootimg");
-			set_perm(0, 0, 0755, "/tmp/unpackbootimg");
-			set_perm(0, 0, 0755, "/tmp/busybox");
-			set_perm(0, 0, 0755, "/tmp/install_kernel");
-			run_program("/tmp/install_kernel");
-		endif;
-
 		### DIMFISH ###
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","kernel") == "dimfish" then
 			ui_print("<b><#d98d15> MrturDroid ~</#></b> Flashing Dimfish Kernel");

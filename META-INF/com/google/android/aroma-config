@@ -378,7 +378,6 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		"kernel","<#selectbg_g>Kernel</#>","","group",
 		"stock","Stock(crDroid)","<~mrturdroid.kernel.stock.desc>","select.selected",
 		"dimfish","Dimfish","<~mrturdroid.kernel.dimfish.desc>","select",		
-#		"semaphore","Semaphore","<~mrturdroid.kernel.semaphore.desc>","select",
 
 		"dpi","<#selectbg_g>DPI</#>","","group",
 		"240","240","<~mrturdroid.dpi.240.desc>","select",
