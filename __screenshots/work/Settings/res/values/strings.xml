@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="superuser">Superuser</string>
-    <string name="allow">Allow</string>
-    <string name="deny">Deny</string>
+    <string name="su_allow">Allow</string>
+    <string name="su_allow_countdown">Allow (%1$s)</string>
+    <string name="su_deny">Deny</string>
     <string name="status_incoming">Incoming Superuser Request…</string>
     <string name="unknown_uid">Unknown UID: %s</string>
     <string name="application_request">%s is requesting Superuser access.</string>
@@ -29,7 +30,12 @@
     <string name="request_timeout_summary">Superuser requests will time out and be denied after %s seconds</string>
     <string name="notifications">Notifications</string>
     <string name="none">None</string>
+    <string name="toast">Toast</string>
+    <string name="notification">Notification</string>
+    <string name="toast_summary">toast</string>
+    <string name="notification_summary">notification</string>
     <string name="notifications_summary">A %s will be shown when an app is granted or denied Superuser permissions</string>
+    <string name="no_notification">No notification will be shown</string>
     <string name="enter_pin">Enter PIN</string>
     <string name="enter_new_pin">Enter New PIN</string>
     <string name="incorrect_pin">Incorrect PIN</string>
@@ -39,9 +45,6 @@
     <string name="number_seconds">%s seconds</string>
     <string name="superuser_granted">Superuser granted to %s</string>
     <string name="superuser_denied">Superuser denied to %s</string>
-    <string name="toast">Toast</string>
-    <string name="notification">Notification</string>
-    <string name="no_notification">No notification will be shown</string>
     <string name="developer_warning">"Developer Warning:
 android.permission.ACCESS_SUPERUSER
 not declared in manifest."</string>
@@ -118,7 +121,7 @@ Please restart the Superuser app and try again."</string>
     <string name="thursday">Thursday</string>
     <string name="friday">Friday</string>
     <string name="saturday">Saturday</string>
-    <string name="header_category_rom_settings">Advanced settings</string>
+    <string name="header_category_rom_settings">Personalization</string>
     <string name="interface_settings_title">Interface</string>
     <string name="navigation_settings_title">Navigation</string>
     <string name="slim_center_title">SlimCenter</string>
@@ -238,9 +241,9 @@ By default built-in apps are not shown. If you want to show them or filter apps 
     <string name="shake_events_normal_title">Active shake events</string>
     <string name="shake_events_disabled_title">Disabled apps</string>
     <string name="shake_events_disabled_summary">Shake will be disabled while in these apps</string>
-    <string name="shake_event_x_title">Activity to launch when shaken horizontally</string>
-    <string name="shake_event_y_title">Activity to launch when shaken vertically</string>
-    <string name="shake_event_z_title">Activity to launch when shaken back-and-forth</string>
+    <string name="shake_event_x_title">Horizontal shake</string>
+    <string name="shake_event_y_title">Vertical shake</string>
+    <string name="shake_event_z_title">Back-and-forth shake</string>
     <string name="shake_sensitivity_title">Shake sensitivity</string>
     <string name="shake_sensitivity_summary">Global sensitivity of all shake preferences</string>
     <string name="shake_sensitivity_even_less_sensitive">Very insensitive</string>
@@ -521,7 +524,7 @@ To clear or reset to defaults, select the Reset icon."</string>
     <string name="shortcuts_color_title">Icon color</string>
     <string name="shortcuts_color_mode_title">Icon color mode</string>
     <string name="shortcuts_color_mode_summary">Change the shorcuts icon color mode</string>
-    <string name="notification_drawer_qs_title">Notification &amp; QS drawer</string>
+    <string name="qs_title">Quick settings</string>
     <string name="notification_drawer_title">Notification drawer</string>
     <string name="notification_shortcuts_settings_title">Shortcuts</string>
     <string name="notification_shortcuts_settings_summary">Show shortcuts in the notification drawer</string>
@@ -1027,6 +1030,7 @@ This can make your device unusable!"</string>
     <string name="advanced_reboot_disabled">Disable</string>
     <string name="advanced_reboot_hide_on_keyguard">Hide on lock screen</string>
     <string name="advanced_reboot_show_always">Show always</string>
+    <string name="lockscreen_settings_title">Lockscreen</string>
     <string name="lockscreen_rotation_title">Lockscreen rotation</string>
     <string name="lockscreen_rotation_portrait">Portrait only</string>
     <string name="lockscreen_rotation_landscape">Landscape only</string>
@@ -1136,7 +1140,7 @@ The device needs to be rebooted for the setting to take effect."</string>
 The device needs to be rebooted for the setting to take effect."</string>
     <string name="app_moving_reboot_now_button">Reboot now</string>
     <string name="app_moving_reboot_later_button">Reboot later</string>
-    <string name="heads_up_title">Heads up notification</string>
+    <string name="heads_up_title">Heads up</string>
     <string name="heads_up_expanded_title">Always expanded</string>
     <string name="heads_up_expanded_summary">Show heads up notification always expanded</string>
     <string name="heads_up_show_updates_title">Show updates</string>
@@ -1164,11 +1168,15 @@ The device needs to be rebooted for the setting to take effect."</string>
     <string name="heads_up_text_color_title">Text color</string>
     <string name="reset_default_message">Reset default</string>
     <string name="screen_off_gesture_settings_title">Screen off gestures</string>
+    <string name="proximity_wake_title">Prevent accidental wake-up</string>
+    <string name="proximity_wake_summary">Check the proximity sensor prior to waking up screen</string>
     <string name="adb_notify">USB debugging notify</string>
     <string name="adb_notify_summary">Display a notification when USB debugging is connected</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="create">Create</string>
+    <string name="allow">Allow</string>
+    <string name="deny">Deny</string>
     <string name="device_info_default">Unknown</string>
     <string name="show_dev_on">You have enabled developer options!</string>
     <string name="show_dev_already">No need, you have already enabled developer options.</string>
