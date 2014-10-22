@@ -307,7 +307,7 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "mrtur
 		"hackers=1\n"+
 		"stock=0\n"+		
 		"bootanimation=mrtur\n"+
-#		"root=3\n"+
+		"root=3\n"+
 #		"runtime=libdvm.so\n"+
 		"googlemarkettheme=black\n"+		
 		"gcamera=1\n"+		
@@ -401,11 +401,11 @@ if file_getprop("/tmp/aroma-data/mrturdroidinstallmode.prop","preset") == "custo
 		"none","<~common.none>","<~mrturdroid.bootanimation.none.desc>","select",
 		"bootanimationpreview","Preview","<~mrturdroid.previewbootanimation.desc>","check",
 		
-#		"root","<#selectbg_g>Root</#>","","group",
-#		"0","Disable","","select",
-#		"1","Apps only","","select",
-#		"2","ADB only","","select",
-#		"3","Apps and ADB","","select.selected",		
+		"root","<#selectbg_g>Root</#>","","group",
+		"0","Disable","","select",
+		"1","Apps only","","select",
+		"2","ADB only","","select",
+		"3","Apps and ADB","","select.selected",		
 						
 #		"runtime","<#selectbg_g>Runtime</#>","","group",
 #		"libart.so","ART","<~mrturdroid.runtime.art.desc>","select",
