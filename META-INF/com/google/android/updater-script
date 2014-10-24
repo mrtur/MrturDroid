@@ -378,6 +378,28 @@ symlink("busybox", "/system/xbin/[", "/system/xbin/[[",
 			#write_raw_image("/tmp/stock.img", "/dev/block/mmcblk0p5");
 			#delete("/tmp/stock.img");
 		endif;
+		
+		### HELLS-CORE ###
+		if file_getprop("/tmp/aroma-data/mrturdroid.prop","kernel") == "hells" then
+			ui_print("<b><#d98d15> MrturDroid ~</#></b> Flashing Hells-Core Kernel");
+			package_extract_dir("_mrturdroid/kernels/hells/system", "/system");			
+			set_perm_recursive(0, 2000, 0755, 0755, "/system/etc/init.d");
+			set_perm(0, 0, 0755, "/system/etc/init.d");
+			package_extract_dir("_mrturdroid/kernels/hells/kernel", "/tmp");
+			set_perm(0, 0, 0755, "/tmp/mkbootimg.sh");
+			set_perm(0, 0, 0755, "/tmp/edit_ramdisk.sh");
+			set_perm(0, 0, 0755, "/tmp/compatibility.sh");
+			set_perm(0, 0, 0755, "/tmp/mkbootimg");
+			set_perm(0, 0, 0755, "/tmp/unpackbootimg");
+			set_perm(0, 0, 0755, "/tmp/busybox");
+			run_program("/tmp/compatibility.sh");
+			run_program("/tmp/busybox", "dd", "if=/dev/block/mmcblk0p6", "of=/tmp/boot.img");
+			run_program("/tmp/unpackbootimg", "-i", "/tmp/boot.img", "-o", "/tmp/");
+			run_program("/tmp/edit_ramdisk.sh");
+			run_program("/tmp/mkbootimg.sh");
+			run_program("/tmp/busybox", "dd", "if=/tmp/newboot.img", "of=/dev/block/mmcblk0p6");
+			delete("/system/lib/hw/power.msm8960.so");
+		endif;		
 
 		### DIMFISH ###
 		if file_getprop("/tmp/aroma-data/mrturdroid.prop","kernel") == "dimfish" then
