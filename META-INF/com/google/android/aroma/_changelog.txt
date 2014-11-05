@@ -4,7 +4,7 @@ MrturDroid 2.6.2 EXPERIMENTAL
 - hells-Core-b60_anykernel
 - kernel franco r213
 - Faux kernel 042u
-- openrecovery-twrp-2.8.0.1-mako.img
+- openrecovery-twrp-2.8.1.0-mako.img
 - BootManager 2.5.0
 - Nova Launcher 3.2
 
