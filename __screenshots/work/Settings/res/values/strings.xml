@@ -273,6 +273,8 @@ By default built-in apps are not shown. If you want to show them or filter apps 
     <string name="volume_overlay_expanded">Expanded</string>
     <string name="volume_overlay_disable">Disable</string>
     <string name="volume_panel_bg_color_title">Volume panel BG color</string>
+    <string name="volume_panel_timeout_title">Volume panel timeout</string>
+    <string name="volume_panel_timeout_summary">Time that the volume panel displays after adjusting the volume</string>
     <string name="camera_sounds_title">Camera shutter sound</string>
     <string name="camera_sounds_summary">Enable system camera shutter sound</string>
     <string name="camera_sound_warning_dialog_text">Disabling the camera shutter sound is illegal in some areas! Please check the applicable law in your country.</string>
