@@ -8,6 +8,7 @@ MrturDroid 2.6.2 EXPERIMENTAL
 - BootManager 2.5.0
 - Nova Launcher 3.2
 - Google Camera 2.4.023
+- Complete Action Plus 2.5.1
 
 2. Poprawki:
 
