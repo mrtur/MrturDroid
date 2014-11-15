@@ -7,7 +7,7 @@ MrturDroid 2.6.2 EXPERIMENTAL
 - openrecovery-twrp-2.8.1.0-mako.img
 - BootManager 2.5.0
 - Nova Launcher 3.2
-- Google Camera 2.4.023
+- Google Camera 2.4.024
 - Complete Action Plus 2.5.1
 
 2. Poprawki:
