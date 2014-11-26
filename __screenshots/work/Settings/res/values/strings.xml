@@ -279,7 +279,7 @@ By default built-in apps are not shown. If you want to show them or filter apps 
     <string name="camera_sounds_summary">Enable system camera shutter sound</string>
     <string name="camera_sound_warning_dialog_text">Disabling the camera shutter sound is illegal in some areas! Please check the applicable law in your country.</string>
     <string name="safe_headset_volume_title">Safe headset volume</string>
-    <string name="safe_headset_volume_summary">Prevent loud volume levels when headset is first plugged in</string>
+    <string name="safe_headset_volume_summary">Prevents loud volume levels when headset is first plugged in</string>
     <string name="safe_headset_volume_warning_dialog_text">Listening at high volume for long periods may damage your hearing. Disable it with caution.</string>
     <string name="display_category_animation_options_title">Animation options</string>
     <string name="system_power_crt_mode_title">CRT animation</string>
