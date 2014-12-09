@@ -10,6 +10,7 @@ MrturDroid 2.6.2 EXPERIMENTAL
 - Google Camera 2.4.024
 - Complete Action Plus 2.6.1
 - MX Player 1.7.34
+- Titanium Backup 6.2.0.2
 
 2. Poprawki:
 
