@@ -1,22 +1,7 @@
-MrturDroid 2.6.2 EXPERIMENTAL
+MrturDroid 2.6.3 EXPERIMENTAL
 
 1. Aktualizacja:
-- hells-Core-b64_anykernel
-- kernel franco r213
-- Faux kernel 042u
-- openrecovery-twrp-2.8.4.0-mako
-- BootManager 2.5.4
-- Nova Launcher 3.3
-- Google Camera 2.4.025
-- Complete Action Plus 2.6.1
-- MX Player 1.7.36a
-- Titanium Backup 7.0.0.2
-- Terminal Emulator 1.0.65
-- Google Maps 9.3.0
-- Total Commander 2.50
 
 2. Poprawki:
 
 3. ISTOTNE ZMIANY:
-- Slim-mako-4.4.4.build.9.0-OFFICIAL-8304
-- Screenshot 2.0 (aplikacja by mrtur do zrzutow ekranu)
