@@ -5,12 +5,15 @@ MrturDroid 2.6.2 EXPERIMENTAL
 - kernel franco r213
 - Faux kernel 042u
 - openrecovery-twrp-2.8.4.0-mako
-- BootManager 2.5.0
+- BootManager 2.5.4
 - Nova Launcher 3.3
-- Google Camera 2.4.024
+- Google Camera 2.4.025
 - Complete Action Plus 2.6.1
-- MX Player 1.7.34
-- Titanium Backup 6.2.0.2
+- MX Player 1.7.36a
+- Titanium Backup 7.0.0.2
+- Terminal Emulator 1.0.65
+- Google Maps 9.3.0
+- Total Commander 2.50
 
 2. Poprawki:
 
