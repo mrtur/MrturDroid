@@ -88,14 +88,8 @@ mrturdroid.detect.force=Czy chciałbyś użyć trybu wymuszonej aktualizacji? Ta
 
 mrturdroid.preset.recovery.desc=Ta funkcja sflashuje wyłącznie recovery zamiast ROMu. Może być użyteczne w przypadku, gdy update recovery będzie wymagany przed flashowaniem samego ROMu
 mrturdroid.recovery.twrp.desc=Najlepsze moim zdaniem i wygodne w obsłudze recovery na Nexus 4. Tworzone przez TeamWin
-mrturdroid.recovery.cwm.desc=Alternatywne recovery.\
-<b><#FF0A1F>UWAGA!</#></b>\
-Przechodząc z TWRP na CWM musisz po flashowaniu wybrać <b><#d98d15>Restart</#></b> a potem wykonać\
-<b><#FF0A1F>HOME -> Reboot -> Recovery</#></b>
-
+mrturdroid.recovery.cwm.desc=Alternatywne recovery.
 mrturdroid.recoverytheme.twrp=Recovery TWRP Theme
-mrturdroid.recoverytheme.twrp.desc=Czy chcesz dodatkowo motyw MrturDroid do recovery TWRP?\
-<#FF0A1F>Jeżeli już jakiś posiadasz zostanie podmieniony!</#>\
 
 mrturdroid.preset=Preset Instalacji MrturDroid
 mrturdroid.preset.desc=Wybierz proszę swój preset:
@@ -120,7 +114,6 @@ mrturdroid.custom.extra=Dostosywywanie Ekstra MrturDroid
 mrturdroid.custom.desc=Zmodyfikuj proszę poniższe ustawienia do Twoich predyspozycji:
 
 mrturdroid.kernel.stock.desc=Pochodzący z samego ROMu
-mrturdroid.kernel.franco.desc=Zalecany jako alternatywa dla stocka
 mrturdroid.kernel.semaphore.desc=Alternatywa dla stocka
 mrturdroid.kernel.hells.desc=Podobno stabilny i bardzo "przyjazny" dla baterii ;)
 mrturdroid.kernel.faux.desc=Alternatywa do wyboru :)
@@ -131,7 +124,8 @@ mrturdroid.dpi.268.desc=Zalecane przez autorów SlimKat
 mrturdroid.dpi.280.desc=Dobry kompromis pomiędzy 320, a 240 DPI
 mrturdroid.dpi.320.desc=Wartość domyślna
 
-mrturdroid.launcher.nova.desc=Zalecany dla o wiele większej wydajności i elastyczności. Domyślny w SlimKat
+mrturdroid.launcher.slim.desc=Launcher prosto od SlimKat
+mrturdroid.launcher.nova.desc=Zalecany dla o wiele większej wydajności i elastyczności.
 mrturdroid.launcher.none.desc=Brak Launchera. UWAGA! Nie zaznaczaj tej opcji jeśli wykonałeś full wipe. Potrzebujesz przynajmniej 1 własnego launchera przed pierwszym bootem!
 
 mrturdroid.keyboard=Klawiatura

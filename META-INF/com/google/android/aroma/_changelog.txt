@@ -1,26 +1,22 @@
-MrturDroid 2.6.1 STABLE
+MrturDroid 2.6.2 STABLE
 
 1. Aktualizacja:
-- MDU 1.9 (przygotowany pod download Google Drive i Mega)
-- PA GAPPS 1 September
-- XPrivacy 3.1.1
-- App Settings 1.10
-- LMT 2.1
-- Greenify 2.4
-- MoAB hosts 3 September
-- AdAway hosts najnowszy
-- Google Camera 2.3.020
-- Complete Action Plus 2.4.3
-- [!] Adlinux code review
-# ArchiDroid's Pocket Debian has been rewritten from scratch to become more user friendly
-# If you've already used APD before, I suggest to call "adlinux rebuild" in order to update, as this release also includes updated Pocket Debian
-# Adlinux command is now more newbie friendly and allows even easier mounting than before
-# It now takes care of things such as setting password or allowing root access by OpenSSH, to minimize required skill for using APB to the bare minimum
+- hells-Core-b64_anykernel
+- kernel franco r213
+- Faux kernel 042u
+- openrecovery-twrp-2.8.4.0-mako
+- BootManager 2.5.4
+- Nova Launcher 3.3
+- Google Camera 2.4.025
+- Complete Action Plus 2.6.1
+- MX Player 1.7.36a
+- Titanium Backup 7.0.0.2
+- Terminal Emulator 1.0.65
+- Google Maps 9.3.0
+- Total Commander 2.50
 
 2. Poprawki:
-- Backend is now charging-aware, i.e. doesn't execute when you charge your device in offline mode
 
 3. ISTOTNE ZMIANY:
-- Slim-mako-4.4.4.build.8.0-OFFICIAL-6939
-- ArchiDroid's backend now creates a "rainbow" from LEDs during booting process # Perfect way to tell if backend has been executed properly
-- Branch na Github'ie przechodzi w nazwy EXPERIMENTAL i STABLE
+- Slim-mako-4.4.4.build.9.0-OFFICIAL-8304
+- Screenshot 2.0 (aplikacja by mrtur do zrzutow ekranu)

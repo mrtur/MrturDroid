@@ -13,13 +13,10 @@ echo "$FREQMAX" > /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq
 echo "$FREQMAX" > /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq
 
 #Set Governor
-echo "intelliactive" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-echo "intelliactive" > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
-echo "intelliactive" > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
-echo "intelliactive" > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
-
-#intelliactive Tweaks:
-echo "1134000" > /sys/devices/system/cpu/cpufreq/intelliactive/hispeed_freq
+echo "hellsactive" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+echo "hellsactive" > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+echo "hellsactive" > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+echo "hellsactive" > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
 
 #System-Tweaks
 

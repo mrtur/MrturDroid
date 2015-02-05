@@ -26,6 +26,12 @@
 # 320 DPI
 
 ##################
+#  Launcher
+# 
+# Slim
+# <#selectbg_g>Nova</#>
+
+##################
 #  Klawiatura
 # 
 # Google Kevboard
