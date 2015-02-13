@@ -5,3 +5,4 @@ MrturDroid 2.6.3 EXPERIMENTAL
 2. Poprawki:
 
 3. ISTOTNE ZMIANY:
+- [WiFi] DHCP accelerator
