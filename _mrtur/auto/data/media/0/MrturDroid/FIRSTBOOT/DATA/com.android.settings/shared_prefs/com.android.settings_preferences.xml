@@ -1,6 +1,0 @@
-<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
-<map>
-    <boolean name="enable_adb" value="false" />
-    <boolean name="usb_mtp" value="false" />
-    <boolean name="usb_mass_storage" value="false" />
-</map>
